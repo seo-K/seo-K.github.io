@@ -37,23 +37,83 @@
     <link rel="icon" href="../assets/images/common/favicon.png" sizes="32x32" />
     <link rel="icon" href="../assets/images/common/favicon.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="" />
-    <title>TITLE</title>
+    <title></title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <div id="content-wrap">
-      <header id="header"></header>
-      <main id="main"></main>
+      <header id="header">
+        <div class="header-inner">
+          <div class="top-content">
+            <button class="menu-button" type="button"><i class="fa-sharp fa-solid fa-burger"></i></button>
+          </div>
+          <nav class="menu-wrap">
+            <ul>
+              <li>
+                <a class="menu-link" href="#info">Info</a>
+              </li>
+              <li>
+                <a class="menu-link" href="#skill">Skill</a>
+              </li>
+              <li>
+                <a class="menu-link" href="#work">Work</a>
+              </li>
+              <li>
+                <a class="menu-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="util-wrap">
+            <a href="#"><i class="fa-brands fa-github-alt"></i></a>
+            <a href="#"><i class="fa-brands fa-blogger-b"></i></a>
+          </div>
+        </div>
+        <div class="header-copyright">
+          <p>Portfolio</p>
+        </div>
+      </header>
+      <main id="main">
+        <section id="info" class="info-section">
+          <h2 class="blind">소개</h2>
+          <div class="inner">
+            <article class="info-text">
+              <h2 class="info-text-top"><span>SeoYeong</span><i class="fas fa-snowboarding"></i></h2>
+              <p class="jelly_text">
+                <span>H</span><span>i</span><span>,</span><br />
+                <span>I</span><span>'</span><span>m</span> <span class="main-word double">강</span><span>서</span><span>영</span><br />
+                <span>W</span><span>e</span><span>b</span>&nbsp;&nbsp;<span class="main-word">p</span><span>u</span><span>b</span><span>l</span><span>i</span
+                ><span>s</span><span>h</span><span>e</span><span>r</span>
+              </p>
+              <p class="description">desc</p>
+            </article>
+            <article class="info-skill">
+              <h2 class="blind">스킬</h2>
+              <ul>
+                <li data-aos="fade-up">M</li>
+                <li>M</li>
+                <li>M</li>
+                <li>M</li>
+                <li>M</li>
+                <li>M</li>
+                <li>M</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </main>
       <footer id="footer"></footer>
     </div>
 
     <!-- JS -->
     <script src="./js/jquery-3.5.1.js"></script>
+    <script src="https://kit.fontawesome.com/49c0274367.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/100vh.js"></script>
-    <script src="./js/custom.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

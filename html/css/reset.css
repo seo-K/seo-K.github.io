@@ -17,66 +17,62 @@
 }
 
 @font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-Black.woff") format("woff");
-  font-weight: 900;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-ExtraBold.woff") format("woff");
-  font-weight: 800;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-Bold.woff") format("woff");
-  font-weight: 700;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-Medium.woff") format("woff");
-  font-weight: 500;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-Regular.woff") format("woff");
+  font-family: "BasicFont";
+  font-style: normal;
   font-weight: 400;
-  font-display: fallback;
+  src: local("Poppins-Regular"), url("./fonts/poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Poppins-Medium"), url("./fonts/poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Poppins-SemiBold"), url("./fonts/poppins/Poppins-SemiBold.ttf");
+}
+@font-face {
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Poppins-Bold"), url("./fonts/poppins/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 800;
+  src: local("Poppins-ExtraBold"), url("./fonts/poppins/Poppins-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Poppins-Black"), url("./fonts/poppins/Poppins-Black.ttf");
 }
 
 @font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-ExtraLight.woff") format("woff");
-  font-weight: 300;
-  font-display: fallback;
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 400;
+  src: local("NanumSquareNeoTTF-bRg"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff") format("woff");
+  unicode-range: U+AC00- U+D7A3;
 }
-
 @font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-Light.woff") format("woff");
-  font-weight: 200;
-  font-display: fallback;
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 500;
+  src: local("NanumSquareNeoTTF-cBd"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff") format("woff");
+  unicode-range: U+AC00- U+D7A3;
 }
-
 @font-face {
-  font-family: "Pre";
-  src: local("Pretendard"), url("fonts/Pretendard-Thin.woff") format("woff");
-  font-weight: 100;
-  font-display: fallback;
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 600;
+  src: local("NanumSquareNeoTTF-dEb"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff") format("woff");
+  unicode-range: U+AC00- U+D7A3;
 }
 
 * {
@@ -398,6 +394,15 @@ textarea::placeholder {
   /* background: var(--main-blue); */
 }
 
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  z-index: -1;
+}
 /* 더블클릭시 선택 기능 막기*/
 .unable {
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
