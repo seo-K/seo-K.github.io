@@ -47,7 +47,7 @@
   width: 2.5rem;
   height: 2.5rem;
 
-  background-color: #111;
+  background-color: var(--black);
   border-radius: 5px;
 }
 
@@ -87,7 +87,7 @@
   width: 0;
   height: 2px;
   content: "";
-  background-color: #222;
+  background-color: var(--black);
 
   transition: all 0.2s;
 }
@@ -100,7 +100,7 @@
   width: 0;
   height: 2rem;
   content: "";
-  background-color: #fac670;
+  background-color: var(--yellow);
   border-radius: 50%;
 
   transition: all 0.2s 0.2s;
@@ -153,7 +153,7 @@
   flex-direction: column;
 
   height: 20vh;
-  background-color: #f37925;
+  background-color: var(--orange);
 }
 
 #header .header-copyright p {

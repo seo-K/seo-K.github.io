@@ -1,19 +1,13 @@
 @charset "utf-8";
 
 :root {
-  --main-blue: #3361ff;
-  --main-red: #ff0000;
-  --state-green: #39ca89;
-  --state-gray: #bbbbbb;
-  --state-yellow: #feb834;
-  --state-orange: #ff785a;
-  --schedule-blue: #f1f4ff;
-  --schedule-purple: #f9f5ff;
-  --schedule-purple-background: #8833ff;
-  --schedule-green: #eafaeb;
-  --schedule-green-background: #29cc39;
-  --schedule-yellow: #fff7e0;
-  --schedule-yellow-background: #ffcb33;
+  --skyblue: #91c3ce;
+  --yellow: #fac670;
+  --beige: #f5e1be;
+  --orange: #f37925;
+  --purple: #c0a8e6;
+  --black: #1b1a19;
+  --blue: #49a3a7;
 }
 
 @font-face {
@@ -303,7 +297,7 @@ input {
 button,
 select {
   text-transform: none;
-  color: #222;
+  color: var(--black);
 }
 
 button::-moz-focus-inner,
@@ -358,7 +352,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 
   background-color: #fff;
-  color: #222;
+  color: var(--black);
   scroll-behavior: smooth;
 }
 
@@ -376,7 +370,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #a4afd4;
+  background-color: var(--skyblue);
   border-radius: 3px;
 }
 
@@ -447,7 +441,6 @@ textarea::placeholder {
 
 @media all and (max-width: 1920px) {
   body {
-    font-size: calc(100vw * (14 / 1920));
   }
 }
 
@@ -457,7 +450,6 @@ textarea::placeholder {
   }
 
   body {
-    font-size: calc(100vw * (14 / 1500));
   }
 }
 
@@ -476,6 +468,5 @@ textarea::placeholder {
   }
 
   body {
-    font-size: calc(100vw * (14 / 428));
   }
 }
