@@ -11,6 +11,13 @@
 }
 
 @font-face {
+  font-family: "ONE-Mobile-POP";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "BasicFont";
   font-style: normal;
   font-weight: 400;
@@ -357,7 +364,8 @@ body {
 }
 
 body {
-  font: 400 1rem/1.2 "BasicFont", sans-serif;
+  font: 400 1rem/1.2 "Fredoka One", sans-serif;
+  /* font: 400 1rem/1.2 "BasicFont", sans-serif; */
 }
 
 ::-webkit-scrollbar {
