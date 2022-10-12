@@ -8,24 +8,25 @@ $(function () {
   $('a[href="#"]').click(function (e) {
     e.preventDefault();
   });
+
+  // 팝업용 함수
+  // body 스크롤 막음
+  function scrollOff() {
+    $("body")
+      .addClass("scrollOff")
+      .on("scroll touchmove mousewheel", function (e) {
+        e.stopPropagation();
+      });
+  }
+
+  // body 스크롤 풀기
+  function scrollOn() {
+    $("body").removeClass("scrollOff").off("scroll touchmove mousewheel");
+  } // 팝업용 함수 END
 }); //기본 세팅 END
 
-// 팝업용 함수
-// body 스크롤 막음
-function scrollOff() {
-  $("body")
-    .addClass("scrollOff")
-    .on("scroll touchmove mousewheel", function (e) {
-      e.stopPropagation();
-    });
-}
-// body 스크롤 풀기
-function scrollOn() {
-  $("body").removeClass("scrollOff").off("scroll touchmove mousewheel");
-} // 팝업용 함수 END
-
-//header menu
 $(function () {
+  //header menu
   const header = document.getElementById("header");
   const headerMenu = header.querySelector(".menu-button");
 
@@ -48,54 +49,70 @@ $(function () {
       });
     }
   });
-  // 문의하기 팝업
-  $(function () {
-    var $con = $("#wrap_content"),
-      $inquiry_Btn = $con.find(".inquiry_btn"),
-      $modal = $con.find(".modal"),
-      $overlay = $modal.find("> li"),
-      $closeBtn = $modal.find(".close_btn"),
-      $submitBtn = $modal.find(".submit_btn");
 
-    function closed() {
-      $overlay.eq(1).hide();
-    }
+  // project list tab with data
+  const ProjectListWrap = document.querySelector(".project-list-wrap");
+  const ProjectList = ProjectListWrap.querySelectorAll(".project-list");
+  const ProjectDetail = document.querySelector(".project-detail-box");
 
-    function autoClose() {
-      setTimeout(closed, 2000);
-    }
+  let projectListData = [
+    {
+      id: 1,
+      name: "FullPage",
+      icon: `<i class="fa-solid fa-comment-medical"></i>`,
+      setting: "HTML",
+      img: "./image/foodyitda-long.png",
+    },
+    {
+      id: 2,
+      name: "Badd",
+      icon: `<i class="fa-solid fa-comment-medical"></i>`,
+      setting: "HTML",
+      img: "./image/foodyitda-long.png",
+    },
+    {
+      id: 3,
+      name: "React",
+      icon: `<i class="fa-solid fa-comment-medical"></i>`,
+      setting: "React",
+      img: "./image/foodyitda-long.png",
+    },
+  ];
 
-    //섹션 클릭하면 팝업창 모달상태로 나타내기!!
-    $inquiry_Btn.click(function (e) {
-      e.stopPropagation();
-      e.preventDefault();
-      $overlay.eq(0).show();
-      scrollOff();
-    });
+  ProjectListWrap.innerHTML = projectListData
+    .map(function (list) {
+      return `<li class="project-list">` + list.icon + "<b>" + list.name + "</b></li>";
+    })
+    .join("");
 
-    //닫기버튼
-    $closeBtn.on("click", function (e) {
-      e.preventDefault();
-      $modal.removeClass("show");
-      $overlay.hide();
-      scrollOn();
-    });
+  function Lo() {
+    console.log(ProjectList);
+  }
+  Lo();
+  ProjectList.forEach((item, idx) => {
+    item.addEventListener("click", () => {
+      console.log(ProjectList);
+      let has = item.classList.contains("active");
 
-    //제출버튼
-    $submitBtn.on("click", function (e) {
-      e.preventDefault();
-      $overlay.eq(0).hide();
-      $overlay.eq(1).show();
-      autoClose();
-    });
+      if (has) {
+        // return false;
+        console.log("이미있음");
+      } else {
+        // tab.forEach((items, indx) => {
+        //   items.classList.remove("active");
+        // });
+        // tabSect.forEach((items, indx) => {
+        //   items.style.display = "none";
+        // });
 
-    //타겟 이외 클릭시 닫기
-    $("body").click(function (e) {
-      if ($(e.target).hasClass("overlay")) {
-        $modal.removeClass("show");
-        $overlay.hide();
-        scrollOn();
+        // let val = item.getAttribute("data-tab");
+        // let el = document.getElementById(val);
+
+        // item.classList.add("active");
+        // el.style.display = "block";
+
+        console.log("djqtdma");
       }
     });
-  }); //회원가입 더보기 popup 옵션
+  });
 });

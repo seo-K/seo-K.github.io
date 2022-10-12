@@ -160,7 +160,7 @@
   margin-bottom: 2rem;
 }
 
-.project-section .project-list li {
+.project-section .project-list-wrap li {
   padding: 3rem 2rem;
 
   font-size: 2rem;
@@ -170,17 +170,21 @@
   transition: all 0.2s;
 }
 
-.project-section .project-list li:hover {
+.project-section .project-list-wrap li:hover {
   background-color: #dde9ec;
   padding-left: 2.5rem;
 }
 
-.project-section .project-list li.active {
+.project-section .project-list-wrap li.active {
   background-color: var(--skyblue);
 }
 
-.project-section .project-list li + li {
+.project-section .project-list-wrap li + li {
   margin-top: 0.2rem;
+}
+
+.project-section .project-list-wrap i {
+  margin-right: 0.5rem;
 }
 
 .project-section .project-detail-box {
@@ -275,4 +279,12 @@
 }
 .skill-list button:nth-child(4) {
   background-color: var(--yellow);
+}
+
+/* CONTACT SECTION */
+.contact-section .contact-title-box {
+  background-color: var();
+}
+.contact-section .contact-form-box {
+  background-color: var();
 }
