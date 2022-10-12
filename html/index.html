@@ -89,7 +89,7 @@
           <div class="inner">
             <article class="info-text-box">
               <h2 class="info-text-box-top"><span>SeoYeong</span><i class="fas fa-snowboarding"></i></h2>
-              <p class="jelly_text">
+              <p class="jelly-text">
                 <span>H</span><span>i</span><span>,</span><br />
                 <span>I</span><span>'</span><span>m</span> <span class="">강</span><span>서</span><span>영</span><br />
                 <span>W</span><span>e</span><span>b</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="main-word">P</span><span>u</span><span>b</span><span>l</span
@@ -162,22 +162,31 @@
         <section id="contact" class="contact-section">
           <div class="inner">
             <article class="contact-title-box">
-              <h2>Contact me</h2>
+              <h2 class="jelly-text">
+                <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span>&nbsp;&nbsp;&nbsp;<span>m</span><span>e</span>
+              </h2>
             </article>
             <article class="contact-form-box">
               <form action="">
-                <div class="input-wrap">
-                  <label for="name">Name</label>
-                  <input id="name" type="text" class="w-input" maxlength="20" name="name" data-name="Name" placeholder="Your name" required />
-                </div>
-                <div class="input-wrap">
-                  <label for="emaill">Email Address</label>
-                  <input id="emaill" type="email" class="w-input" maxlength="" name="emaill" data-name="Email" placeholder="Your Email Address" required />
-                </div>
-                <div class="input-wrap">
-                  <label for="name">Message</label>
-                  <textarea id="field" placeholder="Example Text" maxlength="5000" name="field" data-name="field" class="input-field text w-input"></textarea>
-                </div>
+                <fieldset>
+                  <legend>contact form</legend>
+
+                  <div class="form-input">
+                    <div class="input-wrap">
+                      <label for="name">Name</label>
+                      <input id="name" type="text" maxlength="20" name="name" data-name="Name" placeholder="Your name" autofocus="true" required />
+                    </div>
+                    <div class="input-wrap">
+                      <label for="email">Email Address</label>
+                      <input id="email" type="email" maxlength="50" name="email" data-name="Email" placeholder="Your Email Address" autofocus="true" required />
+                    </div>
+                    <div class="input-wrap">
+                      <label for="field">Message</label>
+                      <textarea id="field" placeholder="Example Text" rows="5" name="field" data-name="field" class="input-field text w-input"></textarea>
+                    </div>
+                  </div>
+                  <button class="send-button">Send</button>
+                </fieldset>
               </form>
             </article>
           </div>

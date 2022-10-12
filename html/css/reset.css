@@ -11,6 +11,21 @@
 }
 
 @font-face {
+  font-family: "BasicFont";
+  src: local("FredokaOne-Regular"), url("./fonts/FredokaOne-Regular.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BasicFont";
+  font-style: normal;
+  font-weight: 400;
+  src: local("ONE Mobile POP"), url("./fonts/ONE-Mobile-POP.otf") format("woff");
+  unicode-range: U+AC00- U+D7A3;
+}
+/* 
+@font-face {
   font-family: "ONE-Mobile-POP";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff") format("woff");
   font-weight: normal;
@@ -74,7 +89,7 @@
   font-weight: 600;
   src: local("NanumSquareNeoTTF-dEb"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff") format("woff");
   unicode-range: U+AC00- U+D7A3;
-}
+} */
 
 * {
   margin: 0;
@@ -260,7 +275,6 @@ button {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  /* cursor: pointer; */
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -286,11 +300,18 @@ input[type="radio"] + label {
   cursor: pointer;
 }
 
+/* Chorme internal-autofill-selected  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--beige) inset;
+}
+
 input,
 select,
 textarea,
 button {
-  font-family: "Pre", sans-serif;
   font-size: 100%;
   font-weight: normal;
   letter-spacing: normal;
@@ -364,8 +385,27 @@ body {
 }
 
 body {
-  font: 400 1rem/1.2 "Fredoka One", sans-serif;
-  /* font: 400 1rem/1.2 "BasicFont", sans-serif; */
+  font: 400 1rem/1.2 "BasicFont", sans-serif;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: "BasicFont";
+  font-size: 100%;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+input,
+textarea {
+  color: #444;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888888;
 }
 
 ::-webkit-scrollbar {
@@ -380,16 +420,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--skyblue);
   border-radius: 3px;
-}
-
-input,
-textarea {
-  /* color: #888888; */
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #888888;
 }
 
 ::selection {

@@ -37,7 +37,7 @@ $(function () {
   }
 
   // 젤리 폰트
-  const EachText = document.querySelectorAll(".jelly_text > span");
+  const EachText = document.querySelectorAll(".jelly-text > span");
 
   EachText.forEach((item) => {
     item.addEventListener("mouseover", toggleRubberBand);

@@ -193,26 +193,26 @@ article {
 /* BUTTON */
 
 /* jelly_action */
-.jelly_text span {
+.jelly-text span {
   display: inline-block;
   font-size: calc(100vw * (120 / 1920));
   letter-spacing: -5px;
   transform-origin: center;
 }
 
-.jelly_text span.active {
+.jelly-text span.active {
   animation: jello-horizontal 1s alternate ease-out;
 }
 
-.jelly_text span:nth-child(2n) {
+.jelly-text span:nth-child(2n) {
   animation-delay: 0.1s;
 }
 
-.jelly_text span:nth-child(3n) {
+.jelly-text span:nth-child(3n) {
   animation-delay: 0.2s;
 }
 
-.jelly_text span:nth-child(4n) {
+.jelly-text span:nth-child(4n) {
   animation-delay: 0.3s;
 }
 
