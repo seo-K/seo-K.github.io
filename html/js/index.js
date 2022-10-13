@@ -52,67 +52,47 @@ $(function () {
 
   // project list tab with data
   const ProjectListWrap = document.querySelector(".project-list-wrap");
-  const ProjectList = ProjectListWrap.querySelectorAll(".project-list");
-  const ProjectDetail = document.querySelector(".project-detail-box");
+  const ProjectList = ProjectListWrap.querySelectorAll("li");
+  const ProjectDetail = document.querySelectorAll(".project-detail-wrap > li");
 
-  let projectListData = [
-    {
-      id: 1,
-      name: "FullPage",
-      icon: `<i class="fa-solid fa-comment-medical"></i>`,
-      setting: "HTML",
-      img: "./image/foodyitda-long.png",
-    },
-    {
-      id: 2,
-      name: "Badd",
-      icon: `<i class="fa-solid fa-comment-medical"></i>`,
-      setting: "HTML",
-      img: "./image/foodyitda-long.png",
-    },
-    {
-      id: 3,
-      name: "React",
-      icon: `<i class="fa-solid fa-comment-medical"></i>`,
-      setting: "React",
-      img: "./image/foodyitda-long.png",
-    },
-  ];
+  // ProjectList.forEach((item, idx) => {
+  //   item.addEventListener("click", () => {
+  //     let has = item.classList.contains("active");
 
-  ProjectListWrap.innerHTML = projectListData
-    .map(function (list) {
-      return `<li class="project-list">` + list.icon + "<b>" + list.name + "</b></li>";
-    })
-    .join("");
+  //     if (has) {
+  //       return false;
+  //     } else {
+  //       ProjectList.forEach((items, indx) => {
+  //         items.classList.remove("active");
+  //       });
 
-  function Lo() {
-    console.log(ProjectList);
-  }
-  Lo();
-  ProjectList.forEach((item, idx) => {
-    item.addEventListener("click", () => {
-      console.log(ProjectList);
-      let has = item.classList.contains("active");
+  //       // ProjectDetail.forEach((items, indx) => {
+  //       //   items.style.display = "none";
+  //       // });
 
-      if (has) {
-        // return false;
-        console.log("이미있음");
-      } else {
-        // tab.forEach((items, indx) => {
-        //   items.classList.remove("active");
-        // });
-        // tabSect.forEach((items, indx) => {
-        //   items.style.display = "none";
-        // });
+  //       // let val = item.getAttribute("data-tab");
+  //       // let el = document.getElementById(val);
 
-        // let val = item.getAttribute("data-tab");
-        // let el = document.getElementById(val);
+  //       item.classList.add("active");
+  //       // el.style.display = "block";
+  //     }
+  //   });
+  // });
 
-        // item.classList.add("active");
-        // el.style.display = "block";
-
-        console.log("djqtdma");
-      }
-    });
+  ProjectList.forEach((list) => {
+    list.addEventListener("click", (e) => setActive(list));
   });
+
+  const setActive = (el) => {
+    let index = $(el).index();
+    let project = [...ProjectDetail];
+
+    // tab
+    [...ProjectList].forEach((list) => list.classList.remove("active"));
+    el.classList.add("active");
+
+    // content
+    project.forEach((list) => list.classList.remove("active"));
+    project[index].classList.add("active");
+  };
 });

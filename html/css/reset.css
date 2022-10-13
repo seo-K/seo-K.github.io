@@ -12,84 +12,18 @@
 
 @font-face {
   font-family: "BasicFont";
-  src: local("FredokaOne-Regular"), url("./fonts/FredokaOne-Regular.ttf") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "BasicFont";
   font-style: normal;
   font-weight: 400;
   src: local("ONE Mobile POP"), url("./fonts/ONE-Mobile-POP.otf") format("woff");
   unicode-range: U+AC00- U+D7A3;
 }
-/* 
+
 @font-face {
-  font-family: "ONE-Mobile-POP";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff") format("woff");
+  font-family: "BasicFont";
+  src: local("FredokaOne-Regular"), url("./fonts/FredokaOne-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Poppins-Regular"), url("./fonts/poppins/Poppins-Regular.ttf");
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 500;
-  src: local("Poppins-Medium"), url("./fonts/poppins/Poppins-Medium.ttf");
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 600;
-  src: local("Poppins-SemiBold"), url("./fonts/poppins/Poppins-SemiBold.ttf");
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 700;
-  src: local("Poppins-Bold"), url("./fonts/poppins/Poppins-Bold.ttf");
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 800;
-  src: local("Poppins-ExtraBold"), url("./fonts/poppins/Poppins-ExtraBold.ttf");
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 900;
-  src: local("Poppins-Black"), url("./fonts/poppins/Poppins-Black.ttf");
-}
-
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 400;
-  src: local("NanumSquareNeoTTF-bRg"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff") format("woff");
-  unicode-range: U+AC00- U+D7A3;
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 500;
-  src: local("NanumSquareNeoTTF-cBd"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff") format("woff");
-  unicode-range: U+AC00- U+D7A3;
-}
-@font-face {
-  font-family: "BasicFont";
-  font-style: normal;
-  font-weight: 600;
-  src: local("NanumSquareNeoTTF-dEb"), url("./fonts/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff") format("woff");
-  unicode-range: U+AC00- U+D7A3;
-} */
 
 * {
   margin: 0;
@@ -418,7 +352,7 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--skyblue);
+  background-color: var(--black);
   border-radius: 3px;
 }
 
