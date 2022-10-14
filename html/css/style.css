@@ -6,6 +6,22 @@
   height: 100vh;
 }
 
+.info-text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fac670;
+}
+
+.info-text-box-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .info-section .fa-snowboarding {
   animation: snowboarding 5s linear infinite alternate;
   transition: all 0.2s;
@@ -35,21 +51,70 @@
     transform: translate(0, -2px);
   }
 }
-
-.info-text-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fac670;
+.Words {
+  margin: 0 auto;
+  padding: 80px 0;
+  font-size: 68px;
+  text-transform: uppercase;
+  transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-kerning: normal;
+  -webkit-text-size-adjust: 100%;
 }
 
-.info-text-box-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.Words-line {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
 
-  font-size: 2rem;
-  font-weight: bold;
+.Words-line:nth-child(1) {
+  left: -54px;
+}
+.Words-line:nth-child(2) {
+  left: -25px;
+}
+.Words-line:nth-child(3) {
+  left: 4px;
+}
+.Words-line:nth-child(4) {
+  left: 32px;
+}
+.Words-line:nth-child(5) {
+  left: 61px;
+}
+.Words-line:nth-child(6) {
+  left: 90px;
+}
+.Words-line:nth-child(6) {
+  left: 127px;
+}
+
+.Words-line:nth-child(odd) {
+  transform: skew(60deg, -30deg) scaleY(0.66667);
+}
+.Words-line:nth-child(even) {
+  transform: skew(0deg, -30deg) scaleY(1.33333);
+}
+
+/*
+** Fine-grained text styles
+*/
+p {
+  height: 50px;
+  line-height: 52px;
+  padding: 0 10px;
+  transition: all 0.4s ease-in-out;
+  transform: translate3d(0, 0, 0);
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+/*
+** The hover interaction
+*/
+.Words:hover p {
+  transform: translate3d(0, -52px, 0);
 }
 
 .info-text-box .jelly-text {
@@ -161,7 +226,11 @@
 }
 
 .project-section .project-list-wrap li {
-  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+
+  padding: 0 2rem;
+  height: 8rem;
 
   font-size: 2rem;
   cursor: pointer;
@@ -185,6 +254,38 @@
 
 .project-section .project-list-wrap i {
   margin-right: 0.5rem;
+}
+
+.project-section .project-name > span {
+  animation: textAction 1s backwards;
+
+  transition: all 0.2 step-end;
+}
+
+.project-section .project-name > span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.project-section .project-name > span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes textAction {
+  0% {
+    opacity: 0;
+    font-size: 0;
+  }
+  50% {
+    opacity: 1;
+    font-size: 2.1rem;
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    font-size: 2rem;
+    transform: translateY(0);
+  }
 }
 
 .project-section .project-detail-box {

@@ -55,30 +55,6 @@ $(function () {
   const ProjectList = ProjectListWrap.querySelectorAll("li");
   const ProjectDetail = document.querySelectorAll(".project-detail-wrap > li");
 
-  // ProjectList.forEach((item, idx) => {
-  //   item.addEventListener("click", () => {
-  //     let has = item.classList.contains("active");
-
-  //     if (has) {
-  //       return false;
-  //     } else {
-  //       ProjectList.forEach((items, indx) => {
-  //         items.classList.remove("active");
-  //       });
-
-  //       // ProjectDetail.forEach((items, indx) => {
-  //       //   items.style.display = "none";
-  //       // });
-
-  //       // let val = item.getAttribute("data-tab");
-  //       // let el = document.getElementById(val);
-
-  //       item.classList.add("active");
-  //       // el.style.display = "block";
-  //     }
-  //   });
-  // });
-
   ProjectList.forEach((list) => {
     list.addEventListener("click", (e) => setActive(list));
   });
