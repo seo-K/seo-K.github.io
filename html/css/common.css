@@ -167,6 +167,7 @@
 
 /* MAIN */
 #main {
+  padding-bottom: 17rem;
 }
 #main > section {
   position: relative;
@@ -328,4 +329,17 @@ article {
 
 .hover_button:hover:after {
   width: 200%;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+  visibility: visible;
+}
+
+footer p {
+  height: 17rem;
 }
