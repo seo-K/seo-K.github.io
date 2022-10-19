@@ -191,8 +191,6 @@ article {
   padding: 1.5rem 2rem 2rem;
 }
 
-/* BUTTON */
-
 /* jelly_action */
 .jelly-text span {
   display: inline-block;
@@ -350,4 +348,26 @@ footer {
 footer p {
   font-size: 8rem;
   color: #fff;
+}
+
+@media all and (max-width: 1300px) {
+  /* MAIN */
+  #main {
+    /* padding-bottom: 17rem; */
+  }
+  #main > section {
+    /* position: relative; */
+  }
+  #main .inner-container {
+    /* padding: 1rem; */
+  }
+
+  /* layout */
+  .inner {
+    flex-direction: column;
+  }
+  .inner > article {
+    flex-shrink: 0;
+    width: 100%;
+  }
 }

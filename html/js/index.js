@@ -71,4 +71,19 @@ $(function () {
     project.forEach((list) => list.classList.remove("active"));
     project[index].classList.add("active");
   };
+
+  // GSAP
+  // TweenMax.to(document.getElementById("myDiv"), 5, {
+  //   bezier: {
+  //     curviness: 1.25,
+  //     values: [
+  //       { x: 100, y: 250 },
+  //       { x: 300, y: 0 },
+  //       { x: 500, y: 400 },
+  //     ],
+  //     autoRotate: true,
+  //   },
+  //   backgroundColor: "#f00",
+  //   ease: Power1.easeInOut,
+  // });
 });
