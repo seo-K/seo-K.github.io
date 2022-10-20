@@ -66,20 +66,20 @@
 }
 
 .info-text:hover p {
-  transform: translate3d(0, -3.25rem, 0);
+  transform: translate3d(0, -4.75rem, 0);
 }
 
 .text-line {
-  height: 3.125rem;
+  height: 4.25rem;
   overflow: hidden;
   position: relative;
 }
 
 .text-line:nth-child(1) {
-  left: -3.375rem;
+  left: -2rem;
 }
 .text-line:nth-child(2) {
-  left: -1.563rem;
+  left: -0.3rem;
 }
 .text-line:nth-child(3) {
   left: 0.25rem;
@@ -105,9 +105,10 @@
 }
 
 .text-line p {
-  height: 3.125rem;
-  line-height: 3.25rem;
-  padding: 0 7.25rem;
+  max-width: 40rem;
+  height: 4.75rem;
+  line-height: 1;
+  padding: 0 3rem;
   transition: all 0.4s ease-in-out;
   transform: translate3d(0, 0, 0);
   vertical-align: top;
@@ -488,44 +489,43 @@
   }
 
   .info-text {
-    padding: 5rem 0;
+    padding: 1rem 0;
     font-size: 2.25rem;
   }
 
   .info-text:hover p {
-    transform: translate3d(0, -3.25rem, 0);
+    transform: translate3d(0, -2.75rem, 0);
   }
 
   .text-line {
-    height: 2.75rem;
+    height: 2.25rem;
   }
 
   .text-line:nth-child(1) {
-    left: -3.375rem;
+    left: -4rem;
   }
   .text-line:nth-child(2) {
-    left: -1.563rem;
+    left: -2.65rem;
   }
   .text-line:nth-child(3) {
-    left: 0.25rem;
+    left: -1.3rem;
   }
   .text-line:nth-child(4) {
-    left: 2rem;
+    left: 0.05rem;
   }
   .text-line:nth-child(5) {
-    left: 3.813rem;
+    left: 1.4rem;
   }
   .text-line:nth-child(6) {
-    left: 5.625rem;
+    left: 2.75rem;
   }
   .text-line:nth-child(7) {
-    left: 7.938rem;
+    left: 4.1rem;
   }
 
   .text-line p {
-    height: 3.125rem;
-    line-height: 3.25rem;
-    padding: 0 7.25rem;
+    height: 2.75rem;
+    padding: 0 2rem;
   }
 
   .info-text-box {
