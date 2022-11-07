@@ -51,7 +51,8 @@ $(function () {
   });
 
   // project list tab with data
-  const ProjectListWrap = document.querySelector(".project-list-wrap");
+  const ProjectListBox = document.querySelector(".project-list-box");
+  const ProjectListWrap = ProjectListBox.querySelector(".project-list-wrap");
   const ProjectList = ProjectListWrap.querySelectorAll("li");
   const ProjectDetail = document.querySelectorAll(".project-detail-wrap > li");
 
@@ -71,6 +72,52 @@ $(function () {
     project.forEach((list) => list.classList.remove("active"));
     project[index].classList.add("active");
   };
+
+  // resize 함수
+  let winWidth = $(window).innerWidth();
+  const timer = null;
+  const delay = 300;
+
+  if (winWidth <= 1300) {
+    ProjectList.forEach((list) => {
+      list.addEventListener("click", showProjectDetailFunction);
+    });
+  }
+
+  window.addEventListener("resize", function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (winWidth <= 1300) {
+        ProjectList.forEach((list) => {
+          list.addEventListener("click", showProjectDetailFunction);
+        });
+      }
+    }, delay);
+  });
+
+  function showProjectDetailFunction() {
+    ProjectListBox.classList.add("small-list");
+    console.log("누럼");
+  }
+
+  // function resizeWidth() {
+  //   let ww = $(window).width();
+  //   let timer = null;
+  //   let sec = 300;
+  //   $(window).on('resize', function () {
+  //     clearTimeout(timer);
+  //     timer = setTimeout(function () {
+  //       ww = $(window).width();
+  //       if (ww < 600) {
+  //         mobileBox();
+  //       } else {
+  //         pcBox();
+  //       }
+  //     }, sec);
+  //   });
+  // }
+
+  // resizeWidth();
 
   // GSAP
   // TweenMax.to(document.getElementById("myDiv"), 5, {

@@ -363,11 +363,18 @@ footer p {
   }
 
   /* layout */
-  .inner {
+  section:not(.project-section) .inner {
     flex-direction: column;
   }
-  .inner > article {
+  section:not(.project-section) .inner > article {
     flex-shrink: 0;
     width: 100%;
   }
+
+  article {
+    padding: 1rem;
+  }
+}
+
+@media (hover: none) {
 }
