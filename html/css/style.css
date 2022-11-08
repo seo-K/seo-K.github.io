@@ -45,8 +45,8 @@
     transform: translate(0, 0);
   }
   30% {
-    -webkit-transform: translate(10px, 2px);
-    transform: translate(10px, 2px);
+    -webkit-transform: translate(0.625rem, 2px);
+    transform: translate(0.625rem, 2px);
   }
   100% {
     -webkit-transform: translate(0, -2px);
@@ -368,29 +368,45 @@
 }
 
 .skill-list {
+  padding: 10rem;
 }
+
 .skill-list li {
+  position: relative;
+  display: flex;
 }
+
 .skill-list .ball {
   position: relative;
-  width: 300px;
-  height: 300px;
-  /* background: circle at 75% 30%, #fff 5px, #a16bfe 8%, #7327f5 60%, #a16bfe 100%; */
-  background: radial-gradient(circle at 75% 30%, #fff 5px, #a16bfe 8%, #7327f5 60%, #a16bfe 100%);
+  width: 10rem;
+  height: 10rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: radial-gradient(circle at 75% 30%, #fff 5px, #a16bfe 8%, #7327f5 60%, #a16bfe 100%); */
+  background: radial-gradient(circle at 75% 30%, #fff 5px, #4ad5ff 8%, #18bcee 60%, #4ad5ff 100%);
   border-radius: 50%;
-  box-shadow: inset 0 0 20px #fff, inset 10px 0 46px #eaf5fc, inset -20px -60px 100px #fde9ea, inset 0 50px 140px #fde9ea, 0 0 90px #fff;
+  box-shadow: inset 0 0 0.75rem #fff, inset 0.5rem 0 1.5rem #eaf5fc, inset -0.75rem -1.75rem 2.75rem #fde9ea, inset 0 1.5rem 3.75rem #fde9ea, 0 0 2.5rem #fff;
   animation: float 3.5s ease-in-out alternate infinite;
 }
 
 .skill-list .ball button {
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
 }
+
 .skill-list .shadow {
   position: absolute;
-  top: 70px;
-  width: 240px;
-  height: 30px;
+  top: 110%;
+  left: 50%;
+  width: 9rem;
+  height: 1.4rem;
 
+  margin-left: -4.5rem;
   background-color: #b490b2;
   border-radius: 50%;
   animation: expand 3.5s alternate infinite;
@@ -401,7 +417,7 @@
     transform: translateY(0px);
   }
   100% {
-    transform: translateY(-5rem);
+    transform: translateY(-4rem);
   }
 }
 
