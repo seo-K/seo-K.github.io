@@ -144,31 +144,6 @@ $(function () {
 
   // GSAP
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.to(".footer-animation", {
-    scrollTrigger: {
-      trigger: ".footer-animation",
-      scrub: true,
-      pin: true,
-      start: "center center",
-      end: "bottom -100%",
-      toggleClass: "active",
-      ease: "power2",
-    },
-  });
-
-  gsap.to(".footer-animation", {
-    scrollTrigger: {
-      trigger: ".copyright",
-      scrub: 0.5,
-      start: "top bottom",
-      end: "bottom -300%",
-      ease: "power2",
-    },
-    y: "-30%",
-  });
-
   // TweenMax.to(document.getElementById("myDiv"), 5, {
   //   bezier: {
   //     curviness: 1.25,

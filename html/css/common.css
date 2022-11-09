@@ -174,10 +174,6 @@
   position: relative;
 }
 
-#main > section:not(.skill-section) {
-  background-color: #fff;
-}
-
 #main .inner-container {
   padding: 1rem;
 }
@@ -338,30 +334,18 @@ article {
 footer {
   width: 100%;
   height: 17rem;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  z-index: -1;
-  visibility: visible;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
   background-color: var(--black);
+  overflow: hidden;
 }
 
 footer p {
   font-size: 8rem;
   color: #fff;
-
-  transform: translateY(110%);
-  transition: transform 0.4s;
-}
-
-footer.active p {
-  transform: translateY(0);
-  transition-delay: 0.2s;
 }
 
 @media all and (max-width: 1300px) {
