@@ -169,9 +169,15 @@
 #main {
   padding-bottom: 17rem;
 }
+
 #main > section {
   position: relative;
 }
+
+#main > section:not(.skill-section) {
+  background-color: #fff;
+}
+
 #main .inner-container {
   padding: 1rem;
 }
@@ -342,12 +348,20 @@ footer {
   flex-direction: column;
   justify-content: flex-end;
 
-  /* background-color: var(--black); */
+  background-color: var(--black);
 }
 
 footer p {
   font-size: 8rem;
   color: #fff;
+
+  transform: translateY(110%);
+  transition: transform 0.4s;
+}
+
+footer.active p {
+  transform: translateY(0);
+  transition-delay: 0.2s;
 }
 
 @media all and (max-width: 1300px) {

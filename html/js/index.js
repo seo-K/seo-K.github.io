@@ -100,6 +100,29 @@ $(function () {
     console.log("누럼");
   }
 
+  // $(function() {
+  //   setTimeout(function() {
+  //     $('.info-skill-box').addClass('active');
+  //   }, 1000);
+  // });
+
+  const SkillList = document.querySelectorAll(".info-skill-box  li");
+
+  function SkillListMouseOverEvent() {
+    SkillList.forEach((list) => {
+      list.addEventListener("mouseover", (e) => list.classList.add("active"));
+    });
+  }
+
+  function SkillListMouseLeaveEvent() {
+    SkillList.forEach((list) => {
+      list.addEventListener("mouseleave", (e) => list.classList.remove("active"));
+    });
+  }
+
+  setTimeout(SkillListMouseOverEvent, 2000);
+  setTimeout(SkillListMouseLeaveEvent, 2000);
+
   // function resizeWidth() {
   //   let ww = $(window).width();
   //   let timer = null;
@@ -120,6 +143,32 @@ $(function () {
   // resizeWidth();
 
   // GSAP
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".footer-animation", {
+    scrollTrigger: {
+      trigger: ".footer-animation",
+      scrub: true,
+      pin: true,
+      start: "center center",
+      end: "bottom -100%",
+      toggleClass: "active",
+      ease: "power2",
+    },
+  });
+
+  gsap.to(".footer-animation", {
+    scrollTrigger: {
+      trigger: ".copyright",
+      scrub: 0.5,
+      start: "top bottom",
+      end: "bottom -300%",
+      ease: "power2",
+    },
+    y: "-30%",
+  });
+
   // TweenMax.to(document.getElementById("myDiv"), 5, {
   //   bezier: {
   //     curviness: 1.25,

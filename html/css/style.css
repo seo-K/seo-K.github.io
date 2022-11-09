@@ -146,11 +146,11 @@
   padding: 0 1.5rem;
   cursor: pointer;
 
-  transition: all 0.3s;
+  transition: margin 0.5s;
 }
 
 .info-skill-box li:hover {
-  transform: translateX(1rem);
+  margin-right: -1rem;
 }
 
 .info-skill-box li:not(:nth-child(odd)) + li {
@@ -326,6 +326,8 @@
   width: 50%;
   height: 100%;
 
+  font-size: 5rem;
+
   background-color: var(--skyblue);
 }
 
@@ -337,6 +339,8 @@
   flex-shrink: 0;
   width: 50%;
   height: 100%;
+
+  font-size: 2rem;
 
   background-color: var(--orange);
 }
@@ -625,7 +629,8 @@
   }
 
   .info-skill-box li:hover {
-    transform: translate(0, 1rem);
+    margin-right: 0;
+    margin-bottom: -1rem;
   }
 
   .info-skill-box li:not(:nth-child(odd)) + li {

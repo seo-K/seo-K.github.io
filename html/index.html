@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/debug.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/agate.min.css" />
   </head>
 
   <body>
@@ -87,13 +88,13 @@
           <div class="inner">
             <article class="info-text-box">
               <h2 class="info-text-box-top"><span>SeoYeong</span><i class="fas fa-snowboarding"></i></h2>
-              <!-- <p class="jelly-text">
+              <p class="jelly-text">
                 <span>H</span><span>i</span><span>,</span><br />
                 <span>I</span><span>'</span><span>m</span> <span class="">강</span><span>서</span><span>영</span><br />
                 <span>W</span><span>e</span><span>b</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="main-word">P</span><span>u</span><span>b</span><span>l</span
                 ><span>i</span><span>s</span><span>h</span><span>e</span><span>r</span>
-              </p> -->
-              <ul class="info-text">
+              </p>
+              <!-- <ul class="info-text">
                 <li class="text-line">
                   <p>&nbsp;</p>
                   <p>CSS Only</p>
@@ -122,21 +123,39 @@
                   <p>니가니가</p>
                   <p>&nbsp;</p>
                 </li>
-              </ul>
+              </ul> -->
               <p class="description">React 버전 홈페이지로 가기</p>
             </article>
             <article class="info-skill-box">
               <h2 class="blind">스킬</h2>
               <ul>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="800"><button type="button">Swiper</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="700"><button type="button">React Swiper</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="600"><button type="button">Full-Calendar</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="500"><button type="button">React Full-Calendar</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="400"><button type="button">Slick</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="300"><button type="button">React Slick</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="200"><button type="button">React Chart</button></li>
-                <li data-aos="fade-left" data-aos-duration="400" data-aos-delay="100"><button type="button">Chart</button></li>
-                <li data-aos="fade-left" data-aos-duration="400"><button type="button">React Table</button></li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="800"><button type="button">Swiper</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="700"><button type="button">React Swiper</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="600"><button type="button">Full-Calendar</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="500"><button type="button">React Full-Calendar</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="400"><button type="button">Slick</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="300"><button type="button">React Slick</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="200"><button type="button">React Chart</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600" data-aos-delay="100"><button type="button">Chart</button></div>
+                </li>
+                <li>
+                  <div data-aos="fade-left" data-aos-duration="600"><button type="button">React Table</button></div>
+                </li>
               </ul>
             </article>
           </div>
@@ -304,7 +323,8 @@
             <article>
               <h2>Skill</h2>
               <div class="inner">
-                <p>이런이런걸 좋아하며, 이런이런걸 배우고 있는 사람입니다. 항상 코드의 확장성을 생각하고, 시멘틱 태그를 사용하여 작업합니다.</p>
+                <!-- <p>이런이런걸 좋아하며, 이런이런걸 배우고 있는 사람입니다. 항상 코드의 확장성을 생각하고, 시멘틱 태그를 사용하여 작업합니다.</p> -->
+                <p>이런이런걸 좋아하며, 이런이런걸 배우고 있는 사람입니다.</p>
               </div>
             </article>
             <!-- <div class="skill-list">
@@ -325,6 +345,13 @@
               <button type="button"><i class="fa-brands fa-css3-alt"></i></button>
               <button type="button"><i class="fa-brands fa-square-js"></i></button> -->
             </ul>
+
+            <pre>
+              <code class="language-html">
+              <!-- html code입니다 -->
+                &lt;p&gt;제목입니다&lt;/p&gt;
+              </code>
+           </pre>
           </div>
         </section>
         <!-- CONTACT -->
@@ -362,7 +389,9 @@
         </section>
       </main>
       <footer id="footer">
-        <p>SEOYEONG</p>
+        <p class="footer-animation">
+          <span class="copyright">d]adfkljdfkl</span>
+        </p>
       </footer>
     </div>
 
@@ -372,11 +401,18 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/100vh.js"></script>
     <script src="./js/index.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
       integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!--highlight Start  -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <!--highlight End  -->
   </body>
 </html>
