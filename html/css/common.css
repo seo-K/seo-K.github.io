@@ -224,12 +224,27 @@
   top: 50%;
   left: 0;
 
+  display: flex;
+
   color: #fff;
   font-size: 5rem;
   white-space: nowrap;
 
   z-index: 1;
   transform: translateY(-50%);
+}
+
+#header .card-float-text span {
+  animation: floatText 5s infinite linear;
+}
+
+@keyframes floatText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* card color list */
