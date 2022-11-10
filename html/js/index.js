@@ -27,14 +27,14 @@ $(function () {
 
 $(function () {
   //header menu
-  const header = document.getElementById("header");
-  const headerMenu = header.querySelector(".menu-button");
+  // const header = document.getElementById("header");
+  // const headerMenu = header.querySelector(".menu-button");
 
-  headerMenu.addEventListener("click", () => MenuClickEvent());
+  // headerMenu.addEventListener("click", () => MenuClickEvent());
 
-  function MenuClickEvent() {
-    header.classList.toggle("show");
-  }
+  // function MenuClickEvent() {
+  //   header.classList.toggle("show");
+  // }
 
   // 젤리 폰트
   const EachText = document.querySelectorAll(".jelly-text > span");

@@ -550,7 +550,7 @@
 @media all and (max-width: 1300px) {
   /* INFO SECTION */
   .info-section {
-    height: auto;
+    height: 100vh;
   }
 
   .info-text-box-top {
@@ -610,7 +610,6 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
 
     margin: 0 auto;
   }
@@ -619,7 +618,6 @@
     align-items: flex-start;
     justify-content: center;
 
-    /* width: 6.5rem; */
     width: 18vw;
     height: 90%;
 
@@ -634,7 +632,8 @@
   }
 
   .info-skill-box li:not(:nth-child(odd)) + li {
-    margin-top: 0;
+    /* 확인 */
+    margin-bottom: 0;
     margin-left: 1vw;
   }
 

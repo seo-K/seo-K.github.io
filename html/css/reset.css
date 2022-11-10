@@ -313,7 +313,8 @@ body {
   letter-spacing: normal;
   -webkit-tap-highlight-color: transparent;
 
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #000;
   color: var(--black);
   scroll-behavior: smooth;
 }
