@@ -62,7 +62,7 @@
 #header .menu-card {
   position: relative;
   width: 100%;
-  border-radius: 5rem;
+  border-radius: 4rem;
   padding: 2rem 3rem;
 
   overflow: hidden;
@@ -161,10 +161,10 @@
 
 @keyframes pianoAction {
   0% {
-    transform: translateY(10px);
+    transform: translateY(0);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(10px);
   }
 }
 
@@ -174,7 +174,7 @@
 
 #header .card-piano li:nth-child(even) {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   width: 10%;
   height: 5rem;
   background-color: var(--black);
@@ -331,13 +331,10 @@
 
 /* layout */
 .inner {
-  display: flex;
-  width: 100%;
-  height: 100%;
+  padding: 0.375rem;
 }
 .inner > article {
-  flex-shrink: 0;
-  width: 50%;
+  border-radius: 3rem;
 }
 
 article {
@@ -354,6 +351,10 @@ article {
 
 .jelly-text span.active {
   animation: jello-horizontal 1s alternate ease-out;
+}
+
+.jelly-text span.active-color.active {
+  animation: jello-color-change 1s alternate ease-out, jello-horizontal 1s alternate ease-out;
 }
 
 .jelly-text span:nth-child(2n) {
@@ -426,6 +427,15 @@ article {
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes jello-color-change {
+  0% {
+    color: var(var(--black));
+  }
+  100% {
+    color: var(--orange);
   }
 }
 

@@ -358,7 +358,8 @@ textarea::placeholder {
 }
 
 ::selection {
-  /* background: var(--main-blue); */
+  background: #d4c951;
+  /* background: var(--purple); */
 }
 
 .blind {

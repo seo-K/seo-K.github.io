@@ -3,7 +3,6 @@
 /* INFO SECTION */
 .info-section {
   width: 100%;
-  height: 100vh;
 }
 
 .info-text-box {
@@ -549,10 +548,6 @@
 
 @media all and (max-width: 1300px) {
   /* INFO SECTION */
-  .info-section {
-    height: 100vh;
-  }
-
   .info-text-box-top {
     font-size: 1.5em;
   }
