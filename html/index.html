@@ -35,17 +35,17 @@
     <link rel="canonical" href="http://~~~~/this.page" />
     <!-- 표준 페이지 설정. 검색엔진에서 현재 페이지의 URL을 알려둔다. 같은 페이지이지만, 여러 URL이 있는 경우 설정하면, 표준 페이지의 URL로 검색엔진이 보여준다.
 		SEO를 신경쓴다면 꼭 설정  -->
-    <link rel="icon" href="../assets/images/common/favicon.png" sizes="32x32" />
-    <link rel="icon" href="../assets/images/common/favicon.png" sizes="192x192" />
+    <link rel="icon" href="../assets/images/common/favicon.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="../assets/images/common/favicon.png" sizes="192x192" type="image/png" />
     <link rel="apple-touch-icon" href="" />
     <title>포폴임</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/debug.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="css/common.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/debug.css" type="text/css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/agate.min.css" />
   </head>
 
@@ -55,8 +55,8 @@
         <div class="header-inner">
           <div class="top-content">
             <a href="./index.html" class="logo jelly-text">
-              <span>S</span><span>e</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>P</span><span>o</span><span>l</span><span>i</span><span>s</span><span>h</span
-              ><span>e</span><span>r</span>
+              <i>i'm</i>
+              <span>S</span><span>e</span><span>o</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Y</span><span>e</span><span>o</span><span>n</span><span>g</span>
             </a>
           </div>
           <nav class="bottom-content">
@@ -164,21 +164,20 @@
             <article class="project-list-box">
               <h2>ProjectList</h2>
               <ul class="project-list-wrap">
-                <li class="active"><i class="fa-solid fa-comment-medical"></i> <b>비타알고</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b class="project-name">푸드잇다</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>브이드림</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>신도리코 해외 사이트</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>엔픽셀 관리자 페이지</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>신도리코샵</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>요일 관리자페이지</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>국룰</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>두루퍼</b></li>
-                <li><i class="fa-solid fa-comment-medical"></i> <b>쿨화이트</b></li>
+                <li><span class="project">1. 비타알고</span></li>
+                <li><span class="project">2. 푸드잇다</span></li>
+                <li><span class="project">3. 브이드림</span></li>
+                <li><span class="project">4. 신도리코 해외 사이트</span></li>
+                <li><span class="project">5. 엔픽셀 관리자 페이지</span></li>
+                <li><span class="project">6. 신도리코샵</span></li>
+                <li><span class="project">7. 요일 관리자페이지</span></li>
+                <li><span class="project">8. 국룰</span></li>
+                <li><span class="project">9. 두루퍼</span></li>
+                <li><span class="project">10. 쿨화이트</span></li>
               </ul>
             </article>
             <article class="project-detail-box">
               <h2 class="blind">프로젝트 디테일</h2>
-
               <ul class="project-detail-wrap">
                 <li class="active">
                   <div class="project-title">
@@ -316,6 +315,7 @@
         </section>
         <!-- SKILL -->
         <section id="skill" class="skill-section">
+          <h2 class="blind">Skill section</h2>
           <div class="inner">
             <article>
               <h2>Skill</h2>
@@ -353,6 +353,7 @@
         </section>
         <!-- CONTACT -->
         <section id="contact" class="contact-section">
+          <h2 class="blind">contact</h2>
           <div class="inner">
             <article class="contact-title-box">
               <h2 class="jelly-text">
@@ -360,6 +361,7 @@
               </h2>
             </article>
             <article class="contact-form-box">
+              <h2 class="blind">contact</h2>
               <form action="">
                 <fieldset>
                   <legend>contact form</legend>
@@ -367,11 +369,11 @@
                   <div class="form-input">
                     <div class="input-wrap">
                       <label for="name">Name</label>
-                      <input id="name" type="text" maxlength="20" name="name" data-name="Name" placeholder="Your name" autofocus="true" required />
+                      <input id="name" type="text" maxlength="20" name="name" data-name="Name" placeholder="Your name" required />
                     </div>
                     <div class="input-wrap">
                       <label for="email">Email Address</label>
-                      <input id="email" type="email" maxlength="50" name="email" data-name="Email" placeholder="Your Email Address" autofocus="true" required />
+                      <input id="email" type="email" maxlength="50" name="email" data-name="Email" placeholder="Your Email Address" required />
                     </div>
                     <div class="input-wrap">
                       <label for="field">Message</label>

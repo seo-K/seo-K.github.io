@@ -26,16 +26,6 @@ $(function () {
 }); //기본 세팅 END
 
 $(function () {
-  //header menu
-  // const header = document.getElementById("header");
-  // const headerMenu = header.querySelector(".menu-button");
-
-  // headerMenu.addEventListener("click", () => MenuClickEvent());
-
-  // function MenuClickEvent() {
-  //   header.classList.toggle("show");
-  // }
-
   // 젤리 폰트
   const EachText = document.querySelectorAll(".jelly-text > span");
 
@@ -50,111 +40,24 @@ $(function () {
     }
   });
 
-  // project list tab with data
-  const ProjectListBox = document.querySelector(".project-list-box");
-  const ProjectListWrap = ProjectListBox.querySelector(".project-list-wrap");
-  const ProjectList = ProjectListWrap.querySelectorAll("li");
-  const ProjectDetail = document.querySelectorAll(".project-detail-wrap > li");
+  // logo animation (scale + opacity) 및 스크롤 이벤트 최적화
+  const logo = document.querySelector(".top-content");
+  const logoHeight = document.querySelector(".top-content").clientHeight;
 
-  ProjectList.forEach((list) => {
-    list.addEventListener("click", (e) => setActive(list));
-  });
+  function onScroll() {
+    let value = 1 - window.scrollY / 500;
 
-  const setActive = (el) => {
-    let index = $(el).index();
-    let project = [...ProjectDetail];
-
-    // tab
-    [...ProjectList].forEach((list) => list.classList.remove("active"));
-    el.classList.add("active");
-
-    // content
-    project.forEach((list) => list.classList.remove("active"));
-    project[index].classList.add("active");
-  };
-
-  // resize 함수
-  let winWidth = $(window).innerWidth();
-  const timer = null;
-  const delay = 300;
-
-  if (winWidth <= 1300) {
-    ProjectList.forEach((list) => {
-      list.addEventListener("click", showProjectDetailFunction);
-    });
+    if (window.scrollY < logoHeight) {
+      logo.style.transform = `scale(${value}) translateY(${window.scrollY}px)`;
+      logo.style.opacity = value;
+      console.log("ㅇㅇ");
+    }
   }
 
-  window.addEventListener("resize", function () {
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      if (winWidth <= 1300) {
-        ProjectList.forEach((list) => {
-          list.addEventListener("click", showProjectDetailFunction);
-        });
-      }
-    }, delay);
-  });
+  //   const passiveEvent = passiveEventSupported
+  //   ? { capture: false, passive: true }
+  //   : false
+  // window.addEventListener('scroll', onScroll, passiveEvent)
 
-  function showProjectDetailFunction() {
-    ProjectListBox.classList.add("small-list");
-    console.log("누럼");
-  }
-
-  // $(function() {
-  //   setTimeout(function() {
-  //     $('.info-skill-box').addClass('active');
-  //   }, 1000);
-  // });
-
-  const SkillList = document.querySelectorAll(".info-skill-box  li");
-
-  function SkillListMouseOverEvent() {
-    SkillList.forEach((list) => {
-      list.addEventListener("mouseover", (e) => list.classList.add("active"));
-    });
-  }
-
-  function SkillListMouseLeaveEvent() {
-    SkillList.forEach((list) => {
-      list.addEventListener("mouseleave", (e) => list.classList.remove("active"));
-    });
-  }
-
-  setTimeout(SkillListMouseOverEvent, 2000);
-  setTimeout(SkillListMouseLeaveEvent, 2000);
-
-  // function resizeWidth() {
-  //   let ww = $(window).width();
-  //   let timer = null;
-  //   let sec = 300;
-  //   $(window).on('resize', function () {
-  //     clearTimeout(timer);
-  //     timer = setTimeout(function () {
-  //       ww = $(window).width();
-  //       if (ww < 600) {
-  //         mobileBox();
-  //       } else {
-  //         pcBox();
-  //       }
-  //     }, sec);
-  //   });
-  // }
-
-  // resizeWidth();
-
-  // GSAP
-
-  // TweenMax.to(document.getElementById("myDiv"), 5, {
-  //   bezier: {
-  //     curviness: 1.25,
-  //     values: [
-  //       { x: 100, y: 250 },
-  //       { x: 300, y: 0 },
-  //       { x: 500, y: 400 },
-  //     ],
-  //     autoRotate: true,
-  //   },
-  //   backgroundColor: "#f00",
-  //   ease: Power1.easeInOut,
-  // });
+  window.addEventListener("scroll", onScroll, { passive: true });
 });
