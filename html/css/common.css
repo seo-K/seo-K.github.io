@@ -247,7 +247,7 @@
   top: 50%;
   left: 0;
 
-  display: flex;
+  display: none;
 
   color: #fff;
   font-size: 5rem;
@@ -275,6 +275,22 @@
   display: none;
   transform: translateY(-50%) scale(0);
 } */
+
+#header .menu-card.hidden:not(.orange-card) .card-content {
+  display: none;
+}
+
+#header .menu-card.hidden:not(.orange-card) .card-float-text {
+  display: flex;
+}
+
+#header .menu-card.orange-card.hidden .card-float-text {
+  display: none;
+}
+
+#header .menu-card.orange-card .card-float-text {
+  display: flex;
+}
 
 @keyframes floatText {
   0% {

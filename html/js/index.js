@@ -40,19 +40,18 @@ $(function () {
     }
   });
 
-  // logo animation (scale + opacity) 및 스크롤 이벤트 최적화
-  const logo = document.querySelector(".top-content");
-  const logoHeight = document.querySelector(".top-content").clientHeight;
-
+  // =========== HEADER
+  /** Logo Scroll event (scale + opacity animation) */
   function onScroll() {
     let value = 1 - window.scrollY / 500;
 
     if (window.scrollY < logoHeight) {
       logo.style.transform = `scale(${value}) translateY(${window.scrollY}px)`;
       logo.style.opacity = value;
-      console.log("ㅇㅇ");
     }
   }
+  const logo = document.querySelector(".top-content");
+  const logoHeight = document.querySelector(".top-content").clientHeight;
 
   //   const passiveEvent = passiveEventSupported
   //   ? { capture: false, passive: true }
@@ -60,4 +59,24 @@ $(function () {
   // window.addEventListener('scroll', onScroll, passiveEvent)
 
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  // header menu
+  const menu = document.querySelectorAll(".menu-card");
+
+  /** 마우스 엔터이벤트 */
+  function MouseEnterEvent(e) {
+    this.classList.add("hidden");
+
+    console.log("마우스");
+  }
+  function MouseLeaveEvent(e) {
+    this.classList.remove("hidden");
+
+    console.log("마우스 나감");
+  }
+
+  menu.forEach((menuList) => {
+    menuList.addEventListener("mouseover", MouseEnterEvent);
+    menuList.addEventListener("mouseleave", MouseLeaveEvent);
+  });
 });
