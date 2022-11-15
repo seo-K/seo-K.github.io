@@ -284,11 +284,11 @@
   display: flex;
 }
 
-#header .menu-card.orange-card.hidden .card-float-text {
+#header .menu-card.orange-card .card-float-text {
   display: none;
 }
 
-#header .menu-card.orange-card .card-float-text {
+#header .menu-card.orange-card.show .card-float-text {
   display: flex;
 }
 
@@ -539,13 +539,13 @@ footer p {
   }
 
   /* layout */
-  section:not(.project-section) .inner {
+  /* section:not(.project-section) .inner {
     flex-direction: column;
   }
   section:not(.project-section) .inner > article {
     flex-shrink: 0;
     width: 100%;
-  }
+  } */
 
   article {
     padding: 1rem;

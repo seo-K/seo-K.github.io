@@ -65,14 +65,26 @@ $(function () {
 
   /** 마우스 엔터이벤트 */
   function MouseEnterEvent(e) {
-    this.classList.add("hidden");
-
+    if (this.classList.contains("orange-card")) {
+      this.classList.remove("show");
+    } else {
+      this.classList.add("hidden");
+    }
     console.log("마우스");
   }
-  function MouseLeaveEvent(e) {
-    this.classList.remove("hidden");
 
+  function MouseLeaveEvent(e) {
+    if (this.classList.contains("orange-card")) {
+      this.classList.add("show");
+    } else {
+      this.classList.remove("hidden");
+    }
     console.log("마우스 나감");
+  }
+
+  function PianoEvent() {
+    if (this.contain(".orange-card")) {
+    }
   }
 
   menu.forEach((menuList) => {
