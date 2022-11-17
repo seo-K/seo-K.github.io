@@ -102,11 +102,10 @@
 }
 
 .project-section .project-list-box h2 {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 .project-section .project-list-wrap li {
-  overflow: hidden;
 }
 
 .project-section .project-list-wrap li + li {
@@ -115,18 +114,28 @@
 
 .project-section .project {
   position: relative;
+
   display: inline-block;
+
+  border-radius: 50px;
+  border: 2px solid var(--black);
+
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.project-section .project b {
+  display: block;
+
   padding: 1rem 2rem;
 
   font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 50px;
-  border: 1px solid var(--black);
 
   transition: all 0.2s;
 }
 
-.project-section .project:after {
+.project-section .project b:after {
   position: absolute;
   top: -101%;
   left: 0;
@@ -142,22 +151,20 @@
   border-radius: 50px;
 
   transition: all 0.2s;
-  transform: skew(15deg);
+  transform: skew(-80deg);
 }
 
-.project-section .project:hover {
+.project-section .project:hover b {
   transform: translateY(100%);
 }
 
-.project-section .project:hover:after {
-  transform: translateY(100%);
+.project-section .project:hover b:after {
+  /* transform: translateY(101%); */
+  transform: skew(0);
 }
-
-/* .project-section .project-detail-box .content-img-wrap {
-  cursor: url("../image/arrow-cursor.svg") 20 30, auto;
-} */
 
 .project-section .project-detail-box {
+  position: relative;
   width: 50%;
   flex-shrink: 0;
 
@@ -167,6 +174,14 @@
   /* scroll-snap-align: end;
   scroll-snap-stop: always;
   scroll-behavior: smooth; */
+}
+
+.project-section .project-content {
+  border: 2px solid var(--black);
+  border-radius: 40px;
+  overflow: hidden;
+
+  cursor: url("../image/arrow-cursor.svg") 20 30, auto;
 }
 
 /* SKILL SECTION */

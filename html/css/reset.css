@@ -85,8 +85,9 @@ abbr {
   border: 0 none;
 }
 
+ul,
 ol,
-ul {
+dl {
   list-style: none;
 }
 
@@ -180,12 +181,6 @@ img {
   image-rendering: auto;
   -ms-interpolation-mode: nearest-neighbor;
   -webkit-perspective: 1;
-}
-
-ul,
-ol,
-dl {
-  list-style: none;
 }
 
 a {
