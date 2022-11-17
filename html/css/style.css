@@ -105,7 +105,8 @@
   font-size: 5rem;
 }
 
-.project-section .project-list-wrap li {
+.project-section .project-list-wrap li.active {
+  background-color: red;
 }
 
 .project-section .project-list-wrap li + li {
@@ -147,8 +148,8 @@
   justify-content: center;
 
   content: attr(data-text);
-  background: red;
-  border-radius: 50px;
+  background: var(--orange);
+  border-radius: 50%;
 
   transition: all 0.2s;
   transform: skew(-80deg);
@@ -159,8 +160,8 @@
 }
 
 .project-section .project:hover b:after {
-  /* transform: translateY(101%); */
   transform: skew(0);
+  border-radius: 50px;
 }
 
 .project-section .project-detail-box {

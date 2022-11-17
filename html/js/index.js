@@ -26,6 +26,7 @@ $(function () {
 }); //기본 세팅 END
 
 $(function () {
+  // =========== COMMON
   // 젤리 폰트
   const EachText = document.querySelectorAll(".jelly-text > span");
 
@@ -60,10 +61,7 @@ $(function () {
 
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // header menu
-  const menu = document.querySelectorAll(".menu-card");
-
-  /** 마우스 엔터이벤트 */
+  /** header menu 마우스 엔터이벤트 */
   function MouseEnterEvent(e) {
     if (this.classList.contains("orange-card")) {
       this.classList.remove("show");
@@ -86,9 +84,31 @@ $(function () {
     if (this.contain(".orange-card")) {
     }
   }
+  const menu = document.querySelectorAll(".menu-card");
 
   menu.forEach((menuList) => {
     menuList.addEventListener("mouseover", MouseEnterEvent);
     menuList.addEventListener("mouseleave", MouseLeaveEvent);
   });
+
+  // =========== MAIN
+  /** projectList Event */
+  const projectList = document.querySelectorAll(".project-list-wrap > li");
+  const projectImgList = document.querySelectorAll(".project-detail-wrap > li");
+
+  projectList.forEach((list) => {
+    list.addEventListener("click", (e) => setActive(list));
+  });
+
+  const setActive = (el) => {
+    let index = $(el).index();
+    let projectImg = [...projectImgList];
+
+    // tab
+    [...projectList].forEach((list) => list.classList.remove("active"));
+    el.classList.add("active");
+
+    // content
+    projectImg[index].scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 });
