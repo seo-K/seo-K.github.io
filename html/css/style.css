@@ -291,8 +291,16 @@
   height: 80vh;
 }
 
+.contact-section .inner {
+  display: flex;
+  height: 100%;
+}
+
 .contact-section .contact-title-box {
+  width: 40%;
   background-color: var(--yellow);
+
+  margin-right: 0.375rem;
 }
 
 .contact-section .contact-title-box h2 {
@@ -300,6 +308,7 @@
 }
 
 .contact-section .contact-form-box {
+  flex: 1;
   background-color: #fff;
 }
 

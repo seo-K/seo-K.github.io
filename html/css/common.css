@@ -93,7 +93,7 @@
 }
 
 #header .card-top b {
-  font-size: 2rem;
+  font-size: 4rem;
   color: #fff;
 }
 
@@ -110,12 +110,16 @@
   background-color: #fff;
 }
 
+#header .card-top i {
+  color: var(--black);
+}
+
 #header .card-bottom {
   margin-top: auto;
 }
 
 #header .card-bottom span {
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 #header .bottom-content > .menu-container span {
