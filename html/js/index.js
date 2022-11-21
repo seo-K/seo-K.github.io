@@ -68,7 +68,7 @@ $(function () {
     } else {
       this.classList.add("hidden");
     }
-    console.log("마우스");
+    // console.log("마우스");
   }
 
   function MouseLeaveEvent(e) {
@@ -77,7 +77,7 @@ $(function () {
     } else {
       this.classList.remove("hidden");
     }
-    console.log("마우스 나감");
+    // console.log("마우스 나감");
   }
 
   function PianoEvent() {
