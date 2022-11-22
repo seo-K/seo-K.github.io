@@ -92,7 +92,7 @@ $(function () {
   });
 
   // =========== MAIN
-  /** projectList Event */
+  // projectList Event
   const projectList = document.querySelectorAll(".project-img-list > li");
   const projectTextList = document.querySelectorAll(".project-text-list > li");
 
@@ -111,4 +111,35 @@ $(function () {
     // content
     projectText[index].scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  // project scroll connect 스크롤 연동 실패
+  // const projectSection = document.querySelector(".project-section");
+  // const projectListContainer = document.querySelector(".project-list-container");
+  // const projectTextContainer = document.querySelector(".project-text-container");
+
+  // projectListContainer.addEventListener("wheel", function (e) {
+  //   projectTextContainer.scrollTop = this.scrollTop;
+  //   // console.log(e.deltaY, e, e.deltaX);
+  //   // console.log("first");
+  // });
+
+  // projectTextContainer.addEventListener("wheel", function (e) {
+  //   projectListContainer.scrollTop = this.scrollTop;
+  //   console.log(e.deltaY, e, e.deltaX);
+  //   console.log("움직인다");
+  // });
+
+  // function zoom(e) {
+  //   e.preventDefault();
+
+  //   let scale = e.deltaY * -0.01;
+
+  //   scale = Math.min(Math.max(0.125, scale), 4);
+
+  //   projectListContainer.style.transform = `scale(${scale})`;
+  // }
+
+  // let scale = 1;
+  // const el = document.querySelector('div');
+  // el.onwheel = zoom;
 });
