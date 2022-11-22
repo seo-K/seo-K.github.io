@@ -364,7 +364,7 @@ article {
 /* jelly_action */
 .jelly-text span {
   display: inline-block;
-  font-size: calc(100vw * (120 / 1920));
+  font-size: 6rem;
   letter-spacing: -5px;
   transform-origin: center;
 }

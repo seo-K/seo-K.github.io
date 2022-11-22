@@ -93,8 +93,8 @@ $(function () {
 
   // =========== MAIN
   /** projectList Event */
-  const projectList = document.querySelectorAll(".project-list-wrap > li");
-  const projectImgList = document.querySelectorAll(".project-detail-wrap > li");
+  const projectList = document.querySelectorAll(".project-img-list > li");
+  const projectTextList = document.querySelectorAll(".project-text-list > li");
 
   projectList.forEach((list) => {
     list.addEventListener("click", (e) => setActive(list));
@@ -102,13 +102,13 @@ $(function () {
 
   const setActive = (el) => {
     let index = $(el).index();
-    let projectImg = [...projectImgList];
+    let projectText = [...projectTextList];
 
     // tab
     [...projectList].forEach((list) => list.classList.remove("active"));
     el.classList.add("active");
 
     // content
-    projectImg[index].scrollIntoView({ behavior: "smooth", block: "start" });
+    projectText[index].scrollIntoView({ behavior: "smooth", block: "start" });
   };
 });
