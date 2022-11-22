@@ -93,7 +93,7 @@ $(function () {
 
   // =========== MAIN
   // projectList Event
-  const projectList = document.querySelectorAll(".project-img-list > li");
+  const projectList = document.querySelectorAll(".project-list-wrap > li");
   const projectTextList = document.querySelectorAll(".project-text-list > li");
 
   projectList.forEach((list) => {
@@ -142,4 +142,30 @@ $(function () {
   // let scale = 1;
   // const el = document.querySelector('div');
   // el.onwheel = zoom;
+
+  // =========== Modal
+  const modalCursor = document.querySelector(".modal-cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    window.requestAnimationFrame(() => {
+      modalCursor.style.top = `${e.clientY - modalCursor.offsetHeight / 2}px`;
+      modalCursor.style.left = `${e.clientX - modalCursor.offsetWidth / 2}px`;
+    });
+  });
+
+  function disableAnimation() {
+    const hasActiveClass = modalCursor.classList.contains("active");
+
+    if (hasActiveClass) {
+      modalCursor.classList.add("inactive");
+      modalCursor.classList.remove("active");
+    } else {
+      modalCursor.classList.add("active");
+      modalCursor.classList.remove("inactive");
+    }
+  } // check for when the mouse is being moving
+  const projectImg = document.querySelector(".modal .project-img");
+
+  projectImg.addEventListener("mouseover", disableAnimation);
+  projectImg.addEventListener("mouseleave", disableAnimation);
 });

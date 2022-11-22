@@ -25,6 +25,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Gangwon";
+  src: local("GangwonEduSaeeum_OTFMediumA"),
+    url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduSaeeum_OTFMediumA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
