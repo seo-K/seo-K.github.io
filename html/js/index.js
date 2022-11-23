@@ -67,8 +67,16 @@ $(function () {
       this.classList.remove("show");
     } else {
       this.classList.add("hidden");
+      console.log(this);
+      document.querySelector(".orange-card").classList.remove("show");
+      if (this.classList.contains("yellow-card")) {
+        document.querySelector(".card-piano li:nth-child(3)").style.opacity = "1";
+      } else if (this.classList.contains("beige-card")) {
+        document.querySelector(".card-piano li:nth-child(5)").style.opacity = "1";
+      } else if (this.classList.contains("purple-card")) {
+        document.querySelector(".card-piano li:nth-child(9)").style.opacity = "1";
+      }
     }
-    // console.log("마우스");
   }
 
   function MouseLeaveEvent(e) {
@@ -76,8 +84,9 @@ $(function () {
       this.classList.add("show");
     } else {
       this.classList.remove("hidden");
+      document.querySelector(".orange-card").classList.add("show");
+      // document.querySelectorAll(".card-piano li").style.opacity = "0";
     }
-    // console.log("마우스 나감");
   }
 
   function PianoEvent() {
