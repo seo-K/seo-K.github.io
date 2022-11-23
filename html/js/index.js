@@ -92,9 +92,12 @@ $(function () {
   });
 
   // =========== MAIN
-  // projectList Event
+  // projectList click Event + modal
   const projectList = document.querySelectorAll(".project-list-wrap > li");
   const projectTextList = document.querySelectorAll(".project-text-list > li");
+  const modalList = document.querySelector(".modal-wrap ");
+  const modal = document.querySelectorAll(".modal-wrap > li");
+  const CloseBtn = document.querySelectorAll(".modal .close-button");
 
   projectList.forEach((list) => {
     list.addEventListener("click", (e) => setActive(list));
@@ -111,6 +114,36 @@ $(function () {
     // content
     projectText[index].scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  // Project Modal
+  const Modal = [...modal];
+  projectTextList.forEach((item) => {
+    item.addEventListener("click", () => setShowModal(item));
+  });
+
+  const setShowModal = (el) => {
+    let index = $(el).index();
+    OpenModal(index);
+  };
+  CloseBtn.forEach((item) => {
+    item.addEventListener("click", () => CloseModal());
+  });
+
+  // CloseBtn.addEventListener("click", () => console.log("first"));
+  // CloseBtn.addEventListener("click", () => CloseModal());
+
+  /** Open Modal */
+  function OpenModal(index) {
+    modalList.style.display = "grid";
+    Modal[index].style.display = "block";
+    // scrollOff();
+  }
+  /** Close Modal */
+  function CloseModal() {
+    // modalList.style.display = "none";
+    Modal.style.display = "none";
+    // scrollOn();
+  }
 
   // project scroll connect 스크롤 연동 실패
   // const projectSection = document.querySelector(".project-section");
@@ -168,4 +201,10 @@ $(function () {
 
   projectImg.addEventListener("mouseover", disableAnimation);
   projectImg.addEventListener("mouseleave", disableAnimation);
+
+  // Top Button
+  const TopButton = document.querySelector(".top-button");
+  TopButton.addEventListener("click", function () {
+    window.scrollTo(0, 0);
+  });
 });
