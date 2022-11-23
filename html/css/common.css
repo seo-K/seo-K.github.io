@@ -77,11 +77,11 @@
 
   overflow: hidden;
 
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 #header .menu-card:hover {
-  transform: scale(0.98);
+  transform: scale(0.95);
 }
 
 #header .card-content {
@@ -93,6 +93,8 @@
   justify-content: space-between;
 
   z-index: 1;
+
+  transition: all 0.4s;
 }
 
 #header .card-top,
@@ -261,7 +263,7 @@
   top: 50%;
   left: 0;
 
-  display: none;
+  display: flex;
 
   color: #fff;
   font-size: 5rem;
@@ -269,6 +271,9 @@
 
   z-index: 1;
   transform: translateY(-50%);
+  transition: all 0.4s;
+
+  opacity: 0;
 }
 
 #header .card-float-text span {
@@ -291,19 +296,19 @@
 } */
 
 #header .menu-card.hidden:not(.orange-card) .card-content {
-  display: none;
+  opacity: 0;
 }
 
 #header .menu-card.hidden:not(.orange-card) .card-float-text {
-  display: flex;
+  opacity: 1;
 }
 
 #header .menu-card.orange-card .card-float-text {
-  display: none;
+  opacity: 0;
 }
 
 #header .menu-card.orange-card.show .card-float-text {
-  display: flex;
+  opacity: 1;
 }
 
 @keyframes floatText {

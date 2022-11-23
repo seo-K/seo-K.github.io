@@ -3,7 +3,6 @@
 /* INFO SECTION */
 .info-section {
   width: 100%;
-  min-height: 50vh;
 }
 
 .info-section .inner,
@@ -30,7 +29,16 @@
   font-size: 2rem;
   font-weight: bold;
 
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+}
+
+.info-section .image {
+  shape-outside: circle(50%);
+  width: 200px;
+  height: 200px;
+
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .info-section .fa-snowboarding {
