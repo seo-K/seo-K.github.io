@@ -82,6 +82,16 @@
 
 #header .menu-card:hover {
   transform: scale(0.95);
+  animation: vibration 0.1s infinite;
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
 }
 
 #header .card-content {
@@ -273,7 +283,7 @@
   transform: translateY(-50%);
   transition: all 0.4s;
 
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 #header .card-float-text span {

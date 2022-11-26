@@ -67,7 +67,7 @@ $(function () {
       this.classList.remove("show");
     } else {
       this.classList.add("hidden");
-      console.log(this);
+      // console.log(this);
       document.querySelector(".orange-card").classList.remove("show");
       if (this.classList.contains("yellow-card")) {
         document.querySelector(".card-piano li:nth-child(3)").style.opacity = "1";
@@ -79,13 +79,15 @@ $(function () {
     }
   }
 
+  console.log(document.querySelector(".card-piano li"));
+
   function MouseLeaveEvent(e) {
     if (this.classList.contains("orange-card")) {
       this.classList.add("show");
     } else {
       this.classList.remove("hidden");
       document.querySelector(".orange-card").classList.add("show");
-      // document.querySelectorAll(".card-piano li").style.opacity = "0";
+      document.querySelector(".card-piano li").style.opacity = "0";
     }
   }
 
