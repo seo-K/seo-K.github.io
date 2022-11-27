@@ -26,9 +26,76 @@
   height: 40vh;
 }
 
+#header .logo-wrap {
+  position: relative;
+}
+
 #header .logo {
+  position: relative;
   font-size: 2rem;
-  color: #fff;
+
+  z-index: 1;
+}
+
+#header .logo * {
+  -webkit-text-fill-color: #000; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+#header .circle-bg {
+  position: absolute;
+  top: 50%;
+  left: -5rem;
+
+  width: 10rem;
+  height: 10rem;
+
+  transform: translateY(-50%);
+}
+
+#header .circle-bg span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+
+  transition: 0.5s;
+  animation: circleRotate 6s linear infinite;
+  opacity: 0.8;
+}
+
+#header .logo-wrap:hover .circle-bg span:nth-child(1) {
+  background: var(--purple);
+}
+
+#header .circle-bg span:nth-child(2) {
+  animation-duration: 4s;
+}
+
+#header .circle-bg span:nth-child(3) {
+  animation: circleRotate2 6s linear infinite;
+}
+
+@keyframes circleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circleRotate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 #header .bottom-content {
