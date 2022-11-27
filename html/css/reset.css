@@ -11,15 +11,15 @@
 }
 
 @font-face {
-  font-family: "BasicFont";
+  font-family: "ONE-Mobile-POP";
   font-style: normal;
   font-weight: 400;
   src: local("ONE Mobile POP"), url("./fonts/ONE-Mobile-POP.otf") format("woff");
-  unicode-range: U+AC00- U+D7A3;
+  unicode-range: U+AC00-D7A3;
 }
 
 @font-face {
-  font-family: "BasicFont";
+  font-family: "FredokaOne";
   src: local("FredokaOne-Regular"), url("./fonts/FredokaOne-Regular.ttf");
   font-weight: normal;
   font-style: normal;
@@ -323,14 +323,14 @@ body {
 }
 
 body {
-  font: 400 1rem/1.2 "BasicFont", sans-serif;
+  font: 400 1rem/1.2 "ONE-Mobile-POP", "FredokaOne", sans-serif;
 }
 
 input,
 select,
 textarea,
 button {
-  font-family: "BasicFont";
+  font-family: "ONE-Mobile-POP", "FredokaOne", sans-serif;
   font-size: 100%;
   font-weight: normal;
   letter-spacing: normal;

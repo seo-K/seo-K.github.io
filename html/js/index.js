@@ -33,7 +33,7 @@ $(function () {
   EachText.forEach((item) => {
     item.addEventListener("mouseover", toggleRubberBand);
 
-    function toggleRubberBand(e) {
+    function toggleRubberBand() {
       item.classList.add("active");
       item.addEventListener("animationend", () => {
         item.classList.remove("active");
@@ -61,41 +61,37 @@ $(function () {
 
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /** header menu 마우스 엔터이벤트 */
-  function MouseEnterEvent(e) {
-    if (this.classList.contains("orange-card")) {
-      this.classList.remove("show");
-    } else {
+  // 헤더 카드 메뉴 리스트 이벤트
+  const menu = document.querySelectorAll(".menu-card");
+  const pianoOddList = document.querySelectorAll(".card-piano li:nth-child(odd)");
+  const OrangeCard = document.querySelector(".orange-card");
+
+  const OrangeClass = "orange-card";
+
+  function MouseEnterEvent() {
+    OrangeCard.classList.remove("show");
+
+    if (!this.classList.contains(OrangeClass)) {
       this.classList.add("hidden");
-      // console.log(this);
-      document.querySelector(".orange-card").classList.remove("show");
       if (this.classList.contains("yellow-card")) {
-        document.querySelector(".card-piano li:nth-child(3)").style.opacity = "1";
+        document.querySelector(".card-piano li:nth-child(1)").classList.add("active");
       } else if (this.classList.contains("beige-card")) {
-        document.querySelector(".card-piano li:nth-child(5)").style.opacity = "1";
+        document.querySelector(".card-piano li:nth-child(5)").classList.add("active");
       } else if (this.classList.contains("purple-card")) {
-        document.querySelector(".card-piano li:nth-child(9)").style.opacity = "1";
+        document.querySelector(".card-piano li:nth-child(3)").classList.add("active");
+        document.querySelector(".card-piano li:nth-child(9)").classList.add("active");
       }
     }
   }
 
-  console.log(document.querySelector(".card-piano li"));
+  function MouseLeaveEvent() {
+    OrangeCard.classList.add("show");
+    [...pianoOddList].map((oddList) => oddList.classList.remove("active"));
 
-  function MouseLeaveEvent(e) {
-    if (this.classList.contains("orange-card")) {
-      this.classList.add("show");
-    } else {
+    if (!this.classList.contains(OrangeClass)) {
       this.classList.remove("hidden");
-      document.querySelector(".orange-card").classList.add("show");
-      document.querySelector(".card-piano li").style.opacity = "0";
     }
   }
-
-  function PianoEvent() {
-    if (this.contain(".orange-card")) {
-    }
-  }
-  const menu = document.querySelectorAll(".menu-card");
 
   menu.forEach((menuList) => {
     menuList.addEventListener("mouseover", MouseEnterEvent);

@@ -245,10 +245,9 @@
   width: 15%;
   height: 100%;
 
-  transition: opacity 1s;
-  opacity: 0.1;
-
   border-radius: 5px 5px 0 0;
+  opacity: 0.3;
+  transition: opacity 1s;
   animation: pianoAction 1.5s alternate infinite;
 }
 
@@ -259,6 +258,10 @@
   100% {
     transform: translateY(10px);
   }
+}
+
+#header .card-piano li.active {
+  opacity: 1;
 }
 
 #header .card-piano li:not(:nth-child(odd)) + li {
@@ -272,11 +275,12 @@
   height: 5rem;
   background-color: var(--black);
 
+  opacity: 1;
   z-index: 3;
 }
 
 #header .card-piano li:nth-child(1) {
-  background-color: var(--skyblue);
+  background-color: var(--yellow);
   animation-delay: 1.2s;
 }
 
@@ -286,7 +290,7 @@
 }
 
 #header .card-piano li:nth-child(3) {
-  background-color: var(--yellow);
+  background-color: var(--purple);
   animation-delay: 0.4s;
 }
 
@@ -320,16 +324,6 @@
   animation-delay: 0.6s;
 }
 
-#header .card-piano button {
-  width: 4.5rem;
-  height: 4.5rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #fff;
-  font-weight: bold;
-
-  border-radius: 5px;
-}
-
 #header .menu-card:hover .card-piano li {
   opacity: 1;
 }
@@ -350,12 +344,13 @@
   transform: translateY(-50%);
   transition: all 0.4s;
 
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 #header .card-float-text span {
   animation: floatText 5s infinite linear;
 }
+
 /* 
 #header .menu-card.orange-card .card-float-text {
   display: flex;
@@ -372,6 +367,7 @@
   transform: translateY(-50%) scale(0);
 } */
 
+/* not orange-card */
 #header .menu-card.hidden:not(.orange-card) .card-content {
   opacity: 0;
 }
@@ -380,12 +376,25 @@
   opacity: 1;
 }
 
-#header .menu-card.orange-card .card-float-text {
-  opacity: 0;
-}
-
+/* orange-card */
 #header .menu-card.orange-card.show .card-float-text {
   opacity: 1;
+}
+
+#header .menu-card.orange-card:hover .card-bottom {
+  transition: all 1s;
+
+  font-size: 3rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+#header .menu-card.orange-card .card-float-text {
+  opacity: 0;
 }
 
 @keyframes floatText {
