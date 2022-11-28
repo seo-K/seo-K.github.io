@@ -198,127 +198,77 @@
   cursor: url("../image/arrow-cursor.svg") 20 30, auto;
 }
 
-/* .project-section .project-list-box {
-  position: sticky;
-  top: 5%;
-  left: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 3rem;
-
-  height: 90vh;
-
-  width: 50%;
-  flex-shrink: 0;
-}
-
-.project-section .project-list-box:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100vw - 0.75rem);
-  height: 100%;
-  content: "";
-
-  padding: 0.375rem;
-
+/* NEW PROJECT SECTION */
+.new-project-section {
   background-color: var(--purple);
-  border-radius: 4rem;
+}
+.new-project-section .project-open-button {
+  width: 10rem;
+  height: 10rem;
+  color: #fff;
+  font-size: 2rem;
+
+  border: 2px solid #fff;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+}
+
+.new-project-section .hide-container {
+  display: flex;
+  height: 70vh;
+}
+
+.new-project-section .project-detail-slide {
+  flex-shrink: 0;
+  width: 50%;
+}
+
+.new-project-section .project-title-slide {
+  flex-shrink: 0;
+  width: 50%;
+  height: 100%;
   box-sizing: border-box;
-
-  z-index: -1;
+  padding: 10px 0;
 }
 
-.project-section .project-list-box h2 {
-  font-size: 5rem;
-}
-
-.project-section .project-list-wrap {
-  max-height: 50vh;
-  overflow: overlay;
-}
-
-.project-section .project-list-wrap::-webkit-scrollbar-thumb {
-  background-color: hsla(0, 0%, 42%, 0.49);
-}
-
-.project-section .project-list-wrap li.active {
-}
-
-.project-section .project-list-wrap li + li {
-  margin-top: 0.375rem;
-}
-
-.project-section .project {
+.new-project-section .project-title-slide .swiper-wrapper {
   position: relative;
-
-  display: inline-block;
-
-  border-radius: 50px;
-  border: 2px solid var(--black);
-  background-color: #eeebf2;
-
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.2s;
+  height: 25%;
 }
 
-.project-section .project b {
+.new-project-section .project-title-slide .swiper-slide {
+  opacity: 0.4;
+}
+
+.new-project-section .project-title-slide .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+/* .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+
+.swiper-slide img {
   display: block;
-
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  transition: all 0.2s;
-}
-
-.project-section .project b:after {
-  position: absolute;
-  top: -100%;
-  left: 0;
   width: 100%;
   height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  content: attr(data-text);
-  background: var(--black);
-  border-radius: 50%;
-  color: var(--purple);
-
-  transition: all 0.2s;
-  transform: skew(-80deg);
+  object-fit: cover;
 }
 
-.project-section .project:hover b {
-  transform: translateY(100%);
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+} 
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
-.project-section .project:hover b:after {
-  transform: skew(0);
-  border-radius: 50px;
-} */
-
-.project-section .project-detail-box {
-  /* position: relative;
-  width: 50%;
-  flex-shrink: 0; */
-
-  /* scroll-snap-align: end;
-  scroll-snap-stop: always;
-  scroll-behavior: smooth; */
-}
-
-/* .project-section .project-content {
-  border: 2px solid var(--black);
-  border-radius: 40px;
-  overflow: hidden;
-
-  cursor: url("../image/arrow-cursor.svg") 20 30, auto;
-} */
+*/
 
 /* SKILL SECTION */
 .skill-section {
@@ -456,16 +406,74 @@
 }
 
 .contact-form-box fieldset {
+  position: relative;
   display: flex;
   flex-direction: column;
 
   height: 100%;
 }
 
-.contact-form-box legend {
+/* .contact-form-box legend {
   font-size: 2.5rem;
 
   margin-bottom: 1.5rem;
+} */
+
+.contact-section .check-container {
+  position: relative;
+  width: 12rem;
+
+  font-family: "Gangwon", cursive;
+
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: inset 3px 0 0 #cfdae1;
+  border: 1px solid #cfdae1;
+  transform: rotate(-5deg) translate3d(0, 0, 0);
+
+  margin-bottom: 2rem;
+}
+
+.contact-section .check-container:before {
+  position: absolute;
+  top: 0;
+  left: 1.375rem;
+
+  width: 2px;
+  height: 100%;
+
+  content: "";
+  background: #e45998;
+}
+
+.contact-section .check-list {
+  position: relative;
+  padding: 0 2.3rem;
+
+  margin: 0.375rem 0;
+  border-bottom: 1px solid #d8cbf5;
+}
+
+.contact-section .check-list span {
+  position: relative;
+}
+
+.contact-section .check-list span:after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 0;
+  height: 2px;
+  content: "";
+  background-color: #70d5b9;
+
+  transition: all 0.3s;
+  transform: translateY(-50%);
+}
+
+.contact-section .check-list.checked span:after {
+  width: 100%;
 }
 
 .contact-form-box .form-input {

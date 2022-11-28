@@ -183,6 +183,17 @@ $(function () {
   // const el = document.querySelector('div');
   // el.onwheel = zoom;
 
+  // =========== Contact Section
+  // const
+  // const password = document.querySelector(".");
+
+  // const helperText = {
+  //   charLength: document.querySelector("#pwChar"),
+  //   lowercase: document.querySelector("#pwLower"),
+  //   uppercase: document.querySelector("#pwCap"),
+  //   number: document.querySelector("#pwNum"),
+  // };
+
   // =========== Modal
   const modalCursor = document.querySelector(".modal-cursor");
 
