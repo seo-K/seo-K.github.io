@@ -279,42 +279,76 @@
               ><span>t</span>
             </h2>
 
-            <button class="project-open-button" type="button">Open Project</button>
+            <div class="wheel">
+              <button class="project-open-button" type="button">Open Project</button>
+              <ul class="rotate-wrap">
+                <li class="list" style="--rotate: 1">
+                  <b data-text="Web site">1. 비타알고</b>
+                </li>
+                <li class="list" style="--rotate: 2">
+                  <b data-text="Web site">2. 푸드잇다</b>
+                </li>
+                <li class="list" style="--rotate: 3">
+                  <b data-text="Web site">3. 브이드림</b>
+                </li>
+                <li class="list" style="--rotate: 4">
+                  <b data-text="Web site">4. 신도리코 해외 사이트</b>
+                </li>
+                <li class="list" style="--rotate: 5">
+                  <b data-text="Web site">5. 엔픽셀 관리자 페이지</b>
+                </li>
+                <li class="list" style="--rotate: 6">
+                  <b data-text="Web site">6. 신도리코샵</b>
+                </li>
+                <li class="list" style="--rotate: 7">
+                  <b data-text="Web site">7. 요일 관리자페이지</b>
+                </li>
+                <li class="list" style="--rotate: 8">
+                  <b data-text="Web site">8. 국룰</b>
+                </li>
+                <li class="list" style="--rotate: 9">
+                  <b data-text="Web site">9. 두루퍼</b>
+                </li>
+                <li class="list" style="--rotate: 10">
+                  <b data-text="Web site">10. 쿨화이트</b>
+                </li>
+              </ul>
+            </div>
 
             <div class="hide-container">
               <div thumbsSlider="" class="swiper project-title-slide">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
+                <ul class="swiper-wrapper">
+                  <li class="swiper-slide" style="--rotate: 1">
                     <b data-text="Web site">1. 비타알고</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 2">
                     <b data-text="Web site">2. 푸드잇다</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 3">
                     <b data-text="Web site">3. 브이드림</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 4">
                     <b data-text="Web site">4. 신도리코 해외 사이트</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 5">
                     <b data-text="Web site">5. 엔픽셀 관리자 페이지</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 6">
                     <b data-text="Web site">6. 신도리코샵</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 7">
                     <b data-text="Web site">7. 요일 관리자페이지</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 8">
                     <b data-text="Web site">8. 국룰</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 9">
                     <b data-text="Web site">9. 두루퍼</b>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide" style="--rotate: 10">
                     <b data-text="Web site">10. 쿨화이트</b>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
               <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper project-detail-slide">
                 <div class="swiper-wrapper">
@@ -692,7 +726,7 @@
       var swiper = new Swiper(".project-title-slide", {
         direction: "vertical",
         spaceBetween: 10,
-        slidesPerView: 4,
+        slidesPerView: 10,
         freeMode: true,
         watchSlidesProgress: true,
         mousewheel: true,
