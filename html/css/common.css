@@ -154,11 +154,17 @@
 
 @keyframes vibration {
   from {
+    transform: translateX(-0.5px) translateY(1.5px);
+  }
+  to {
+    transform: translateX(1.5px) translateY(-0.5px);
+  }
+  /* from {
     transform: rotate(1deg);
   }
   to {
     transform: rotate(-1deg);
-  }
+  } */
 }
 
 #header .card-content {

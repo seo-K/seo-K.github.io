@@ -139,18 +139,91 @@ $(function () {
   // CloseBtn.addEventListener("click", () => console.log("first"));
   // CloseBtn.addEventListener("click", () => CloseModal());
 
-  /** Open Modal */
   function OpenModal(index) {
     modalList.style.display = "grid";
     Modal[index].style.display = "block";
     // scrollOff();
   }
-  /** Close Modal */
+
   function CloseModal() {
     // modalList.style.display = "none";
     Modal.style.display = "none";
     // scrollOn();
   }
+
+  // 프로젝트 터치 휠
+  const RotateArea = document.querySelector(".rotate-wrap");
+  let rotateDeg = 0;
+
+  function mobileTouchEvent() {
+    winWidth = window.innerWidth;
+
+    winWidth = window.innerWidth;
+    if (winWidth < 1200) {
+      RotateArea.addEventListener("touchstart", touch_start);
+      RotateArea.addEventListener("touchend", touch_end);
+    } else {
+      RotateArea.addEventListener("mousemove", (event) => moveAt(event.pageX, event.pageY));
+      RotateArea.addEventListener("mousedown", touch_end);
+    }
+
+    let start_y, end_y;
+
+    function touch_start(event) {
+      start_y = event.touches[0].pageY;
+    }
+
+    function touch_end(event) {
+      end_y = event.changedTouches[0].pageY;
+      let TouchRange = end_y - start_y;
+      // 위로 드래그시 / 아래로 드래그시
+      // console.log(start_y + "시작");
+      // console.log(end_y - start_y);
+
+      if (end_y - start_y > 0) {
+        rotateDeg = rotateDeg + 36;
+        // RotateArea.style.transform = `rotate( ${rotateDeg} deg)`;
+        RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
+      } else {
+        rotateDeg = rotateDeg - 36;
+        RotateArea.style.transform = `rotate( ${rotateDeg} deg)`;
+        RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
+      }
+    }
+
+    // winWidth = window.innerWidth;
+    // if(winWidth < 1200) {
+    //     if (modalBox !== null) {
+    //       modalBox.forEach(item => {
+    //         item.addEventListener('touchstart', touch_start);
+    //         item.addEventListener('touchend', touch_end);
+
+    //         let modal = item.parentNode;
+
+    //         let start_y, end_y;
+
+    //         function touch_start(event) {
+    //           start_y = event.touches[0].pageY
+    //         }
+
+    //         function touch_end(event) {
+    //           end_y = event.changedTouches[0].pageY;
+    //           // 위로 드래그시 / 아래로 드래그시
+    //           console.log(start_y + '시작')
+    //           console.log(end_y - start_y)
+    //           if(end_y - start_y > 100 ){
+    //             modal.classList.remove('on');
+    //             scrollOff();
+    //           }
+    //         }
+
+    //     });
+
+    //   };
+    // }
+  }
+
+  mobileTouchEvent();
 
   // project scroll connect 스크롤 연동 실패
   // const projectSection = document.querySelector(".project-section");

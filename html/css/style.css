@@ -241,7 +241,7 @@
   font-size: 2rem;
 
   border: 2px solid #fff;
-  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  /* border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; */
 }
 
 .wheel .rotate-wrap {
@@ -251,9 +251,11 @@
 
   width: 100%;
   height: 100%;
-  background-color: #111;
   border-radius: 50%;
   overflow: hidden;
+
+  touch-action: none;
+  transition: all 0.4s;
 }
 
 .wheel .rotate-wrap .list {
@@ -265,6 +267,19 @@
   border: 1px solid red;
   transform: rotate(calc(36deg * var(--rotate)));
   transform-origin: bottom right;
+
+  clip-path: polygon(0 25%, 100% 100%, 0 100%);
+}
+
+.wheel .rotate-wrap .list:nth-child(odd) {
+  background-color: #18bcee;
+}
+.wheel .rotate-wrap .list:nth-child(even) {
+  background-color: blueviolet;
+}
+
+.wheel .rotate-wrap b {
+  position: relative;
 }
 
 .new-project-section .project-title-slide .swiper-wrapper {
@@ -272,6 +287,16 @@
 }
 
 .new-project-section .project-title-slide .swiper-slide {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  opacity: 0.4;
+
+  border: 1px solid red;
+  transform: rotate(calc(36deg * var(--rotate)));
+  transform-origin: bottom right;
+  clip-path: polygon(50% 0%, 23% 100%, 79% 100%);
+  cursor: pointer;
 }
 
 .new-project-section .project-title-slide .swiper-slide-thumb-active {
