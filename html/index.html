@@ -279,7 +279,7 @@
               ><span>t</span>
             </h2>
 
-            <div class="wheel">
+            <!-- <div class="wheel">
               <button class="project-open-button" type="button">Open Project</button>
               <ul class="rotate-wrap">
                 <li class="list" style="--rotate: 1">
@@ -313,11 +313,12 @@
                   <b data-text="Web site">10. 쿨화이트</b>
                 </li>
               </ul>
-            </div>
+            </div> -->
 
             <div class="hide-container">
-              <div thumbsSlider="" class="swiper project-title-slide">
-                <ul class="swiper-wrapper">
+              <div thumbsSlider="" class="swiper wheel-slide">
+                <button class="project-open-button" type="button">Open Project</button>
+                <ul class="swiper-wrapper rotate-wrap">
                   <li class="swiper-slide" style="--rotate: 1">
                     <b data-text="Web site">1. 비타알고</b>
                   </li>
@@ -723,13 +724,19 @@
 
     <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".project-title-slide", {
+      var swiper = new Swiper(".wheel-slide", {
+        allowTouchMove: true,
         direction: "vertical",
         spaceBetween: 0,
-        slidesPerView: 5,
+        slidesPerView: 10,
         freeMode: true,
         watchSlidesProgress: true,
         mousewheel: true,
+        breakpoints: {
+          1200: {
+            allowTouchMove: false,
+          },
+        },
       });
       var swiper2 = new Swiper(".project-detail-slide", {
         direction: "vertical",

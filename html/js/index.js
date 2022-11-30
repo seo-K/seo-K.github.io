@@ -151,28 +151,32 @@ $(function () {
     // scrollOn();
   }
 
-  // 프로젝트 터치 휠
-  const RotateArea = document.querySelector(".rotate-wrap");
+  // 프로젝트 터치/마우스 휠 이벤트
+  const RotateArea = document.querySelector(".wheel-slide .swiper-wrapper");
   let rotateDeg = 0;
 
-  function mobileTouchEvent() {
+  function WheelEvent() {
     let startY, endY;
 
     winWidth = window.innerWidth;
 
     if (winWidth > 1200) {
+      console.log("first");
       RotateArea.addEventListener("mousedown", mouseStart);
       RotateArea.addEventListener("mouseup", mouseEnd);
 
       function mouseStart(e) {
         startY = e.clientY;
+        console.log("🚀 ~ file: index.js ~ line 169 ~ mouseStart ~ startY", startY);
         e.preventDefault();
       }
       function mouseEnd(e) {
         endY = e.clientY;
+        console.log("🚀 ~ file: index.js ~ line 174 ~ mouseEnd ~ endY", endY);
         RotateEvent();
       }
     } else {
+      console.log("dd");
       RotateArea.addEventListener("touchstart", touchStart);
       RotateArea.addEventListener("touchend", touchEnd);
 
@@ -200,58 +204,8 @@ $(function () {
       }
     }
   }
-  // function pcTouchEvent() {
-  //   let startY, endY;
 
-  //   function mouseStart(e) {
-  //     startY = e.clientY;
-  //   }
-  //   function mouseEnd(e) {
-  //     endY = e.clientY;
-
-  //     if (endY - startY > 0) {
-  //       rotateDeg = rotateDeg + 36;
-  //       RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
-  //     } else {
-  //       rotateDeg = rotateDeg - 36;
-  //       RotateArea.style.transform = `rotate( ${rotateDeg} deg)`;
-  //     }
-  //   }
-  // }
-
-  // pcTouchEvent();
-  mobileTouchEvent();
-
-  // project scroll connect 스크롤 연동 실패
-  // const projectSection = document.querySelector(".project-section");
-  // const projectListContainer = document.querySelector(".project-list-container");
-  // const projectTextContainer = document.querySelector(".project-text-container");
-
-  // projectListContainer.addEventListener("wheel", function (e) {
-  //   projectTextContainer.scrollTop = this.scrollTop;
-  //   // console.log(e.deltaY, e, e.deltaX);
-  //   // console.log("first");
-  // });
-
-  // projectTextContainer.addEventListener("wheel", function (e) {
-  //   projectListContainer.scrollTop = this.scrollTop;
-  //   console.log(e.deltaY, e, e.deltaX);
-  //   console.log("움직인다");
-  // });
-
-  // function zoom(e) {
-  //   e.preventDefault();
-
-  //   let scale = e.deltaY * -0.01;
-
-  //   scale = Math.min(Math.max(0.125, scale), 4);
-
-  //   projectListContainer.style.transform = `scale(${scale})`;
-  // }
-
-  // let scale = 1;
-  // const el = document.querySelector('div');
-  // el.onwheel = zoom;
+  WheelEvent();
 
   // =========== Contact Section
   // const

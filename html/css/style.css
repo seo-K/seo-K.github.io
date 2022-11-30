@@ -62,6 +62,70 @@
 }
 
 /* PROJECT SECTION */
+
+/*
+.wheel {
+  position: relative;
+  width: 50rem;
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 4px solid #fff;
+}
+
+.new-project-section .project-open-button {
+  width: 10rem;
+  height: 10rem;
+  color: #fff;
+  font-size: 2rem;
+
+  border: 2px solid #fff;
+border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+}
+
+ .wheel .rotate-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+
+  touch-action: none;
+  cursor: grab;
+  transition: all 0.4s;
+}
+
+.wheel .rotate-wrap .list {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  opacity: 0.4;
+
+  border: 1px solid red;
+  transform: rotate(calc(36deg * var(--rotate)));
+  transform-origin: bottom right;
+
+  clip-path: polygon(0 25%, 100% 100%, 0 100%);
+}
+
+.wheel .rotate-wrap .list:nth-child(odd) {
+  background-color: #18bcee;
+}
+.wheel .rotate-wrap .list:nth-child(even) {
+  background-color: blueviolet;
+} 
+
+.wheel .rotate-wrap b {
+  position: relative;
+}*/
+
 .project-section {
 }
 
@@ -208,30 +272,11 @@
   height: 70vh;
 }
 
-.new-project-section .project-detail-slide {
+.new-project-section .wheel-slide {
   flex-shrink: 0;
   width: 50%;
-}
-
-.new-project-section .project-title-slide {
-  flex-shrink: 0;
-  width: 50%;
-  height: 100%;
   box-sizing: border-box;
   padding: 10px 0;
-}
-
-.wheel {
-  position: relative;
-  width: 50rem;
-  height: 50rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  border: 4px solid #fff;
 }
 
 .new-project-section .project-open-button {
@@ -241,66 +286,54 @@
   font-size: 2rem;
 
   border: 2px solid #fff;
-  /* border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; */
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 }
+.new-project-section .wheel-slide .swiper-wrapper {
+  position: relative;
 
-.wheel .rotate-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 45rem;
+  height: 45rem;
 
-  width: 100%;
-  height: 100%;
   border-radius: 50%;
   overflow: hidden;
 
   touch-action: none;
   cursor: grab;
-  transition: all 0.4s;
+  transition: all 0.4s !important;
+
+  border: 4px solid #fff;
 }
 
-.wheel .rotate-wrap .list {
+.new-project-section .wheel-slide .swiper-slide {
   position: absolute;
+  right: 0;
   width: 50%;
-  height: 50%;
+  height: 50% !important;
   opacity: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  border: 1px solid red;
   transform: rotate(calc(36deg * var(--rotate)));
-  transform-origin: bottom right;
+  transform-origin: bottom left;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 48%);
 
-  clip-path: polygon(0 25%, 100% 100%, 0 100%);
-}
-
-.wheel .rotate-wrap .list:nth-child(odd) {
-  background-color: #18bcee;
-}
-.wheel .rotate-wrap .list:nth-child(even) {
-  background-color: blueviolet;
-}
-
-.wheel .rotate-wrap b {
-  position: relative;
-}
-
-.new-project-section .project-title-slide .swiper-wrapper {
-  position: relative;
-}
-
-.new-project-section .project-title-slide .swiper-slide {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  opacity: 0.4;
-
-  border: 1px solid red;
-  transform: rotate(calc(36deg * var(--rotate)));
-  transform-origin: bottom right;
-  clip-path: polygon(50% 0%, 23% 100%, 79% 100%);
   cursor: pointer;
 }
 
-.new-project-section .project-title-slide .swiper-slide-thumb-active {
+.new-project-section .wheel-slide .swiper-slide b {
+  transform: rotate(calc(-36deg * var(--rotate)));
+}
+
+.new-project-section .wheel-slide .swiper-slide:nth-child(odd) {
+  background-color: #18bcee;
+}
+
+.new-project-section .wheel-slide .swiper-slide:nth-child(even) {
+  background-color: blueviolet;
+}
+
+.new-project-section .wheel-slide .swiper-slide-thumb-active {
   opacity: 1;
 }
 
@@ -330,6 +363,11 @@
   object-fit: cover;
 }
 */
+
+.new-project-section .project-detail-slide {
+  flex-shrink: 0;
+  width: 50%;
+}
 
 /* SKILL SECTION */
 .skill-section {
