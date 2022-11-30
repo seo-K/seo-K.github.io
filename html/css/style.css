@@ -255,6 +255,7 @@
   overflow: hidden;
 
   touch-action: none;
+  cursor: grab;
   transition: all 0.4s;
 }
 
