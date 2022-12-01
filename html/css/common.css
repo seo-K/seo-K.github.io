@@ -149,22 +149,6 @@
 
 #header .menu-card:hover {
   transform: scale(0.95);
-  animation: vibration 0.1s infinite;
-}
-
-@keyframes vibration {
-  from {
-    transform: translateX(-0.5px) translateY(1.5px);
-  }
-  to {
-    transform: translateX(1.5px) translateY(-0.5px);
-  }
-  /* from {
-    transform: rotate(1deg);
-  }
-  to {
-    transform: rotate(-1deg);
-  } */
 }
 
 #header .card-content {

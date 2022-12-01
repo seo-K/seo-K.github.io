@@ -153,6 +153,7 @@ $(function () {
 
   // 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".wheel-slide .swiper-wrapper");
+  const RotateText = document.querySelectorAll(".wheel-slide .swiper-wrapper b");
   let rotateDeg = 0;
 
   function WheelEvent() {
@@ -161,22 +162,18 @@ $(function () {
     winWidth = window.innerWidth;
 
     if (winWidth > 1200) {
-      console.log("first");
       RotateArea.addEventListener("mousedown", mouseStart);
       RotateArea.addEventListener("mouseup", mouseEnd);
 
       function mouseStart(e) {
         startY = e.clientY;
-        console.log("🚀 ~ file: index.js ~ line 169 ~ mouseStart ~ startY", startY);
         e.preventDefault();
       }
       function mouseEnd(e) {
         endY = e.clientY;
-        console.log("🚀 ~ file: index.js ~ line 174 ~ mouseEnd ~ endY", endY);
         RotateEvent();
       }
     } else {
-      console.log("dd");
       RotateArea.addEventListener("touchstart", touchStart);
       RotateArea.addEventListener("touchend", touchEnd);
 
@@ -191,15 +188,70 @@ $(function () {
       }
     }
 
+    function getCurrentRotation(element) {
+      var st = window.getComputedStyle(element, null);
+      var tr =
+        st.getPropertyValue("-webkit-transform") ||
+        st.getPropertyValue("-moz-transform") ||
+        st.getPropertyValue("-ms-transform") ||
+        st.getPropertyValue("-o-transform") ||
+        st.getPropertyValue("transform") ||
+        "fail...";
+
+      console.log(tr);
+
+      if (tr !== "none") {
+        var values = tr.split("(")[1];
+        values = values.split(")")[0];
+        values = values.split(",");
+        var a = values[0];
+        var b = values[1];
+
+        var radians = Math.atan2(b, a);
+        var angle = Math.round(radians * (180 / Math.PI));
+      } else {
+        var angle = 0;
+      }
+
+      // works!
+      console.log("Rotate: " + angle + "deg");
+      $("#results").append("<p>Rotate: " + angle + "deg</p>");
+      $("#results").append(`<p>AddRotate:${angle + 36}deg</p>`);
+
+      element.style.transform = `rotate(${angle + 36}deg)`;
+      console.log("함수실행");
+      // if ((status = "plus")) {
+      //   console.log("plus");
+      //   element.style.transform = `rotate(${angle + 40}deg)`;
+      // } else {
+      //   console.log("minus");
+      //   element.style.transform = `rotate(${angle - 40}deg)`;
+      // }
+
+      // [...RotateText].map((item) => console.log((item.style.transform = `rotate(${newRotation} + 36 deg)`), "이건뭐냐"));
+    }
+    [...RotateText].map((item) => getCurrentRotation(item, plus));
+    let newRotation = [...RotateText].map((item) => getCurrentRotation(item, plus));
+
     function RotateEvent() {
-      console.log(endY - startY, "값");
+      // console.log(endY - startY, "값");
       if (endY - startY > 100) {
         rotateDeg = rotateDeg + 36;
         RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
+        [...RotateText].map((item) => getCurrentRotation(item));
+        // getCurrentRotation(RotateText[0]);
+        // [...RotateText].map((item) => getCurrentRotation(item));
+
+        // RotateText.style.transform = `rotate(-${rotateDeg}deg)`;
         console.log("+");
       } else {
         rotateDeg = rotateDeg - 36;
         RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
+        // [...RotateText].map((item) => (item.style.transform = `rotate(${newRotation - 36}deg)`));
+        [...RotateText].map((item) => getCurrentRotation(item));
+        // getCurrentRotation(RotateText[0]);
+        // [...RotateText].map((item) => getCurrentRotation(item));
+        // RotateText.style.transform = `rotate(-${rotateDeg}deg)`;
         console.log("-");
       }
     }
