@@ -188,7 +188,7 @@ $(function () {
       }
     }
 
-    function getCurrentRotation(element, num) {
+    function getCurrentRotation(element) {
       var st = window.getComputedStyle(element, null);
       var tr =
         st.getPropertyValue("-webkit-transform") ||
@@ -197,6 +197,8 @@ $(function () {
         st.getPropertyValue("-o-transform") ||
         st.getPropertyValue("transform") ||
         "fail...";
+
+      console.log(tr);
 
       if (tr !== "none") {
         var values = tr.split("(")[1];
@@ -212,30 +214,50 @@ $(function () {
       }
 
       // works!
-      // console.log("Rotate: " + angle + "deg", num);
+      console.log("Rotate: " + angle + "deg");
+      $("#results").append("<p>Rotate: " + angle + "deg</p>");
+      $("#results").append(`<p>AddRotate:${angle + 36}deg</p>`);
 
-      element.style.transform = `rotate(${angle + num}deg)`;
+      element.style.transform = `rotate(${angle + 36}deg)`;
+      console.log("함수실행");
+      // if ((status = "plus")) {
+      //   console.log("plus");
+      //   element.style.transform = `rotate(${angle + 40}deg)`;
+      // } else {
+      //   console.log("minus");
+      //   element.style.transform = `rotate(${angle - 40}deg)`;
+      // }
+
+      // [...RotateText].map((item) => console.log((item.style.transform = `rotate(${newRotation} + 36 deg)`), "이건뭐냐"));
     }
+    [...RotateText].map((item) => getCurrentRotation(item, plus));
+    let newRotation = [...RotateText].map((item) => getCurrentRotation(item, plus));
 
     function RotateEvent() {
-      console.log(endY - startY, "값");
+      // console.log(endY - startY, "값");
       if (endY - startY > 100) {
         rotateDeg = rotateDeg + 36;
         RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
-        [...RotateText].map((item) => getCurrentRotation(item, -36));
+        [...RotateText].map((item) => getCurrentRotation(item));
+        // getCurrentRotation(RotateText[0]);
+        // [...RotateText].map((item) => getCurrentRotation(item));
+
+        // RotateText.style.transform = `rotate(-${rotateDeg}deg)`;
         console.log("+");
-      } else if (endY - startY < 0) {
+      } else {
         rotateDeg = rotateDeg - 36;
         RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
-        [...RotateText].map((item) => getCurrentRotation(item, 36));
+        // [...RotateText].map((item) => (item.style.transform = `rotate(${newRotation - 36}deg)`));
+        [...RotateText].map((item) => getCurrentRotation(item));
+        // getCurrentRotation(RotateText[0]);
+        // [...RotateText].map((item) => getCurrentRotation(item));
+        // RotateText.style.transform = `rotate(-${rotateDeg}deg)`;
         console.log("-");
-      } else {
-        return;
       }
     }
   }
 
-  // WheelEvent();
+  WheelEvent();
 
   // =========== Contact Section
   // const

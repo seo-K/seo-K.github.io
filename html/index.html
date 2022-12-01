@@ -433,7 +433,6 @@ https://codepen.io/udovichenko/pen/LGeQae -->
             </div>
           </div>
         </section>
-        <section id="results" style="color: #fff"></section>
         <!-- SKILL -->
         <section id="skill" class="skill-section">
           <h2 class="blind">Skill section</h2>
@@ -735,23 +734,54 @@ https://codepen.io/udovichenko/pen/LGeQae -->
         slidesPerView: 10,
         freeMode: true,
         watchSlidesProgress: true,
-        mousewheel: true,
-        breakpoints: {
-          1200: {
-            allowTouchMove: false,
+        on: {
+          activeIndexChange: function () {
+            // $('.box').removeClass('active');
+            // $('.box').eq(this.realIndex).addClass('active');
+            // $(".swiper-slide").style.setProperty("--rotate", 2);
+            console.log("슬라이드");
           },
         },
+        // mousewheel: true,
+        // effect: "creative",
+        // creativeEffect: {
+        //   prev: {
+        //     rotate: -36,
+        //   },
+        //   next: {
+        //     rotate: 36,
+        //   },
+        // },
+        // breakpoints: {
+        //   1200: {
+        //     allowTouchMove: false,
+        //   },
+        // },
+      });
+
+      swiper.on("slideChange", function () {
+        console.log("slide changed");
       });
       var swiper2 = new Swiper(".project-detail-slide", {
         direction: "vertical",
         spaceBetween: 10,
         mousewheel: true,
+        loop: true,
+        watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
         thumbs: {
           swiper: swiper,
+        },
+        lazy: {
+          loadPrevNext: true,
+        },
+        on: {
+          slideChange: function () {
+            console.log("다른애");
+          },
         },
       });
 
