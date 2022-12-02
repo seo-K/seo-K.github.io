@@ -236,6 +236,102 @@ $(function () {
   }
 
   // WheelEvent();
+  function getCurrentRotation(element, num) {
+    var st = window.getComputedStyle(element, null);
+    var tr =
+      st.getPropertyValue("-webkit-transform") ||
+      st.getPropertyValue("-moz-transform") ||
+      st.getPropertyValue("-ms-transform") ||
+      st.getPropertyValue("-o-transform") ||
+      st.getPropertyValue("transform") ||
+      "fail...";
+
+    if (tr !== "none") {
+      var values = tr.split("(")[1];
+      values = values.split(")")[0];
+      values = values.split(",");
+      var a = values[0];
+      var b = values[1];
+
+      var radians = Math.atan2(b, a);
+      var angle = Math.round(radians * (180 / Math.PI));
+    } else {
+      var angle = 0;
+    }
+
+    // works!
+    // console.log("Rotate: " + angle + "deg", num);
+
+    element.style.transform = `rotate(${angle + num}deg)`;
+  }
+
+  // Initialize Swiper
+  const swiper = new Swiper(".wheel-slide", {
+    // allowTouchMove: true,
+    direction: "vertical",
+    spaceBetween: 0,
+    slidesPerView: 10,
+    freeMode: true,
+    watchSlidesProgress: true,
+    mousewheel: true,
+    // mousewheel: true,
+    breakpoints: {
+      1200: {
+        allowTouchMove: false,
+      },
+    },
+  });
+
+  const swiper2 = new Swiper(".project-detail-slide", {
+    direction: "vertical",
+    spaceBetween: 10,
+    mousewheel: true,
+    loop: true,
+    watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    thumbs: {
+      swiper: swiper,
+    },
+    lazy: {
+      loadPrevNext: true,
+    },
+    on: {
+      slideChange: function () {
+        // getCurrentRotation(RotateArea, -36);
+        console.log("움직임");
+        // if (this.realIndex !== 0) {
+        //   console.log("짠");
+        //   // RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
+        //   getCurrentRotation(RotateArea, -36);
+        // }
+      },
+      // init: function () {
+      //   console.log("swiper initialized");
+      // },
+      slideChangeTransitionStart: function () {
+        console.log("slideChangeTransitionStart    ");
+      },
+      slideChangeTransitionEnd: function () {
+        console.log("slideChangeTransitionEnd  ");
+      },
+      activeIndexChange: function () {
+        console.log("activeIndexChange");
+      },
+      fromEdge: function () {
+        console.log("끝과 시작");
+      },
+      reachBeginning: function () {
+        console.log("reachBeginning");
+      },
+      reachEnd: function () {
+        console.log("reachEnd    ");
+      },
+    },
+  });
 
   // =========== Contact Section
   // const

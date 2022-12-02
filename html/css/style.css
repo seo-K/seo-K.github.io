@@ -270,38 +270,53 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 .new-project-section .hide-container {
   display: flex;
   height: 70vh;
+
+  /* max-width:  */
+}
+
+.new-project-section .wheel-swiper-wrap {
+  flex-shrink: 0;
+  width: 50%;
 }
 
 .new-project-section .wheel-slide {
-  flex-shrink: 0;
-  width: 50%;
+  position: relative;
+
   box-sizing: border-box;
-  padding: 10px 0;
 }
 
 .new-project-section .project-open-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
   width: 10rem;
   height: 10rem;
-  color: #fff;
   font-size: 2rem;
 
+  background-color: #fff;
   border: 2px solid #fff;
-  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  border-radius: 63% 37% 38% 62% / 56% 59% 41% 44%;
+  /* border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; */
+  transform: translate(-50%, -50%);
+
+  z-index: 5;
 }
 .new-project-section .wheel-slide .swiper-wrapper {
   position: relative;
 
-  width: 45rem;
-  height: 45rem;
+  width: 100%;
+  aspect-ratio: 1 /1;
 
-  border-radius: 50%;
-  overflow: hidden;
+  background: #fff;
+  border: 4px solid #fff;
+  border-radius: 42% 62% 63% 37% / 41% 44% 56% 59%;
 
   touch-action: none;
   cursor: grab;
   transition: all 0.4s !important;
-  background: #fff;
-  border: 4px solid #fff;
+  overflow: hidden;
+  transform: rotate(36deg);
 }
 
 .new-project-section .wheel-slide .swiper-slide {
@@ -309,6 +324,7 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   right: 0;
   width: 50%;
   height: 50% !important;
+
   opacity: 0.4;
   display: flex;
   align-items: center;
