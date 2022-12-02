@@ -306,7 +306,7 @@ $(function () {
         // if (this.realIndex !== 0) {
         //   console.log("짠");
         //   // RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
-        //   getCurrentRotation(RotateArea, -36);
+        getCurrentRotation(RotateArea, -36);
         // }
       },
       // init: function () {
