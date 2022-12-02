@@ -481,10 +481,14 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   height: 100%;
 }
 
+.contact-section article {
+  padding: 3rem 2rem;
+}
+
 .contact-section .contact-title-box {
   position: relative;
   width: 40%;
-  background-color: var(--yellow);
+  background-color: var(--purple);
 
   margin-right: 0.375rem;
 }
@@ -659,7 +663,7 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   padding: 1rem 2rem;
 
   border-radius: 50px;
-  background-color: var(--orange);
+  background-color: var(--purple);
 }
 
 /* modal */
