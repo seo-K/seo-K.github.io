@@ -408,8 +408,8 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 .new-project-section .wheel-slide .swiper-slide {
   position: absolute;
   right: 0;
-  width: 50%;
-  height: 50% !important;
+  width: 50% !important;
+  height: 50%;
 
   opacity: 0.4;
   display: flex;
@@ -439,41 +439,17 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   opacity: 1;
 }
 
-/* .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-} 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-*/
-
 .new-project-section .project-detail-slide {
   flex-shrink: 0;
   width: 50%;
 }
 
+.new-project-section .project-img {
+}
+
 /* CONTACT SECTION */
 .contact-section {
-  min-height: 80vh;
+  /* min-height: 80vh; */
 }
 
 .contact-section .inner {

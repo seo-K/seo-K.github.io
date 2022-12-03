@@ -63,7 +63,7 @@ h2:after {
 }
 
 #header .logo * {
-  -webkit-text-fill-color: #000; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: var(--black); /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
 }
@@ -170,6 +170,7 @@ h2:after {
   overflow: hidden;
 
   transition: all 0.5s;
+  transform-origin: center bottom;
 }
 
 #header .menu-card:hover {
@@ -262,7 +263,6 @@ h2:after {
   border-radius: 5px 5px 0 0;
   opacity: 0.3;
   transition: opacity 1s;
-  animation: pianoAction 1.5s alternate infinite;
 }
 
 @keyframes pianoAction {
@@ -280,6 +280,10 @@ h2:after {
 
 #header .card-piano li:not(:nth-child(odd)) + li {
   margin-left: 1%;
+}
+
+#header .card-piano li:nth-child(odd) {
+  animation: pianoAction 1.5s alternate infinite;
 }
 
 #header .card-piano li:nth-child(even) {

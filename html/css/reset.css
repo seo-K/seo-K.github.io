@@ -324,7 +324,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 
   /* background-color: #fff; */
-  background-color: #000;
+  background-color: var(--black);
   color: var(--black);
   scroll-behavior: smooth;
 }
