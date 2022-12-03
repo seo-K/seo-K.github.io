@@ -153,6 +153,7 @@ $(function () {
 
   // 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".wheel-slide .swiper-wrapper");
+  const RotateSlider = document.querySelectorAll(".wheel-slide .swiper-slide");
   const RotateText = document.querySelectorAll(".wheel-slide .swiper-wrapper b");
   let rotateDeg = 0;
 
@@ -236,55 +237,14 @@ $(function () {
   }
 
   // WheelEvent();
-  // function getCurrentRotationFixed(element, num) {
-  //   let st = window.getComputedStyle(element, null);
-  //   let tr =
-  //     st.getPropertyValue("-webkit-transform") ||
-  //     st.getPropertyValue("-moz-transform") ||
-  //     st.getPropertyValue("-ms-transform") ||
-  //     st.getPropertyValue("-o-transform") ||
-  //     st.getPropertyValue("transform") ||
-  //     "fail...";
 
-  //   if (tr !== "none") {
-  //     let values = tr.split("(")[1];
-  //     values = values.split(")")[0];
-  //     values = values.split(",");
-  //     let a = values[0];
-  //     let b = values[1];
+  /** 스와이퍼 액션 */
+  function SwiperAction(element, num) {
+    var Slider = window.getComputedStyle(element, null);
+    var RotateValue = Slider.getPropertyValue("--rotate") || "fail...";
 
-  //     let scale = Math.sqrt(a * a + b * b);
-
-  //     let radians = Math.atan2(b, a);
-  //     if (radians < 0) {
-  //       radians += 2 * Math.PI;
-  //     }
-  //     let angle = Math.round(radians * (180 / Math.PI));
-  //     element.style.transform = `rotate(${angle + num}deg)`;
-  //     console.log("Rotate: " + angle + "deg");
-  //   } else {
-  //     let angle = 0;
-  //   }
-  // }
-
-  //   function cssVar(name,value){
-  //     if(name[0]!='-') name = '--'+name //allow passing with or without --
-  //     if(value) document.documentElement.style.setProperty(name, value)
-  //     return getComputedStyle(document.documentElement).getPropertyValue(name);
-  // }
-
-  const RotateSlider = document.querySelectorAll(".wheel-slide .swiper-slide");
-  let 제발 = [...RotateSlider].map((item) => getCurrentRotation(item));
-  console.log("취소?");
-
-  function getCurrentRotation(element) {
-    var st = window.getComputedStyle(element, null);
-    var tr = st.getPropertyValue("--rotate") || "fail...";
-
-    console.log(tr);
-    let newTr = Number(tr) + 1;
+    let newTr = Number(RotateValue) + num;
     element.style.setProperty("--rotate", newTr);
-    console.log(newTr, " 신상");
   }
 
   // Initialize Swiper
@@ -295,17 +255,6 @@ $(function () {
     slidesPerView: 1,
     freeMode: true,
     watchSlidesProgress: true,
-    // mousewheel: true,
-    // effect: "creative",
-    // creativeEffect: {
-    //   prev: {
-    //     rotate: 36,
-    //   },
-    //   next: {
-    //     rotate: -36,
-    //   },
-    // },
-
     // mousewheel: true,
     breakpoints: {
       1200: {
@@ -349,12 +298,10 @@ $(function () {
       // },
 
       slideNextTransitionStart: function () {
-        // getCurrentRotation(RotateArea, -36);
-        // cssVar("--rotate", "8");
+        [...RotateSlider].map((item) => SwiperAction(item, -1));
       },
       slidePrevTransitionStart: function () {
-        // getCurrentRotation(RotateArea, 36);
-        // cssVar("--rotate", "8");
+        [...RotateSlider].map((item) => SwiperAction(item, 1));
       },
 
       // progress// 항상 0에서 1 사이의 진행률을 수신하는 인수로 Swiper 진행률이 변경되면 이벤트가 시작됩니다.

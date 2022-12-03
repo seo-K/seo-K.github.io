@@ -363,6 +363,8 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 .new-project-section .wheel-swiper-wrap {
   flex-shrink: 0;
   width: 50%;
+
+  margin: auto;
 }
 
 .new-project-section .wheel-slide {
@@ -391,18 +393,18 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 .new-project-section .wheel-slide .swiper-wrapper {
   position: relative;
 
-  width: 100%;
+  width: 80%;
   aspect-ratio: 1 /1;
 
   background: #fff;
   border: 4px solid #fff;
-  border-radius: 42% 62% 63% 37% / 41% 44% 56% 59%;
+  border-radius: 50%;
 
   touch-action: none;
   cursor: grab;
   transition: all 0.4s !important;
   overflow: hidden;
-  transform: rotate(36deg);
+  /* transform: rotate(36deg); */
 }
 
 .new-project-section .wheel-slide .swiper-slide {
@@ -418,6 +420,7 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 
   transform: rotate(calc(36deg * var(--rotate)));
   transform-origin: bottom left;
+  transition: all 0.4s;
   clip-path: polygon(50% 0%, 0% 100%, 100% 48%);
 
   cursor: pointer;
@@ -425,6 +428,7 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 
 .new-project-section .wheel-slide .swiper-slide b {
   transform: rotate(calc(-36deg * var(--rotate)));
+  transition: all 0.4s;
 }
 
 .new-project-section .wheel-slide .swiper-slide:nth-child(odd) {
