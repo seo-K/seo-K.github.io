@@ -398,7 +398,8 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 
   background: #fff;
   border: 4px solid #fff;
-  border-radius: 50%;
+  /* border-radius: 50%; */
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 
   touch-action: none;
   cursor: grab;
@@ -448,7 +449,27 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   width: 50%;
 }
 
+.new-project-section .project-detail-slide .swiper-slide {
+  border-radius: 4rem;
+  box-shadow: 0 6px 20px -15px #000;
+  border-width: 1px 1px 0 0;
+  border-color: #fff;
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .new-project-section .project-img {
+  width: 100%;
+  height: 30rem;
+  border-radius: 4rem;
+
+  background: url(../image/vita.png) no-repeat center center / cover;
+}
+
+.new-project-section .project-img img {
+  object-fit: contain;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* CONTACT SECTION */
