@@ -248,13 +248,13 @@ $(function () {
   }
 
   // Initialize Swiper
-  const swiper = new Swiper(".wheel-slide", {
+  const sliderWheel = new Swiper(".wheel-slide", {
     allowTouchMove: true,
-    // direction: "vertical",
     spaceBetween: 0,
     slidesPerView: 1,
     freeMode: true,
     watchSlidesProgress: true,
+    // direction: "vertical",
     // mousewheel: true,
     breakpoints: {
       1200: {
@@ -263,72 +263,64 @@ $(function () {
     },
   });
 
-  const swiper2 = new Swiper(".project-detail-slide", {
+  const sliderText = new Swiper(".project-detail-slide", {
     direction: "vertical",
     spaceBetween: 10,
+    // slidesPerView: 1,
     mousewheel: true,
     loop: true,
     watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
     thumbs: {
       swiper: swiper,
     },
     lazy: {
       loadPrevNext: true,
     },
-    effect: "creative",
-    creativeEffect: {
-      prev: {
-        translate: [0, 0, -400],
-      },
-      next: {
-        translate: ["100%", 0, 0],
-      },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-
+    // effect: "creative",
+    // creativeEffect: {
+    //   prev: {
+    //     translate: [0, 0, -400],
+    //   },
+    //   next: {
+    //     translate: ["100%", 0, 0],
+    //   },
+    // },
     on: {
-      beforeInit: function () {},
-      // slideChange: function () {
-      //   console.log("움직임");
-      // },
-
       slideNextTransitionStart: function () {
         [...RotateSlider].map((item) => SwiperAction(item, -1));
       },
       slidePrevTransitionStart: function () {
         [...RotateSlider].map((item) => SwiperAction(item, 1));
       },
-
-      // progress// 항상 0에서 1 사이의 진행률을 수신하는 인수로 Swiper 진행률이 변경되면 이벤트가 시작됩니다.
-      // beforeSlideChangeStart // 중단점 변경시
-      // init: function () {
-      //   console.log("swiper initialized");
-      // },
-      // slideChangeTransitionStart: function () {
-      //   console.log("slideChangeTransitionStart");
-      // },
-      // slideChangeTransitionEnd: function () {
-      //   console.log("slideChangeTransitionEnd");
-      // },
-      // activeIndexChange: function () {
-      //   console.log("activeIndexChange");
-      // },
-      // fromEdge: function () {
-      //   console.log("끝과 시작");
-      // },
-      // reachBeginning: function () {
-      //   console.log("reachBeginning");
-      // },
-      // reachEnd: function () {
-      //   console.log("reachEnd");
-      // },
     },
   });
+
+  // 이미지 슬라이더
+  const sliderImg = new Swiper(".project-img-slide", {
+    // autoHeight: true,
+    // loop: true,
+    // effect: "cube",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    // pagination: {
+    //   el: ".swiper-pagination",
+    // },
+  });
+
+  // 메인 슬라이더, 팝업 슬라이더 연결
+  sliderText.controller.control = sliderImg;
+  sliderImg.controller.control = sliderText;
+  // sliderWheel.controller.control = [sliderText, sliderImg];
+  // sliderText.controller.control = [sliderWheel, sliderImg];
+  // sliderImg.controller.control = [sliderWheel, sliderText];
 
   // =========== Contact Section
   // const

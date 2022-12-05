@@ -774,6 +774,11 @@ $(function () {
 
       // progress// 항상 0에서 1 사이의 진행률을 수신하는 인수로 Swiper 진행률이 변경되면 이벤트가 시작됩니다.
       // beforeSlideChangeStart // 중단점 변경시
+      // slideChange: function () {
+      //   console.log("움직임");
+      // },
+      // progress// 항상 0에서 1 사이의 진행률을 수신하는 인수로 Swiper 진행률이 변경되면 이벤트가 시작됩니다.
+      // beforeSlideChangeStart // 중단점 변경시
       // init: function () {
       //   console.log("swiper initialized");
       // },
