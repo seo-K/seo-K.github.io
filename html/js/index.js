@@ -248,7 +248,7 @@ $(function () {
   }
 
   // Initialize Swiper
-  const sliderWheel = new Swiper(".wheel-slide", {
+  const swiper = new Swiper(".wheel-slide", {
     allowTouchMove: true,
     spaceBetween: 0,
     slidesPerView: 1,
@@ -256,6 +256,10 @@ $(function () {
     watchSlidesProgress: true,
     // direction: "vertical",
     // mousewheel: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
     breakpoints: {
       1200: {
         allowTouchMove: false,
@@ -263,25 +267,25 @@ $(function () {
     },
   });
 
-  const sliderText = new Swiper(".project-detail-slide", {
+  const swiper2 = new Swiper(".project-detail-box", {
     direction: "vertical",
     spaceBetween: 10,
-    // slidesPerView: 1,
+    slidesPerView: 1.1,
     mousewheel: true,
     loop: true,
     watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
+    // navigation: {
+    //   nextEl: ".swiper-button-next",
+    //   prevEl: ".swiper-button-prev",
+    // },
     thumbs: {
       swiper: swiper,
     },
     lazy: {
       loadPrevNext: true,
     },
-
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    effect: "cube",
     // effect: "creative",
     // creativeEffect: {
     //   prev: {
@@ -301,27 +305,6 @@ $(function () {
     },
   });
 
-  // 이미지 슬라이더
-  const sliderImg = new Swiper(".project-img-slide", {
-    // autoHeight: true,
-    // loop: true,
-    // effect: "cube",
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    // pagination: {
-    //   el: ".swiper-pagination",
-    // },
-  });
-
-  // 메인 슬라이더, 팝업 슬라이더 연결
-  sliderText.controller.control = sliderImg;
-  sliderImg.controller.control = sliderText;
-  // sliderWheel.controller.control = [sliderText, sliderImg];
-  // sliderText.controller.control = [sliderWheel, sliderImg];
-  // sliderImg.controller.control = [sliderWheel, sliderText];
-
   // =========== Contact Section
   // const
   // const password = document.querySelector(".");
@@ -334,30 +317,30 @@ $(function () {
   // };
 
   // =========== Modal
-  const modalCursor = document.querySelector(".modal-cursor");
+  const customCursor = document.querySelector(".custom-cursor");
 
   document.addEventListener("mousemove", (e) => {
     window.requestAnimationFrame(() => {
-      modalCursor.style.top = `${e.clientY - modalCursor.offsetHeight / 2}px`;
-      modalCursor.style.left = `${e.clientX - modalCursor.offsetWidth / 2}px`;
+      customCursor.style.top = `${e.clientY - customCursor.offsetHeight / 2}px`;
+      customCursor.style.left = `${e.clientX - customCursor.offsetWidth / 2}px`;
     });
   });
 
   function disableAnimation() {
-    const hasActiveClass = modalCursor.classList.contains("active");
+    const hasActiveClass = customCursor.classList.contains("active");
 
     if (hasActiveClass) {
-      modalCursor.classList.add("inactive");
-      modalCursor.classList.remove("active");
+      customCursor.classList.add("inactive");
+      customCursor.classList.remove("active");
     } else {
-      modalCursor.classList.add("active");
-      modalCursor.classList.remove("inactive");
+      customCursor.classList.add("active");
+      customCursor.classList.remove("inactive");
     }
-  } // check for when the mouse is being moving
-  const projectImg = document.querySelector(".modal .project-img");
+  }
+  // const projectImg = document.querySelector(".modal .project-img");
 
-  projectImg.addEventListener("mouseover", disableAnimation);
-  projectImg.addEventListener("mouseleave", disableAnimation);
+  // projectImg.addEventListener("mouseover", disableAnimation);
+  // projectImg.addEventListener("mouseleave", disableAnimation);
 
   // Top Button
   const TopButton = document.querySelector(".top-button");

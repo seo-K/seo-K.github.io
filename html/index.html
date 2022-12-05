@@ -47,7 +47,7 @@ https://codepen.io/udovichenko/pen/LGeQae -->
     <link rel="stylesheet" href="css/reset.css" type="text/css" />
     <link rel="stylesheet" href="css/common.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/debug.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="css/debug.css" type="text/css" /> -->
     <!-- 라이브러리 -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" type="text/css" />
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/agate.min.css" /> -->
@@ -372,8 +372,7 @@ https://codepen.io/udovichenko/pen/LGeQae -->
               </h2>
               <div class="hide-container">
                 <div class="wheel-swiper-wrap">
-                  <div class="swiper wheel-slide">
-                    <!-- <div thumbsSlider="" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper wheel-slide"> -->
+                  <div thumbsSlider="" class="swiper wheel-slide">
                     <button class="project-open-button" type="button">Open Project</button>
                     <ul class="swiper-wrapper rotate-wrap">
                       <li class="swiper-slide" style="--rotate: 1">
@@ -410,68 +409,66 @@ https://codepen.io/udovichenko/pen/LGeQae -->
                   </div>
                 </div>
                 <div class="project-content-wrap">
-                  <div class="swiper project-img-slide">
-                    <!-- <div class="modal-cursor"><span>site</span></div> -->
+                  <article class="project-img-box">
+                    <h2 class="blind">프로젝트 이미지 리스트</h2>
+
                     <div class="tv-img-wrap">
                       <img src="./image/tv-layer.png" alt="텔레비전 레이어" />
                     </div>
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
+                    <ul class="project-img-list-wrap">
+                      <li class="active">
                         <figure class="project-img">
                           <img src="./image/vita.jpg" alt="비타알고 홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/foodyitda-thumb.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/vdream-thumb.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/sindo.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/npixel-thumb.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/sindo-shop.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/yoil.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/k-rule.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/duruper.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                      <div class="swiper-slide">
+                      </li>
+                      <li>
                         <figure class="project-img">
                           <img src="./image/coolwhite.png" alt="홈페이지 이미지" />
                         </figure>
-                      </div>
-                    </div>
-
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                  </div>
-                  <div class="swiper project-detail-slide">
+                      </li>
+                    </ul>
+                  </article>
+                  <div class="swiper project-detail-box" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
                         <p class="project-sub-title">비타민 조합 알고리즘 추천 서비스</p>
@@ -514,9 +511,6 @@ https://codepen.io/udovichenko/pen/LGeQae -->
                         <p>설명입니다.10</p>
                       </div>
                     </div>
-
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
                   </div>
                 </div>
               </div>
@@ -585,6 +579,9 @@ https://codepen.io/udovichenko/pen/LGeQae -->
       <!-- end : footer -->
     </div>
 
+    <!-- Cursor -->
+    <div class="custom-cursor"><span>site</span></div>
+
     <!-- Modal -->
     <ul class="modal-wrap">
       <li class="modal">
@@ -608,7 +605,7 @@ https://codepen.io/udovichenko/pen/LGeQae -->
             작업진행이 되었던 프로젝트
           </p>
         </div>
-        <div class="modal-cursor"><span>site</span></div>
+        <div class="custom-cursor"><span>site</span></div>
       </li>
       <li class="modal">
         <div class="modal-bg"></div>

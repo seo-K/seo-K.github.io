@@ -696,6 +696,38 @@ footer .top-button:after {
   z-index: 1;
 } */
 
+.custom-cursor {
+  position: fixed;
+  z-index: 5;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: background ease-in 10ms, box-shadow ease-in 150ms, transform ease-in 150ms;
+  transform: translate3d(0, 0, 0);
+  border: 2px solid #000;
+
+  display: grid;
+  place-content: center;
+
+  transition: width 0.4s, height 0.4s;
+}
+.custom-cursor.active {
+  width: 64px;
+  height: 64px;
+
+  background-color: var(--purple);
+}
+
+.custom-cursor span {
+  display: none;
+}
+
+.custom-cursor.active span {
+  display: block;
+}
+
 footer .top-button:hover:after,
 footer .top-button:hover:before {
   top: 0;

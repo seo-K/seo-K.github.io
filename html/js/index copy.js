@@ -407,7 +407,7 @@ $(function () {
   // };
 
   // =========== Modal
-  const modalCursor = document.querySelector(".modal-cursor");
+  const modalCursor = document.querySelector(".custom-cursor");
 
   document.addEventListener("mousemove", (e) => {
     window.requestAnimationFrame(() => {
@@ -729,7 +729,7 @@ $(function () {
     },
   });
 
-  const swiper2 = new Swiper(".project-detail-slide", {
+  const swiper2 = new Swiper(".project-detail", {
     direction: "vertical",
     spaceBetween: 10,
     mousewheel: true,
@@ -815,7 +815,7 @@ $(function () {
   // };
 
   // =========== Modal
-  const modalCursor = document.querySelector(".modal-cursor");
+  const modalCursor = document.querySelector(".custom-cursor");
 
   document.addEventListener("mousemove", (e) => {
     window.requestAnimationFrame(() => {

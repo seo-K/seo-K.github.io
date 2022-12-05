@@ -389,7 +389,6 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   background-color: #fff;
   border: 2px solid #fff;
   border-radius: 63% 37% 38% 62% / 56% 59% 41% 44%;
-  /* border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; */
   transform: translate(-50%, -50%);
 
   z-index: 5;
@@ -463,32 +462,41 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
 
   transform: translateX(-50%);
 
-  z-index: 5;
+  z-index: 1;
 }
 
-.new-project-section .project-img-slide {
-  height: 50%;
+.new-project-section .tv-img-wrap img {
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.75));
 }
 
-.new-project-section .project-detail-slide {
+.new-project-section .project-img-list-wrap li {
+  display: none;
+}
+
+.new-project-section .project-img-list-wrap li.active {
+  display: block;
+}
+
+.new-project-section .project-img-box {
+  position: relative;
   height: 50%;
 }
 
 .new-project-section .project-img {
-  /* position: absolute; */
+  position: absolute;
   top: 7.1rem;
   left: 50%;
 
   width: 16rem;
   height: 13rem;
 
-  transform: translateX(-74%) rotate(7deg);
+  transform: translateX(-77%) rotate(7deg);
   transform-origin: right;
-
   border-radius: 0.5rem;
+  background-color: #fff;
 
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
 }
 
 .new-project-section .project-img:after {
@@ -499,12 +507,16 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(255, 255, 255, 0.25));
-  z-index: 2;
+  background: linear-gradient(320deg, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.3));
 }
 
 .new-project-section .project-img img {
   height: auto;
+}
+
+.new-project-section .project-detail-box {
+  position: relative;
+  height: 50%;
 }
 
 /* CONTACT SECTION */
@@ -849,158 +861,6 @@ border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   overflow-y: auto;
 }
 
-.modal-cursor {
-  position: fixed;
-  z-index: 5;
-  width: 32px;
-  height: 32px;
-  background-color: white;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: background ease-in 10ms, box-shadow ease-in 150ms, transform ease-in 150ms;
-  transform: translate3d(0, 0, 0);
-  border: 1px solid #000;
-
-  display: grid;
-  place-content: center;
-
-  transition: width 0.4s, height 0.4s;
-}
-.modal-cursor.active {
-  width: 64px;
-  height: 64px;
-
-  background-color: var(--purple);
-}
-
-.modal-cursor.inactive span {
-  display: none;
-}
-
-.modal-cursor.active span {
-  display: block;
-}
-
 @media all and (max-width: 1300px) {
-  /* INFO SECTION */
-  .info-text-box-top {
-    font-size: 1.5em;
-  }
-
-  .info-text {
-    padding: 1rem 0;
-    font-size: 2.25rem;
-  }
-
-  .info-text:hover p {
-    transform: translate3d(0, -2.75rem, 0);
-  }
-
-  .text-line {
-    height: 2.25rem;
-  }
-
-  .text-line:nth-child(1) {
-    left: -4rem;
-  }
-  .text-line:nth-child(2) {
-    left: -2.65rem;
-  }
-  .text-line:nth-child(3) {
-    left: -1.3rem;
-  }
-  .text-line:nth-child(4) {
-    left: 0.05rem;
-  }
-  .text-line:nth-child(5) {
-    left: 1.4rem;
-  }
-  .text-line:nth-child(6) {
-    left: 2.75rem;
-  }
-  .text-line:nth-child(7) {
-    left: 4.1rem;
-  }
-
-  .text-line p {
-    height: 2.75rem;
-    padding: 0 2rem;
-  }
-
-  .info-text-box {
-    height: 60vh;
-  }
-  .info-skill-box {
-    /* padding: 0; */
-    height: 40vh;
-  }
-
-  .info-skill-box ul {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-
-    margin: 0 auto;
-  }
-
-  .info-skill-box li {
-    align-items: flex-start;
-    justify-content: center;
-
-    width: 18vw;
-    height: 90%;
-
-    border-radius: 5px 5px 0 0;
-
-    padding: 0.7rem 0;
-  }
-
-  .info-skill-box li:hover {
-    margin-right: 0;
-    margin-bottom: -1rem;
-  }
-
-  .info-skill-box li:not(:nth-child(odd)) + li {
-    /* 확인 */
-    margin-bottom: 0;
-    margin-left: 1vw;
-  }
-
-  .info-skill-box li:nth-child(even) {
-    right: unset;
-    bottom: 0;
-    width: 16vw;
-    height: calc(90% - 18vw);
-  }
-
-  .info-skill-box li:nth-child(2) {
-    top: unset;
-    left: 10.5vw;
-  }
-
-  .info-skill-box li:nth-child(4) {
-    top: unset;
-    left: 29.5vw;
-  }
-
-  .info-skill-box li:nth-child(6) {
-    top: unset;
-    left: 48.5vw;
-  }
-
-  .info-skill-box li:nth-child(8) {
-    top: unset;
-    left: 67.5vw;
-  }
-
-  .info-skill-box button {
-    width: 13vw;
-    height: 13vw;
-
-    font-weight: normal;
-    font-size: 0.8rem;
-  }
-
   /* WORK SECTION */
 }
