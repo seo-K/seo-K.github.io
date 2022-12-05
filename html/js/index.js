@@ -153,7 +153,7 @@ $(function () {
 
   // 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".wheel-slide .swiper-wrapper");
-  const RotateSlider = document.querySelectorAll(".wheel-slide .swiper-slide");
+  const RotateSlider = document.querySelectorAll(".wheel-wrap .wheel-list");
   const RotateText = document.querySelectorAll(".wheel-slide .swiper-wrapper b");
   let rotateDeg = 0;
 
@@ -248,59 +248,80 @@ $(function () {
   }
 
   // Initialize Swiper
-  const swiper = new Swiper(".wheel-slide", {
-    allowTouchMove: true,
-    spaceBetween: 0,
+  // const swiper = new Swiper(".wheel-slide", {
+  //   allowTouchMove: true,
+  //   spaceBetween: 0,
+  //   slidesPerView: 1,
+  //   freeMode: true,
+  //   watchSlidesProgress: true,
+  //   // direction: "vertical",
+  //   // mousewheel: true,
+  //   navigation: {
+  //     nextEl: ".swiper-button-next",
+  //     prevEl: ".swiper-button-prev",
+  //   },
+  //   breakpoints: {
+  //     1200: {
+  //       allowTouchMove: false,
+  //     },
+  //   },
+  // });
+
+  let projectListText = ["비타알고", "푸드잇다", "브이드림", "신도리코 해외", "엔픽셀 관리자", "신도리코샵", "요일 관리자", "국룰", "두루퍼", "쿨화이트"];
+  const swiper = new Swiper(".project-img-box", {
+    spaceBetween: 10,
     slidesPerView: 1,
-    freeMode: true,
+    speed: 500,
     watchSlidesProgress: true,
-    // direction: "vertical",
-    // mousewheel: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+    lazy: true,
+    lazy: {
+      loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
+      loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
     },
-    breakpoints: {
-      1200: {
-        allowTouchMove: false,
+    effect: "creative",
+    creativeEffect: {
+      prev: {
+        translate: ["-100%", "50%", -400],
+      },
+      next: {
+        translate: ["100%", "50%", 0],
       },
     },
   });
 
   const swiper2 = new Swiper(".project-detail-box", {
     direction: "vertical",
-    spaceBetween: 10,
-    slidesPerView: 1.1,
+    autoHeight: true,
     mousewheel: true,
-    loop: true,
     watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
-    // navigation: {
-    //   nextEl: ".swiper-button-next",
-    //   prevEl: ".swiper-button-prev",
-    // },
     thumbs: {
       swiper: swiper,
     },
-    lazy: {
-      loadPrevNext: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-    effect: "cube",
-    // effect: "creative",
-    // creativeEffect: {
-    //   prev: {
-    //     translate: [0, 0, -400],
-    //   },
-    //   next: {
-    //     translate: ["100%", 0, 0],
-    //   },
-    // },
+    pagination: {
+      el: ".wheel-wrap",
+      // type: "custom",
+      bulletActiveClass: "active",
+      bulletClass: "wheel-list",
+      clickable: true,
+
+      renderBullet: function (index, className) {
+        return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}. ${projectListText[index]} </b></li>`;
+      },
+    },
+
     on: {
       slideNextTransitionStart: function () {
         [...RotateSlider].map((item) => SwiperAction(item, -1));
+        console.log("딤");
       },
       slidePrevTransitionStart: function () {
         [...RotateSlider].map((item) => SwiperAction(item, 1));
+        console.log("이전");
       },
     },
   });
