@@ -171,7 +171,7 @@
   height: 42rem;
 }
 
-.project-section .project-img-box:before {
+/* .project-section .project-img-box:before {
   position: absolute;
   top: 0;
   left: 50%;
@@ -180,6 +180,19 @@
   height: 42rem;
   content: "";
   background: url(../image/tv-layer.png) no-repeat center / contain;
+
+  transform: translateX(-50%);
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.75));
+  z-index: 2;
+} */
+
+.project-section .tv-layout-wrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 40rem;
+  height: 42rem;
 
   transform: translateX(-50%);
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.75));

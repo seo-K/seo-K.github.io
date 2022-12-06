@@ -100,13 +100,12 @@ $(function () {
 
   // =========== MAIN
   // 프로젝트 터치/마우스 휠 이벤트
-  const RotateArea = document.querySelector(".wheel-slide .swiper-wrapper");
-  const RotateSlider = document.querySelectorAll(".wheel-wrap .wheel-list");
-  const RotateText = document.querySelectorAll(".wheel-slide .swiper-wrapper b");
+  const RotateArea = document.querySelector(".tv-layout-wrap");
+
   let rotateDeg = 0;
 
   function WheelEvent() {
-    let startY, endY;
+    let startX, endX;
 
     winWidth = window.innerWidth;
 
@@ -115,11 +114,11 @@ $(function () {
       RotateArea.addEventListener("mouseup", mouseEnd);
 
       function mouseStart(e) {
-        startY = e.clientY;
+        startX = e.clientX;
         e.preventDefault();
       }
       function mouseEnd(e) {
-        endY = e.clientY;
+        endX = e.clientX;
         RotateEvent();
       }
     } else {
@@ -127,64 +126,31 @@ $(function () {
       RotateArea.addEventListener("touchend", touchEnd);
 
       function touchStart(e) {
-        startY = e.touches[0].pageY;
+        startX = e.touches[0].pageX;
         e.preventDefault();
       }
 
       function touchEnd(e) {
-        endY = e.changedTouches[0].pageY;
+        endX = e.changedTouches[0].pageX;
         RotateEvent();
       }
     }
 
-    function getCurrentRotation(element, num) {
-      let st = window.getComputedStyle(element, null);
-      let tr =
-        st.getPropertyValue("-webkit-transform") ||
-        st.getPropertyValue("-moz-transform") ||
-        st.getPropertyValue("-ms-transform") ||
-        st.getPropertyValue("-o-transform") ||
-        st.getPropertyValue("transform") ||
-        "fail...";
-
-      if (tr !== "none") {
-        let values = tr.split("(")[1];
-        values = values.split(")")[0];
-        values = values.split(",");
-        let a = values[0];
-        let b = values[1];
-
-        let radians = Math.atan2(b, a);
-        let angle = Math.round(radians * (180 / Math.PI));
-      } else {
-        let angle = 0;
-      }
-
-      // works!
-      // console.log("Rotate: " + angle + "deg", num);
-
-      element.style.transform = `rotate(${angle + num}deg)`;
-    }
-
     function RotateEvent() {
-      console.log(endY - startY, "값");
-      if (endY - startY > 100) {
-        rotateDeg = rotateDeg + 36;
-        RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
-        [...RotateText].map((item) => getCurrentRotation(item, -36));
+      console.log(endX - startX, "값");
+      if (endX - startX > 100) {
         console.log("+");
-      } else if (endY - startY < 0) {
-        rotateDeg = rotateDeg - 36;
-        RotateArea.style.transform = `rotate(${rotateDeg}deg)`;
-        [...RotateText].map((item) => getCurrentRotation(item, 36));
+        swiper.slideNext();
+      } else if (endX - startX < 0) {
         console.log("-");
+        swiper.slidePrev();
       } else {
         return;
       }
     }
   }
 
-  // WheelEvent();
+  WheelEvent();
 
   /** 스와이퍼 액션 */
   let buttonRotateDeg = 90;
@@ -195,38 +161,14 @@ $(function () {
   }
 
   // Initialize Swiper
-  let projectListText = ["비타알고", "푸드잇다", "브이드림", "신도리코 해외", "엔픽셀 관리자", "신도리코샵", "요일 관리자", "국룰", "두루퍼", "쿨화이트"];
   const swiper = new Swiper(".project-img-box", {
-    // slidesPerView: 1,
     speed: 500,
     watchSlidesProgress: true,
+    effect: "fade",
     lazy: true,
     lazy: {
       loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
       loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
-    },
-    effect: "fade",
-    on: {
-      slideNextTransitionStart: function () {
-        SwiperAction(36);
-        console.log("딩,ㅁ");
-      },
-      slidePrevTransitionStart: function () {
-        SwiperAction(-36);
-      },
-    },
-  });
-
-  const swiper2 = new Swiper(".project-detail-box", {
-    mousewheel: {
-      releaseOnEdges: true,
-    },
-    watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
-    grabCursor: true, // 스와이퍼에 grab cursor
-    parallax: true,
-    speed: 900,
-    thumbs: {
-      swiper: swiper,
     },
     navigation: {
       nextEl: ".swiper-button-next",
@@ -241,7 +183,28 @@ $(function () {
         return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}</b></li>`;
       },
     },
+    on: {
+      slideNextTransitionStart: function () {
+        SwiperAction(36);
+      },
+      slidePrevTransitionStart: function () {
+        SwiperAction(-36);
+      },
+    },
   });
+
+  const swiperText = new Swiper(".project-detail-box", {
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+    watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
+    grabCursor: true, // 스와이퍼에 grab cursor
+    parallax: true,
+    speed: 900,
+  });
+
+  swiper.controller.control = swiperText;
+  swiperText.controller.control = swiper;
 
   // =========== Contact Section
 
