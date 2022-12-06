@@ -99,58 +99,6 @@ $(function () {
   });
 
   // =========== MAIN
-  // projectList click Event + modal
-  const projectList = document.querySelectorAll(".project-list-wrap > li");
-  const projectTextList = document.querySelectorAll(".project-text-list > li");
-  const modalList = document.querySelector(".modal-wrap ");
-  const modal = document.querySelectorAll(".modal-wrap > li");
-  const CloseBtn = document.querySelectorAll(".modal .close-button");
-
-  projectList.forEach((list) => {
-    list.addEventListener("click", (e) => setActive(list));
-  });
-
-  const setActive = (el) => {
-    let index = $(el).index();
-    let projectText = [...projectTextList];
-
-    // tab
-    [...projectList].forEach((list) => list.classList.remove("active"));
-    el.classList.add("active");
-
-    // content
-    projectText[index].scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  // Project Modal
-  const Modal = [...modal];
-  projectTextList.forEach((item) => {
-    item.addEventListener("click", () => setShowModal(item));
-  });
-
-  const setShowModal = (el) => {
-    let index = $(el).index();
-    OpenModal(index);
-  };
-  CloseBtn.forEach((item) => {
-    item.addEventListener("click", () => CloseModal());
-  });
-
-  // CloseBtn.addEventListener("click", () => console.log("first"));
-  // CloseBtn.addEventListener("click", () => CloseModal());
-
-  function OpenModal(index) {
-    modalList.style.display = "grid";
-    Modal[index].style.display = "block";
-    // scrollOff();
-  }
-
-  function CloseModal() {
-    // modalList.style.display = "none";
-    Modal.style.display = "none";
-    // scrollOn();
-  }
-
   // 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".wheel-slide .swiper-wrapper");
   const RotateSlider = document.querySelectorAll(".wheel-wrap .wheel-list");
@@ -190,8 +138,8 @@ $(function () {
     }
 
     function getCurrentRotation(element, num) {
-      var st = window.getComputedStyle(element, null);
-      var tr =
+      let st = window.getComputedStyle(element, null);
+      let tr =
         st.getPropertyValue("-webkit-transform") ||
         st.getPropertyValue("-moz-transform") ||
         st.getPropertyValue("-ms-transform") ||
@@ -200,16 +148,16 @@ $(function () {
         "fail...";
 
       if (tr !== "none") {
-        var values = tr.split("(")[1];
+        let values = tr.split("(")[1];
         values = values.split(")")[0];
         values = values.split(",");
-        var a = values[0];
-        var b = values[1];
+        let a = values[0];
+        let b = values[1];
 
-        var radians = Math.atan2(b, a);
-        var angle = Math.round(radians * (180 / Math.PI));
+        let radians = Math.atan2(b, a);
+        let angle = Math.round(radians * (180 / Math.PI));
       } else {
-        var angle = 0;
+        let angle = 0;
       }
 
       // works!
@@ -239,38 +187,17 @@ $(function () {
   // WheelEvent();
 
   /** 스와이퍼 액션 */
-  function SwiperAction(element, num) {
-    var Slider = window.getComputedStyle(element, null);
-    var RotateValue = Slider.getPropertyValue("--rotate") || "fail...";
-
-    let newTr = Number(RotateValue) + num;
-    element.style.setProperty("--rotate", newTr);
+  let buttonRotateDeg = 90;
+  function SwiperAction(num) {
+    const rotateButton = document.querySelector(".project-open-button");
+    buttonRotateDeg = buttonRotateDeg + num;
+    rotateButton.style.transform = `translate(-50%, -70%) rotate(${buttonRotateDeg}deg)`;
   }
 
   // Initialize Swiper
-  // const swiper = new Swiper(".wheel-slide", {
-  //   allowTouchMove: true,
-  //   spaceBetween: 0,
-  //   slidesPerView: 1,
-  //   freeMode: true,
-  //   watchSlidesProgress: true,
-  //   // direction: "vertical",
-  //   // mousewheel: true,
-  //   navigation: {
-  //     nextEl: ".swiper-button-next",
-  //     prevEl: ".swiper-button-prev",
-  //   },
-  //   breakpoints: {
-  //     1200: {
-  //       allowTouchMove: false,
-  //     },
-  //   },
-  // });
-
   let projectListText = ["비타알고", "푸드잇다", "브이드림", "신도리코 해외", "엔픽셀 관리자", "신도리코샵", "요일 관리자", "국룰", "두루퍼", "쿨화이트"];
   const swiper = new Swiper(".project-img-box", {
-    spaceBetween: 10,
-    slidesPerView: 1,
+    // slidesPerView: 1,
     speed: 500,
     watchSlidesProgress: true,
     lazy: true,
@@ -278,23 +205,26 @@ $(function () {
       loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
       loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
     },
-    effect: "creative",
-    creativeEffect: {
-      prev: {
-        translate: ["-100%", "50%", -400],
+    effect: "fade",
+    on: {
+      slideNextTransitionStart: function () {
+        SwiperAction(36);
+        console.log("딩,ㅁ");
       },
-      next: {
-        translate: ["100%", "50%", 0],
+      slidePrevTransitionStart: function () {
+        SwiperAction(-36);
       },
     },
   });
 
   const swiper2 = new Swiper(".project-detail-box", {
-    direction: "vertical",
-    autoHeight: true,
-    mousewheel: true,
+    mousewheel: {
+      releaseOnEdges: true,
+    },
     watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
+    parallax: true,
+    speed: 900,
     thumbs: {
       swiper: swiper,
     },
@@ -304,40 +234,18 @@ $(function () {
     },
     pagination: {
       el: ".wheel-wrap",
-      // type: "custom",
       bulletActiveClass: "active",
       bulletClass: "wheel-list",
-      clickable: true,
-
+      // clickable: true,
       renderBullet: function (index, className) {
-        return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}. ${projectListText[index]} </b></li>`;
-      },
-    },
-
-    on: {
-      slideNextTransitionStart: function () {
-        [...RotateSlider].map((item) => SwiperAction(item, -1));
-        console.log("딤");
-      },
-      slidePrevTransitionStart: function () {
-        [...RotateSlider].map((item) => SwiperAction(item, 1));
-        console.log("이전");
+        return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}</b></li>`;
       },
     },
   });
 
   // =========== Contact Section
-  // const
-  // const password = document.querySelector(".");
 
-  // const helperText = {
-  //   charLength: document.querySelector("#pwChar"),
-  //   lowercase: document.querySelector("#pwLower"),
-  //   uppercase: document.querySelector("#pwCap"),
-  //   number: document.querySelector("#pwNum"),
-  // };
-
-  // =========== Modal
+  // =========== Cursor
   const customCursor = document.querySelector(".custom-cursor");
 
   document.addEventListener("mousemove", (e) => {

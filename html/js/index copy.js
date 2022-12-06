@@ -846,3 +846,78 @@ $(function () {
     window.scrollTo(0, 0);
   });
 });
+
+/** 스와이퍼 액션 */
+function SwiperAction(element, num) {
+  let Slider = window.getComputedStyle(element, null);
+  let RotateValue = Slider.getPropertyValue("--rotate") || "fail...";
+
+  let newTr = Number(RotateValue) + num;
+  element.style.setProperty("--rotate", newTr);
+}
+
+// 스와이퍼 pagination 커스텀
+let projectListText = ["비타알고", "푸드잇다", "브이드림", "신도리코 해외", "엔픽셀 관리자", "신도리코샵", "요일 관리자", "국룰", "두루퍼", "쿨화이트"];
+const swiper = new Swiper(".project-img-box", {
+  // slidesPerView: 1,
+  speed: 500,
+  watchSlidesProgress: true,
+  lazy: true,
+  lazy: {
+    loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
+    loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
+  },
+  effect: "fade",
+  on: {
+    slideNextTransitionStart: function () {
+      console.log("딤");
+      [...RotateSlider].map((item) => SwiperAction(item, -1));
+    },
+    slidePrevTransitionStart: function () {
+      console.log("이전");
+      [...RotateSlider].map((item) => SwiperAction(item, 1));
+    },
+  },
+});
+
+const swiper2 = new Swiper(".project-detail-box", {
+  // direction: "vertical",
+  // autoHeight: true,
+  mousewheel: true,
+  watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
+  grabCursor: true, // 스와이퍼에 grab cursor
+  parallax: true,
+  speed: 900,
+  thumbs: {
+    swiper: swiper,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".wheel-wrap",
+    bulletActiveClass: "active",
+    bulletClass: "wheel-list",
+    clickable: true,
+
+    renderBullet: function (index, className) {
+      return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}</b></li>`;
+      // return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}. ${projectListText[index]} </b></li>`;
+    },
+  },
+  on: {
+    slideNextTransitionStart: function () {
+      console.log("딤");
+      [...RotateSlider].map((item) => SwiperAction(item, -1));
+    },
+    slidePrevTransitionStart: function () {
+      console.log("이전");
+      [...RotateSlider].map((item) => SwiperAction(item, 1));
+    },
+    slideChange: function () {
+      let index = this.activeIndex;
+      console.log(index);
+    },
+  },
+});
