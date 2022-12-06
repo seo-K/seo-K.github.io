@@ -137,13 +137,11 @@ $(function () {
     }
 
     function RotateEvent() {
-      console.log(endX - startX, "값");
+      // console.log(endX - startX, "값");
       if (endX - startX > 100) {
-        console.log("+");
-        swiper.slideNext();
-      } else if (endX - startX < 0) {
-        console.log("-");
         swiper.slidePrev();
+      } else if (endX - startX < 0) {
+        swiper.slideNext();
       } else {
         return;
       }
@@ -155,12 +153,13 @@ $(function () {
   /** 스와이퍼 액션 */
   let buttonRotateDeg = 90;
   function SwiperAction(num) {
-    const rotateButton = document.querySelector(".project-open-button");
+    const rotateButton = document.querySelector(".switch-button");
     buttonRotateDeg = buttonRotateDeg + num;
     rotateButton.style.transform = `translate(-50%, -70%) rotate(${buttonRotateDeg}deg)`;
   }
 
   // Initialize Swiper
+  let arr = [0];
   const swiper = new Swiper(".project-img-box", {
     speed: 500,
     watchSlidesProgress: true,
@@ -184,12 +183,26 @@ $(function () {
       },
     },
     on: {
-      slideNextTransitionStart: function () {
-        SwiperAction(36);
+      slideChange: function () {
+        let currentIndex = this.activeIndex;
+        const lastIndex = arr[arr.length - 1];
+
+        arr.push(currentIndex);
+
+        if (currentIndex > lastIndex) {
+          SwiperAction(36);
+        } else {
+          SwiperAction(-36);
+        }
       },
-      slidePrevTransitionStart: function () {
-        SwiperAction(-36);
-      },
+      // slideNextTransitionStart: function () {
+      //   SwiperAction(36);
+      //   console.log("두분되는듯");
+      // },
+      // slidePrevTransitionStart: function () {
+      //   SwiperAction(-36);
+      //   console.log("마이너스");
+      // },
     },
   });
 
@@ -239,4 +252,6 @@ $(function () {
   TopButton.addEventListener("click", function () {
     window.scrollTo(0, 0);
   });
+
+  document.querySelector(".project-img-box  li").addEventListener("click", () => console.log("first"));
 });
