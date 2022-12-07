@@ -131,6 +131,8 @@
   padding: 2rem 3rem;
   overflow: hidden;
   transition: all 0.5s;
+
+  transform: translate(-100%, 0);
 }
 
 .skill-section .right-box h3 {
@@ -437,20 +439,22 @@
   z-index: 10;
 }
 
-.project-section .project-title i {
-  font-size: 1.5rem;
-  margin-left: 1rem;
-
-  vertical-align: bottom;
-}
-
 .project-section .project-skill {
   position: relative;
-  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
-.project-section .project-skill:after {
+.project-section .project-skill li {
+  font-size: 1.2rem;
+}
+
+.project-section .project-skill li + li {
+  margin-left: 0.7rem;
+}
+
+/* .project-section .project-skill:after {
   position: absolute;
   top: -1rem;
   left: 0;
@@ -460,7 +464,7 @@
 
   background-color: rgba(13, 13, 13, 0.1);
   z-index: 10;
-}
+} */
 
 .project-section .project-desc {
   font-family: "Gangwon", sans-serif;

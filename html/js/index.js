@@ -42,6 +42,9 @@ $(function () {
   });
 
   // =========== HEADER
+  const logo = document.querySelector(".top-content");
+  const logoHeight = document.querySelector(".top-content").clientHeight;
+
   /** Logo Scroll event (scale + opacity animation) */
   function onScroll() {
     let value = 1 - window.scrollY / 500;
@@ -51,8 +54,6 @@ $(function () {
       logo.style.opacity = value;
     }
   }
-  const logo = document.querySelector(".top-content");
-  const logoHeight = document.querySelector(".top-content").clientHeight;
 
   //   const passiveEvent = passiveEventSupported
   //   ? { capture: false, passive: true }
@@ -99,10 +100,22 @@ $(function () {
   });
 
   // =========== MAIN
+  // 스킬 스크롤 이벤트
+  const SkillList = document.querySelectorAll(".skill-section .right-box");
+  const screenHeight = screen.availHeight;
+
+  function Scroll2(element) {
+    let skillList = element.getBoundingClientRect();
+    let overValue = skillList.top - screenHeight;
+    if (overValue <= -100) {
+      let newValue = ((1 - overValue) / skillList.height) * 100 - 100;
+      element.style.transform = ` translateX(${newValue < 0 ? newValue : 0}%)`;
+    } else return;
+  }
+  window.addEventListener("scroll", () => [...SkillList].map((item) => Scroll2(item)));
+
   // 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".tv-layout-wrap");
-
-  let rotateDeg = 0;
 
   function WheelEvent() {
     let startX, endX;
@@ -154,7 +167,8 @@ $(function () {
   let buttonRotateDeg = 90;
   function SwiperAction(num) {
     const rotateButton = document.querySelector(".switch-button");
-    buttonRotateDeg = buttonRotateDeg + num;
+    // buttonRotateDeg = buttonRotateDeg + num;
+    buttonRotateDeg += num;
     rotateButton.style.transform = `translate(-50%, -70%) rotate(${buttonRotateDeg}deg)`;
   }
 
@@ -213,7 +227,7 @@ $(function () {
     watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
     parallax: true,
-    speed: 900,
+    // speed: 900,
   });
 
   swiper.controller.control = swiperText;
