@@ -27,15 +27,6 @@
   margin-bottom: 5rem;
 }
 
-.info-section .image {
-  shape-outside: circle(50%);
-  width: 200px;
-  height: 200px;
-
-  overflow: hidden;
-  border-radius: 50%;
-}
-
 .info-section .fa-snowboarding {
   animation: snowboarding 5s linear infinite alternate;
   transition: all 0.2s;
@@ -59,10 +50,9 @@
 /* SKILL SECTION */
 .skill-section .skill-list-wrap li {
   display: flex;
-  height: 20rem;
+  min-height: 20rem;
 
   border: 2px solid var(--purple);
-  background-color: var(--black);
 
   border-radius: 4rem;
 }
@@ -88,10 +78,9 @@
 }
 
 .skill-section .skill-icon {
-  width: 5rem;
   font-size: 3rem;
 
-  margin-right: 0.375rem;
+  margin-right: 2rem;
 }
 
 .skill-icon i {
@@ -180,6 +169,10 @@
   transform: translateX(-50%);
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.75));
   z-index: 2;
+}
+
+.project-section .swiper-wrapper {
+  z-index: 1;
 }
 
 .project-section .project-img {
@@ -317,7 +310,6 @@
 
   width: 2.5rem;
   height: 2.5rem;
-  font-size: 2rem;
   margin-top: 0;
 
   background: url(../image/common/switch.png) no-repeat center / contain;
@@ -420,11 +412,18 @@
   z-index: 10;
 }
 
+.project-section .project-desc {
+  font-family: "Gangwon", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  margin-bottom: 3rem;
+}
+
 .project-section .project-skill {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
 .project-section .project-skill li {
@@ -433,26 +432,6 @@
 
 .project-section .project-skill li + li {
   margin-left: 0.7rem;
-}
-
-/* .project-section .project-skill:after {
-  position: absolute;
-  top: -1rem;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  content: "";
-
-  background-color: rgba(13, 13, 13, 0.1);
-  z-index: 10;
-} */
-
-.project-section .project-desc {
-  font-family: "Gangwon", sans-serif;
-  font-size: 1.5rem;
-  line-height: 1.5;
-
-  overflow-y: auto;
 }
 
 /* CONTACT SECTION */
@@ -481,8 +460,6 @@
 .contact-section .contact-title-box h2 {
   position: sticky;
   top: 0;
-
-  font-size: 2rem;
 }
 
 .contact-section .contact-form-box {
@@ -544,10 +521,6 @@
   margin-top: auto;
 }
 
-.contact-section .contact-util {
-  margin-top: auto;
-}
-
 .contact-section .util-wrap {
   display: flex;
   justify-content: flex-end;
@@ -587,9 +560,270 @@
   background-color: var(--purple);
 }
 
-@media all and (max-width: 1300px) {
+@media all and (max-width: 1500px) {
+  .project-section .project-content-wrap {
+    flex-direction: column;
+  }
+
+  .project-section .project-content-wrap > article {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .project-section .project-img-box {
+    height: 30rem;
+  }
+
+  .project-section .tv-layout-wrap {
+    position: absolute;
+
+    width: 30rem;
+    height: 32rem;
+  }
+
+  .project-section .project-img {
+    top: 7.1rem;
+    width: 15.6rem;
+    height: 15rem;
+  }
+
+  .project-section .swiper-button-next,
+  .project-section .swiper-button-prev {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+  }
+
+  /* Wheel */
+  .project-section .pagination-wrap {
+    top: 8.5rem;
+    right: 22.5rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .project-section .wheel-wrap li b {
+    font-size: 0.7rem;
+  }
+
+  .project-section .switch-button {
+    top: 71%;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .project-section .project-sub-title {
+    font-size: 1.5rem;
+  }
+
+  .project-section .project-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-section .project-title:before {
+    left: -0.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .project-section .project-title:after {
+    bottom: -0.5rem;
+  }
 }
 
-@media all and (max-width: 1300px) {
-  /* WORK SECTION */
+@media all and (max-width: 768px) {
+  /* INFO SECTION */
+  .info-section .inner {
+    padding: 2rem 1.5rem;
+  }
+
+  .info-text-box-top {
+    font-size: 1.5rem;
+
+    margin-bottom: 3rem;
+  }
+
+  /* SKILL SECTION */
+  .skill-section .skill-list-wrap li {
+    /* height: 10rem; */
+
+    border-radius: 2rem;
+  }
+
+  .skill-section .left-box {
+    width: 60%;
+
+    border-radius: 2rem;
+    padding: 2rem 1.5rem;
+    margin-right: 0.375rem;
+  }
+
+  .skill-section .skill-icon {
+    font-size: 2rem;
+
+    margin-right: 0;
+  }
+
+  .skill-icon i {
+    -webkit-text-fill-color: var(--purple);
+    -webkit-text-stroke-color: var(--black);
+  }
+
+  .skill-section .skill-text h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 3rem;
+  }
+
+  .skill-section .right-box {
+    border-radius: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  /* PROJECT SECTION */
+  .project-section .inner {
+    padding: 2rem 1.5rem;
+  }
+
+  .project-section .project-img-box {
+    height: 21rem;
+  }
+
+  .project-section .tv-layout-wrap {
+    position: absolute;
+
+    width: 20rem;
+    height: 21rem;
+  }
+
+  .project-section .project-img {
+    top: 4.8rem;
+    width: 10.5rem;
+    height: 9rem;
+  }
+
+  .project-section .swiper-button-next,
+  .project-section .swiper-button-prev {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+  }
+
+  /* Wheel */
+  .project-section .pagination-wrap {
+    top: 5.5rem;
+    right: 6rem;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    transform: rotateY(0) translateX(50%);
+  }
+
+  .project-section .switch-button {
+    top: 73%;
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .project-section .project-sub-title {
+    font-size: 1rem;
+  }
+
+  .project-section .project-title {
+    font-size: 2rem;
+  }
+
+  .project-section .project-desc {
+    font-size: 1rem;
+    line-height: 1.3;
+
+    margin-bottom: 2rem;
+  }
+
+  .project-section .project-skill li {
+    font-size: 1rem;
+  }
+
+  .project-section .project-skill li + li {
+    margin-left: 0.5rem;
+  }
+
+  /* CONTACT SECTION */
+  .contact-section .inner {
+    flex-direction: column;
+
+    background-color: var(--purple);
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-section article {
+    padding: 0;
+    border-radius: 2rem;
+  }
+
+  .contact-section .contact-title-box {
+    width: 100%;
+    margin-right: 0;
+
+    padding: 0;
+  }
+
+  .contact-section .contact-form-box {
+    background-color: transparent;
+
+    margin-top: 3rem;
+  }
+
+  .contact-form-box .form-input {
+    margin-bottom: 3rem;
+  }
+
+  .contact-form-box .input-wrap {
+    border-color: var(--black);
+    border-radius: 50px;
+
+    padding: 1rem 1.5rem;
+  }
+
+  .contact-form-box .input-wrap label {
+    color: var(--black);
+  }
+
+  .contact-form-box .input-wrap input:not(:placeholder-shown) {
+    border-color: var(--black);
+  }
+
+  .contact-form-box .input-wrap textarea {
+    margin-top: 0.5rem;
+  }
+
+  .contact-section .util-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .contact-section .util-wrap a {
+    width: 4.2rem;
+    height: 3.4rem;
+    font-size: 2rem;
+
+    border: 4px solid #1b1a19;
+  }
+
+  .contact-section .util-wrap a:hover {
+    background-color: #1b1a19;
+    color: var(--white);
+  }
+
+  .contact-section .util-wrap li + li {
+    margin-left: 0.8rem;
+  }
+
+  .contact-section .send-button {
+    font-size: 1.5rem;
+
+    padding: 0.8rem;
+
+    border: 4px solid var(--black);
+  }
 }

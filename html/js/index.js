@@ -1,32 +1,13 @@
 // AOS
 AOS.init();
 
-//기본 세팅
-// common a
 $(function () {
+  // =========== COMMON
   /*모든 a태그*/
   $('a[href="#"]').click(function (e) {
     e.preventDefault();
   });
 
-  // 팝업용 함수
-  // body 스크롤 막음
-  function scrollOff() {
-    $("body")
-      .addClass("scrollOff")
-      .on("scroll touchmove mousewheel", function (e) {
-        e.stopPropagation();
-      });
-  }
-
-  // body 스크롤 풀기
-  function scrollOn() {
-    $("body").removeClass("scrollOff").off("scroll touchmove mousewheel");
-  } // 팝업용 함수 END
-}); //기본 세팅 END
-
-$(function () {
-  // =========== COMMON
   // 젤리 폰트
   const EachText = document.querySelectorAll(".jelly-text > span");
 
@@ -40,6 +21,21 @@ $(function () {
       });
     }
   });
+
+  // 눈오는 효과
+  function createSnow() {
+    const el = document.createElement("div");
+    el.classList.add("snow");
+    el.style.marginLeft = randomPosition() + "px";
+    el.innerText = "❄";
+    document.querySelector(".snow-wrap").appendChild(el);
+  }
+  function randomPosition() {
+    return Math.floor(Math.random() * window.innerWidth);
+  }
+  for (let i = 0; i < 500; i++) {
+    createSnow();
+  }
 
   // ========= 다크모드
   const userTheme = localStorage.getItem("color-theme"); // 유저가 localStorage에 저장한테마가 있는지 확인

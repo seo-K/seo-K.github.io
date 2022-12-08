@@ -2,9 +2,7 @@
 
 /* 공통 CSS */
 .scrollOff {
-  height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
-  min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
   touch-action: none !important;
   overflow: hidden !important;
@@ -47,6 +45,8 @@ h2:after {
   border: 2px solid #65c0e7;
 
   padding: 0.375rem;
+
+  z-index: 10;
 }
 
 [color-theme="dark"] .theme-mode {
@@ -172,6 +172,101 @@ h2:after {
   }
 }
 
+/* snow */
+.snow-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.snow {
+  /* width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%; */
+  font-size: 1.2rem;
+
+  opacity: 0;
+  color: var(--white);
+  animation: snowing 10s linear infinite;
+}
+
+.snow:nth-of-type(2n) {
+  font-size: 1rem;
+
+  animation: snowing2 7s 1s linear infinite;
+}
+
+.snow:nth-of-type(2n + 1) {
+  font-size: 1.5rem;
+
+  animation-delay: 2s;
+  animation-duration: 8s;
+}
+
+.snow:nth-of-type(5n) {
+  animation: snowing2 7s 6s linear infinite;
+}
+
+.snow:nth-of-type(9n) {
+  animation-delay: 4s;
+  animation-duration: 7s;
+}
+
+@keyframes snowing {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-1rem, 20vh);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(1rem, 40vh);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-1rem, 60vh);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 80vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes snowing2 {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(1rem, 20vh);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-2rem, 40vh);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(1rem, 60vh);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 80vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100vh);
+  }
+}
+
 /* HEADER */
 #header .top-content {
   display: flex;
@@ -259,7 +354,7 @@ h2:after {
   height: 60vh;
   min-height: 10rem;
 
-  padding: 0.375rem;
+  padding: 0.375rem 0.375rem 0 0.375rem;
 }
 
 #header .bottom-content > .menu-container {
@@ -498,7 +593,7 @@ h2:after {
 }
 
 #header .card-float-text span {
-  animation: floatText 5s infinite linear;
+  animation: floatText 10s infinite linear;
 }
 
 /* not orange-card */
@@ -694,10 +789,14 @@ footer .top-button:hover {
   display: block;
 }
 
-@media all and (max-width: 1300px) {
+@media all and (max-width: 1500px) {
+  .jelly-text span {
+    font-size: 4rem;
+    letter-spacing: -3px;
+  }
 }
 
-@media all and (max-width: 820px) {
+@media all and (max-width: 768px) {
   h2:before {
     font-size: 1rem;
     margin-top: -1rem;
@@ -753,8 +852,6 @@ footer .top-button:hover {
     flex-direction: column;
     height: auto;
     min-height: 10rem;
-
-    padding: 0.375rem;
   }
 
   #header .bottom-content > .menu-container {
@@ -840,10 +937,6 @@ footer .top-button:hover {
     font-size: 2rem;
   }
 
-  #header .card-float-text span {
-    animation: floatText 10s infinite linear;
-  }
-
   #header .menu-card.orange-card:hover .card-bottom {
     position: unset;
     top: unset;
@@ -864,7 +957,7 @@ footer .top-button:hover {
   }
 
   .inner {
-    border-radius: 3rem;
+    border-radius: 2rem;
   }
 
   /* FOOTER */

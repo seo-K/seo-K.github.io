@@ -335,7 +335,6 @@ body {
   letter-spacing: normal;
   -webkit-tap-highlight-color: transparent;
 
-  /* background-color: #fff; */
   background-color: var(--black);
   color: var(--black);
   scroll-behavior: smooth;
@@ -434,11 +433,6 @@ textarea::placeholder {
   display: none;
 }
 
-@media all and (max-width: 1920px) {
-  body {
-  }
-}
-
 @media all and (max-width: 1500px) {
   .tablet-only {
     display: block;
@@ -450,7 +444,7 @@ textarea::placeholder {
 
 @media all and (max-width: 768px) {
   body {
-    overflow-y: auto;
+    font-size: 0.8rem;
   }
 
   .pc-only,
