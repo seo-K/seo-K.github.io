@@ -6,20 +6,23 @@
   --beige: #f5e1be;
   --orange: #f37925;
   --purple: #c0a8e6;
-  --black: #ddd;
+  --lightPurple: #eeebf2;
+  --white: #fafbfc;
   --blue: #49a3a7;
-  --white: #1b1a19;
+  --black: #1b1a19;
 }
 
 :root[color-theme="dark"] {
   --skyblue: #91c3ce;
-  --yellow: #fac670;
-  --beige: #f5e1be;
-  --orange: #f37925;
-  --purple: #c0a8e6;
-  --black: #1b1a19;
+  --yellow: #f7b954;
+  --beige: #f3d49e;
+  --orange: #f77016;
+  --purple: #956fd2;
+  --lightPurple: #c0a8e6;
+  --white: #1b1a19;
   --blue: #49a3a7;
-  --white: #fff;
+  /* --black: #1e1f21; */
+  --black: #fafbfc;
 }
 
 @font-face {
@@ -261,7 +264,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px var(--beige) inset;
+  -webkit-box-shadow: 0 0 0 30px var(--lightPurple) inset;
 }
 
 input,
@@ -335,7 +338,7 @@ body {
   letter-spacing: normal;
   -webkit-tap-highlight-color: transparent;
 
-  background-color: var(--black);
+  background-color: var(--white);
   color: var(--black);
   scroll-behavior: smooth;
 }
@@ -370,11 +373,11 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #fff;
+  background-color: var(--black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--black);
+  background-color: var(--white);
   border-radius: 3px;
 }
 
