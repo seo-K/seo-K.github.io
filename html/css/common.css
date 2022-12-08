@@ -1,12 +1,6 @@
 @charset "utf-8";
 
 /* 공통 CSS */
-.scrollOff {
-  height: calc(var(--vh, 1vh) * 100);
-  min-height: calc(var(--vh, 1vh) * 100);
-  touch-action: none !important;
-  overflow: hidden !important;
-}
 
 h2 {
   position: relative;
@@ -32,6 +26,22 @@ h2:after {
   bottom: -1rem;
 }
 
+/* LOADER */
+#loader {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #0101e0;
+
+  z-index: 20;
+}
+
+/* DARK MODE */
 .theme-mode {
   position: fixed;
   top: 1rem;
@@ -661,9 +671,6 @@ h2:after {
 }
 
 /* MAIN */
-#main {
-}
-
 #main > section {
   position: relative;
 }
@@ -719,34 +726,95 @@ footer .top-button {
   position: fixed;
   width: 2rem;
   height: 2rem;
-  background-color: transparent;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: background ease-in 10ms, box-shadow ease-in 150ms, transform ease-in 150ms;
-  transform: translate3d(0, 0, 0);
-  border: 2px solid var(--beige);
 
   display: grid;
   place-content: center;
-  background-color: var(--white);
+
+  pointer-events: none;
+  transition: background ease-in 10ms, box-shadow ease-in 150ms, transform ease-in 150ms;
+  transform: translate3d(0, 0, 0);
+  border-radius: 50%;
+  border: 2px solid var(--beige);
+  background-color: var(--black);
   transition: width 0.4s, height 0.4s;
 
   mix-blend-mode: difference;
   z-index: 5;
 }
-.custom-cursor.active {
-  width: 4rem;
-  height: 4rem;
 
-  background-color: var(--orange);
+.custom-cursor:after {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0.4rem;
+  content: "";
+
+  width: 0;
+  height: 2px;
+  border-radius: 0;
+  background: var(--orange);
+
+  transition: all 0.5s;
 }
 
-.custom-cursor span {
+.cursor-arrow:after,
+.cursor-arrow:before {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0.8rem;
+
+  width: 0.7rem;
+  height: 2px;
+  content: "";
+
+  background: var(--orange);
+
+  transition: 0.7s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: right;
+  transform: scaleY(0) rotate(0deg);
+  z-index: 9;
+}
+
+.custom-cursor .cursor-word {
   display: none;
 }
 
-.custom-cursor.active span {
+.custom-cursor.active .cursor-word {
   display: block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+
+  animation: rotateAnimation 10s linear infinite;
+}
+
+.custom-cursor.active:after {
+  width: 1.1rem;
+}
+
+.custom-cursor.active .cursor-arrow:after {
+  transform: scaleY(1) rotate(45deg);
+}
+.custom-cursor.active .cursor-arrow:before {
+  transform: scaleY(1) rotate(-45deg);
+}
+
+@keyframes rotateAnimation {
+  form {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-cursor .cursor-word span {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 50%;
+
+  transform: rotate(calc(40deg * var(--rotate)));
+  transform-origin: bottom left;
 }
 
 @media all and (max-width: 1500px) {

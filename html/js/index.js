@@ -8,6 +8,15 @@ $(function () {
     e.preventDefault();
   });
 
+  // 로딩 기능
+  window.onbeforeunload = function () {
+    $("#loader").show();
+  }; //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+  $(window).on("load", function () {
+    //페이지가 로드 되면 로딩 화면을 없애주는 것
+    $("#loader").hide();
+  });
+
   // 젤리 폰트
   const EachText = document.querySelectorAll(".jelly-text > span");
 
@@ -33,7 +42,7 @@ $(function () {
   function randomPosition() {
     return Math.floor(Math.random() * window.innerWidth);
   }
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 300; i++) {
     createSnow();
   }
 
@@ -44,7 +53,7 @@ $(function () {
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
   }
-  const themeSwitch = document.querySelector(".theme-mode button"); // 다크모드 스위치
+  const themeSwitch = document.querySelector(".theme-mode"); // 다크모드 스위치
 
   if (getUserTheme() === "dark") {
     DarkMode();
@@ -65,14 +74,14 @@ $(function () {
     localStorage.setItem("color-theme", "dark");
     document.documentElement.setAttribute("color-theme", "dark");
     themeSwitch.setAttribute("data-theme", "light");
-    themeSwitch.innerText = "라이트 모드";
+    // themeSwitch.innerText = "라이트 모드";
   }
 
   function LightMode() {
     localStorage.setItem("color-theme", "light");
     document.documentElement.setAttribute("color-theme", "light");
     themeSwitch.setAttribute("data-theme", "dark");
-    themeSwitch.innerText = "다크모드";
+    // themeSwitch.innerText = "다크모드";
   }
 
   // =========== HEADER
@@ -314,10 +323,10 @@ $(function () {
       customCursor.classList.remove("inactive");
     }
   }
-  // const projectImg = document.querySelector(".modal .project-img");
+  // const projectImg = document.querySelectorAll("a");
 
-  // projectImg.addEventListener("mouseover", disableAnimation);
-  // projectImg.addEventListener("mouseleave", disableAnimation);
+  // [...projectImg].addEventListener("mouseover", disableAnimation);
+  // [...projectImg].addEventListener("mouseleave", disableAnimation);
 
   // Top Button
   const TopButton = document.querySelector(".top-button");
