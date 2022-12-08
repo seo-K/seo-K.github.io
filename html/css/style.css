@@ -138,6 +138,8 @@
   background-color: var(--orange);
 
   padding: 2rem;
+
+  color: #fff;
 }
 
 .project-section .project-content-wrap {
@@ -490,8 +492,8 @@
   flex-direction: column;
   width: 100%;
 
-  background-color: var(--beige);
-  border: 1px solid var(--orange);
+  background-color: #eeebf2;
+  border: 1px solid var(--black);
   border-radius: 50px;
 
   padding: 1rem 2rem;
@@ -499,18 +501,18 @@
 }
 
 .contact-form-box .input-wrap label {
-  color: var(--orange);
+  color: var(--black);
 }
 
 .contact-form-box .input-wrap input {
-  background-color: var(--beige);
+  background-color: #eeebf2;
 
   margin-top: 0.5rem;
   padding: 0.3rem 0;
 }
 
 .contact-form-box .input-wrap input:not(:placeholder-shown) {
-  border-bottom: 1px solid var(--orange);
+  border-bottom: 1px solid var(--black);
 }
 
 .contact-form-box .input-wrap textarea {
@@ -557,7 +559,7 @@
   padding: 1rem 2rem;
 
   border-radius: 50px;
-  background-color: var(--purple);
+  background-color: #eeebf2;
 }
 
 @media all and (max-width: 1500px) {
@@ -780,18 +782,7 @@
   }
 
   .contact-form-box .input-wrap {
-    border-color: var(--black);
-    border-radius: 50px;
-
     padding: 1rem 1.5rem;
-  }
-
-  .contact-form-box .input-wrap label {
-    color: var(--black);
-  }
-
-  .contact-form-box .input-wrap input:not(:placeholder-shown) {
-    border-color: var(--black);
   }
 
   .contact-form-box .input-wrap textarea {
@@ -802,19 +793,6 @@
     margin-bottom: 1rem;
   }
 
-  .contact-section .util-wrap a {
-    width: 4.2rem;
-    height: 3.4rem;
-    font-size: 2rem;
-
-    border: 4px solid #1b1a19;
-  }
-
-  .contact-section .util-wrap a:hover {
-    background-color: #1b1a19;
-    color: var(--white);
-  }
-
   .contact-section .util-wrap li + li {
     margin-left: 0.8rem;
   }
@@ -823,7 +801,5 @@
     font-size: 1.5rem;
 
     padding: 0.8rem;
-
-    border: 4px solid var(--black);
   }
 }

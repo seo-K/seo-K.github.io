@@ -708,53 +708,6 @@ footer .top-button {
   transition: all 0.1s 0.6s;
 }
 
-footer .top-button:after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-  content: "";
-
-  background-color: var(--white);
-  color: var(--black);
-
-  transition: all 0.6s;
-}
-
-/* footer .top-button:before {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  line-height: 17rem;
-  font-family: "Font Awesome 5 Free";
-  content: "\f062";
-  vertical-align: middle;
-  font-weight: 900;
-
-  transition: all 0.4s 0.2s;
-  color: var(--black);
-  z-index: 1;
-} */
-
-footer .top-button:hover:after,
-footer .top-button:hover:before {
-  top: 0;
-  z-index: -1;
-}
-
-footer .top-button:hover {
-  position: relative;
-  color: var(--black);
-
-  z-index: 0;
-}
-
 .custom-cursor {
   position: fixed;
   width: 2rem;
@@ -962,7 +915,6 @@ footer .top-button:hover {
 
   /* FOOTER */
   footer {
-    width: 100%;
     height: 10rem;
   }
 
@@ -973,6 +925,7 @@ footer .top-button:hover {
   footer .top-button {
     font-size: 3rem;
   }
+
   .custom-cursor {
     display: none;
   }
