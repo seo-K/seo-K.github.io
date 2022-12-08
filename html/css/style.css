@@ -57,12 +57,6 @@
 }
 
 /* SKILL SECTION */
-.skill-section {
-}
-
-.skill-section .skill-list-wrap {
-}
-
 .skill-section .skill-list-wrap li {
   display: flex;
   height: 20rem;
@@ -151,9 +145,6 @@
 }
 
 /* PROJECT SECTION */
-.project-section {
-}
-
 .project-section .inner {
   background-color: var(--orange);
 
@@ -177,21 +168,6 @@
   position: relative;
   height: 42rem;
 }
-
-/* .project-section .project-img-box:before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-
-  width: 40rem;
-  height: 42rem;
-  content: "";
-  background: url(../image/tv-layer.png) no-repeat center / contain;
-
-  transform: translateX(-50%);
-  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.75));
-  z-index: 2;
-} */
 
 .project-section .tv-layout-wrap {
   position: absolute;
@@ -609,6 +585,9 @@
 
   border-radius: 50px;
   background-color: var(--purple);
+}
+
+@media all and (max-width: 1300px) {
 }
 
 @media all and (max-width: 1300px) {
