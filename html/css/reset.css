@@ -6,8 +6,20 @@
   --beige: #f5e1be;
   --orange: #f37925;
   --purple: #c0a8e6;
+  --black: #ddd;
+  --blue: #49a3a7;
+  --white: #1b1a19;
+}
+
+:root[color-theme="dark"] {
+  --skyblue: #91c3ce;
+  --yellow: #fac670;
+  --beige: #f5e1be;
+  --orange: #f37925;
+  --purple: #c0a8e6;
   --black: #1b1a19;
   --blue: #49a3a7;
+  --white: #fff;
 }
 
 @font-face {

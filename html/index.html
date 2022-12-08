@@ -54,6 +54,9 @@
 
   <body>
     <div id="content-wrap">
+      <div class="theme-mode">
+        <button type="button"></button>
+      </div>
       <!-- start : header -->
       <header id="header">
         <div class="header-inner">
@@ -190,7 +193,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="right-box first">
+                <div class="right-box" data-delay="200">
                   <div class="text">
                     <p>I have</p>
                     <h3>Experience</h3>
@@ -205,7 +208,7 @@
                     <p>React 도 배우고 three js에 관심이있고, 항상 google에서 올라오는 신기술을 주의깊게 보고 응용하고있습니다.</p>
                   </div>
                 </div>
-                <div class="right-box">
+                <div class="right-box" data-delay="400">
                   <div class="text">
                     <p>I enjoy</p>
                     <h3>Learning</h3>
@@ -213,7 +216,7 @@
                 </div>
               </li>
               <li>
-                <div class="left-box">
+                <div class="left-box" data-delay="600">
                   <div class="skill-icon"><i class="fa-brands fa-slideshare"></i></div>
                   <div class="skill-text">
                     <h3>Library</h3>
@@ -334,9 +337,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">비타민 조합 알고리즘 추천 서비스</p>
                         <p class="project-title" data-swiper-parallax="-300">비타알고</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="100"></progress>
-                        </div>
                         <p class="project-desc">
                           풀페이지 홈페이지는 어떻게 작업해야하는지 각종 디바이스에 적용해보는 과정을 겪으며 진행한 프로젝트.<br />
                           혼자서 프로젝트의 시작부터 작업하여, 기본적인 로그인, 제품리스트, 마이페이지 등의 페이지를 작업해보았고, 기본기를 더 탄탄하게
@@ -357,9 +357,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">이수그룹 농가 직거래 서비스</p>
                         <p class="project-title" data-swiper-parallax="-300">푸드잇다</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="100"></progress>
-                        </div>
                         <p class="project-desc">
                           스와이퍼 API를 사용하여 각 분기마다 반응형을 작업하거나, 기능을 추가 및 수정하는 과정을 거쳐서 만들어진 프로젝트.<br />
                           iframe을 사용하여 농가의 그래프를 삽입하였으며,<br />
@@ -379,9 +376,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">장애인 채용 플랫폼</p>
                         <p class="project-title" data-swiper-parallax="-300">브이드림</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="100"></progress>
-                        </div>
                         <p class="project-desc">
                           첫 리액트 프로젝트로 리액트가 어떻게 작동하는지 이해하는데 어려움을 겪으며, 원하는 화면을 구현하여 완성한 프로젝트.<br />
                           react-router-dom v5를 사용하여 페이지 연결 및 이동하는 기능을 작업하였고, useState를 사용하여 탭기능을 작업하였으며, map을 사용하여
@@ -401,9 +395,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">랜딩사이트</p>
                         <p class="project-title" data-swiper-parallax="-300">신도리코 해외</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="100"></progress>
-                        </div>
                         <p class="project-desc">
                           3D프린터 기업인 신도리코의 해외 랜딩페이지를 작업하였으며, 인터렉티브한 페이지를 요청하여 aos의 기능을 적극 사용하여 인터렉션 및
                           효과들을 타이밍을 맞춰가며 작업한 프로젝트.<br />
@@ -423,9 +414,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">회의실 예약 시스템</p>
                         <p class="project-title" data-swiper-parallax="-300">엔픽셀 관리자</p>
-                        <div class="project-work-value">
-                          <progress value="50" max="100"></progress>
-                        </div>
                         <p class="project-desc">
                           중앙 컨텐츠만 바뀌는 html 프로젝트로, html을 컴포넌트화 하여 완성한 프로젝트.<br />
                           하나의 html에 7페이지를 연결한 프로젝트로 각 페이지를 section으로 묶어, section의 클래스명으로 페이지이동의 느낌을 줘 작업한
@@ -442,9 +430,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">프린터 전문기업 쇼핑몰 리뉴얼</p>
                         <p class="project-title" data-swiper-parallax="-300">신도리코 쇼핑몰</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="70"></progress>
-                        </div>
                         <p class="project-desc">
                           리액트 라우터 v6을 이해하여 적용해본 프로젝트.<br />
                           리액트 협업 프로젝트로, theme-color를 사용하여 협업에 용이하게 작업하였고, 첫 라우터v6로의 작업이라 outlet 등의 새로운 기능을
@@ -463,9 +448,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">의류 플랫폼 관리 시스템</p>
                         <p class="project-title" data-swiper-parallax="-300">요일 관리자</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="100"></progress>
-                        </div>
                         <p class="project-desc">
                           이전 리액트 프로젝트와 다르게 프론트작업자분의 요청에따라 기본적인 컴포넌트를 제외한 모든 부분을 풀어서 작업한 프로젝트<br />
                           프로젝트 특성 상 기능의 추가와 제거에 따라 디자인이 다른 부분이 많아 어려움을 겪었지만 원하는 화면을 구현해냄.
@@ -481,9 +463,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">특산품 직송 및 라이브커머스</p>
                         <p class="project-title" data-swiper-parallax="-300">국룰</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="25"></progress>
-                        </div>
                         <p class="project-desc">
                           4명의 동료들과 협업하여 퍼블리싱의 기초에 집중하여 작업한 리액트 모바일 쇼핑몰 프로젝트.<br />
                           처음으로 react-slick을 사용하여 작업하였으며, 라이브쇼핑 페이지 작업 중 많은 컨텐츠들과 분기처리들에 흥미를 느꼈으며, 좋아요 클릭
@@ -501,9 +480,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">해외 취업 플랫폼</p>
                         <p class="project-title" data-swiper-parallax="-300">두루퍼</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="35"></progress>
-                        </div>
                         <p class="project-desc">chart.js, rc-slider 등 다양한 라이브러리를 사용하여 적용해 보았던 프로젝트.<br /></p>
                         <ul class="project-skill">
                           <li>React</li>
@@ -519,9 +495,6 @@
                       <div class="project-detail">
                         <p class="project-sub-title" data-swiper-parallax="-1000">세탁물 관리 시스템</p>
                         <p class="project-title" data-swiper-parallax="-300">쿨화이트</p>
-                        <div class="project-work-value">
-                          <progress value="100" max="60"></progress>
-                        </div>
                         <p class="project-skill">skill : bootstrap4/</p>
                         <p class="project-desc">
                           클라이언트의 요청에따라 부트스트랩 기반으로 프로젝트를 작업하였고, 유지보수의 용이성을위해 부트스트랩의 기능을 최대한 활용하여

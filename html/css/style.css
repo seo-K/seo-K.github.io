@@ -58,7 +58,6 @@
 
 /* SKILL SECTION */
 .skill-section {
-  color: #fff;
 }
 
 .skill-section .skill-list-wrap {
@@ -67,6 +66,11 @@
 .skill-section .skill-list-wrap li {
   display: flex;
   height: 20rem;
+
+  border: 2px solid var(--purple);
+  background-color: var(--black);
+
+  border-radius: 4rem;
 }
 
 .skill-section .skill-list-wrap li + li {
@@ -80,9 +84,8 @@
   display: flex;
   align-items: center;
 
-  color: var(--orange);
+  color: var(--purple);
 
-  background: var(--beige);
   border-radius: 4rem;
   padding: 2rem 3rem;
   margin-right: 1rem;
@@ -98,9 +101,9 @@
 }
 
 .skill-icon i {
-  -webkit-text-fill-color: var(--beige);
+  -webkit-text-fill-color: var(--black);
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--orange);
+  -webkit-text-stroke-color: var(--purple);
 }
 
 .skill-section .skill-text {
@@ -124,15 +127,17 @@
   flex: 1;
   text-align: center;
 
-  color: var(--beige);
-
-  background: var(--black);
+  background: var(--purple);
   border-radius: 4rem;
   padding: 2rem 3rem;
   overflow: hidden;
-  transition: all 0.5s;
+  transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
 
-  transform: translate(-100%, 0);
+  transform: translateX(-100%);
+}
+
+.skill-section .active.right-box {
+  transform: translateX(0%);
 }
 
 .skill-section .right-box h3 {
@@ -140,9 +145,9 @@
   margin-top: 2rem;
   font-style: italic;
 
-  -webkit-text-fill-color: var(--black);
+  -webkit-text-fill-color: var(--purple);
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--beige);
+  -webkit-text-stroke-color: var(--black);
 }
 
 /* PROJECT SECTION */
@@ -211,7 +216,7 @@
   transform: translateX(-76%) rotate(7deg);
   transform-origin: right;
   border-radius: 0.5rem;
-  background-color: #fff;
+  background-color: var(--white);
 
   overflow: hidden;
   z-index: 0;
@@ -310,8 +315,8 @@
   width: 80%;
   aspect-ratio: 1 /1;
 
-  background: #fff;
-  border: 4px solid #fff;
+  background: var(--white);
+  border: 4px solid var(--white);
   border-radius: 50%;
 
   touch-action: none;
@@ -506,7 +511,7 @@
 
 .contact-section .contact-form-box {
   flex: 1;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .contact-section form {
@@ -588,7 +593,7 @@
 
 .contact-section .util-wrap a:hover {
   background-color: #1b1a19;
-  color: #fff;
+  color: var(--white);
 }
 
 .contact-section .util-wrap li + li {

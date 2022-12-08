@@ -41,6 +41,44 @@ $(function () {
     }
   });
 
+  // ========= 다크모드
+  const userTheme = localStorage.getItem("color-theme"); // 유저가 localStorage에 저장한테마가 있는지 확인
+  const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const getUserTheme = () => (userTheme ? userTheme : osTheme); // color-theme 확인 - localStorage에 저장된게 있는지, 없으면 OS의 color-theme로 설정
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+  const themeSwitch = document.querySelector(".theme-mode button"); // 다크모드 스위치
+
+  if (getUserTheme() === "dark") {
+    DarkMode();
+  } else {
+    LightMode();
+  }
+
+  themeSwitch.addEventListener("click", function (e) {
+    let switchThemeData = e.target.getAttribute("data-theme");
+    if (switchThemeData === "dark") {
+      DarkMode();
+    } else {
+      LightMode();
+    }
+  });
+
+  function DarkMode() {
+    localStorage.setItem("color-theme", "dark");
+    document.documentElement.setAttribute("color-theme", "dark");
+    themeSwitch.setAttribute("data-theme", "light");
+    themeSwitch.innerText = "라이트 모드";
+  }
+
+  function LightMode() {
+    localStorage.setItem("color-theme", "light");
+    document.documentElement.setAttribute("color-theme", "light");
+    themeSwitch.setAttribute("data-theme", "dark");
+    themeSwitch.innerText = "다크모드";
+  }
+
   // =========== HEADER
   const logo = document.querySelector(".top-content");
   const logoHeight = document.querySelector(".top-content").clientHeight;
@@ -101,18 +139,42 @@ $(function () {
 
   // =========== MAIN
   // 스킬 스크롤 이벤트
-  const SkillList = document.querySelectorAll(".skill-section .right-box");
-  const screenHeight = screen.availHeight;
+  const observeElements = document.querySelectorAll(".skill-list-wrap .right-box");
 
-  function Scroll2(element) {
-    let skillList = element.getBoundingClientRect();
-    let overValue = skillList.top - screenHeight;
-    if (overValue <= -100) {
-      let newValue = ((1 - overValue) / skillList.height) * 100 - 100;
-      element.style.transform = ` translateX(${newValue < 0 ? newValue : 0}%)`;
-    } else return;
-  }
-  window.addEventListener("scroll", () => [...SkillList].map((item) => Scroll2(item)));
+  const options = {
+    //옵션 정의
+    threshold: 0.5, //보기에 있는 요소의 50%
+  };
+
+  const inViewCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // 사용하려는 이벤트/속성을 정의합니다.
+        entry.target.classList.add("active");
+        //요소로 무언가를 한다
+      } else {
+        entry.target.classList.remove("active");
+      }
+    });
+  };
+  let observer = new IntersectionObserver(inViewCallback, options); // 정의한 옵션을 사용하여 요소와 작업을 포함하는 콜백을 사용하여 새 인스턴스를 만듭니다.
+
+  observeElements.forEach((element) => {
+    observer.observe(element); // 옵저버 실행
+  });
+
+  // const SkillList = document.querySelectorAll(".skill-section .right-box");
+  // const screenHeight = screen.availHeight;
+
+  // function Scroll2(element) {
+  //   let skillList = element.getBoundingClientRect();
+  //   let overValue = skillList.top - screenHeight;
+  //   if (overValue <= -100) {
+  //     let newValue = ((1 - overValue) / skillList.height) * 100 - 100;
+  //     element.style.transform = ` translateX(${newValue < 0 ? newValue : 0}%)`;
+  //   } else return;
+  // }
+  // window.addEventListener("scroll", () => [...SkillList].map((item) => Scroll2(item)));
 
   // 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".tv-layout-wrap");
