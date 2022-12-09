@@ -130,7 +130,7 @@
   transform: translateX(-100%);
 }
 
-.skill-section .active.right-box {
+.skill-section li.active .right-box {
   transform: translateX(0%);
 }
 
@@ -549,9 +549,11 @@
   .skill-section .left-box {
     width: 60%;
   }
+
   .skill-section .right-box h3 {
     font-size: 2rem;
   }
+
   .project-section .project-content-wrap {
     flex-direction: column;
   }
@@ -561,8 +563,9 @@
     width: 100%;
   }
 
-  .project-section .project-img-box {
-    height: 30rem;
+  .project-section .project-content-wrap .project-img-box {
+    width: 20rem;
+    height: 22rem;
   }
 
   .project-section .tv-layout-wrap {
@@ -637,11 +640,12 @@
 
   /* SKILL SECTION */
   .skill-section .skill-list-wrap li {
+    flex-direction: column-reverse;
     border-radius: 2rem;
   }
 
   .skill-section .left-box {
-    width: 60%;
+    width: 100%;
 
     border-radius: 2rem;
     padding: 2rem 1.5rem;
@@ -649,24 +653,28 @@
 
   .skill-section .skill-icon {
     font-size: 2rem;
-
-    margin-right: 0;
-  }
-
-  .skill-icon i {
-    -webkit-text-fill-color: var(--purple);
-    -webkit-text-stroke-color: var(--white);
   }
 
   .skill-section .skill-text h3 {
     font-size: 1.2rem;
 
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .skill-section .right-box {
+    flex-direction: row;
+
     border-radius: 2rem;
     padding: 2rem 1.5rem;
+  }
+
+  .skill-section .right-box .text {
+    font-size: 1.2rem;
+  }
+
+  .skill-section .right-box h3 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
   }
 
   /* PROJECT SECTION */

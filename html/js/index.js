@@ -145,7 +145,7 @@ $(function () {
 
   // =========== MAIN
   // 스킬 스크롤 이벤트
-  const observeElements = document.querySelectorAll(".skill-list-wrap .right-box");
+  const observeElements = document.querySelectorAll(".skill-list-wrap >li");
 
   const options = {
     //옵션 정의
@@ -186,7 +186,7 @@ $(function () {
   const RotateArea = document.querySelector(".tv-layout-wrap");
 
   function WheelEvent() {
-    let startX, endX;
+    let startXY, endXY;
 
     winWidth = window.innerWidth;
 
@@ -195,11 +195,11 @@ $(function () {
       RotateArea.addEventListener("mouseup", mouseEnd);
 
       function mouseStart(e) {
-        startX = e.clientX;
+        startXY = e.clientX;
         e.preventDefault();
       }
       function mouseEnd(e) {
-        endX = e.clientX;
+        endXY = e.clientX;
         RotateEvent();
       }
     } else {
@@ -207,21 +207,21 @@ $(function () {
       RotateArea.addEventListener("touchend", touchEnd);
 
       function touchStart(e) {
-        startX = e.touches[0].pageX;
+        startXY = e.touches[0].pageY;
         e.preventDefault();
       }
 
       function touchEnd(e) {
-        endX = e.changedTouches[0].pageX;
+        endXY = e.changedTouches[0].pageY;
         RotateEvent();
       }
     }
 
     function RotateEvent() {
-      // console.log(endX - startX, "값");
-      if (endX - startX > 100) {
+      // console.log(endXY - startXY, "값");
+      if (endXY - startXY > 100) {
         swiper.slidePrev();
-      } else if (endX - startX < 0) {
+      } else if (endXY - startXY < 0) {
         swiper.slideNext();
       } else {
         return;
