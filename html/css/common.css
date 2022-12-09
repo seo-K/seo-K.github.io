@@ -26,19 +26,22 @@ h2:after {
   bottom: -1rem;
 }
 
-/* LOADER */
-#loader {
-  display: none;
+/* LOADING */
+.loading {
   position: absolute;
-  top: 0;
+  top: 0%;
   left: 0;
 
   width: 100vw;
   height: 100vh;
 
-  background-color: #0101e0;
-
+  background-color: var(--beige);
   z-index: 20;
+}
+
+.loading p {
+  font-size: 10rem;
+  letter-spacing: -5px;
 }
 
 /* DARK MODE */
@@ -47,41 +50,47 @@ h2:after {
   top: 1rem;
   right: 1rem;
 
-  width: 6rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
-  border-radius: 3rem;
-  background-color: #9cd6ef;
-  border: 2px solid #65c0e7;
+  border-radius: 50%;
+  background-color: #224f6d;
+  border: 2px solid #cad4d8;
 
-  padding: 0.375rem;
-
+  cursor: pointer;
   z-index: 10;
 }
+.theme-mode i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-[color-theme="dark"] .theme-mode {
-  background-color: #224f6d;
-  border-color: #cad4d8;
+  width: 3rem;
+  height: 3rem;
+
+  font-size: 1.8rem;
+  color: #a2b5bf;
 }
 
-.theme-mode button {
-  flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
+[color-theme="dark"] .theme-mode i {
+  color: #f9c941;
+}
+/* 
+.theme-mode:after {
+  content: "";
   border-radius: 50%;
 
-  background-color: #f4e962;
-  border: 2px solid #f9c941;
+  background-color: #cad9dd;
+  border: 2px solid #a2b5bf;
 
   padding: 1rem;
   transition: all 0.3s;
-}
+} */
 
-[color-theme="dark"] .theme-mode button {
-  background-color: #cad9dd;
-  border-color: #a2b5bf;
-
-  margin-left: auto;
+[color-theme="dark"] .theme-mode:after {
+  background-color: #f4e962;
+  border-color: #f9c941;
 }
 
 /* jelly_action */
@@ -529,14 +538,10 @@ h2:after {
   bottom: 0;
   width: 10%;
   height: 5rem;
-  background-color: var(--black);
+  background-color: #3c3c3c;
 
   opacity: 1;
   z-index: 3;
-}
-
-[color-theme="dark"] #header .card-piano li:nth-child(even) {
-  background-color: var(--white);
 }
 
 #header .card-piano li:nth-child(1) {
@@ -819,7 +824,7 @@ footer .top-button {
 
 @media all and (max-width: 1500px) {
   .jelly-text span {
-    font-size: 4rem;
+    font-size: 3.5rem;
     letter-spacing: -3px;
   }
 }
@@ -840,8 +845,6 @@ footer .top-button {
   .theme-mode {
     top: 1rem;
     right: 1rem;
-
-    width: 5rem;
 
     padding: 0.375rem;
   }
@@ -923,6 +926,10 @@ footer .top-button {
     display: flex;
     flex-direction: column-reverse;
     margin: auto;
+  }
+
+  #header .menu-row .card-bottom span:last-child {
+    margin-bottom: 0.5rem;
   }
 
   #header .card-top b {

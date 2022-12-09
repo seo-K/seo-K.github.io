@@ -53,15 +53,16 @@
 
   <body>
     <div id="content-wrap">
-      <div id="loader">Loading</div>
+      <!-- LOADING -->
+      <div class="loading">
+        <p>Loading...</p>
+      </div>
       <!-- START : HEADER -->
       <header id="header">
         <div class="snow-wrap">
           <div class="snow"></div>
         </div>
-        <div class="theme-mode">
-          <button type="button"></button>
-        </div>
+        <button class="theme-mode" type="button"><i class="fa-solid fa-moon-stars"></i></button>
         <div class="top-content">
           <h1 class="logo-wrap">
             <a href="./index.html" class="logo jelly-text">
@@ -159,18 +160,19 @@
             <h2 class="info-text-box-top"><i>About Me</i><i class="fas fa-snowboarding"></i></h2>
             <p class="jelly-text">
               <span>H</span><span>i</span><span>,</span><br />
-              <span>I</span><span>'</span><span>m</span> <span class="active-color">ㅇㅇㅇ</span><br />
+              <span>I</span><span>'</span><span>m</span> <span class="active-color">강서영</span><br />
               <span>W</span><span>e</span><span>b</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="main-word">P</span><span>u</span><span>b</span><span>l</span
               ><span>i</span><span>s</span><span>h</span><span>e</span><span>r</span><br />
-              안녕하세요! 제 이름은 강서영이고 웹 퍼블리싱을 즐깁니다. 웹 개발에 대한 관심은 2020년에 개인 판매업자로 인터넷 판매를 결정했을 때 시작되었습니다.
-              제품 상세페이지를 만들면서 HTML과 CSS에 대해 호기심이 생겼습니다. 현재로 돌아가서 저는 웹에이전시에서 1년간 일하면서 쇼핑몰, 관리자, 구인구직,
-              랜딩 사이트 등을 작업하여, Html, css, js, react, git 실력을 키우는 특권을 누렸습니다.<br />
-              요즘 저는 새롭게 추가되는 css를 익히거나 codepen을 보는 것을 좋아하며, react로 쇼핑몰 사이트를 작업하는 과정을 배우고있습니다. 다음은 제가 작업한
-              몇가지 프로젝트들 입니다.<br />
-              요즘 저의 주요 초점은 Upstatement에서 다양한 고객을 위해 접근 가능하고 포괄적인 제품과 디지털 경험을 구축하는 것입니다. 또한 최근에 Node & React를
-              사용하여 Spotify API로 웹 앱을 구축하는 데 필요한 모든 것을 다루는 과정을 시작했습니다. 다음은 제가 최근 작업 중인 몇 가지 기술입니다.
             </p>
-            <!-- <p class="description">React 버전 홈페이지로 가기</p> -->
+            <p class="info-text-box-bottom">
+              안녕하세요! 제 이름은 강서영이고 웹 퍼블리싱을 즐깁니다!<br />
+              웹 개발에 대한 관심은 2020년에 개인 판매업자로 인터넷 판매를 결정했을 때 시작되었습니다.<br />
+              제품 상세페이지를 만들면서 HTML과 CSS에 대해 호기심이 생겼습니다.<br />
+              현재로 돌아가서 저는 웹에이전시에서 1년간 일하면서 쇼핑몰, 관리자, 구인구직, 랜딩 사이트 등을 작업하여, Html, css, js, react, git 실력을 키우는
+              특권을 누렸습니다.<br />
+              요즘 저는 새롭게 추가되는 css를 익히거나 codePen을 보는 것을 좋아하며, react로 쇼핑몰 사이트를 작업하는 과정을 배우고있습니다. 다음은 제가 작업한
+              프로젝트들 입니다.<br />
+            </p>
           </div>
         </section>
         <!-- SKILL SECTION -->
@@ -184,9 +186,10 @@
                   <div class="skill-text">
                     <h3>Experience</h3>
                     <p>
-                      웹에이전시에서 1년간 일하면서 많은 기회를 얻었고, 이를 통해 많은 프로젝트와 다양한 경험을 쌓을 수 있었습니다. 다양한 사람들을 만나고
-                      협업을 통해 많은 것을 배웠습니다.<br />쇼핑몰, 관리자, 구인구직, 채팅, 랜딩, 반응형 사이트 등 다양한 홈페이지를 작업한 경험이 있으며,
-                      Html, css, js, react, git, sourcetree 등 사용하는 법을 익혔습니다.
+                      웹에이전시에서 1년간 일하면서 많은 기회를 얻었고, 이를 통해 많은 프로젝트와 다양한 경험을 쌓을 수 있었습니다.<br />
+                      다양한 동료들을 만나고 협업을 통해 많은 것을 배웠습니다.<br />
+                      쇼핑몰, 관리자, 구인구직, 랜딩, 반응형 사이트 등 다양한 홈페이지를 작업한 경험이 있으며, Html, css, js, react, git, sourcetree 등 사용하는
+                      법을 익혔습니다.
                     </p>
                   </div>
                 </div>
@@ -203,7 +206,10 @@
                   <div class="skill-icon pc-only"><i class="fa-solid fa-pen-nib"></i></div>
                   <div class="skill-text">
                     <h3>Learning</h3>
-                    <p>React 도 배우고 three js에 관심이있고, 항상 google에서 올라오는 신기술을 주의깊게 보고 응용하고있습니다.</p>
+                    <p>
+                      React와 javascript를 학습하고있고, google에 올라오는 신기술을 주의깊게 보고 응용해보려 노력하고있습니다.<br />
+                      codePen을 보는 것을 즐깁니다.
+                    </p>
                   </div>
                 </div>
                 <div class="right-box" data-delay="400">
@@ -218,18 +224,20 @@
                 <div class="left-box" data-delay="600">
                   <div class="skill-icon pc-only"><i class="fa-brands fa-slideshare"></i></div>
                   <div class="skill-text">
-                    <h3>Library</h3>
+                    <h3>Everything</h3>
                     <p>
-                      각종 라이브러리 사용 및 응용 하다보면 Swiper, Slick, FullCalendar.js, gantt-task-react, rc-slider, FullPage, chart.js, range.slider.js
-                      bootstrap
+                      프로젝트마다 필요한 기술이나, 각종 라이브러리 사용에 두려움이 없습니다.<br />
+                      React 공부를하여 입사 후 3개월만에 React 프로젝트를 맡아서 작업하였습니다.<br />
+                      Html, Css, Js, React, Styled-Components 및 각종 라이브러리<br />
+                      Swiper, Slick, FullCalendar.js, gantt-task-react, rc-slider, FullPage, chart.js, range.slider.js bootstrap 등을 사용해봤습니다.
                     </p>
                   </div>
                 </div>
                 <div class="right-box">
                   <div class="skill-icon mobile-only"><i class="fa-brands fa-slideshare"></i></div>
                   <div class="text pc-only">
-                    <p>I can use</p>
-                    <h3>Library</h3>
+                    <p>I can do</p>
+                    <h3>Everything</h3>
                   </div>
                 </div>
               </li>
@@ -249,7 +257,7 @@
                 <article thumbsSlider="" class="swiper project-img-box">
                   <h3 class="blind">프로젝트 이미지 리스트</h3>
                   <div class="tv-layout-wrap">
-                    <img src="./image/tv-layer.png" alt="텔레비전 레이어" />
+                    <img src="./image/common/tv-layer.png" alt="텔레비전 레이어" />
                   </div>
                   <ul class="swiper-wrapper">
                     <li class="swiper-slide">
@@ -259,47 +267,47 @@
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/foodyitda-thumb.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/foodyitda.png" alt="푸드잇다 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/vdream-thumb.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/vdream.png" alt="브이드림 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/sindo.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/sindo.png" alt="신도리코 해외 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/npixel-thumb.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/npixel.png" alt=" 엔픽셀 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/sindo-shop.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/sindo-shop.png" alt="신도리코샵 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/yoil.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/yoil.png" alt="요일 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/k-rule.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/k-rule.png" alt="국룰 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/duruper.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/duruper.png" alt="두루퍼 홈페이지 이미지" />
                       </figure>
                     </li>
                     <li class="swiper-slide">
                       <figure class="project-img">
-                        <img class="swiper-lazy" src="./image/coolwhite.png" alt="홈페이지 이미지" />
+                        <img class="swiper-lazy" src="./image/coolwhite.png" alt="쿨화이트 홈페이지 이미지" />
                       </figure>
                     </li>
                   </ul>
@@ -366,7 +374,7 @@
                         </p>
                         <ul class="project-skill">
                           <li>React</li>
-                          <li>Styled Components</li>
+                          <li>Styled-Components</li>
                           <li>react-router-dom v5</li>
                           <li>React-scroll</li>
                           <li>React-swiper</li>
@@ -416,11 +424,11 @@
                           리액트 라우터 v6을 이해하여 적용해본 프로젝트.<br />
                           리액트 협업 프로젝트로, theme-color를 사용하여 협업에 용이하게 작업하였고, 첫 라우터v6로의 작업이라 outlet 등의 새로운 기능을
                           적극활용하여 마이페이지에서의 작업을 용이하게 하였다.<br />
-                          Styled Components를 사용하여 기본적인 클릭 효과 및 애니메이션, active 효과 등을 작업할 수 있게되었다.
+                          Styled-Components를 사용하여 기본적인 클릭 효과 및 애니메이션, active 효과 등을 작업할 수 있게되었다.
                         </p>
                         <ul class="project-skill">
                           <li>React</li>
-                          <li>Styled Components</li>
+                          <li>Styled-Components</li>
                           <li>react-router-dom v6</li>
                           <li>React-swiper</li>
                         </ul>
@@ -436,7 +444,7 @@
                         </p>
                         <ul class="project-skill">
                           <li>React</li>
-                          <li>Styled Components</li>
+                          <li>Styled-Components</li>
                           <li>react-router-dom v6</li>
                         </ul>
                       </div>
@@ -452,7 +460,7 @@
                         </p>
                         <ul class="project-skill">
                           <li>React</li>
-                          <li>Styled Components</li>
+                          <li>Styled-Components</li>
                           <li>react-router-dom v6</li>
                           <li>React-slick</li>
                         </ul>
@@ -465,7 +473,7 @@
                         <p class="project-desc">chart.js, rc-slider 등 다양한 라이브러리를 사용하여 적용해 보았던 프로젝트.<br /></p>
                         <ul class="project-skill">
                           <li>React</li>
-                          <li>Styled Components</li>
+                          <li>Styled-Components</li>
                           <li>react-router-dom v6</li>
                           <li>React-slick</li>
                           <li>chart.js</li>

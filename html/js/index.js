@@ -10,11 +10,11 @@ $(function () {
 
   // 로딩 기능
   window.onbeforeunload = function () {
-    $("#loader").show();
+    $(".loading").show();
   }; //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
   $(window).on("load", function () {
     //페이지가 로드 되면 로딩 화면을 없애주는 것
-    $("#loader").hide();
+    $(".loading").hide();
   });
 
   // 젤리 폰트
@@ -53,8 +53,7 @@ $(function () {
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
   }
-  const themeSwitch = document.querySelector(".theme-mode"); // 다크모드 스위치
-
+  const themeSwitch = document.querySelector(".theme-mode i"); // 다크모드 스위치
   if (getUserTheme() === "dark") {
     DarkMode();
   } else {
@@ -74,14 +73,16 @@ $(function () {
     localStorage.setItem("color-theme", "dark");
     document.documentElement.setAttribute("color-theme", "dark");
     themeSwitch.setAttribute("data-theme", "light");
-    // themeSwitch.innerText = "라이트 모드";
+    themeSwitch.setAttribute("class", "fa-solid fa-sun");
+    themeSwitch.setAttribute("class", "fa-regular fa-lightbulb");
   }
 
   function LightMode() {
     localStorage.setItem("color-theme", "light");
     document.documentElement.setAttribute("color-theme", "light");
     themeSwitch.setAttribute("data-theme", "dark");
-    // themeSwitch.innerText = "다크모드";
+    themeSwitch.setAttribute("class", "fa-solid fa-ghost");
+    // themeSwitch.setAttribute("class", "fa-solid fa-moon");
   }
 
   // =========== HEADER
