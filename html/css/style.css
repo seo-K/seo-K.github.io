@@ -174,8 +174,8 @@
   top: 0;
   left: 50%;
 
-  width: 40rem;
-  height: 42rem;
+  width: 100%;
+  height: 100%;
 
   transform: translateX(-50%);
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.75));
@@ -564,13 +564,6 @@
   }
 
   .project-section .project-content-wrap .project-img-box {
-    width: 20rem;
-    height: 22rem;
-  }
-
-  .project-section .tv-layout-wrap {
-    position: absolute;
-
     width: 30rem;
     height: 32rem;
   }
@@ -591,7 +584,7 @@
   /* Wheel */
   .project-section .pagination-wrap {
     top: 8.5rem;
-    right: 22.5rem;
+    right: 7.5rem;
     width: 4rem;
     height: 4rem;
   }
@@ -682,13 +675,7 @@
     padding: 2rem 1.5rem;
   }
 
-  .project-section .project-img-box {
-    height: 21rem;
-  }
-
-  .project-section .tv-layout-wrap {
-    position: absolute;
-
+  .project-section .project-content-wrap .project-img-box {
     width: 20rem;
     height: 21rem;
   }

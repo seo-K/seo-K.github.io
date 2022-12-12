@@ -830,6 +830,11 @@ footer .top-button {
 }
 
 @media all and (max-width: 768px) {
+  .loading p {
+    font-size: 5rem;
+    letter-spacing: -1px;
+  }
+
   h2:before {
     font-size: 1rem;
     margin-top: -1rem;
