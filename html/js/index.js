@@ -148,22 +148,19 @@ $(function () {
   const observeElements = document.querySelectorAll(".skill-list-wrap >li");
 
   const options = {
-    //옵션 정의
-    threshold: 0.5, //보기에 있는 요소의 50%
+    threshold: 0.5,
   };
 
   const inViewCallback = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // 사용하려는 이벤트/속성을 정의합니다.
         entry.target.classList.add("active");
-        //요소로 무언가를 한다
       } else {
         entry.target.classList.remove("active");
       }
     });
   };
-  let observer = new IntersectionObserver(inViewCallback, options); // 정의한 옵션을 사용하여 요소와 작업을 포함하는 콜백을 사용하여 새 인스턴스를 만듭니다.
+  let observer = new IntersectionObserver(inViewCallback, options);
 
   observeElements.forEach((element) => {
     observer.observe(element); // 옵저버 실행
@@ -190,7 +187,7 @@ $(function () {
 
     winWidth = window.innerWidth;
 
-    if (winWidth > 1200) {
+    if (winWidth > 1500) {
       RotateArea.addEventListener("mousedown", mouseStart);
       RotateArea.addEventListener("mouseup", mouseEnd);
 
@@ -324,10 +321,15 @@ $(function () {
       customCursor.classList.remove("inactive");
     }
   }
-  // const projectImg = document.querySelectorAll("a");
+  const Link = document.querySelectorAll("a");
+  console.log(Link);
 
-  // [...projectImg].addEventListener("mouseover", disableAnimation);
-  // [...projectImg].addEventListener("mouseleave", disableAnimation);
+  [...Link].map((item) => item.addEventListener("mouseover", disableAnimation));
+  [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
+  // [...pianoOddList].map((oddList) => oddList.classList.remove("active"));
+
+  // [...link].addEventListener("mouseover", disableAnimation);
+  // [...link].addEventListener("mouseleave", disableAnimation);
 
   // Top Button
   const TopButton = document.querySelector(".top-button");

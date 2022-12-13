@@ -744,7 +744,7 @@ footer .top-button {
   transition: width 0.4s, height 0.4s;
 
   mix-blend-mode: difference;
-  z-index: 5;
+  z-index: 25;
 }
 
 .custom-cursor:after {
@@ -779,8 +779,12 @@ footer .top-button {
   z-index: 9;
 }
 
-.custom-cursor .cursor-word {
+.custom-cursor.inactive .cursor-word {
   display: none;
+}
+
+.custom-cursor.active {
+  mix-blend-mode: unset;
 }
 
 .custom-cursor.active .cursor-word {
@@ -799,6 +803,7 @@ footer .top-button {
 .custom-cursor.active .cursor-arrow:after {
   transform: scaleY(1) rotate(45deg);
 }
+
 .custom-cursor.active .cursor-arrow:before {
   transform: scaleY(1) rotate(-45deg);
 }
@@ -1002,7 +1007,7 @@ footer .top-button {
 
   /* FOOTER */
   footer {
-    height: 10rem;
+    height: 7rem;
   }
 
   footer p {
@@ -1016,7 +1021,4 @@ footer .top-button {
   .custom-cursor {
     display: none;
   }
-}
-
-@media (hover: none) {
 }
