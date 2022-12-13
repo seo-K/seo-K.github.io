@@ -314,18 +314,17 @@ $(function () {
     const hasActiveClass = customCursor.classList.contains("active");
 
     if (hasActiveClass) {
-      customCursor.classList.add("inactive");
+      // customCursor.classList.add("inactive");
       customCursor.classList.remove("active");
     } else {
       customCursor.classList.add("active");
-      customCursor.classList.remove("inactive");
+      // customCursor.classList.remove("inactive");
     }
   }
-  const Link = document.querySelectorAll("a");
-  console.log(Link);
+  const Link = document.querySelectorAll(".menu-card");
 
-  [...Link].map((item) => item.addEventListener("mouseover", disableAnimation));
-  [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
+  [...Link].map((item) => item.addEventListener("mouseover", (e) => console.log(e.target)));
+  [...Link].map((item) => item.addEventListener("mouseleave", (e) => console.log(e.target)));
   // [...pianoOddList].map((oddList) => oddList.classList.remove("active"));
 
   // [...link].addEventListener("mouseover", disableAnimation);

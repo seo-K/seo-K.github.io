@@ -630,17 +630,6 @@ h2:after {
   opacity: 1;
 }
 
-#header .menu-card.orange-card:hover .card-bottom {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  font-size: 3rem;
-
-  transition: all 1s;
-  transform: translate(-50%, -50%);
-}
-
 #header .menu-card.orange-card .card-float-text {
   opacity: 0;
 }
@@ -779,7 +768,7 @@ footer .top-button {
   z-index: 9;
 }
 
-.custom-cursor.inactive .cursor-word {
+.custom-cursor .cursor-word {
   display: none;
 }
 
