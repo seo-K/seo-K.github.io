@@ -17,18 +17,23 @@ $(function () {
     $(".loading").hide();
   });
 
-  // 젤리 폰트
+  // 젤리 애니메이션 (텍스트 및 카드 메뉴)
   const EachText = document.querySelectorAll(".jelly-text > span");
+  const Menu = document.querySelectorAll(".menu-card");
+
+  function JelloAnimation() {
+    this.classList.add("animation");
+    this.addEventListener("animationend", () => {
+      this.classList.remove("animation");
+    });
+  }
 
   EachText.forEach((item) => {
-    item.addEventListener("mouseover", toggleRubberBand);
+    item.addEventListener("mouseover", JelloAnimation);
+  });
 
-    function toggleRubberBand() {
-      item.classList.add("active");
-      item.addEventListener("animationend", () => {
-        item.classList.remove("active");
-      });
-    }
+  Menu.forEach((item) => {
+    item.addEventListener("mouseover", JelloAnimation);
   });
 
   // 눈오는 효과
@@ -323,8 +328,8 @@ $(function () {
   }
   const Link = document.querySelectorAll(".menu-card");
 
-  [...Link].map((item) => item.addEventListener("mouseover", (e) => console.log(e.target)));
-  [...Link].map((item) => item.addEventListener("mouseleave", (e) => console.log(e.target)));
+  // [...Link].map((item) => item.addEventListener("mouseover", (e) => console.log(e.target)));
+  // [...Link].map((item) => item.addEventListener("mouseleave", (e) => console.log(e.target)));
   // [...pianoOddList].map((oddList) => oddList.classList.remove("active"));
 
   // [...link].addEventListener("mouseover", disableAnimation);

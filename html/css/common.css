@@ -101,11 +101,11 @@ h2:after {
   transform-origin: center;
 }
 
-.jelly-text span.active {
+.jelly-text span.animation {
   animation: jello-horizontal 1s alternate ease-out;
 }
 
-.jelly-text span.active-color.active {
+.jelly-text span.active-color.animation {
   animation: jello-color-change 1s alternate ease-out, jello-horizontal 1s alternate ease-out;
 }
 
@@ -416,12 +416,77 @@ h2:after {
   overflow: hidden;
 
   transition: all 0.5s;
-  transform-origin: center bottom;
+  /* transform-origin: center bottom; */
 }
 
-#header .menu-card:hover {
-  transform: scale(0.95);
+/* #header .menu-card:hover, */
+#header .menu-card.animation {
+  animation: menu-jello 1s alternate ease-out;
 }
+
+@-webkit-keyframes menu-jello {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.01, 0.96, 1);
+    transform: scale3d(1.01, 0.96, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.96, 1.01, 1);
+    transform: scale3d(0.96, 1.01, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.01, 0.96, 1);
+    transform: scale3d(1.01, 0.96, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.98, 1.01, 1);
+    transform: scale3d(0.98, 1.01, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.01, 0.98, 1);
+    transform: scale3d(1.01, 0.98, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes menu-jello {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.01, 0.96, 1);
+    transform: scale3d(1.01, 0.96, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.96, 1.01, 1);
+    transform: scale3d(0.96, 1.01, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.01, 0.96, 1);
+    transform: scale3d(1.01, 0.96, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.98, 1.01, 1);
+    transform: scale3d(0.98, 1.01, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.01, 0.98, 1);
+    transform: scale3d(1.01, 0.98, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+/* #header .menu-card:hover {
+  transform: scale(0.98);
+} */
 
 #header .card-content {
   position: relative;
