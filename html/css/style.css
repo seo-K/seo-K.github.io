@@ -793,6 +793,12 @@
 
   .project-section .project-title {
     font-size: 2rem;
+    flex-direction: column;
+  }
+
+  .project-section .project-title i {
+    margin-left: 0;
+    margin-top: 0.5rem;
   }
 
   .project-section .project-desc {
