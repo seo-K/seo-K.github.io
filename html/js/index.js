@@ -10,11 +10,11 @@ $(function () {
 
   // 로딩 기능
   window.onbeforeunload = function () {
-    $(".loading").show();
+    $("body").addClass("loading");
   }; //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
   $(window).on("load", function () {
     //페이지가 로드 되면 로딩 화면을 없애주는 것
-    $(".loading").hide();
+    $("body").removeClass("loading");
   });
 
   // 젤리 애니메이션 (텍스트 및 카드 메뉴)
