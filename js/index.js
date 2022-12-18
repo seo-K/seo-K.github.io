@@ -281,16 +281,16 @@ $(function () {
     });
   });
 
-  // function disableAnimation() {
-  //   const hasActiveClass = customCursor.classList.contains("active");
-  //   if (hasActiveClass) {
-  //     customCursor.classList.remove("active");
-  //   } else {
-  //     customCursor.classList.add("active");
-  //   }
-  // }
+  function disableAnimation() {
+    const hasActiveClass = customCursor.classList.contains("active");
+    if (hasActiveClass) {
+      customCursor.classList.remove("active");
+    } else {
+      customCursor.classList.add("active");
+    }
+  }
 
-  // const Link = document.querySelectorAll(".menu-card");
+  // const Link = document.querySelectorAll(".menu-wrap > li");
 
   // [...Link].map((item) => item.addEventListener("mouseover", disableAnimation));
   // [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
