@@ -290,10 +290,10 @@ $(function () {
     }
   }
 
-  // const Link = document.querySelectorAll(".menu-wrap > li");
+  const Link = document.querySelectorAll("a");
 
-  // [...Link].map((item) => item.addEventListener("mouseover", disableAnimation));
-  // [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
+  [...Link].map((item) => item.addEventListener("mouseenter", disableAnimation));
+  [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
 
   // =========== Top Button
   const TopButton = document.querySelector(".top-button");
