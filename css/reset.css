@@ -439,9 +439,6 @@ textarea::placeholder {
   .tablet-only {
     display: block;
   }
-
-  body {
-  }
 }
 
 @media all and (max-width: 768px) {
@@ -456,8 +453,5 @@ textarea::placeholder {
 
   .mobile-only {
     display: block;
-  }
-
-  body {
   }
 }

@@ -613,6 +613,14 @@
   border: 1px solid var(--black);
 }
 
+.contact-section .send-button:hover {
+  background-color: var(--purple);
+}
+
+.contact-section .send-button-iframe {
+  display: none;
+}
+
 @media all and (max-width: 1500px) {
   .skill-section .left-box {
     width: 60%;

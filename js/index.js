@@ -2,22 +2,21 @@
 AOS.init();
 
 $(function () {
-  // =========== COMMON
-  /*모든 a태그*/
+  // =========== COMMON ===========
+  // ========= 모든 a태그
   $('a[href="#"]').click(function (e) {
     e.preventDefault();
   });
 
-  // 로딩 기능
+  // ========= 로딩 기능
   window.onbeforeunload = function () {
     $("body").addClass("loading");
-  }; //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+  };
   $(window).on("load", function () {
-    //페이지가 로드 되면 로딩 화면을 없애주는 것
     $("body").removeClass("loading");
   });
 
-  // 젤리 애니메이션 (텍스트 및 카드 메뉴)
+  // ========= 젤리 애니메이션 (텍스트 및 카드 메뉴)
   const EachText = document.querySelectorAll(".jelly-text > span");
   const Menu = document.querySelectorAll(".menu-card");
 
@@ -36,7 +35,7 @@ $(function () {
     item.addEventListener("mouseover", JelloAnimation);
   });
 
-  // 눈오는 효과
+  // ========= 눈오는 효과
   function createSnow() {
     const el = document.createElement("div");
     el.classList.add("snow");
@@ -87,14 +86,13 @@ $(function () {
     document.documentElement.setAttribute("color-theme", "light");
     themeSwitch.setAttribute("data-theme", "dark");
     themeSwitch.setAttribute("class", "fa-solid fa-ghost");
-    // themeSwitch.setAttribute("class", "fa-solid fa-moon");
   }
 
-  // =========== HEADER
+  // =========== HEADER ===========
   const logo = document.querySelector(".top-content");
   const logoHeight = document.querySelector(".top-content").clientHeight;
 
-  /** Logo Scroll event (scale + opacity animation) */
+  /** ========= Logo Scroll event (scale + opacity animation) */
   function onScroll() {
     let value = 1 - window.scrollY / 500;
 
@@ -104,14 +102,9 @@ $(function () {
     }
   }
 
-  //   const passiveEvent = passiveEventSupported
-  //   ? { capture: false, passive: true }
-  //   : false
-  // window.addEventListener('scroll', onScroll, passiveEvent)
-
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // 헤더 카드 메뉴 리스트 이벤트
+  // ========= 헤더 카드 메뉴 리스트 이벤트
   const menu = document.querySelectorAll(".menu-card");
   const pianoOddList = document.querySelectorAll(".card-piano li:nth-child(odd)");
   const OrangeCard = document.querySelector(".orange-card");
@@ -148,8 +141,8 @@ $(function () {
     menuList.addEventListener("mouseleave", MouseLeaveEvent);
   });
 
-  // =========== MAIN
-  // 스킬 스크롤 이벤트
+  // =========== MAIN =========
+  // ========= 스킬 스크롤 이벤트
   const observeElements = document.querySelectorAll(".skill-list-wrap >li");
 
   const options = {
@@ -171,20 +164,7 @@ $(function () {
     observer.observe(element); // 옵저버 실행
   });
 
-  // const SkillList = document.querySelectorAll(".skill-section .right-box");
-  // const screenHeight = screen.availHeight;
-
-  // function Scroll2(element) {
-  //   let skillList = element.getBoundingClientRect();
-  //   let overValue = skillList.top - screenHeight;
-  //   if (overValue <= -100) {
-  //     let newValue = ((1 - overValue) / skillList.height) * 100 - 100;
-  //     element.style.transform = ` translateX(${newValue < 0 ? newValue : 0}%)`;
-  //   } else return;
-  // }
-  // window.addEventListener("scroll", () => [...SkillList].map((item) => Scroll2(item)));
-
-  // 프로젝트 터치/마우스 휠 이벤트
+  // ========= 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".tv-layout-wrap");
 
   function WheelEvent() {
@@ -220,7 +200,6 @@ $(function () {
     }
 
     function RotateEvent() {
-      // console.log(endXY - startXY, "값");
       if (endXY - startXY > 100) {
         swiper.slidePrev();
       } else if (endXY - startXY < 0) {
@@ -233,11 +212,10 @@ $(function () {
 
   WheelEvent();
 
-  /** 스와이퍼 액션 */
+  /** ========= 스와이퍼 액션 */
   let buttonRotateDeg = 90;
   function SwiperAction(num) {
     const rotateButton = document.querySelector(".switch-button");
-    // buttonRotateDeg = buttonRotateDeg + num;
     buttonRotateDeg += num;
     rotateButton.style.transform = `translate(-50%, -70%) rotate(${buttonRotateDeg}deg)`;
   }
@@ -261,7 +239,6 @@ $(function () {
       el: ".wheel-wrap",
       bulletActiveClass: "active",
       bulletClass: "wheel-list",
-      // clickable: true,
       renderBullet: function (index, className) {
         return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}</b></li>`;
       },
@@ -279,14 +256,6 @@ $(function () {
           SwiperAction(-36);
         }
       },
-      // slideNextTransitionStart: function () {
-      //   SwiperAction(36);
-      //   console.log("두분되는듯");
-      // },
-      // slidePrevTransitionStart: function () {
-      //   SwiperAction(-36);
-      //   console.log("마이너스");
-      // },
     },
   });
 
@@ -297,13 +266,10 @@ $(function () {
     watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
     parallax: true,
-    // speed: 900,
   });
 
   swiper.controller.control = swiperText;
   swiperText.controller.control = swiper;
-
-  // =========== Contact Section
 
   // =========== Cursor
   const customCursor = document.querySelector(".custom-cursor");
@@ -315,31 +281,23 @@ $(function () {
     });
   });
 
-  function disableAnimation() {
-    const hasActiveClass = customCursor.classList.contains("active");
+  // function disableAnimation() {
+  //   const hasActiveClass = customCursor.classList.contains("active");
+  //   if (hasActiveClass) {
+  //     customCursor.classList.remove("active");
+  //   } else {
+  //     customCursor.classList.add("active");
+  //   }
+  // }
 
-    if (hasActiveClass) {
-      // customCursor.classList.add("inactive");
-      customCursor.classList.remove("active");
-    } else {
-      customCursor.classList.add("active");
-      // customCursor.classList.remove("inactive");
-    }
-  }
-  const Link = document.querySelectorAll(".menu-card");
+  // const Link = document.querySelectorAll(".menu-card");
 
-  // [...Link].map((item) => item.addEventListener("mouseover", (e) => console.log(e.target)));
-  // [...Link].map((item) => item.addEventListener("mouseleave", (e) => console.log(e.target)));
-  // [...pianoOddList].map((oddList) => oddList.classList.remove("active"));
+  // [...Link].map((item) => item.addEventListener("mouseover", disableAnimation));
+  // [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
 
-  // [...link].addEventListener("mouseover", disableAnimation);
-  // [...link].addEventListener("mouseleave", disableAnimation);
-
-  // Top Button
+  // =========== Top Button
   const TopButton = document.querySelector(".top-button");
   TopButton.addEventListener("click", function () {
     window.scrollTo(0, 0);
   });
-
-  document.querySelector(".project-img-box  li").addEventListener("click", () => console.log("first"));
 });
