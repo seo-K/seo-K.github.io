@@ -790,7 +790,7 @@
   }
 
   .project-section .project-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .project-section .project-desc {
@@ -801,6 +801,8 @@
 
   .project-section .project-skill li {
     font-size: 1rem;
+
+    padding: 0.3rem 0.5rem;
   }
 
   .project-section .site-link {
