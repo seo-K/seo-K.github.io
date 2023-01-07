@@ -52,7 +52,9 @@ $(function () {
 
   // ========= 다크모드
   const userTheme = localStorage.getItem("color-theme"); // 유저가 localStorage에 저장한테마가 있는지 확인
-  const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
   const getUserTheme = () => (userTheme ? userTheme : osTheme); // color-theme 확인 - localStorage에 저장된게 있는지, 없으면 OS의 color-theme로 설정
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
@@ -102,11 +104,13 @@ $(function () {
     }
   }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", onScroll, {passive: true});
 
   // ========= 헤더 카드 메뉴 리스트 이벤트
   const menu = document.querySelectorAll(".menu-card");
-  const pianoOddList = document.querySelectorAll(".card-piano li:nth-child(odd)");
+  const pianoOddList = document.querySelectorAll(
+    ".card-piano li:nth-child(odd)"
+  );
   const OrangeCard = document.querySelector(".orange-card");
 
   const OrangeClass = "orange-card";
@@ -117,12 +121,20 @@ $(function () {
     if (!this.classList.contains(OrangeClass)) {
       this.classList.add("hidden");
       if (this.classList.contains("yellow-card")) {
-        document.querySelector(".card-piano li:nth-child(1)").classList.add("active");
+        document
+          .querySelector(".card-piano li:nth-child(1)")
+          .classList.add("active");
       } else if (this.classList.contains("beige-card")) {
-        document.querySelector(".card-piano li:nth-child(5)").classList.add("active");
+        document
+          .querySelector(".card-piano li:nth-child(5)")
+          .classList.add("active");
       } else if (this.classList.contains("purple-card")) {
-        document.querySelector(".card-piano li:nth-child(3)").classList.add("active");
-        document.querySelector(".card-piano li:nth-child(9)").classList.add("active");
+        document
+          .querySelector(".card-piano li:nth-child(3)")
+          .classList.add("active");
+        document
+          .querySelector(".card-piano li:nth-child(9)")
+          .classList.add("active");
       }
     }
   }
@@ -220,7 +232,7 @@ $(function () {
     rotateButton.style.transform = `translate(-50%, -70%) rotate(${buttonRotateDeg}deg)`;
   }
 
-  // Initialize Swiper
+  // Tv Swiper
   let arr = [0];
   const swiper = new Swiper(".project-img-box", {
     speed: 500,
@@ -240,7 +252,9 @@ $(function () {
       bulletActiveClass: "active",
       bulletClass: "wheel-list",
       renderBullet: function (index, className) {
-        return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}</b></li>`;
+        return `<li class="${className}" style="--rotate: ${index}"><b>${
+          index + 1
+        }</b></li>`;
       },
     },
     on: {
@@ -271,6 +285,56 @@ $(function () {
   swiper.controller.control = swiperText;
   swiperText.controller.control = swiper;
 
+  // Swiper 세로 스크롤
+  var scrollSwiper = new Swiper(".project-list-swiper", {
+    watchSlidesProgress: true,
+    breakpoints: {
+      0: {
+        slidesPerView: "auto",
+        spaceBetween: 15,
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   type: "progressbar",
+        // },
+      },
+      769: {
+        direction: "vertical",
+        spaceBetween: 5,
+        slidesPerView: 10,
+      },
+    },
+  });
+  var detailSwiper = new Swiper(".project-detail-list-wrap", {
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+    speed: 500,
+    thumbs: {
+      swiper: scrollSwiper,
+    },
+
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 5,
+      },
+      769: {
+        direction: "vertical",
+        slidesPerView: 1.1,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  // Contact Section SendButton
+  // const sendButton = document.querySelector(".send-button");
+  // const form = document.querySelector("form");
+  // const url = form.action;
+  // sendButton.addEventListener(
+  //   "click",
+  //   console.log(url, url.result, form.result)
+  // );
+
   // =========== Cursor
   const customCursor = document.querySelector(".custom-cursor");
 
@@ -292,8 +356,12 @@ $(function () {
 
   const Link = document.querySelectorAll("a");
 
-  [...Link].map((item) => item.addEventListener("mouseenter", disableAnimation));
-  [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
+  [...Link].map((item) =>
+    item.addEventListener("mouseenter", disableAnimation)
+  );
+  [...Link].map((item) =>
+    item.addEventListener("mouseleave", disableAnimation)
+  );
 
   // =========== Top Button
   const TopButton = document.querySelector(".top-button");
