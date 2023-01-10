@@ -359,7 +359,7 @@
   height: 1px;
   content: "";
 
-  background-color: rgba(13, 13, 13, 0.1);
+  background-color: rgba(34, 34, 34, 0.1);
   z-index: 10;
 }
 
@@ -784,11 +784,21 @@
     margin-bottom: 1.5rem;
   }
 
+  .project-section .project-title:before {
+    left: -1rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .project-section .project-title:after {
+    bottom: -0.5rem;
+  }
+
   .project-section .project-desc {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.1;
 
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .project-section .project-skill li {
@@ -838,7 +848,7 @@
     width: 100%;
     max-height: none;
 
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding-bottom: 1px;
     overflow: hidden;
   }
@@ -869,6 +879,7 @@
 
   .project-simple-section .project-detail-img {
     max-height: 15rem;
+    border-bottom-right-radius: 5rem;
   }
 
   /* CONTACT SECTION */

@@ -316,7 +316,7 @@ $(function () {
     breakpoints: {
       0: {
         slidesPerView: 1,
-        spaceBetween: 5,
+        spaceBetween: 30,
       },
       1501: {
         slidesPerView: 1,

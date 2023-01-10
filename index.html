@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="keywords" content="Portfolio">
   <meta name="description" content="강서영의 웹 포트폴리오 입니다.">
@@ -36,6 +36,26 @@
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 
+  <!-- JS -->
+  <script src="./js/jquery-3.5.1.js"></script>
+  <script src="./js/100vh.js"></script>
+  <script src="./js/index.js" defer></script>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/49c0274367.js" crossorigin="anonymous"></script>
+  <!-- Aos -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <!-- THREE JS -->
+  <script type="importmap">
+     {
+         "imports": {
+             "three": "./js/three/build/three.module.js"
+         }
+     }
+   </script>
+  <script type="module" src="./js/content.js" defer></script>
+  <script type="module" src="./js/content-text.js" defer></script>
 </head>
 
 <body>
@@ -179,7 +199,7 @@
           <h2 class="blind">스킬 소개</h2>
           <div class="skill-content-wrap">
             <div class="skill-3d-container"></div>
-            <div class="skill-text-3d-container"></div>
+            <div class="skill-text-3d-container pc-only"></div>
           </div>
         </div>
       </section>
@@ -756,8 +776,6 @@
         </div>
       </section>
 
-
-
       <!-- CONTACT SECTION -->
       <section id="contact" class="contact-section">
         <h2 class="blind">contact</h2>
@@ -835,25 +853,6 @@
     </p>
   </div>
 
-  <!-- JS -->
-  <script src="./js/jquery-3.5.1.js"></script>
-  <script src="./js/100vh.js"></script>
-  <script src="./js/index.js" defer></script>
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/49c0274367.js" crossorigin="anonymous"></script>
-  <!-- Aos -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <!-- THREE JS -->
-  <script type="importmap">
-    {
-        "imports": {
-            "three": "./js/three/build/three.module.js"
-        }
-    }
-  </script>
-  <script type="module" src="./js/content.js"></script>
 </body>
 
 </html>
