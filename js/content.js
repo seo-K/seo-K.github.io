@@ -91,13 +91,13 @@ class App {
   }
 
   render(time) {
-    this._renderer.render(this._scene, this._camera); // scene을 카메라 시점으로 랜더링해라
+    this._renderer.render(this._scene, this._camera);
     this.update(time);
     requestAnimationFrame(this.render.bind(this));
   }
 
   update(time) {
-    time *= 0.001; // 상단에서 전달받은 time에 0.001을 곱해 milli-second 단위를 second 단위로 변환
+    time *= 0.001;
     this._CircleObject.rotation.y = time / 2;
     this._ringLineObject.rotation.x = time * 2;
   }
@@ -120,7 +120,6 @@ class App2 {
     this._setupCamera();
     this._setupLight();
     this._setupModel();
-    this._setupControls();
 
     window.onresize = this.resize.bind(this);
     this.resize();
@@ -158,23 +157,27 @@ class App2 {
         size: 1.5,
         height: 0.5,
         curveSegments: 12,
+        bevelEnabled: true, // 베벨링 유무 (false)
+        bevelThickness: 0.5, // 베벨링 두께 값(10)
+        bevelSize: 0.2, // shape의 외곽선으로부터 얼마나 멀리 베벨링할건지 (5)
+        bevelOffset: 0, // text 윤곽선 베벨에서 시작하는 거리 * 필수 (0)
+        bevelSegments: 2, // 베벨링 단계수(3)
       });
 
       geometry.center();
 
-      const materials = new THREE.MeshPhongMaterial({color: 0x808080});
+      const materials = [
+        new THREE.MeshPhongMaterial({color: 0x808080}), // front
+        new THREE.MeshPhongMaterial({color: 0xffffff}), // side
+      ];
 
       const textMesh = new THREE.Mesh(geometry, materials);
       textMesh.castShadow = true;
 
       textMesh.position.set(x, y);
       textMesh.rotation.set(0, Math.PI * -0.1, 0);
-      // textMesh.scale.set( s, s, s );
-      // 		group.add( mesh );
 
       that._scene.add(textMesh);
-
-      // this._textMesh = textMesh;
     }
     loadFont(this, "HTML", 0, 0);
     loadFont(this, "React.JS", 0, 3);
@@ -185,10 +188,6 @@ class App2 {
     loadFont(this, "Three.JS", 0, -6);
     loadFont(this, "Swiper", 0, -9);
   } // _setupModal
-
-  _setupControls() {
-    new OrbitControls(this._camera, this._divContainer);
-  }
 
   // resize
   resize() {
@@ -202,13 +201,14 @@ class App2 {
   }
 
   render(time) {
-    this._renderer.render(this._scene, this._camera); // scene을 카메라 시점으로 랜더링해라
+    this._renderer.render(this._scene, this._camera);
     this.update(time);
     requestAnimationFrame(this.render.bind(this));
   }
 
   update(time) {
-    time *= 0.001; // 상단에서 전달받은 time에 0.001을 곱해 milli-second 단위를 second 단위로 변환
+    time *= 0.001;
+    this._scene.rotation.y = time / 2;
   }
 }
 

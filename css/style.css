@@ -679,6 +679,31 @@
   display: none;
 }
 
+@media all and (max-width: 1500px) {
+  .project-simple-section .project-detail-img {
+    max-height: 20rem;
+  }
+
+  .project-section .project-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-section .project-desc {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-section .project-skill li {
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .project-section .site-link {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+}
 @media all and (max-width: 768px) {
   /* INFO SECTION */
   .info-section .inner {
@@ -692,14 +717,33 @@
   }
 
   /* SKILL SECTION */
-  .skill-section {
+  .skill-section .inner {
+    padding: 2rem 1.5rem;
+  }
+
+  .skill-section .skill-content-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .skill-section .skill-3d-container {
+    width: 100%;
+    height: 30rem;
+    margin-bottom: 3rem;
+  }
+
+  .skill-section .skill-text-3d-container {
+    width: 100%;
+    height: 30rem;
   }
 
   /* PROJECT SECTION */
   .project-section .inner {
     padding: 2rem 1.5rem;
   }
-
+  .project-section .project-content-wrap > article {
+    max-width: 100%;
+  }
   .project-section .project-content-wrap .project-img-box {
     width: 20rem;
     height: 21rem;
@@ -736,10 +780,13 @@
 
   .project-section .project-title {
     font-size: 1.7rem;
+
+    margin-bottom: 1.5rem;
   }
 
   .project-section .project-desc {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.1;
 
     margin-bottom: 2rem;
   }
@@ -781,7 +828,7 @@
     width: 100%;
     height: auto;
     padding: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 
     border-radius: 0;
     background-color: transparent;

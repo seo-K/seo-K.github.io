@@ -318,6 +318,10 @@ $(function () {
         slidesPerView: 1,
         spaceBetween: 5,
       },
+      1501: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+      },
       769: {
         direction: "vertical",
         slidesPerView: 1.1,
