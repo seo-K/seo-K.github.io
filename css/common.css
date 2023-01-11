@@ -4,6 +4,33 @@ h2 {
   position: relative;
 }
 
+.skip {
+  position: relative;
+
+  z-index: 30;
+}
+
+.skip a {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+
+  background-color: var(--skyblue);
+}
+
+.skip a:active,
+.skip a:focus {
+  top: 0;
+}
+
 h2:before {
   content: "<h2>";
   font-family: "LaBelleAurore", cursive;
@@ -183,6 +210,7 @@ body.loading .loading-area {
   width: 100%;
   height: 100vh;
 }
+
 .snow {
   font-size: 1.2rem;
 
@@ -272,6 +300,10 @@ body.loading .loading-area {
 }
 
 /* HEADER */
+#header {
+  position: relative;
+}
+
 #header .top-content {
   display: flex;
   align-items: center;
@@ -607,10 +639,6 @@ body.loading .loading-area {
 
   display: flex;
 
-  color: var(--black);
-  font-size: 5rem;
-  white-space: nowrap;
-
   z-index: 1;
   transform: translateY(-50%);
   transition: all 0.4s;
@@ -619,7 +647,16 @@ body.loading .loading-area {
 }
 
 #header .card-float-text span {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 4rem;
+  font-family: "LaBelleAurore", cursive;
+  white-space: nowrap;
+
   animation: floatText 10s infinite linear;
+}
+
+#header .card-float-text span + span {
+  margin-left: 2rem;
 }
 
 /* not orange-card */
@@ -912,6 +949,10 @@ footer .top-button {
   .jelly-text span {
     font-size: 2rem;
     letter-spacing: -1px;
+  }
+
+  .snow {
+    font-size: 0.8rem;
   }
 
   /* HEADER */

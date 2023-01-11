@@ -46,21 +46,26 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <!-- THREE JS -->
+  <script type="importmap">
+     {
+         "imports": {
+             "three": "./js/three/build/three.module.js"
+         }
+     }
+   </script>
+  <script type="module" src="./js/content.js" defer></script>
+  <script type="module" src="./js/content-text.js" defer></script>
 </head>
 
 <body>
-  <!-- skip -->
-  <div class="skip">
-    <a href="#main">본문 내용 바로가기</a>
-  </div>
-  <!-- LOADING -->
-  <div class="loading-area">
-    <p>Loading...</p>
-  </div>
   <div id="content-wrap">
+    <!-- LOADING -->
+    <div class="loading-area">
+      <p>Loading...</p>
+    </div>
     <!-- START : HEADER -->
     <header id="header">
-
       <div class="snow-wrap">
         <div class="snow"></div>
       </div>
@@ -188,71 +193,14 @@
       <!-- SKILL SECTION -->
       <section id="skill" class="skill-section">
         <div class="inner">
+          <h3 class="jelly-text">
+            <span>S</span><span>k</span><span>i</span><span>l</span><span>l</span>
+          </h3>
           <h2 class="blind">스킬 소개</h2>
-          <ul class="skill-list-wrap">
-            <li>
-              <div class="left-box">
-                <div class="skill-icon pc-only"><i class="fa-solid fa-computer"></i></div>
-                <div class="skill-text">
-                  <h3>Experience</h3>
-                  <p>
-                    웹에이전시에서 1년간 근무하면서 많은 기회를 얻었고, 이를 통해 많은 프로젝트와 다양한 경험을 쌓을 수 있었습니다.<br>
-                    다양한 동료들을 만나고 협업을 통해 많은 것을 배웠습니다.<br>
-                    쇼핑몰, 관리자, 구인구직, 랜딩, 반응형 사이트 등 다양한 홈페이지를 작업한 경험이 있으며, Html, css, js, react, git, sourcetree 등이 기술
-                    역량을 키웠습니다.
-                  </p>
-                </div>
-              </div>
-              <div class="right-box">
-                <div class="skill-icon mobile-only"><i class="fa-solid fa-computer"></i></div>
-                <div class="text">
-                  <p>I have</p>
-                  <h3>Experience</h3>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="left-box">
-                <div class="skill-icon pc-only"><i class="fa-solid fa-pen-nib"></i></div>
-                <div class="skill-text">
-                  <h3>Learning</h3>
-                  <p>
-                    React와 javascript를 학습하고 있고, google에 올라오는 신기술을 주의 깊게 보고 응용해 보려 노력하고 있습니다. <br>
-                    codePen을 보는 것을 즐깁니다.
-                  </p>
-                </div>
-              </div>
-              <div class="right-box">
-                <div class="skill-icon mobile-only"><i class="fa-solid fa-pen-nib"></i></div>
-                <div class="text">
-                  <p>I enjoy</p>
-                  <h3>Learning</h3>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="left-box">
-                <div class="skill-icon pc-only"><i class="fa-brands fa-slideshare"></i></div>
-                <div class="skill-text">
-                  <h3>Everything</h3>
-                  <p>
-                    프로젝트마다 필요한 기술이나, 각종 라이브러리 사용에 두려움이 없습니다.<br>
-                    React 공부를 하여 입사 후 3개월 만에 React 프로젝트를 맡아서 작업하였습니다.<br>
-                    Html, Css, Js, React, Styled-Components 및 각종 라이브러리<br>
-                    Swiper, Slick, FullCalendar.js, gantt-task-react, rc-slider, FullPage, chart.js, range.slider.js
-                    bootstrap 등을 사용해봤습니다.
-                  </p>
-                </div>
-              </div>
-              <div class="right-box">
-                <div class="skill-icon mobile-only"><i class="fa-brands fa-slideshare"></i></div>
-                <div class="text">
-                  <p>I can do</p>
-                  <h3>Everything</h3>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <div class="skill-content-wrap">
+            <div class="skill-3d-container"></div>
+            <div class="skill-text-3d-container pc-only"></div>
+          </div>
         </div>
       </section>
       <!-- PROJECT SECTION -->
