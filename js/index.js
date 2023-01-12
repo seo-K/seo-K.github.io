@@ -156,25 +156,32 @@ $(function () {
   // =========== MAIN =========
   // ========= 스킬 스크롤 이벤트
   const observeElements = document.querySelectorAll(".skill-list-wrap >li");
+  let winWidth = window.innerWidth;
 
-  const options = {
-    threshold: 0.5,
-  };
+  function skillAnimation() {
+    const options = {
+      threshold: 0.8,
+    };
 
-  const inViewCallback = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-      } else {
-        entry.target.classList.remove("active");
-      }
+    const inViewCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    };
+    let observer = new IntersectionObserver(inViewCallback, options);
+
+    observeElements.forEach((element) => {
+      observer.observe(element); // 옵저버 실행
     });
-  };
-  let observer = new IntersectionObserver(inViewCallback, options);
+  }
 
-  observeElements.forEach((element) => {
-    observer.observe(element); // 옵저버 실행
-  });
+  if (winWidth > 768) {
+    skillAnimation();
+  }
 
   // ========= 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".tv-layout-wrap");
@@ -288,15 +295,8 @@ $(function () {
   // Swiper 세로 스크롤
   var scrollSwiper = new Swiper(".project-list-swiper", {
     watchSlidesProgress: true,
+    updateOnWindowResize: true,
     breakpoints: {
-      0: {
-        slidesPerView: "auto",
-        spaceBetween: 15,
-        // pagination: {
-        //   el: ".swiper-pagination",
-        //   type: "progressbar",
-        // },
-      },
       769: {
         direction: "vertical",
         spaceBetween: 5,
@@ -309,14 +309,17 @@ $(function () {
       releaseOnEdges: true,
     },
     speed: 500,
+    updateOnWindowResize: true,
     thumbs: {
       swiper: scrollSwiper,
     },
 
     breakpoints: {
       0: {
-        slidesPerView: 1,
-        spaceBetween: 30,
+        // slidesPerView:"auto",
+        // spaceBetween: 30,
+        effect: "cards",
+        grabCursor: true,
       },
       1501: {
         slidesPerView: 1,

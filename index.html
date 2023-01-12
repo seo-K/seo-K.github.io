@@ -51,7 +51,11 @@
 <body>
   <!-- skip -->
   <div class="skip">
-    <a href="#main">본문 내용 바로가기</a>
+    <ul>
+      <li> <a href="#main">본문 내용 바로가기</a></li>
+      <li> <a href="#nav">주메뉴 바로가기</a></li>
+    </ul>
+
   </div>
   <!-- LOADING -->
   <div class="loading-area">
@@ -78,7 +82,7 @@
           </span>
         </h1>
       </div>
-      <nav class="bottom-content">
+      <nav id="nav" class="bottom-content">
         <ul class="menu-wrap">
           <li>
             <a class="menu-card orange-card show" href="#project" data-aos="zoom-in" data-aos-duration="2500"
@@ -263,11 +267,13 @@
 
             <div class="project-content-wrap">
               <article class="project-list-article">
-                <button class="tab-button" type="button">Tab</button>
-                <h3 class="jelly-text">
-                  <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>L</span><span>i</span><span>s</span><span>t</span>
-                </h3>
-                <div class="swiper project-list-swiper">
+                <!-- <button class="tab-button" type="button">Tab</button> -->
+                <hgroup>
+                  <h3 class="jelly-text">
+                    <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>L</span><span>i</span><span>s</span><span>t</span>
+                  </h3>
+                </hgroup>
+                <div class="swiper project-list-swiper pc-only">
                   <ul class="project-list swiper-wrapper">
                     <li class="swiper-slide"><button type="button" class="project-list-button">비타민 조합 알고리즘 추천
                         서비스</button>
@@ -432,7 +438,6 @@
                         <ul class="project-skill">
                           <li># React</li>
                           <li># Styled-Components</li>
-                          <li># react-router-dom v6</li>
                           <li># React-swiper</li>
                         </ul>
                         <div class="site-link-wrap">
@@ -454,7 +459,6 @@
                         <ul class="project-skill">
                           <li># React</li>
                           <li># Styled-Components</li>
-                          <li># react-router-dom v6</li>
                         </ul>
                       </div>
                     </li>
@@ -474,8 +478,6 @@
                         <ul class="project-skill">
                           <li># React</li>
                           <li># Styled-Components</li>
-                          <li># react-router-dom v6</li>
-                          <li># React-slick</li>
                         </ul>
                         <div class="site-link-wrap">
                           <button class="site-link" type="button" disabled>Project in Progress</button>
@@ -496,10 +498,7 @@
                         <ul class="project-skill">
                           <li># React</li>
                           <li># Styled-Components</li>
-                          <li># react-router-dom v6</li>
-                          <li># React-slick</li>
                           <li># chart.js</li>
-                          <li># rc-slider</li>
                         </ul>
                         <div class="site-link-wrap">
                           <a class="site-link" target="_blank" href="https://duruper.com/">Visit Site</a>
@@ -675,8 +674,6 @@
                       <ul class="project-skill">
                         <li># React</li>
                         <li># Styled-Components</li>
-                        <li># react-router-dom v5</li>
-                        <li># React-scroll</li>
                         <li># React-swiper</li>
                       </ul>
                       <div class="site-link-wrap">
@@ -736,7 +733,6 @@
                       <ul class="project-skill">
                         <li># React</li>
                         <li># Styled-Components</li>
-                        <li># react-router-dom v6</li>
                         <li># React-swiper</li>
                       </ul>
                       <div class="site-link-wrap">
@@ -755,7 +751,6 @@
                       <ul class="project-skill">
                         <li># React</li>
                         <li># Styled-Components</li>
-                        <li># react-router-dom v6</li>
                       </ul>
                     </div>
                   </div>
@@ -772,8 +767,6 @@
                       <ul class="project-skill">
                         <li># React</li>
                         <li># Styled-Components</li>
-                        <li># react-router-dom v6</li>
-                        <li># React-slick</li>
                       </ul>
                       <div class="site-link-wrap">
                         <button class="site-link" type="button" disabled>Project in Progress</button>
@@ -791,10 +784,7 @@
                       <ul class="project-skill">
                         <li># React</li>
                         <li># Styled-Components</li>
-                        <li># react-router-dom v6</li>
-                        <li># React-slick</li>
                         <li># chart.js</li>
-                        <li># rc-slider</li>
                       </ul>
                       <div class="site-link-wrap">
                         <a class="site-link" target="_blank" href="https://duruper.com/">Visit Site</a>

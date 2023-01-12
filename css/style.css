@@ -164,7 +164,7 @@
   margin-top: 2rem;
 }
 
-.project-section .tab-button {
+/* .project-section .tab-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -177,7 +177,7 @@
 .project-section .tab-button:hover {
   background-color: var(--black);
   color: var(--white);
-}
+} */
 
 .project-section .project-content-wrap > article {
   flex-shrink: 0;
@@ -520,10 +520,10 @@
   margin-top: 0;
 }
 
-.project-simple-section .tab-button {
+/* .project-simple-section .tab-button {
   top: 2rem;
   right: 2rem;
-}
+} */
 
 .project-simple-section .inner {
   background-color: transparent;
@@ -537,13 +537,25 @@
   display: flex;
   flex-direction: column;
 
-  width: 50%;
+  width: 40%;
   height: 100vh;
   flex-shrink: 0;
 
   background-color: var(--orange);
   padding: 2rem;
   border-radius: 4rem;
+}
+
+.project-simple-section hgroup {
+  position: relative;
+  height: calc(100vh - 40rem);
+}
+
+.project-simple-section hgroup .jelly-text {
+  position: sticky;
+  top: 0;
+
+  margin-bottom: 1rem;
 }
 
 .project-simple-section .project-list-swiper {
@@ -568,8 +580,8 @@
 }
 
 .project-simple-section .project-content-wrap .project-detail-article {
-  width: 50%;
-  flex-shrink: 0;
+  flex: 1;
+  max-width: 100%;
 }
 
 .project-simple-section .project-detail-list > li {
@@ -582,6 +594,7 @@
 
 .project-simple-section .project-detail-list-wrap {
   position: relative;
+  max-width: 50rem;
   height: 100vh;
   overflow: hidden;
 }
@@ -605,6 +618,7 @@
 
 .project-simple-section .project-detail-img {
   width: 100%;
+  max-width: 50rem;
   height: auto;
   max-height: 30rem;
 
@@ -834,9 +848,9 @@
     width: 100%;
 
     border-radius: 2rem;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
 
-    transform: translateY(100%);
+    transform: translateY(0);
   }
 
   .skill-section .skill-list-wrap li.active .left-box {
@@ -850,18 +864,18 @@
   .skill-section .skill-text h3 {
     font-size: 1.2rem;
 
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .skill-section .right-box {
     flex-direction: row;
 
     border-radius: 2rem;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
 
-    margin: 1rem 2rem;
+    margin: 1rem 1rem;
 
-    transform: translateX(0) translateY(100%);
+    transform: translateX(0) translateY(0);
   }
 
   .skill-section .skill-list-wrap li.active .right-box {
@@ -881,9 +895,11 @@
   .project-section .inner {
     padding: 2rem 1.5rem;
   }
+
   .project-section .project-content-wrap > article {
     max-width: 100%;
   }
+
   .project-section .project-content-wrap .project-img-box {
     width: 20rem;
     height: 21rem;
@@ -925,6 +941,7 @@
   }
 
   .project-section .project-title:before {
+    top: -0.5rem;
     left: -1rem;
     width: 2rem;
     height: 2rem;
@@ -956,17 +973,16 @@
     padding: 0.375rem 0.375rem 0 0.375rem;
   }
 
-  .project-simple-section .tab-button {
-    top: 0;
-    right: 0;
-  }
-
-  .pro .project-simple-section .inner {
-    background-color: var(--orange);
+  .project-simple-section .inner {
     padding: 2rem 1.5rem;
-
+    background-color: var(--orange);
     border-radius: 2rem;
   }
+
+  /* .project-simple-section .tab-button {
+    top: 0;
+    right: 0;
+  } */
 
   .project-simple-section .project-content-wrap {
     flex-direction: column;
@@ -982,6 +998,10 @@
 
     border-radius: 0;
     background-color: transparent;
+  }
+
+  .project-simple-section hgroup {
+    height: auto;
   }
 
   .project-simple-section .project-list-swiper {
@@ -1004,7 +1024,9 @@
   .project-simple-section .project-content-wrap .project-detail-article {
     width: 100%;
   }
+
   .project-simple-section .project-detail-list-wrap {
+    max-width: none;
     height: auto;
   }
 
@@ -1018,7 +1040,11 @@
   }
 
   .project-simple-section .project-detail-img {
-    max-height: 15rem;
+    width: 20rem;
+    height: 15rem;
+    max-height: none;
+
+    background-color: #fff;
     border-bottom-right-radius: 5rem;
   }
 
