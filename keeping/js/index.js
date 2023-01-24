@@ -35,6 +35,21 @@ $(function () {
     item.addEventListener("mouseover", JelloAnimation);
   });
 
+  // ========= 눈오는 효과
+  function createSnow() {
+    const el = document.createElement("div");
+    el.classList.add("snow");
+    el.style.marginLeft = randomPosition() + "px";
+    el.innerText = "❄";
+    document.querySelector(".snow-wrap").appendChild(el);
+  }
+  function randomPosition() {
+    return Math.floor(Math.random() * window.innerWidth);
+  }
+  for (let i = 0; i < 300; i++) {
+    createSnow();
+  }
+
   // ========= 다크모드
   const userTheme = localStorage.getItem("color-theme"); // 유저가 localStorage에 저장한테마가 있는지 확인
   const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -140,6 +155,33 @@ $(function () {
 
   // =========== MAIN =========
   // ========= 스킬 스크롤 이벤트
+  const observeElements = document.querySelectorAll(".skill-list-wrap >li");
+  let winWidth = window.innerWidth;
+
+  function skillAnimation() {
+    const options = {
+      threshold: 0.8,
+    };
+
+    const inViewCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    };
+    let observer = new IntersectionObserver(inViewCallback, options);
+
+    observeElements.forEach((element) => {
+      observer.observe(element); // 옵저버 실행
+    });
+  }
+
+  if (winWidth > 768) {
+    skillAnimation();
+  }
 
   // ========= 프로젝트 터치/마우스 휠 이벤트
   const RotateArea = document.querySelector(".tv-layout-wrap");

@@ -2,10 +2,11 @@
 
 :root {
   --skyblue: #91c3ce;
-  --lightPurple: #e6e2fd;
-  --orange: #fe7424;
-  --deepBlue: #343ff9;
+  --yellow: #e6e2fd;
+  --beige: #fe7424;
+  --orange: #343ff9;
   --purple: #777cd7;
+  --lightPurple: #eeebf2;
   --white: #fafbfc;
   --blue: #49a3a7;
   --black: #1b1a19;
@@ -13,14 +14,38 @@
 
 :root[color-theme="dark"] {
   --skyblue: #91c3ce;
-  --lightPurple: #c0a8e6;
-  --orange: #f5e1be;
-  --deepBlue: #f77016;
+  --yellow: #f7b954;
+  --beige: #f5e1be;
+  --orange: #f77016;
   --purple: #956fd2;
+  --lightPurple: #c0a8e6;
   --white: #1b1a19;
   --blue: #49a3a7;
   --black: #fafbfc;
 }
+/* :root {
+  --skyblue: #91c3ce;
+  --yellow: #fac670;
+  --beige: #f5e1be;
+  --orange: #f37925;
+  --purple: #c0a8e6;
+  --lightPurple: #eeebf2;
+  --white: #fafbfc;
+  --blue: #49a3a7;
+  --black: #1b1a19;
+}
+
+:root[color-theme="dark"] {
+  --skyblue: #91c3ce;
+  --yellow: #f7b954;
+  --beige: #f5e1be;
+  --orange: #f77016;
+  --purple: #956fd2;
+  --lightPurple: #c0a8e6;
+  --white: #1b1a19;
+  --blue: #49a3a7;
+  --black: #fafbfc;
+} */
 
 @font-face {
   font-family: "LaBelleAurore";
@@ -106,13 +131,14 @@
   src: local("Silkscreen-Regular"), url("./fonts/Silkscreen-Regular.ttf");
   font-weight: 400;
   font-style: normal;
+  unicode-range: U+0041-005A, U+0061-007A;
 }
-
 @font-face {
   font-family: "Silk";
   src: local("Silkscreen-Bold"), url("./fonts/Silkscreen-Bold.ttf");
   font-weight: 600;
   font-style: normal;
+  unicode-range: U+0041-005A, U+0061-007A;
 }
 
 /* @font-face {
@@ -460,20 +486,20 @@ body {
   letter-spacing: normal;
   -webkit-tap-highlight-color: transparent;
 
-  background-color: #000;
+  background-color: var(--white);
   color: var(--black);
   scroll-behavior: smooth;
 }
 
 body {
-  font: 400 62.5%/1.2 "Pre", sans-serif;
+  font: 400 62.5%/1.2 "Silk", "Pre", sans-serif;
 }
 
 input,
 select,
 textarea,
 button {
-  font-family: "Pre", sans-serif;
+  font-family: "Silk", "Pre", sans-serif;
 }
 
 input,

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- FontAwesome -->
+  <script src="./js/jquery-3.5.1.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/49c0274367.js" crossorigin="anonymous"></script>
+  <style>
+    /* COMMON */
+    .blind {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+    }
+
+    /* SKIP */
+    .skip {
+      position: relative;
+
+      z-index: 30;
+    }
+
+    .skip a {
+      position: absolute;
+      top: -3rem;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 3rem;
+      text-align: center;
+
+      color: #fff;
+
+      background-color: #333;
+    }
+
+    .skip a:active,
+    .skip a:focus {
+      top: 0;
+    }
+
+    /* SEARCH WRAP */
+    .search_area {
+      position: relative;
+      width: 20rem;
+
+    }
+
+    .search_area fieldset {
+      display: flex;
+      justify-content: space-between;
+
+
+      width: 100%;
+      border: 2px solid goldenrod;
+      padding: 1rem;
+    }
+
+    .search_area .input-wrap {
+      width: 10rem;
+    }
+
+    .search_btn {
+      display: flex;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .autocomplete {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+
+      width: 2rem;
+      height: 2rem;
+
+      z-index: 5;
+    }
+
+    .autocomplete a {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-content: center;
+    }
+
+    .recent li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .recent .etc {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- skip -->
+  <div class="skip">
+    <ul>
+      <li> <a href="#main">본문 내용 바로가기</a></li>
+      <li> <a href="#nav">주메뉴 바로가기</a></li>
+    </ul>
+  </div>
+
+  <div class="search_area" data-clk-prefix="sch">
+    <form id="" name="" action="" method="get" role="search">
+      <fieldset>
+        <legend class="blind">검색</legend>
+        <div class="input-wrap">
+          <input id="" name="" type="search" title="검색어 입력" maxlength="10" class="input_text" tabindex="1"
+            autocomplete="off" placeholder="검색어를 입력해 주세요." value="">
+        </div>
+        <button id="search_btn" type="submit" title="검색" tabindex="3" class="btn_submit">
+          <span class="blind">검색</span>
+          <i class="fa-solid fa-search"></i>
+        </button>
+      </fieldset>
+    </form>
+    <div class="autocomplete">
+      <a href="#" role="button" id="" tabindex="2" class="btn_arw fold" aria-pressed="false"><span class="blind">자동완성
+          레이어</span><i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+
+    <!-- 자동완성레이어 -->
+    <div id="autoFrame" class="reatcmp" style="display: none;">
+      <ul class="recent">
+        <li>
+          <a href="#" class="kwd">
+            <span class="fix"><span class="common_ico_kwd"><i class="imsc ico_search"></i></span><span>최근
+                검색어1</span></span>
+          </a>
+          <span class="etc">
+            <em class="date">01.12.</em>
+            <a href="#" role="button" class="bt_item _del" aria-pressed="false">삭제</a>
+          </span>
+        </li>
+        <li>
+          <a href="#" class="kwd">
+            <span class="fix"><span class="common_ico_kwd"><i class="imsc ico_search"></i></span><span>최근
+                검색어2</span></span>
+          </a>
+          <span class="etc">
+            <em class="date">01.12.</em>
+            <a href="#" role="button" class="bt_item _del" aria-pressed="false">삭제</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const el = document.querySelector('.btn_arw');
+      const autoFrame = document.querySelector('.reatcmp');
+
+      function btnClick(e) {
+        e.preventDefault();
+        if (el.ariaPressed === "true") {
+          el.ariaPressed = "false"
+          autoFrame.style.display = "none"
+        } else {
+          el.ariaPressed = "true"
+          autoFrame.style.display = "block"
+        }
+      }
+      el.addEventListener("click", (e) => btnClick(e))
+    </script>
+</body>
+
+
+</html>

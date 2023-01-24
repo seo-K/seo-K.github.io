@@ -411,7 +411,7 @@ input {
 button,
 select {
   text-transform: none;
-  color: var(--black);
+  color: var(--white);
 }
 
 button::-moz-focus-inner,
@@ -460,8 +460,8 @@ body {
   letter-spacing: normal;
   -webkit-tap-highlight-color: transparent;
 
-  background-color: #000;
-  color: var(--black);
+  background-color: #121416;
+  color: var(--white);
   scroll-behavior: smooth;
 }
 

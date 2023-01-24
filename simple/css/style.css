@@ -1,0 +1,269 @@
+@charset "utf-8";
+.home {
+}
+
+.info {
+  position: relative;
+}
+
+.info .info_contnet {
+  width: 60vw;
+  margin-left: auto;
+  height: 100vh;
+  z-index: 100;
+  position: relative;
+  background: rgba(37, 37, 37, 0.8);
+}
+
+.info:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 15rem;
+  font-weight: 600;
+  line-height: 1.5;
+
+  content: "Information";
+  color: #222;
+  z-index: 5;
+  mix-blend-mode: exclusion;
+  transform-origin: top left;
+
+  transform: rotate(90deg) translate(0, -60%);
+}
+
+.project {
+  position: relative;
+
+  display: flex;
+}
+
+.project.show .moon-img {
+  width: 20rem;
+  height: 20rem;
+
+  transform: translate(-50%, -50%);
+}
+
+.project.show .moon-img:after {
+  width: 200%;
+  height: 200%;
+  content: "";
+}
+
+.project .pagination-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 25vw;
+  display: flex;
+  align-items: center;
+
+  padding-left: 10rem;
+}
+
+.project .moon-img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  flex-shrink: 0;
+  width: 40rem;
+  height: 40rem;
+  background: url(../image/common/full_moon.png) no-repeat center / contain;
+  filter: grayscale(1);
+  transform: translate(calc(-50vw - 50%), -50%);
+  transition: all 0.5s;
+}
+
+.project .moon-img:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+  border: 2px solid #404448;
+
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+}
+
+/* .project .moon-img::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+
+  content: "";
+  border-radius: 50%;
+  border: 2px solid #404448;
+
+  transform: translate(-50%, -50%);
+} */
+
+.project .pagination_cates {
+  position: unset !important;
+  right: unset !important;
+  top: unset !important;
+  transform: none !important;
+}
+
+.project .pagination_cate {
+  position: relative;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+  background-color: #404448;
+}
+
+.project .project_cate_list {
+  flex: 1;
+  padding: 1rem 1.5rem;
+
+  cursor: pointer;
+}
+
+.project .project_cate_list + li {
+  margin-top: 1rem;
+}
+
+.project .project_cate_list b {
+  font-size: 1rem;
+}
+
+.project .project_cate_list.active {
+  opacity: 1;
+}
+
+.project .swiper-scrollbar {
+  top: 50% !important;
+  left: 0 !important;
+  right: unset !important;
+
+  width: 20rem !important;
+  height: 40rem !important;
+  border-radius: 0 20rem 20rem 0;
+
+  overflow: hidden;
+
+  /* background: #404448; */
+  border: 2px solid #404448;
+
+  transform: translateY(-50%);
+}
+
+/* .project .swiper-scrollbar:after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 19.5rem;
+  height: 39rem;
+
+  border-radius: 0 19.5rem 19.5rem 0;
+  content: "";
+  background: #121416;
+
+  transform: translateY(-50%);
+} */
+
+.project .swiper-scrollbar-drag {
+  background: #fff;
+
+  width: 105% !important;
+}
+
+.project .project-title {
+  flex-shrink: 0;
+  width: 25vw;
+
+  display: flex;
+}
+
+.project .project-title hgroup {
+  height: 50%;
+  flex-shrink: 0;
+
+  display: grid;
+  place-content: center right;
+}
+
+.project .project_swiper {
+  position: relative;
+  flex-shrink: 0;
+  width: 50vw;
+
+  border-left: 1px solid #202224;
+  border-right: 1px solid #202224;
+
+  padding: 6rem 0;
+}
+
+.project .project_swiper:before {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  content: "";
+
+  background-image: linear-gradient(
+    to top,
+    rgba(18, 20, 22, 1),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 20;
+}
+
+.project .project_swiper:after {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  content: "";
+
+  width: 1px;
+  height: 100%;
+  background-color: #202224;
+}
+
+.project .swiper-slide:nth-child(odd) .slide-inner {
+  margin-left: auto;
+}
+
+.project .slide-inner {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.project .slide-title {
+  position: absolute;
+  bottom: 100%;
+
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  margin-bottom: 0.3rem;
+}
+
+.project .slide-title em {
+  font-size: 1rem;
+}
+
+.project .slide-title b {
+  font-size: 4rem;
+  color: #404448;
+}
+
+.project .project-img {
+  width: 100%;
+  height: 100%;
+}
