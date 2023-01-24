@@ -150,7 +150,7 @@ body.loading .loading-area {
   align-items: center;
   justify-content: center;
 
-  height: 5rem;
+  height: 8rem;
   width: 100vw;
 }
 
@@ -174,7 +174,7 @@ body.loading .loading-area {
 }
 
 #header .menu > li + li {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 #header .menu > li button {
@@ -185,7 +185,7 @@ body.loading .loading-area {
 
 #header .menu > li button:after {
   position: absolute;
-  bottom: -0.5rem;
+  bottom: -1rem;
   left: 50%;
   content: "";
   width: 0;
@@ -209,7 +209,7 @@ body.loading .loading-area {
 }
 
 #header .menu_button {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -218,17 +218,17 @@ body.loading .loading-area {
 }
 
 #header .util > li + li {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 #header .util_link {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* Main */
 #main {
   width: 100vw;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 8rem);
   overflow: hidden;
 }
 
@@ -241,17 +241,17 @@ body.loading .loading-area {
 .main_inner > article {
   flex-shrink: 0;
   width: 100vw;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 8rem);
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 10rem;
   font-weight: 800;
 }
 
 .desc {
   display: flex;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
   color: #eee;

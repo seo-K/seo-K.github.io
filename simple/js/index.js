@@ -3,20 +3,21 @@ AOS.init();
 
 $(function () {
   // =========== COMMON ===========
-  // ========= 모든 a태그
+  // =========== 모든 a태그
   $('a[href="#"]').click(function (e) {
     e.preventDefault();
   });
 
-  // ========= 로딩 기능
+  // =========== 로딩 기능
 
-  // ========= 다크모드
+  // =========== 다크모드
 
   // =========== HEADER ===========
   const main = document.querySelector("#main");
   const mainInner = document.querySelector(".main_inner");
   const menuList = document.querySelectorAll(".menu > li");
   const articleList = document.querySelectorAll(".main_inner > article");
+  const moonBg = document.querySelector(".moon_bg");
   let pageWidth = main.clientWidth;
 
   for (var i = 0; i < menuList.length; i++) {
@@ -25,6 +26,7 @@ $(function () {
       .addEventListener("click", function (e) {
         let activeIndex = [...menuList].indexOf(this.parentNode);
         let movePx = pageWidth * activeIndex; // inner 움직일 양
+
         e.preventDefault();
         for (var j = 0; j < menuList.length; j++) {
           menuList[j].classList.remove("active");
@@ -33,9 +35,19 @@ $(function () {
         this.parentNode.classList.add("active");
         articleList[activeIndex].classList.add("show");
         mainInner.style.transform = `translateX(-${movePx}px)`;
+
+        // moonBg animation
+        if (activeIndex == "1") {
+          moonBg.classList.add("active");
+        } else {
+          moonBg.classList.remove("active");
+        }
       });
   }
 
+  // info show 일시
+
+  // =========== SWIPER ===========
   let width = main.clientWidth;
   console.log(width);
 
@@ -80,6 +92,15 @@ $(function () {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
+    },
+
+    on: {
+      slideChangeTransitionStart: function () {
+        document.querySelector(".project_swiper").classList.add("active");
+      },
+      slideChangeTransitionEnd: function () {
+        document.querySelector(".project_swiper").classList.remove("active");
+      },
     },
   });
 });
