@@ -53,16 +53,19 @@ $(function () {
 
   const category = ["html", "react", "app"];
 
+  // project-swiper
   const swiper = new Swiper(".project_swiper", {
     speed: 500,
     direction: "vertical",
+    observer: true,
+    observeParents: true,
     mousewheel: {
       releaseOnEdges: true,
     },
     slidesPerView: "3.5",
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
-    lazy: true,
+
     lazy: {
       loadPrevNext: true,
       loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
@@ -102,5 +105,91 @@ $(function () {
         document.querySelector(".project_swiper").classList.remove("active");
       },
     },
+
+    a11y: {
+      prevSlideMessage: "이전 슬라이드",
+      nextSlideMessage: "다음 슬라이드",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    },
   });
+
+  // modal-swiper
+  const ModalSwiper = new Swiper(".modal_swiper", {
+    speed: 500,
+    parallax: true,
+    watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
+    thumbs: {
+      swiper: swiper,
+    },
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
+    },
+
+    navigation: {
+      nextEl: ".modal_swiper_next",
+      prevEl: ".modal_swiper_prev",
+    },
+    a11y: {
+      prevSlideMessage: "이전 슬라이드",
+      nextSlideMessage: "다음 슬라이드",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    },
+  });
+
+  // =========== Cursor ===========
+  const customCursor = document.querySelector(".custom-cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    window.requestAnimationFrame(() => {
+      customCursor.style.top = `${e.clientY - customCursor.offsetHeight / 2}px`;
+      customCursor.style.left = `${e.clientX - customCursor.offsetWidth / 2}px`;
+    });
+  });
+
+  function disableAnimation() {
+    const hasActiveClass = customCursor.classList.contains("active");
+    if (hasActiveClass) {
+      customCursor.classList.remove("active");
+    } else {
+      customCursor.classList.add("active");
+    }
+  }
+
+  const Link = document.querySelectorAll("a");
+
+  [...Link].map((item) =>
+    item.addEventListener("mouseenter", disableAnimation)
+  );
+  [...Link].map((item) =>
+    item.addEventListener("mouseleave", disableAnimation)
+  );
+
+  // Modal
+  const modal = document.querySelector(".modal");
+  const closeBtn = document.querySelector(".close_button");
+  const projectList = document.querySelectorAll(".slide_inner");
+
+  projectList.forEach((item) => {
+    item.addEventListener("click", openModal);
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  function openModal() {
+    let activeIndex = [...projectList].indexOf(this);
+    console.log(activeIndex);
+
+    modal.classList.add("show");
+  }
+
+  function closeModal() {
+    modal.classList.remove("show");
+  }
 });

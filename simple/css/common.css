@@ -269,3 +269,105 @@ body.loading .loading-area {
 
   margin-top: 0.6rem;
 }
+
+.custom-cursor {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+
+  display: grid;
+  place-content: center;
+
+  pointer-events: none;
+  transition: background ease-in 10ms, box-shadow ease-in 150ms,
+    transform ease-in 150ms;
+  transform: translate3d(0, 0, 0);
+  border-radius: 50%;
+  border: 2px solid #121416;
+  transition: width 0.4s, height 0.4s;
+
+  z-index: 25;
+}
+
+.custom-cursor:after {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0.4rem;
+  content: "";
+
+  width: 0;
+  height: 2px;
+  border-radius: 0;
+  background: var(--deepBlue);
+
+  transition: all 0.5s;
+}
+
+.cursor-arrow:after,
+.cursor-arrow:before {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0.8rem;
+
+  width: 0.7rem;
+  height: 2px;
+  content: "";
+
+  background: var(--deepBlue);
+
+  transition: 0.7s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: right;
+  transform: scaleY(0) rotate(0deg);
+  z-index: 9;
+}
+
+.custom-cursor .cursor-word {
+  display: none;
+}
+
+.custom-cursor.active {
+  mix-blend-mode: unset;
+}
+
+.custom-cursor.active .cursor-word {
+  display: block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+
+  animation: rotateAnimation 10s linear infinite;
+}
+
+.custom-cursor.active:after {
+  width: 1.1rem;
+}
+
+.custom-cursor.active .cursor-arrow:after {
+  transform: scaleY(1) rotate(45deg);
+}
+
+.custom-cursor.active .cursor-arrow:before {
+  transform: scaleY(1) rotate(-45deg);
+}
+
+@keyframes rotateAnimation {
+  form {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-cursor .cursor-word span {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 50%;
+
+  transform: rotate(calc(40deg * var(--rotate)));
+  transform-origin: bottom left;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--black);
+}
