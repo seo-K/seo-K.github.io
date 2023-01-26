@@ -97,8 +97,8 @@ $(function () {
     // },
 
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".project_swiper_next",
+      prevEl: ".project_swiper_prev",
     },
 
     on: {
@@ -164,22 +164,30 @@ $(function () {
     });
   });
 
-  function disableAnimation() {
-    const hasActiveClass = customCursor.classList.contains("active");
-    if (hasActiveClass) {
-      customCursor.classList.remove("active");
-    } else {
-      customCursor.classList.add("active");
-    }
-  }
-
   const Link = document.querySelectorAll("a");
+  const Menu = document.querySelectorAll("button");
 
   [...Link].map((item) =>
-    item.addEventListener("mouseenter", disableAnimation)
+    item.addEventListener("mouseenter", () => {
+      customCursor.classList.add("active");
+    })
   );
+
   [...Link].map((item) =>
-    item.addEventListener("mouseleave", disableAnimation)
+    item.addEventListener("mouseleave", () => {
+      customCursor.classList.remove("active");
+    })
+  );
+
+  [...Menu].map((item) =>
+    item.addEventListener("mouseenter", () => {
+      customCursor.classList.add("menu_active");
+    })
+  );
+  [...Menu].map((item) =>
+    item.addEventListener("mouseleave", () => {
+      customCursor.classList.remove("menu_active");
+    })
   );
 
   // Modal

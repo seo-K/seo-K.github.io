@@ -420,10 +420,10 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="submit"]:not(:disabled) {
   -webkit-appearance: button;
   cursor: pointer;
   *overflow: visible;

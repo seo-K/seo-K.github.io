@@ -14,13 +14,15 @@
     ". . desc" 10rem / 1fr 2fr 1fr;
 
   align-items: center;
-  padding: 5rem;
+  padding: 5rem 7rem;
 }
 
 .home .year {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 400;
   grid-area: year;
 }
+
 .home .title {
   grid-area: text;
 
@@ -647,6 +649,31 @@
   height: 100%;
 }
 
+.swiper_button_wrap {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.project .project_swiper_next,
+.project .project_swiper_prev {
+  width: 4rem;
+  height: 5rem;
+
+  background: #fff url(../image/common/swiper_up.svg) no-repeat center / contain;
+
+  z-index: 25;
+}
+.project .project_swiper_next {
+}
+
+.project .project_swiper_prev {
+  transform: rotate(180deg);
+}
+
 /* project 클릭시 */
 .project .swiper-slide.clicked {
   margin-left: auto;
@@ -665,11 +692,12 @@
   transform: translateY(100%);
   transition: transform 0.5s;
 
-  z-index: 20;
+  z-index: -1;
 }
 
 .modal.show {
   transform: translateY(0);
+  z-index: 20;
 }
 
 .modal .close_button {
@@ -811,7 +839,7 @@
   margin-top: auto;
 }
 
-.modal .site_link {
+.modal a.site_link {
   flex-shrink: 0;
   width: 8rem;
   height: 8rem;
@@ -819,6 +847,13 @@
   border-radius: 50%;
 
   background: url(../image/common/link.svg) no-repeat center / contain;
+}
+
+.modal button.site_link {
+  font-weight: 600;
+  font-size: 2rem;
+
+  color: #121416;
 }
 
 .modal .modal_swiper_next,

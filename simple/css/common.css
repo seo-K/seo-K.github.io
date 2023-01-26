@@ -261,6 +261,24 @@ body.loading .loading-area {
   font-weight: 800;
 }
 
+.title span {
+  transform: translateY(100%);
+  opacity: 0;
+
+  transition: transform 0.2s;
+}
+
+.show .title span {
+  animation: showAnimation 0.5s var(--delay) forwards;
+}
+
+@keyframes showAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .desc {
   display: flex;
   font-size: 1.5rem;
@@ -282,6 +300,7 @@ body.loading .loading-area {
   margin-top: 1rem;
 }
 
+/* CURSOR */
 .custom-cursor {
   position: fixed;
   width: 3rem;
@@ -291,12 +310,10 @@ body.loading .loading-area {
   place-content: center;
 
   pointer-events: none;
-  transition: background ease-in 10ms, box-shadow ease-in 150ms,
-    transform ease-in 150ms;
-  transform: translate3d(0, 0, 0);
   border-radius: 50%;
-  border: 2px solid #121416;
-  transition: width 0.4s, height 0.4s;
+  border: 1px solid #fe7a27;
+  transform: translate3d(0, 0, 0);
+  transition: background 0.5s, transform 0.5s, width 0.2s, height 0.2s;
 
   z-index: 25;
 }
@@ -304,28 +321,28 @@ body.loading .loading-area {
 .custom-cursor:after {
   position: absolute;
   top: calc(50% - 1px);
-  left: 0.4rem;
+  left: 1.1rem;
   content: "";
 
   width: 0;
   height: 2px;
   border-radius: 0;
-  background: var(--deepBlue);
+  background: #fff;
 
-  transition: all 0.5s;
+  transition: width 0.5s;
 }
 
 .cursor-arrow:after,
 .cursor-arrow:before {
   position: absolute;
   top: calc(50% - 1px);
-  left: 0.8rem;
+  left: 1.7rem;
 
-  width: 0.7rem;
+  width: 1.3rem;
   height: 2px;
   content: "";
 
-  background: var(--deepBlue);
+  background: #fff;
 
   transition: 0.7s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-origin: right;
@@ -338,20 +355,15 @@ body.loading .loading-area {
 }
 
 .custom-cursor.active {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #fe7a27;
+
   mix-blend-mode: unset;
 }
 
-.custom-cursor.active .cursor-word {
-  display: block;
-  position: relative;
-  width: 5rem;
-  height: 5rem;
-
-  animation: rotateAnimation 10s linear infinite;
-}
-
 .custom-cursor.active:after {
-  width: 1.1rem;
+  width: 2rem;
 }
 
 .custom-cursor.active .cursor-arrow:after {
@@ -360,6 +372,15 @@ body.loading .loading-area {
 
 .custom-cursor.active .cursor-arrow:before {
   transform: scaleY(1) rotate(-45deg);
+}
+
+.custom-cursor.active .cursor-word {
+  display: block;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+
+  animation: rotateAnimation 10s linear infinite;
 }
 
 @keyframes rotateAnimation {
@@ -376,10 +397,17 @@ body.loading .loading-area {
   right: 0;
   width: 50%;
   height: 50%;
+  font-size: 1.5rem;
 
   transform: rotate(calc(40deg * var(--rotate)));
   transform-origin: bottom left;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: #fff;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--black);
+  -webkit-text-stroke-color: #121416;
+}
+
+.custom-cursor.menu_active {
+  transform: scale(2);
+  background-color: #fe7a27;
+  mix-blend-mode: difference;
 }
