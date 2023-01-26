@@ -73,29 +73,29 @@
       <div class="main_inner">
         <!-- HOME -->
         <article class="home show">
-          <div class="project_title">
-            <hgroup>
-              <h2 class="title">PortFolio.</h2>
-              <h3 class="desc">
-                my project List<br>
-                my project List<br>
-                my project List<br>
-              </h3>
-            </hgroup>
-          </div>
+          <h2 class="blind">메인 페이지</h2>
+          <div class="home_inner">
+            <b class="year">2023</b>
+            <p class="title">PortFolio.</p>
 
+            <div class="center_svg">
+              英
+            </div>
+
+            <p class="desc">웹 표준 -접근성.<br>
+              기본을 갖춘 퍼블리셔.</p>
+          </div>
         </article>
         <!-- INFO -->
         <article class="info">
+          <h2 class="blind">소개 페이지</h2>
           <div class="info_inner">
             <div class="profile">
               <div class="profile_img_wrap">
-                <span class="circle"><span class="circle"></span></span>
-
+                <span class="circle"></span>
                 <span class="circle"></span>
                 <figure class="profile_img circle">
                   <img src="../image/common/logo.png" alt="프로필 사진">
-                  <span class="circle"></span>
                 </figure>
               </div>
               <p class="profile_short_info">안녕하세요! 제 이름은 강서영이고 웹 퍼블리싱을 즐깁니다!<br>
@@ -187,22 +187,29 @@
         </article>
         <!-- PROJECTS -->
         <article class="project">
+          <h2 class="blind">프로젝트 페이지</h2>
           <div class="pagination-container">
             <div class="moon">
               <div class="moon_bg"></div>
               <div class="moon_img"></div>
             </div>
             <ul class="swiper-pagination pagination_cate"></ul>
-            <div class="swiper-scrollbar"></div>
+            <!-- <div class="swiper_progressbar"></div> -->
+            <div class="swiper_progressbar">
+              <div class="progressbar_overflow">
+                <div class="bar"></div>
+              </div>
+            </div>
+
           </div>
           <div class="project_title">
             <hgroup>
-              <h2 class="title">ProJect.</h2>
-              <h3 class="desc">
+              <h3 class="title">ProJect.</h3>
+              <h4 class="desc">
                 my project List<br>
                 my project List<br>
                 my project List<br>
-              </h3>
+              </h4>
             </hgroup>
           </div>
           <div class="swiper project_swiper">
@@ -339,7 +346,7 @@
     <header id="header">
       <div class="header_inner">
         <p class="logo">
-          SeoYeoung PortFolio
+          SeoYoung
         </p>
         <nav>
           <ul class="menu">
@@ -350,10 +357,11 @@
         </nav>
         <ul class="util">
           <li>
-            <a class="util_link" href="https://github.com/seo-K"><i class="fa-brands fa-github-alt"></i></a>
+            <a class="util_link github_link" href="https://github.com/seo-K"><span class="blind">강서영 깃허브</span></a>
           </li>
           <li>
-            <a class="util_link" href="https://blog.naver.com/seo-kkk"><i class="fa-brands fa-blogger-b"></i></a>
+            <a class="util_link naver_link" href="https://blog.naver.com/seo-kkk"><span class="blind">강서영 네이버
+                블로그</span></a>
           </li>
         </ul>
       </div>

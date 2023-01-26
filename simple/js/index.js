@@ -47,6 +47,9 @@ $(function () {
 
   // info show 일시
 
+  // =========== PROJECT ===========
+  // 프로그래스바
+
   // =========== SWIPER ===========
   let width = main.clientWidth;
   console.log(width);
@@ -63,6 +66,7 @@ $(function () {
       releaseOnEdges: true,
     },
     slidesPerView: "3.5",
+    slidesPerGroup: 3,
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
 
@@ -82,15 +86,15 @@ $(function () {
       },
     },
 
-    scrollbar: {
-      el: ".swiper-scrollbar",
-      // Makes the Scrollbar Draggable
-      draggable: true,
-      // Snaps slider position to slides when you release Scrollbar
-      snapOnRelease: true,
-      // Size (Length) of Scrollbar Draggable Element in px
-      dragSize: "auto",
-    },
+    // scrollbar: {
+    //   el: ".swiper_progressbar",
+    //   // Makes the Scrollbar Draggable
+    //   draggable: true,
+    //   // Snaps slider position to slides when you release Scrollbar
+    //   snapOnRelease: true,
+    //   // Size (Length) of Scrollbar Draggable Element in px
+    //   dragSize: "auto",
+    // },
 
     navigation: {
       nextEl: ".swiper-button-next",
@@ -98,6 +102,12 @@ $(function () {
     },
 
     on: {
+      slideChange: function () {
+        const progressBar = document.querySelector(".bar");
+        let val = 135 * swiper.progress;
+
+        progressBar.style.transform = `rotate(${val}deg)`;
+      },
       slideChangeTransitionStart: function () {
         document.querySelector(".project_swiper").classList.add("active");
       },
@@ -135,6 +145,7 @@ $(function () {
       nextEl: ".modal_swiper_next",
       prevEl: ".modal_swiper_prev",
     },
+
     a11y: {
       prevSlideMessage: "이전 슬라이드",
       nextSlideMessage: "다음 슬라이드",
@@ -184,8 +195,6 @@ $(function () {
 
   function openModal() {
     let activeIndex = [...projectList].indexOf(this);
-    console.log(activeIndex);
-
     modal.classList.add("show");
   }
 
@@ -193,3 +202,53 @@ $(function () {
     modal.classList.remove("show");
   }
 });
+
+// //마우스 움직임 이벤트
+// var obj11 = $section.find('.obj-11'),
+//     obj12 = $section.find('.obj-12'),
+//     obj21 = $section.find('.obj-21'),
+//     obj22 = $section.find('.obj-22'),
+//     obj31 = $section.find('.obj-31'),
+//     obj32 = $section.find('.obj-32'),
+//     obj41 = $section.find('.obj-41'),
+//     obj42 = $section.find('.obj-42');
+
+// $section.on('mousemove', function (e) {
+//     var mx = e.pageX,
+//         my = e.pageY;
+
+//     //        console.log(mx,my);
+//     obj11.css({
+//         right: 20 - (mx / 30),
+//         bottom: 20 - (my / 30)
+//     })
+//     obj12.css({
+//         right: 150 + (mx / 15),
+//         bottom: -50 + (my / 20)
+//     })
+//     obj21.css({
+//         right: 20 - (mx / 20),
+//         bottom: 20 - (my / 40)
+//     })
+//     obj22.css({
+//         right: 150 + (mx / 50),
+//         bottom: -50 + (my / 25)
+//     })
+//     obj31.css({
+//         top: 50 - (mx / 30),
+//         bottom: 100 - (my / 30)
+//     })
+//     obj32.css({
+//         right: -70 + (mx / 20),
+//         bottom: -250 + (my / 35)
+//     })
+//     obj41.css({
+//         right: 20 - (mx / 30),
+//         bottom: -20 - (my / 30)
+//     })
+//     obj42.css({
+//         right: 0 + (mx / 15),
+//         bottom: -50 + (my / 20)
+//     })
+
+// })

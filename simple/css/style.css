@@ -3,6 +3,43 @@
 .home {
 }
 
+.home_inner {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  grid-template:
+    "year . text" 10rem
+    ". svg ." 1fr
+    ". . desc" 10rem / 1fr 2fr 1fr;
+
+  align-items: center;
+  padding: 5rem;
+}
+
+.home .year {
+  font-size: 2rem;
+  grid-area: year;
+}
+.home .title {
+  grid-area: text;
+
+  justify-self: flex-end;
+}
+
+.home .center_svg {
+  font-size: 30rem;
+  grid-area: svg;
+
+  justify-self: center;
+}
+
+.home .desc {
+  grid-area: desc;
+
+  justify-self: flex-end;
+}
+
 /*--------------------- INFO --------------------- */
 .info {
   position: relative;
@@ -73,17 +110,14 @@
 .info .profile .circle {
   position: relative;
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
 }
 
-.info .profile .circle .circle {
-  position: absolute;
-  top: 0;
-  left: 70%;
-  z-index: -1;
+.info .profile .circle:nth-child(odd) {
+  box-shadow: 4rem 0 0 rgba(255, 255, 255, 0.8);
 }
 
 .info .profile .profile_img img {
@@ -298,9 +332,31 @@
 }
 
 .project.show .moon_img:after {
-  width: 200%;
-  height: 200%;
+  width: 150%;
+  height: 150%;
   content: "";
+
+  border-width: 15px;
+}
+
+.project.show .moon_img:before {
+  width: 5rem;
+  height: 5rem;
+
+  background: #fff;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1),
+    transparent
+  );
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+  mask-image: linear-gradient(to left);
+}
+
+.project.show .moon_bg {
+  width: 22rem;
+  height: 22rem;
+  transform: translate(-50%, -50%);
 }
 
 .project .pagination-container {
@@ -322,7 +378,7 @@
   height: 40rem;
   background: url(../image/common/full_moon.png) no-repeat center / contain;
   transform: translate(calc(-50vw - 50%), -50%);
-  transition: all 0.5s;
+  transition: all 1s;
 }
 
 .project .moon_bg {
@@ -341,11 +397,11 @@
     rgba(25, 138, 120, 1) 100%
   );
   filter: blur(3rem);
-  box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3); */
 
   transform-origin: 50% 45%;
   transform: translate(calc(-50vw - 50%), -50%);
-  transition: all 0.5s;
+  transition: all 1s 0.2s;
 }
 
 .project .moon_bg.active {
@@ -362,20 +418,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0;
-  height: 0;
-
-  border-radius: 50%;
-  border: 2px solid #404448;
-
-  transform: translate(-50%, -50%);
-  transition: all 0.3s;
-}
-
-/* .project .moon_img::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 200%;
   height: 200%;
 
@@ -384,7 +426,22 @@
   border: 2px solid #404448;
 
   transform: translate(-50%, -50%);
-} */
+  transition: all 1s 0.2s;
+}
+
+.project .moon_img:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  content: "";
+  border-radius: 50%;
+  transform: translate(100%, 100%);
+
+  transition: all 1s 0.2s;
+
+  z-index: 5;
+}
 
 .project .pagination_cates {
   position: unset !important;
@@ -424,7 +481,38 @@
   opacity: 1;
 }
 
-.project .swiper-scrollbar {
+.project .swiper_progressbar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  transform: translateY(-50%);
+}
+
+.project .progressbar_overflow {
+  position: relative;
+  width: 25rem;
+  height: 50rem;
+  overflow: hidden;
+}
+
+.project .bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50rem;
+  height: 50rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 3px solid #404448;
+  border-top-color: #e7f2f6;
+  border-left-color: #e7f2f6;
+
+  transform: rotate(0deg);
+  transition: transform 0.2s;
+}
+
+/* .project .swiper_progressbar {
   top: 50% !important;
   left: 0 !important;
   right: unset !important;
@@ -435,13 +523,12 @@
 
   overflow: hidden;
 
-  /* background: #404448; */
   border: 2px solid #404448;
 
   transform: translateY(-50%);
-}
+} */
 
-/* .project .swiper-scrollbar:after {
+/* .project .swiper_progressbar:after {
   position: absolute;
   top: 50%;
   left: 0;
@@ -455,7 +542,7 @@
   transform: translateY(-50%);
 } */
 
-.project .swiper-scrollbar-drag {
+.project .swiper_progressbar-drag {
   background: #fff;
 
   width: 105% !important;

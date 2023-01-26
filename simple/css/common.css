@@ -165,7 +165,8 @@ body.loading .loading-area {
 }
 
 #header .logo {
-  font-size: 1rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
 }
 
 #header .menu {
@@ -218,11 +219,22 @@ body.loading .loading-area {
 }
 
 #header .util > li + li {
-  margin-left: 1.5rem;
+  margin-left: 2rem;
 }
 
 #header .util_link {
-  font-size: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+
+  background: no-repeat center / contain;
+}
+
+#header .github_link {
+  background-image: url(../image/common/sns_github.svg);
+}
+
+#header .naver_link {
+  background-image: url(../image/common/sns_naver.svg);
 }
 
 /* Main */
@@ -235,7 +247,7 @@ body.loading .loading-area {
 .main_inner {
   display: flex;
 
-  transition: all 0.3s;
+  transition: all 1s;
 }
 
 .main_inner > article {
@@ -267,7 +279,7 @@ body.loading .loading-area {
 
   margin-right: 1.5rem;
 
-  margin-top: 0.6rem;
+  margin-top: 1rem;
 }
 
 .custom-cursor {
