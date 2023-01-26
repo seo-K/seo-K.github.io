@@ -18,37 +18,90 @@ $(function () {
   const menuList = document.querySelectorAll(".menu > li");
   const articleList = document.querySelectorAll(".main_inner > article");
   const moonBg = document.querySelector(".moon_bg");
-  let pageWidth = main.clientWidth;
+  let activeIndex = 0;
 
-  for (var i = 0; i < menuList.length; i++) {
-    menuList[i]
-      .querySelector(".menu_button")
-      .addEventListener("click", function (e) {
-        let activeIndex = [...menuList].indexOf(this.parentNode);
-        let movePx = pageWidth * activeIndex; // inner 움직일 양
+  // 페이지 이동 함수
+  function pageTransformEvent(idx) {
+    if (idx >= 0 && idx < 3) {
+      let movePercent = 100 * idx; // inner 움직일 양
+      activeIndex = idx;
 
-        e.preventDefault();
-        for (var j = 0; j < menuList.length; j++) {
-          menuList[j].classList.remove("active");
-          articleList[j].classList.remove("show");
-        }
-        this.parentNode.classList.add("active");
-        articleList[activeIndex].classList.add("show");
-        mainInner.style.transform = `translateX(-${movePx}px)`;
+      // 초기화
+      [...menuList].map((menu) => menu.classList.remove("active"));
+      [...articleList].map((menu) => menu.classList.remove("show"));
 
-        // moonBg animation
-        if (activeIndex == "1") {
-          moonBg.classList.add("active");
-        } else {
-          moonBg.classList.remove("active");
-        }
-      });
+      menuList[idx].classList.add("active");
+      articleList[idx].classList.add("show");
+
+      mainInner.style.transform = `translateX(-${movePercent}%)`;
+
+      // moonBg animation
+      if (idx == "1") {
+        moonBg.classList.add("active");
+      } else {
+        moonBg.classList.remove("active");
+      }
+    }
   }
 
-  // info show 일시
+  // 메뉴 클릭 시
+  menuList.forEach((list, idx) => {
+    list.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      pageTransformEvent(idx);
+    });
+  });
+
+  // 페이지 터치 시
+  function TouchEvent() {
+    let startXY, endXY;
+
+    winWidth = window.innerWidth;
+
+    if (winWidth > 1024) {
+      main.addEventListener("mousedown", mouseStart);
+      main.addEventListener("mouseup", mouseEnd);
+
+      function mouseStart(e) {
+        startXY = e.clientX;
+        e.preventDefault();
+      }
+      function mouseEnd(e) {
+        endXY = e.clientX;
+        PageTransform();
+      }
+    }
+
+    // else {
+    //   main.addEventListener("touchstart", touchStart);
+    //   main.addEventListener("touchend", touchEnd);
+
+    //   function touchStart(e) {
+    //     startXY = e.touches[0].pageX;
+    //     e.preventDefault();
+    //   }
+
+    //   function touchEnd(e) {
+    //     endXY = e.changedTouches[0].pageX;
+    //     PageTransform();
+    //   }
+    // }
+
+    function PageTransform() {
+      if (endXY - startXY > 50) {
+        pageTransformEvent(activeIndex - 1);
+      } else if (endXY - startXY < 0) {
+        pageTransformEvent(activeIndex + 1);
+      } else {
+        pageTransformEvent(activeIndex);
+      }
+    }
+  }
+
+  TouchEvent();
 
   // =========== PROJECT ===========
-  // 프로그래스바
 
   // =========== SWIPER ===========
   let width = main.clientWidth;
@@ -66,9 +119,11 @@ $(function () {
       releaseOnEdges: true,
     },
     slidesPerView: "3.5",
-    slidesPerGroup: 3,
+    slidesPerGroup: 4,
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
     grabCursor: true, // 스와이퍼에 grab cursor
+    loopFillGroupWithBlank: true,
+    // passiveListeners: false,
 
     lazy: {
       loadPrevNext: true,
@@ -76,44 +131,18 @@ $(function () {
     },
 
     pagination: {
-      el: ".pagination_cate",
+      el: ".pagination_cates",
       clickable: true,
       bulletActiveClass: "active",
       bulletClass: "project_cate_list",
-      // Bullet Numbering 설정
       renderBullet: function (index, className) {
-        return `<li class="${className}" style="--rotate: ${index}"><b> ${category[index]}</b></li>`;
+        return `<li class="${className}" style="--rotate: ${index}"><button type="button">${category[index]}</button></li>`;
       },
     },
-
-    // scrollbar: {
-    //   el: ".swiper_progressbar",
-    //   // Makes the Scrollbar Draggable
-    //   draggable: true,
-    //   // Snaps slider position to slides when you release Scrollbar
-    //   snapOnRelease: true,
-    //   // Size (Length) of Scrollbar Draggable Element in px
-    //   dragSize: "auto",
-    // },
 
     navigation: {
       nextEl: ".project_swiper_next",
       prevEl: ".project_swiper_prev",
-    },
-
-    on: {
-      slideChange: function () {
-        const progressBar = document.querySelector(".bar");
-        let val = 135 * swiper.progress;
-
-        progressBar.style.transform = `rotate(${val}deg)`;
-      },
-      slideChangeTransitionStart: function () {
-        document.querySelector(".project_swiper").classList.add("active");
-      },
-      slideChangeTransitionEnd: function () {
-        document.querySelector(".project_swiper").classList.remove("active");
-      },
     },
 
     a11y: {
@@ -129,12 +158,16 @@ $(function () {
     speed: 500,
     parallax: true,
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
+    grabCursor: true,
     thumbs: {
       swiper: swiper,
     },
     mousewheel: {
       releaseOnEdges: true,
     },
+
+    observer: true,
+    observeParents: true,
 
     lazy: {
       loadPrevNext: true,
@@ -151,6 +184,15 @@ $(function () {
       nextSlideMessage: "다음 슬라이드",
       slideLabelMessage:
         "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    },
+
+    on: {
+      slideChange: function () {
+        const progressBar = document.querySelector(".bar");
+        let val = 135 * ModalSwiper.progress;
+
+        progressBar.style.transform = `rotate(${val}deg)`;
+      },
     },
   });
 
@@ -192,23 +234,20 @@ $(function () {
 
   // Modal
   const modal = document.querySelector(".modal");
-  const closeBtn = document.querySelector(".close_button");
+  const closeBtn = document.querySelectorAll(".close_button, .modal_bg");
   const projectList = document.querySelectorAll(".slide_inner");
 
   projectList.forEach((item) => {
-    item.addEventListener("click", openModal);
+    item.addEventListener("click", () => {
+      modal.classList.add("show");
+    });
   });
 
-  closeBtn.addEventListener("click", closeModal);
-
-  function openModal() {
-    let activeIndex = [...projectList].indexOf(this);
-    modal.classList.add("show");
-  }
-
-  function closeModal() {
-    modal.classList.remove("show");
-  }
+  closeBtn.forEach((item) => {
+    item.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+  });
 });
 
 // //마우스 움직임 이벤트
@@ -260,3 +299,13 @@ $(function () {
 //     })
 
 // })
+
+// scrollbar: {
+//   el: ".swiper_progressbar",
+//   // Makes the Scrollbar Draggable
+//   draggable: true,
+//   // Snaps slider position to slides when you release Scrollbar
+//   snapOnRelease: true,
+//   // Size (Length) of Scrollbar Draggable Element in px
+//   dragSize: "auto",
+// },

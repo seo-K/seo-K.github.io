@@ -97,7 +97,6 @@ $(function () {
     ".card-piano li:nth-child(odd)"
   );
   const OrangeCard = document.querySelector(".orange-card");
-
   const OrangeClass = "orange-card";
 
   function MouseEnterEvent() {
