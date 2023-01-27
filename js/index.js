@@ -1,156 +1,60 @@
-// AOS
-AOS.init();
-
 $(function () {
   // =========== COMMON ===========
-  // ========= 모든 a태그
+  // =========== 모든 a태그
   $('a[href="#"]').click(function (e) {
     e.preventDefault();
   });
 
-  // ========= 로딩 기능
-  window.onbeforeunload = function () {
-    $("body").addClass("loading");
-  };
-  $(window).on("load", function () {
-    $("body").removeClass("loading");
-  });
-
-  // ========= 젤리 애니메이션 (텍스트 및 카드 메뉴)
-  const EachText = document.querySelectorAll(".jelly-text > span");
-  const Menu = document.querySelectorAll(".menu-card");
-
-  function JelloAnimation() {
-    this.classList.add("animation");
-    this.addEventListener("animationend", () => {
-      this.classList.remove("animation");
-    });
-  }
-
-  EachText.forEach((item) => {
-    item.addEventListener("mouseover", JelloAnimation);
-  });
-
-  Menu.forEach((item) => {
-    item.addEventListener("mouseover", JelloAnimation);
-  });
-
-  // ========= 다크모드
-  const userTheme = localStorage.getItem("color-theme"); // 유저가 localStorage에 저장한테마가 있는지 확인
-  const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-  const getUserTheme = () => (userTheme ? userTheme : osTheme); // color-theme 확인 - localStorage에 저장된게 있는지, 없으면 OS의 color-theme로 설정
-  if (window.NodeList && !NodeList.prototype.forEach) {
-    NodeList.prototype.forEach = Array.prototype.forEach;
-  }
-  const themeSwitch = document.querySelector(".theme-mode i"); // 다크모드 스위치
-  if (getUserTheme() === "dark") {
-    DarkMode();
-  } else {
-    LightMode();
-  }
-
-  themeSwitch.addEventListener("click", function (e) {
-    let switchThemeData = e.target.getAttribute("data-theme");
-    if (switchThemeData === "dark") {
-      DarkMode();
-    } else {
-      LightMode();
-    }
-  });
-
-  function DarkMode() {
-    localStorage.setItem("color-theme", "dark");
-    document.documentElement.setAttribute("color-theme", "dark");
-    themeSwitch.setAttribute("data-theme", "light");
-    themeSwitch.setAttribute("class", "fa-solid fa-sun");
-    themeSwitch.setAttribute("class", "fa-regular fa-lightbulb");
-  }
-
-  function LightMode() {
-    localStorage.setItem("color-theme", "light");
-    document.documentElement.setAttribute("color-theme", "light");
-    themeSwitch.setAttribute("data-theme", "dark");
-    themeSwitch.setAttribute("class", "fa-solid fa-ghost");
-  }
-
   // =========== HEADER ===========
-  const logo = document.querySelector(".top-content");
-  const logoHeight = document.querySelector(".top-content").clientHeight;
+  const main = document.querySelector("#main");
+  const mainInner = document.querySelector(".main_inner");
+  const menuList = document.querySelectorAll(".menu > li");
+  const articleList = document.querySelectorAll(".main_inner > article");
+  const moonBg = document.querySelector(".moon_bg");
+  let activeIndex = 0;
 
-  /** ========= Logo Scroll event (scale + opacity animation) */
-  function onScroll() {
-    let value = 1 - window.scrollY / 500;
+  // 페이지 이동 함수
+  function pageTransformEvent(idx) {
+    if (idx >= 0 && idx < 3) {
+      let movePercent = 100 * idx; // inner 움직일 양
+      activeIndex = idx;
 
-    if (window.scrollY < logoHeight) {
-      logo.style.transform = `scale(${value}) translateY(${window.scrollY}px)`;
-      logo.style.opacity = value;
-    }
-  }
+      // 초기화
+      [...menuList].map((menu) => menu.classList.remove("active"));
+      [...articleList].map((menu) => menu.classList.remove("show"));
 
-  window.addEventListener("scroll", onScroll, {passive: true});
+      menuList[idx].classList.add("active");
+      articleList[idx].classList.add("show");
 
-  // ========= 헤더 카드 메뉴 리스트 이벤트
-  const menu = document.querySelectorAll(".menu-card");
-  const pianoOddList = document.querySelectorAll(
-    ".card-piano li:nth-child(odd)"
-  );
-  const OrangeCard = document.querySelector(".orange-card");
-  const OrangeClass = "orange-card";
+      mainInner.style.transform = `translateX(-${movePercent}%)`;
 
-  function MouseEnterEvent() {
-    OrangeCard.classList.remove("show");
-
-    if (!this.classList.contains(OrangeClass)) {
-      this.classList.add("hidden");
-      if (this.classList.contains("yellow-card")) {
-        document
-          .querySelector(".card-piano li:nth-child(1)")
-          .classList.add("active");
-      } else if (this.classList.contains("beige-card")) {
-        document
-          .querySelector(".card-piano li:nth-child(5)")
-          .classList.add("active");
-      } else if (this.classList.contains("purple-card")) {
-        document
-          .querySelector(".card-piano li:nth-child(3)")
-          .classList.add("active");
-        document
-          .querySelector(".card-piano li:nth-child(9)")
-          .classList.add("active");
+      // moonBg animation
+      if (idx == "1") {
+        moonBg.classList.add("active");
+      } else {
+        moonBg.classList.remove("active");
       }
     }
   }
 
-  function MouseLeaveEvent() {
-    OrangeCard.classList.add("show");
-    [...pianoOddList].map((oddList) => oddList.classList.remove("active"));
+  // 메뉴 클릭 시
+  menuList.forEach((list, idx) => {
+    list.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    if (!this.classList.contains(OrangeClass)) {
-      this.classList.remove("hidden");
-    }
-  }
-
-  menu.forEach((menuList) => {
-    menuList.addEventListener("mouseover", MouseEnterEvent);
-    menuList.addEventListener("mouseleave", MouseLeaveEvent);
+      pageTransformEvent(idx);
+    });
   });
 
-  // =========== MAIN =========
-  // ========= 스킬 스크롤 이벤트
-
-  // ========= 프로젝트 터치/마우스 휠 이벤트
-  const RotateArea = document.querySelector(".tv-layout-wrap");
-
-  function WheelEvent() {
+  // 페이지 터치 시
+  function TouchEvent() {
     let startXY, endXY;
 
     winWidth = window.innerWidth;
 
-    if (winWidth > 1500) {
-      RotateArea.addEventListener("mousedown", mouseStart);
-      RotateArea.addEventListener("mouseup", mouseEnd);
+    if (winWidth > 1024) {
+      main.addEventListener("mousedown", mouseStart);
+      main.addEventListener("mouseup", mouseEnd);
 
       function mouseStart(e) {
         startXY = e.clientX;
@@ -158,148 +62,142 @@ $(function () {
       }
       function mouseEnd(e) {
         endXY = e.clientX;
-        RotateEvent();
-      }
-    } else {
-      RotateArea.addEventListener("touchstart", touchStart);
-      RotateArea.addEventListener("touchend", touchEnd);
-
-      function touchStart(e) {
-        startXY = e.touches[0].pageY;
-        e.preventDefault();
-      }
-
-      function touchEnd(e) {
-        endXY = e.changedTouches[0].pageY;
-        RotateEvent();
+        PageTransform();
       }
     }
 
-    function RotateEvent() {
-      if (endXY - startXY > 100) {
-        swiper.slidePrev();
+    // else {
+    //   main.addEventListener("touchstart", touchStart);
+    //   main.addEventListener("touchend", touchEnd);
+
+    //   function touchStart(e) {
+    //     startXY = e.touches[0].pageX;
+    //     e.preventDefault();
+    //   }
+
+    //   function touchEnd(e) {
+    //     endXY = e.changedTouches[0].pageX;
+    //     PageTransform();
+    //   }
+    // }
+
+    function PageTransform() {
+      if (endXY - startXY > 50) {
+        pageTransformEvent(activeIndex - 1);
       } else if (endXY - startXY < 0) {
-        swiper.slideNext();
+        pageTransformEvent(activeIndex + 1);
       } else {
-        return;
+        pageTransformEvent(activeIndex);
       }
     }
   }
 
-  WheelEvent();
+  TouchEvent();
 
-  /** ========= 스와이퍼 액션 */
-  let buttonRotateDeg = 90;
-  function SwiperAction(num) {
-    const rotateButton = document.querySelector(".switch-button");
-    buttonRotateDeg += num;
-    rotateButton.style.transform = `translate(-50%, -70%) rotate(${buttonRotateDeg}deg)`;
-  }
+  // =========== INFO ===========
+  winWidth = window.innerWidth;
+  let delay = 1000;
+  let timer = null;
 
-  // Tv Swiper
-  let arr = [0];
-  const swiper = new Swiper(".project-img-box", {
+  //Javascript
+  window.addEventListener("resize", function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      console.log("resize");
+    }, delay);
+  });
+
+  // =========== SWIPER ===========
+  const category = ["html", "react", "app"];
+
+  // project-swiper
+  const swiper = new Swiper(".project_swiper", {
     speed: 500,
-    watchSlidesProgress: true,
-    effect: "fade",
-    lazy: true,
+    direction: "vertical",
+    observer: true,
+    observeParents: true,
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+    slidesPerView: "3.5",
+    slidesPerGroup: 4,
+    watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
+    grabCursor: true, // 스와이퍼에 grab cursor
+    loopFillGroupWithBlank: true,
+    // passiveListeners: false,
+
     lazy: {
-      loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
+      loadPrevNext: true,
       loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
     },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+
     pagination: {
-      el: ".wheel-wrap",
+      el: ".pagination_cates",
+      clickable: true,
       bulletActiveClass: "active",
-      bulletClass: "wheel-list",
+      bulletClass: "project_cate_list",
       renderBullet: function (index, className) {
-        return `<li class="${className}" style="--rotate: ${index}"><b>${
-          index + 1
-        }</b></li>`;
+        return `<li class="${className}" style="--rotate: ${index}"><button type="button">${category[index]}</button></li>`;
       },
     },
+
+    navigation: {
+      nextEl: ".project_swiper_next",
+      prevEl: ".project_swiper_prev",
+    },
+
+    a11y: {
+      prevSlideMessage: "이전 슬라이드",
+      nextSlideMessage: "다음 슬라이드",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    },
+  });
+
+  // modal-swiper
+  const ModalSwiper = new Swiper(".modal_swiper", {
+    speed: 500,
+    parallax: true,
+    watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
+    grabCursor: true,
+    thumbs: {
+      swiper: swiper,
+    },
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+
+    observer: true,
+    observeParents: true,
+
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
+    },
+
+    navigation: {
+      nextEl: ".modal_swiper_next",
+      prevEl: ".modal_swiper_prev",
+    },
+
+    a11y: {
+      prevSlideMessage: "이전 슬라이드",
+      nextSlideMessage: "다음 슬라이드",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    },
+
     on: {
       slideChange: function () {
-        let currentIndex = this.activeIndex;
-        const lastIndex = arr[arr.length - 1];
+        const progressBar = document.querySelector(".bar");
+        let val = 135 * ModalSwiper.progress;
 
-        arr.push(currentIndex);
-
-        if (currentIndex > lastIndex) {
-          SwiperAction(36);
-        } else {
-          SwiperAction(-36);
-        }
+        progressBar.style.transform = `rotate(${val}deg)`;
       },
     },
   });
 
-  const swiperText = new Swiper(".project-detail-box", {
-    mousewheel: {
-      releaseOnEdges: true,
-    },
-    watchOverflow: true, // 슬라이드가 1개일때 기능 없애기
-    grabCursor: true, // 스와이퍼에 grab cursor
-    parallax: true,
-  });
-
-  swiper.controller.control = swiperText;
-  swiperText.controller.control = swiper;
-
-  // Swiper 세로 스크롤
-  var scrollSwiper = new Swiper(".project-list-swiper", {
-    watchSlidesProgress: true,
-    updateOnWindowResize: true,
-    breakpoints: {
-      769: {
-        direction: "vertical",
-        spaceBetween: 5,
-        slidesPerView: 10,
-      },
-    },
-  });
-  var detailSwiper = new Swiper(".project-detail-list-wrap", {
-    mousewheel: {
-      releaseOnEdges: true,
-    },
-    speed: 500,
-    updateOnWindowResize: true,
-    thumbs: {
-      swiper: scrollSwiper,
-    },
-
-    breakpoints: {
-      0: {
-        // slidesPerView:"auto",
-        // spaceBetween: 30,
-        effect: "cards",
-        grabCursor: true,
-      },
-      1501: {
-        slidesPerView: 1,
-        spaceBetween: 30,
-      },
-      769: {
-        direction: "vertical",
-        slidesPerView: 1.1,
-        spaceBetween: 20,
-      },
-    },
-  });
-
-  // Contact Section SendButton
-  // const sendButton = document.querySelector(".send-button");
-  // const form = document.querySelector("form");
-  // const url = form.action;
-  // sendButton.addEventListener(
-  //   "click",
-  //   console.log(url, url.result, form.result)
-  // );
-
-  // =========== Cursor
+  // =========== Cursor ===========
   const customCursor = document.querySelector(".custom-cursor");
 
   document.addEventListener("mousemove", (e) => {
@@ -309,27 +207,46 @@ $(function () {
     });
   });
 
-  function disableAnimation() {
-    const hasActiveClass = customCursor.classList.contains("active");
-    if (hasActiveClass) {
-      customCursor.classList.remove("active");
-    } else {
-      customCursor.classList.add("active");
-    }
-  }
-
   const Link = document.querySelectorAll("a");
+  const Menu = document.querySelectorAll("button");
 
   [...Link].map((item) =>
-    item.addEventListener("mouseenter", disableAnimation)
-  );
-  [...Link].map((item) =>
-    item.addEventListener("mouseleave", disableAnimation)
+    item.addEventListener("mouseenter", () => {
+      customCursor.classList.add("active");
+    })
   );
 
-  // =========== Top Button
-  const TopButton = document.querySelector(".top-button");
-  TopButton.addEventListener("click", function () {
-    window.scrollTo(0, 0);
+  [...Link].map((item) =>
+    item.addEventListener("mouseleave", () => {
+      customCursor.classList.remove("active");
+    })
+  );
+
+  [...Menu].map((item) =>
+    item.addEventListener("mouseenter", () => {
+      customCursor.classList.add("menu_active");
+    })
+  );
+  [...Menu].map((item) =>
+    item.addEventListener("mouseleave", () => {
+      customCursor.classList.remove("menu_active");
+    })
+  );
+
+  // Modal
+  const modal = document.querySelector(".modal");
+  const closeBtn = document.querySelectorAll(".close_button, .modal_bg");
+  const projectList = document.querySelectorAll(".slide_inner");
+
+  projectList.forEach((item) => {
+    item.addEventListener("click", () => {
+      modal.classList.add("show");
+    });
+  });
+
+  closeBtn.forEach((item) => {
+    item.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
   });
 });

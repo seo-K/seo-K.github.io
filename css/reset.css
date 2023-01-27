@@ -2,31 +2,10 @@
 
 :root {
   --skyblue: #91c3ce;
-  --lightPurple: #e6e2fd;
-  --orange: #fe7424;
-  --deepBlue: #343ff9;
-  --purple: #777cd7;
-  --white: #fafbfc;
-  --blue: #49a3a7;
-  --black: #1b1a19;
 }
 
 :root[color-theme="dark"] {
   --skyblue: #91c3ce;
-  --lightPurple: #c0a8e6;
-  --orange: #f5e1be;
-  --deepBlue: #f77016;
-  --purple: #956fd2;
-  --white: #1b1a19;
-  --blue: #49a3a7;
-  --black: #fafbfc;
-}
-
-@font-face {
-  font-family: "LaBelleAurore";
-  src: local("La Belle Aurore"), url("./fonts/LaBelleAurore-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
@@ -115,45 +94,10 @@
   font-style: normal;
 }
 
-/* @font-face {
-  font-family: "Line";
-  src: local("LINESeedKR-Rg"), url("./fonts/LINESeedKR-Bd.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Line";
-  src: local("LINESeedKR-Rg"), url("./fonts/LINESeedKR-Rg.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Line";
-  src: local("LINESeedKR-Rg"), url("./fonts/LINESeedKR-Th.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Silk";
-  src: local("Silkscreen-Regular"), url("./fonts/Silkscreen-Regular.ttf");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Silk";
-  src: local("Silkscreen-Bold"), url("./fonts/Silkscreen-Bold.ttf");
-  font-weight: 600;
-  font-style: normal;
-} */
-
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  /* outline: 0; */
   vertical-align: middle;
   box-sizing: border-box;
 }
@@ -411,7 +355,7 @@ input {
 button,
 select {
   text-transform: none;
-  color: var(--black);
+  color: #fff;
 }
 
 button::-moz-focus-inner,
@@ -420,10 +364,10 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="submit"]:not(:disabled) {
   -webkit-appearance: button;
   cursor: pointer;
   *overflow: visible;
@@ -460,8 +404,8 @@ body {
   letter-spacing: normal;
   -webkit-tap-highlight-color: transparent;
 
-  background-color: #000;
-  color: var(--black);
+  background-color: #121416;
+  color: #fff;
   scroll-behavior: smooth;
 
   font: 400 62.5%/1.2 "Pre", sans-serif;
