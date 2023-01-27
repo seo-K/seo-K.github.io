@@ -28,7 +28,6 @@
 
 .home .center_svg {
   grid-area: svg;
-  border: 1px solid red;
 
   display: flex;
   align-items: center;
@@ -944,7 +943,7 @@
       ". . ." minmax(150px, calc(100vh - 26rem))
       ". . desc" 10rem / 1fr 1fr 1fr;
 
-    padding: 3rem 2rem;
+    padding: 1rem 1.5rem;
   }
 
   .home .year {
@@ -952,12 +951,10 @@
   }
 
   .home .center_svg {
+    grid-area: unset;
     position: absolute;
     top: 50%;
     left: 50%;
-
-    width: 40rem;
-    height: 30rem;
 
     transform: translate(-50%, -50%);
   }
@@ -1185,13 +1182,14 @@
   }
 
   .project .bar {
-    top: unset;
+    display: none;
+    /* top: unset;
     bottom: 0;
     width: 25rem;
     height: 25rem;
     border: 3px solid #404448;
     border-top-color: #e7f2f6;
-    border-right-color: #e7f2f6;
+    border-right-color: #e7f2f6; */
   }
 
   .project .project_title {
@@ -1264,9 +1262,9 @@
   }
 
   .modal .detail_title {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
 
-    margin-bottom: 2rem;
+    margin-bottom: 1.3rem;
   }
 
   .modal .detail_util {
@@ -1324,5 +1322,9 @@
 
   .modal .modal_swiper_next {
     right: -0.5rem;
+  }
+
+  .parallax_bg {
+    opacity: 0.1;
   }
 }
