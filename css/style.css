@@ -37,11 +37,11 @@
 .home .center_svg text {
   fill: transparent;
   stroke: #fe7a27;
-  font-size: 50rem;
+  font-size: 45rem;
   font-weight: 700;
   stroke-width: 5;
 
-  animation: textAnimation 5s infinite alternate;
+  animation: textAnimation 3s infinite alternate;
 }
 
 @keyframes textAnimation {
@@ -235,16 +235,12 @@
   border-radius: 10rem;
 }
 
-/* .info .info_group .skill_badge + span {
-  margin-left: 1rem;
-} */
-
 .info .career {
   position: relative;
   padding-left: 3rem;
 }
 
-.info .career:after {
+.info .career:before {
   position: absolute;
   top: 0;
   left: 0.7rem;
@@ -267,13 +263,38 @@
   transform: translateY(-2rem);
 }
 
-.info .career .career_list:after,
-.info .career .career_list:before {
+.info .career .career_list:not(:last-child):after,
+.info .career .career_list:not(:last-child):before {
+  position: absolute;
+  top: 50%;
+  left: -2.2rem;
+  content: "";
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.info .career .career_list:not(:last-child):after {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  border: 1px solid #fff;
+}
+
+.info .career .career_list:not(:last-child):before {
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #e7f2f6;
+}
+
+.info .career .career_list:last-child::after,
+.info .career .career_list:last-child::before {
   position: absolute;
   top: 50%;
   left: -2.1rem;
   content: "";
-  border-radius: 10rem;
 
   width: 0.2rem;
   height: 1rem;
@@ -283,10 +304,10 @@
   z-index: 5;
 }
 
-.info .career .career_list:after {
+.info .career .career_list:last-child::after {
   transform: translate(-100%, -50%) rotate(-45deg);
 }
-.info .career .career_list:before {
+.info .career .career_list:last-child::before {
   transform: translate(-100%, -50%) rotate(45deg);
 }
 
@@ -447,7 +468,7 @@
 
   content: "";
   border-radius: 50%;
-  border: 3px solid #202224;
+  border: 3px solid rgba(100, 100, 100, 0.3);
 
   transform: translate(-50%, -50%);
   transition: all 1s 0.2s;
@@ -1005,6 +1026,8 @@
   .info .info_content {
     display: flex;
     align-items: unset;
+    max-height: none;
+    overflow-y: unset;
 
     flex-direction: column;
   }
@@ -1050,7 +1073,7 @@
     padding-left: 3rem;
   }
 
-  .info .career:after {
+  .info .career:before {
     position: absolute;
     top: 0;
     left: 0.7rem;
@@ -1160,6 +1183,7 @@
 
   .project .project_cate_list > button {
     font-size: 1.7rem;
+    color: #ffffff70;
   }
 
   .project .swiper_progressbar {
