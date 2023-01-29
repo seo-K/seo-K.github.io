@@ -61,7 +61,6 @@ class App {
       }
     );
 
-    // const geometry = new THREE.BoxGeometry(1, 1, 1); // (가로, 세로, 깊이)
     const circleGeometry = new THREE.SphereGeometry(1, 32, 26, 0);
     const material = new THREE.MeshPhongMaterial({map: map}); // 재질
     const circle = new THREE.Mesh(circleGeometry, material);

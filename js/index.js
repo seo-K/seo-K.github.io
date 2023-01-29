@@ -5,95 +5,6 @@ $(function () {
     e.preventDefault();
   });
 
-  // =========== HEADER ===========
-  const main = document.querySelector("#main");
-  const mainInner = document.querySelector(".main_inner");
-  const menuList = document.querySelectorAll(".menu > li");
-  const articleList = document.querySelectorAll(".main_inner > article");
-  const moonBg = document.querySelector(".moon_bg");
-  let activeIndex = 0;
-
-  // 페이지 이동 함수
-  function pageTransformEvent(idx) {
-    if (idx >= 0 && idx < 3) {
-      let movePercent = 100 * idx; // inner 움직일 양
-      activeIndex = idx;
-
-      // 초기화
-      [...menuList].map((menu) => menu.classList.remove("active"));
-      [...articleList].map((menu) => menu.classList.remove("show"));
-
-      menuList[idx].classList.add("active");
-      articleList[idx].classList.add("show");
-
-      mainInner.style.transform = `translateX(-${movePercent}%)`;
-
-      // moonBg animation
-      if (idx == "1") {
-        moonBg.classList.add("active");
-      } else {
-        moonBg.classList.remove("active");
-      }
-    }
-  }
-
-  // 메뉴 클릭 시
-  menuList.forEach((list, idx) => {
-    list.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      pageTransformEvent(idx);
-    });
-  });
-
-  // 페이지 터치 시
-  function TouchEvent() {
-    let startXY, endXY;
-
-    winWidth = window.innerWidth;
-
-    if (winWidth > 1024) {
-      main.addEventListener("mousedown", mouseStart);
-      main.addEventListener("mouseup", mouseEnd);
-
-      function mouseStart(e) {
-        startXY = e.clientX;
-        e.preventDefault();
-      }
-      function mouseEnd(e) {
-        endXY = e.clientX;
-        PageTransform();
-      }
-    }
-
-    // else {
-    //   main.addEventListener("touchstart", touchStart);
-    //   main.addEventListener("touchend", touchEnd);
-
-    //   function touchStart(e) {
-    //     startXY = e.touches[0].pageX;
-    //     e.preventDefault();
-    //   }
-
-    //   function touchEnd(e) {
-    //     endXY = e.changedTouches[0].pageX;
-    //     PageTransform();
-    //   }
-    // }
-
-    function PageTransform() {
-      if (endXY - startXY > 50) {
-        pageTransformEvent(activeIndex - 1);
-      } else if (endXY - startXY < 0) {
-        pageTransformEvent(activeIndex + 1);
-      } else {
-        pageTransformEvent(activeIndex);
-      }
-    }
-  }
-
-  TouchEvent();
-
   // =========== INFO ===========
   winWidth = window.innerWidth;
   let delay = 1000;
@@ -108,6 +19,40 @@ $(function () {
   });
 
   // =========== SWIPER ===========
+  const headerMenu = ["Main", "Info", "Projects"];
+  var mainSwiper = new Swiper(".main_swiper", {
+    speed: 700,
+    slideActiveClass: "show",
+    followFinger: false,
+    mousewheel: {
+      sensitivity: 2,
+      releaseOnEdges: true,
+    },
+    pagination: {
+      el: ".menu",
+      bulletActiveClass: "active",
+      bulletClass: "menulist",
+      renderBullet: function (index, className) {
+        return `<li class="${className}"><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
+      },
+      clickable: true,
+    },
+    // aria-current="page"
+
+    on: {
+      slideChange: function () {
+        const moonBg = document.querySelector(".moon_bg");
+        let currentIndex = this.activeIndex;
+
+        if (currentIndex == "1") {
+          moonBg.classList.add("active");
+        } else {
+          moonBg.classList.remove("active");
+        }
+      },
+    },
+  });
+
   const category = ["html", "react", "app"];
 
   // project-swiper
@@ -116,14 +61,9 @@ $(function () {
     direction: "vertical",
     observer: true,
     observeParents: true,
-    mousewheel: {
-      releaseOnEdges: true,
-    },
     slidesPerView: "3.5",
     slidesPerGroup: 4,
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
-    grabCursor: true, // 스와이퍼에 grab cursor
-    loopFillGroupWithBlank: true,
     // passiveListeners: false,
 
     lazy: {
@@ -137,7 +77,7 @@ $(function () {
       bulletActiveClass: "active",
       bulletClass: "project_cate_list",
       renderBullet: function (index, className) {
-        return `<li class="${className}" style="--rotate: ${index}"><button type="button">${category[index]}</button></li>`;
+        return `<li class="${className}" style="--rotate: ${index}"><span class="cursor_event">${category[index]}</span></li>`;
       },
     },
 
@@ -163,9 +103,6 @@ $(function () {
     thumbs: {
       swiper: swiper,
     },
-    mousewheel: {
-      releaseOnEdges: true,
-    },
 
     observer: true,
     observeParents: true,
@@ -178,6 +115,11 @@ $(function () {
     navigation: {
       nextEl: ".modal_swiper_next",
       prevEl: ".modal_swiper_prev",
+    },
+
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
     },
 
     a11y: {
@@ -208,7 +150,7 @@ $(function () {
   });
 
   const Link = document.querySelectorAll("a");
-  const Menu = document.querySelectorAll("button");
+  const Menu = document.querySelectorAll(".cursor_event");
 
   [...Link].map((item) =>
     item.addEventListener("mouseenter", () => {

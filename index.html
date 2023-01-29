@@ -38,7 +38,6 @@
   <script src="./js/jquery-3.5.1.js"></script>
   <script src="./js/100vh.js"></script>
   <script src="./js/index.js" defer></script>
-  <script src="./js/threeContent.js" type="module" defer></script>
   <!-- THREE -->
   <script type="importmap">
     {
@@ -47,6 +46,7 @@
         }
     }
   </script>
+  <script src="./js/threeContent.js" type="module" defer></script>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </head>
@@ -59,15 +59,16 @@
   <!-- skip -->
   <div class="skip">
     <ul>
+      <li> <a href="#nav">주 메뉴 바로가기</a></li>
       <li> <a href="#main">본문 내용 바로가기</a></li>
     </ul>
   </div>
   <div id="content-wrap">
     <!-- START : MAIN -->
-    <main id="main">
-      <div class="main_inner">
+    <main id="main" class="swiper main_swiper">
+      <div class="swiper-wrapper main_inner">
         <!-- HOME -->
-        <article class="home show">
+        <article class="swiper-slide home show">
           <h2 class="blind">메인 페이지</h2>
           <div class="home_inner">
             <b class="year">2023</b>
@@ -89,7 +90,7 @@
           </div>
         </article>
         <!-- INFO -->
-        <article class="info">
+        <article class="swiper-slide info">
           <h2 class="blind">소개 페이지</h2>
           <div class="info_inner">
             <div class="profile">
@@ -193,7 +194,7 @@
           </div>
         </article>
         <!-- PROJECTS -->
-        <article class="project">
+        <article class="swiper-slide project">
           <h2 class="blind">프로젝트 페이지</h2>
           <div class="pagination-container">
             <div class="moon">
@@ -223,8 +224,8 @@
           </div>
           <div class="swiper project_swiper">
             <ul class="swiper-wrapper">
-              <li class="swiper-slide clicked">
-                <button type="button" class="slide_inner" aria-haspopup="true" aria-current="true">
+              <li class="swiper-slide">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true" aria-current="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/sindo.png" alt="신도리코 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -233,10 +234,10 @@
                       <b>1</b>
                     </figcaption>
                   </figure>
-                </button>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/vita.jpg" alt="비타알고 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -245,10 +246,10 @@
                       <b>2</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/foodyitda.png" alt="푸드잇다 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -257,10 +258,10 @@
                       <b>3</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/coolwhite.png" alt="쿨화이트 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -269,10 +270,10 @@
                       <b>4</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/npixel.png" alt="엔픽셀 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -281,10 +282,10 @@
                       <b>5</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/vdream.png" alt="브이드림 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -293,10 +294,10 @@
                       <b>6</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/sindo-shop.png" alt="신도리코샵 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -305,10 +306,10 @@
                       <b>7</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/yoil.png" alt="요일 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -317,10 +318,10 @@
                       <b>8</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/k-rule.png" alt="국룰 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -329,10 +330,10 @@
                       <b>9</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
               <li class="swiper-slide">
-                <div class="slide_inner" aria-haspopup="true">
+                <a href="javascript:void(0);" class="slide_inner" aria-haspopup="true">
                   <figure class="project_img">
                     <img class="swiper-lazy" src="../image/duruper.png" alt="두루퍼 이미지">
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -341,7 +342,7 @@
                       <b>10</b>
                     </figcaption>
                   </figure>
-                </div>
+                </a>
               </li>
             </ul>
             <div class="swiper_button_wrap">
@@ -351,21 +352,17 @@
           </div>
         </article>
       </div>
+
     </main>
     <!-- END : MAIN -->
     <!-- START : HEADER -->
     <header id="header">
       <div class="header_inner">
-        <p class="logo">
+        <h1 class="logo">
           SeoYoung
-        </p>
-        <nav>
-          <ul class="menu">
-            <li class="active"><button class="menu_button" type="button" tabindex="1" aria-current="page">Main</button>
-            </li>
-            <li><button class="menu_button" type="button" tabindex="2">Info</button></li>
-            <li><button class="menu_button" type="button" tabindex="3">Projects</button></li>
-          </ul>
+        </h1>
+        <nav id="nav">
+          <ul class="menu"></ul>
         </nav>
         <ul class="util">
           <li>
@@ -752,6 +749,7 @@
       </p>
     </div>
   </div>
+
 </body>
 
 </html>

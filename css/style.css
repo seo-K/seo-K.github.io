@@ -36,7 +36,7 @@
 
 .home .center_svg text {
   fill: transparent;
-  stroke: #fe7a27;
+  stroke: #e5f33c;
   font-size: 45rem;
   font-weight: 700;
   stroke-width: 5;
@@ -75,12 +75,15 @@
   line-height: 1.5;
 
   content: "Information";
-  color: #222;
+  color: rgba(255, 255, 255, 0.2);
   z-index: 5;
-  mix-blend-mode: exclusion;
   transform-origin: top left;
 
   transform: rotate(90deg) translate(0, -65%);
+}
+
+.info.show {
+  z-index: 2;
 }
 
 .info.show .info_inner {
@@ -364,11 +367,16 @@
   perspective: 1000px;
 }
 
-.project.show .moon_img {
+.project.show .moon {
   width: 20rem;
   height: 20rem;
 
   transform: translate(-50%, -50%);
+}
+
+.project.show .moon_img {
+  width: 20rem;
+  height: 20rem;
 }
 
 .project.show .moon_img:after {
@@ -393,12 +401,6 @@
   mask-image: linear-gradient(to left);
 }
 
-.project.show .moon_bg {
-  width: 22rem;
-  height: 22rem;
-  transform: translate(-50%, -50%);
-}
-
 .project .pagination-container {
   position: relative;
   flex-shrink: 0;
@@ -409,16 +411,26 @@
   padding-left: 16.5rem;
 }
 
-.project .moon_img {
+.project .moon {
   position: absolute;
   top: 50%;
   left: 0;
 
   width: 40rem;
   height: 40rem;
-  /* background: url(../image/common/full_moon.png) no-repeat center / contain; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   transform: translate(calc(-50vw - 50%), -50%);
   transition: all 1s;
+}
+
+.project .moon_img {
+  position: relative;
+  flex-shrink: 0;
+  width: 40rem;
+  height: 40rem;
 }
 
 .project .moon_img canvas {
@@ -429,10 +441,10 @@
 .project .moon_bg {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 50%;
 
-  width: 42rem;
-  height: 42rem;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
 
   background: linear-gradient(
@@ -442,10 +454,9 @@
     rgba(25, 138, 120, 1) 100%
   );
   filter: blur(3rem);
-  /* box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3); */
 
   transform-origin: 50% 45%;
-  transform: translate(calc(-50vw - 50%), -50%);
+  transform: translate(-50%, -50%);
   transition: all 1s 0.2s;
 }
 
@@ -455,7 +466,7 @@
 
 @keyframes rotate {
   to {
-    transform: translate(calc(-50vw - 50%), -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -512,18 +523,20 @@
   margin-top: 1rem;
 }
 
-.project .project_cate_list > button {
+.project .project_cate_list > span {
+  display: inline-block;
   padding: 1rem 1.5rem;
 
   font-size: 2rem;
-  font-weight: 600;
+  color: #fff;
 
-  color: #404448;
+  cursor: pointer;
 }
 
-.project .project_cate_list:hover button,
-.project .project_cate_list.active button {
-  color: #fff;
+.project .project_cate_list:hover span,
+.project .project_cate_list.active span {
+  color: #e5f33c;
+  font-weight: 600;
 }
 
 .project .swiper_progressbar {
@@ -686,11 +699,6 @@
   transform: rotate(180deg);
 }
 
-/* project 클릭시 */
-.project .swiper-slide.clicked {
-  margin-left: auto;
-}
-
 /*--------------------- PROJECT DETAIL MODAL --------------------- */
 .modal {
   position: fixed;
@@ -789,7 +797,7 @@
   height: 0.4rem;
   content: "";
 
-  background-color: #fe7a27;
+  background-color: #e5f33c;
 }
 
 .modal .detail_title {
@@ -1107,11 +1115,16 @@
     padding-top: 1.5rem;
   }
 
-  .project.show .moon_img {
+  .project.show .moon {
     width: 30rem;
     height: 30rem;
 
-    transform: translate(calc(50vw - 50%), -50%);
+    transform: translate(calc(50vw - 50%), -80%);
+  }
+
+  .project.show .moon_img {
+    width: 30rem;
+    height: 30rem;
   }
 
   .project.show .moon_img:after {
@@ -1122,15 +1135,8 @@
     border-width: 0.3rem;
   }
 
-  .project.show .moon_img:before {
-    width: 5rem;
-    height: 5rem;
-  }
-
   .project.show .moon_bg {
-    width: 35rem;
-    height: 35rem;
-    transform: translate(calc(50vw - 50%), -50%);
+    transform: translate(-50%, -40%);
   }
 
   .project .pagination-container {
@@ -1141,24 +1147,25 @@
     padding-left: 0;
   }
 
-  .project .moon_img {
+  .project .moon {
     top: 0;
     width: 30rem;
     height: 30rem;
     transform: translate(calc(-50vw - 50%), -10%);
   }
 
-  .project .moon_bg {
-    top: 0;
-    width: 32rem;
-    height: 32rem;
+  .project .moon_img {
+    width: 30rem;
+    height: 30rem;
+  }
 
-    transform: translate(calc(-50vw - 50%), -85%);
+  .project .moon_bg {
+    transform: translate(-50%, -85%);
   }
 
   @keyframes rotate {
     to {
-      transform: translate(calc(-50vw - 50%), -85%) rotate(360deg);
+      transform: translate(-50%, -85%) rotate(360deg);
     }
   }
 
@@ -1181,9 +1188,8 @@
     margin-left: 1rem;
   }
 
-  .project .project_cate_list > button {
+  .project .project_cate_list > span {
     font-size: 1.7rem;
-    color: #ffffff70;
   }
 
   .project .swiper_progressbar {

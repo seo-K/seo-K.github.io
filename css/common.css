@@ -20,7 +20,7 @@
   font-size: 1.5rem;
   text-align: center;
 
-  background-color: #fe7a27;
+  background-color: #e5f33c;
 }
 
 .skip a:active,
@@ -48,6 +48,7 @@
   width: clamp(12rem, 80%, 180rem);
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   z-index: 10;
@@ -67,38 +68,40 @@
   margin-left: 2rem;
 }
 
-#header .menu > li button {
+#header .menu > li span {
   position: relative;
+  display: inline-block;
 
+  cursor: pointer;
   transition: all 0.3s;
 }
 
-#header .menu > li button:after {
+#header .menu > li span:after {
   position: absolute;
   bottom: 0;
   left: 50%;
   content: "";
   width: 0;
   height: 2px;
-  background: #fe7a27;
+  background: #e5f33c;
 
   transition: all 0.3s;
   transform: translateX(-50%);
 }
 
-#header .menu > li.active button {
+#header .menu > li.active span {
   position: relative;
-  color: #fe7a27;
+  color: #e5f33c;
   font-weight: 600;
 
   letter-spacing: 1px;
 }
 
-#header .menu > li.active button:after {
+#header .menu > li.active span:after {
   width: 100%;
 }
 
-#header .menu_button {
+#header .menu_text {
   font-size: 1.5rem;
   font-weight: 500;
 
@@ -130,23 +133,24 @@
 
 /* Main */
 #main {
-  width: 100vw;
   height: calc((var(--vh, 1vh) * 100)- 8rem);
   height: calc(100vh - 8rem);
-  overflow: hidden;
+  /* width: 100vw;
+  
+  overflow: hidden; */
 }
 
 .main_inner {
-  display: flex;
+  /* display: flex;
 
-  transition: all 1s;
+  transition: all 1s; */
 }
 
 .main_inner > article {
-  flex-shrink: 0;
+  /* flex-shrink: 0;
   width: 100vw;
   height: calc((var(--vh, 1vh) * 100)- 8rem);
-  height: calc(100vh - 8rem);
+  height: calc(100vh - 8rem); */
 }
 
 .title {
@@ -206,7 +210,7 @@
 
   pointer-events: none;
   border-radius: 50%;
-  border: 1px solid #fe7a27;
+  border: 1px solid #e5f33c;
   transform: translate3d(0, 0, 0);
   transition: background 0.5s, transform 0.5s, width 0.2s, height 0.2s;
 
@@ -222,7 +226,7 @@
   width: 0;
   height: 2px;
   border-radius: 0;
-  background: #fff;
+  background: #000;
 
   transition: width 0.5s;
 }
@@ -237,7 +241,7 @@
   height: 2px;
   content: "";
 
-  background: #fff;
+  background: #000;
 
   transition: 0.7s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-origin: right;
@@ -252,7 +256,7 @@
 .custom-cursor.active {
   width: 4.5rem;
   height: 4.5rem;
-  background-color: #fe7a27;
+  background-color: #e5f33c;
 
   mix-blend-mode: unset;
 }
@@ -296,14 +300,14 @@
 
   transform: rotate(calc(40deg * var(--rotate)));
   transform-origin: bottom left;
-  -webkit-text-fill-color: #fff;
+  -webkit-text-fill-color: #000;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #121416;
+  -webkit-text-stroke-color: #e5f33c;
 }
 
 .custom-cursor.menu_active {
   transform: scale(2);
-  background-color: #fe7a27;
+  background-color: #e5f33c;
   mix-blend-mode: difference;
 }
 
@@ -322,6 +326,8 @@
 
     border-radius: 1rem 1rem 0 0;
     border-top: 1px solid #404448;
+
+    z-index: 5;
   }
 
   .header_inner {
@@ -345,7 +351,7 @@
     margin-left: 0;
   }
 
-  #header .menu > li button {
+  #header .menu > li span {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -353,11 +359,11 @@
     color: #404448;
   }
 
-  #header .menu > li button:after {
+  #header .menu > li span:after {
     display: none;
   }
 
-  #header .menu > li button:before {
+  #header .menu > li span:before {
     display: inline-block;
     width: 2rem;
     height: 2rem;
@@ -368,28 +374,28 @@
     background: no-repeat center / contain;
   }
 
-  #header .menu > li:nth-child(1) button:before {
+  #header .menu > li:nth-child(1) span:before {
     background-image: url(../image/common/home.svg);
   }
 
-  #header .menu > li:nth-child(2) button:before {
+  #header .menu > li:nth-child(2) span:before {
     background-image: url(../image/common/heart.svg);
   }
 
-  #header .menu > li:nth-child(3) button:before {
+  #header .menu > li:nth-child(3) span:before {
     background-image: url(../image/common/project.svg);
   }
 
-  #header .menu > li.active button {
+  #header .menu > li.active span {
     color: #fff;
   }
 
-  #header .menu > li.active button:before {
+  #header .menu > li.active span:before {
     filter: invert(100%) sepia(91%) saturate(38%) hue-rotate(331deg)
       brightness(110%) contrast(110%);
   }
 
-  #header .menu_button {
+  #header .menu_text {
     font-size: 1.3em;
     padding: 1rem 2rem;
   }
