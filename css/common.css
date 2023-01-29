@@ -93,9 +93,6 @@
 #header .menu > li.active span {
   position: relative;
   color: var(--mainYellow);
-  font-weight: 600;
-
-  letter-spacing: 1px;
 }
 
 #header .menu > li.active span:after {
@@ -134,7 +131,7 @@
 
 /* Main */
 #main {
-  height: calc((var(--vh, 1vh) * 100)- 8rem);
+  height: calc((var(--vh, 1vh) * 100) - 8rem);
   height: calc(100vh - 8rem);
 }
 
@@ -268,10 +265,10 @@
 }
 
 @keyframes rotateAnimation {
-  form {
+  0% {
     transform: rotate(0);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -282,12 +279,11 @@
   width: 50%;
   height: 50%;
   font-size: 1.5rem;
+  font-weight: 700;
+  color: #e7f2f6;
 
   transform: rotate(calc(40deg * var(--rotate)));
   transform-origin: bottom left;
-  -webkit-text-fill-color: #000;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--mainYellow);
 }
 
 .custom-cursor.menu_active {

@@ -219,7 +219,7 @@
   word-break: break-word;
 }
 
-.info .info_group dd:has(.skill_badge) {
+.info .info_group .skill_badge_wrap {
   display: flex;
   flex-wrap: wrap;
 
@@ -1067,7 +1067,7 @@
     font-size: 1.2rem;
   }
 
-  .info .info_group dd:has(.skill_badge) {
+  .info .info_group .skill_badge_wrap {
     gap: 0.4rem;
   }
 
@@ -1322,8 +1322,8 @@
 
   .modal .modal_swiper_next,
   .modal .modal_swiper_prev {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   .modal .modal_swiper_prev {
