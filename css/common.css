@@ -31,7 +31,7 @@
 
 /* Header */
 #header {
-  position: sticky;
+  position: fixed;
   left: 0;
   bottom: 0;
 
@@ -40,8 +40,8 @@
   justify-content: center;
   background-color: #121416;
 
-  height: 8rem;
   width: 100vw;
+  height: 8rem;
 }
 
 .header_inner {
@@ -303,7 +303,6 @@
   #header {
     position: fixed;
     height: 6rem;
-    width: 100vw;
 
     border-radius: 1rem 1rem 0 0;
     border-top: 1px solid #404448;

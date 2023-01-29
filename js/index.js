@@ -20,7 +20,8 @@ $(function () {
 
   // =========== SWIPER ===========
   const headerMenu = ["Main", "Info", "Projects"];
-  var mainSwiper = new Swiper(".main_swiper", {
+  const article = document.querySelectorAll(".main_inner > article");
+  const headerSwiper = new Swiper(".main_swiper", {
     speed: 700,
     slideActiveClass: "show",
     followFinger: false,
@@ -28,20 +29,26 @@ $(function () {
       sensitivity: 2,
       releaseOnEdges: true,
     },
+
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
+    },
+
     pagination: {
       el: ".menu",
       bulletActiveClass: "active",
       bulletClass: "menulist",
       renderBullet: function (index, className) {
-        return `<li class="${className}"><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
+        return `<li class="${className}" ><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
       },
       clickable: true,
     },
-    // aria-current="page"
 
     on: {
       slideChange: function () {
         const moonBg = document.querySelector(".moon_bg");
+        const articleList = [...article];
         let currentIndex = this.activeIndex;
 
         // swiper 초기화
@@ -77,6 +84,11 @@ $(function () {
       loadPrevNextAmount: 2, //or, if you wish, preload the next 2 images
     },
 
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
+    },
+
     pagination: {
       el: ".pagination_cates",
       clickable: true,
@@ -97,6 +109,8 @@ $(function () {
       nextSlideMessage: "다음 슬라이드",
       slideLabelMessage:
         "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+      firstSlideMessage: "첫번째 슬라이드 입니다",
+      lastSlideMessage: "마지막 슬라이드 입니다",
     },
   });
 
@@ -137,6 +151,8 @@ $(function () {
       nextSlideMessage: "다음 슬라이드",
       slideLabelMessage:
         "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+      firstSlideMessage: "첫번째 슬라이드 입니다",
+      lastSlideMessage: "마지막 슬라이드 입니다",
     },
 
     on: {
@@ -193,25 +209,43 @@ $(function () {
   const projectList = document.querySelectorAll(".slide_inner");
 
   projectList.forEach((item) => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", (e) => {
       modal.classList.add("show");
       modal.focus();
     });
   });
 
+  const ModalClose = (e) => {
+    let activeIndex = ModalSwiper.activeIndex;
+
+    modal.classList.remove("show");
+    [...projectList][activeIndex].focus();
+  };
+
   closeBtn.forEach((item) => {
     item.addEventListener("click", () => {
-      modal.classList.remove("show");
+      ModalClose();
     });
   });
 
+  // 모달 오픈시 모달에서 포커스가 나가지 않도록!
+  document.addEventListener(
+    "focus",
+    function (e) {
+      if (modal.classList.contains("show") && !modal.contains(e.target)) {
+        e.stopPropagation();
+        modal.focus();
+      }
+    },
+    true
+  );
+
   modal.addEventListener("keydown", (e) => {
     //keyCode 구 브라우저, which 현재 브라우저
-    var code = e.keyCode || e.which;
+    const code = e.keyCode || e.which;
 
     if (code == 27) {
-      // 27은 ESC 키번호
-      modal.classList.remove("show");
+      ModalClose();
     }
   });
 });
