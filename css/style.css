@@ -662,6 +662,7 @@
 .project .project_img {
   width: 100%;
   height: 100%;
+  background-color: #fff;
 
   overflow: hidden;
 }
@@ -789,6 +790,7 @@
   width: 100%;
   height: 40rem;
 
+  background-color: #fff;
   overflow: hidden;
 
   margin-bottom: 5rem;

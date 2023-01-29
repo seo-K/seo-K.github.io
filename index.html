@@ -62,7 +62,7 @@
           SeoYoung
         </h1>
         <nav id="nav" aria-label="메뉴">
-          <ul class="menu"></ul>
+          <ul class="menu" role="tablist"></ul>
         </nav>
         <ul class="util">
           <li>
@@ -83,11 +83,11 @@
     <main id="main" class="swiper main_swiper" aria-hidden="false">
       <div class="swiper-wrapper main_inner">
         <!-- HOME -->
-        <article class="swiper-slide home show" tabindex="-1">
+        <article id="tab_main" class="swiper-slide home show" role="tabpanel" tabindex="0">
           <h2 class="blind">메인 페이지</h2>
           <div class="home_inner">
             <b class="year">2023</b>
-            <p class="title" tabindex="0">
+            <p class="title focus_title" tabindex="0">
               <span style="--delay: 0.6s">P</span><span style="--delay: 0.7s">o</span><span
                 style="--delay: 0.8s">r</span><span style="--delay: 0.9s">t</span><span
                 style="--delay: 1s">F</span><span style="--delay: 1.1s">o</span><span
@@ -105,7 +105,7 @@
           </div>
         </article>
         <!-- INFO -->
-        <article class="swiper-slide info" tabindex="-1">
+        <article id="tab_info" class="swiper-slide info" role="tabpanel" tabindex="-1">
           <h2 class="blind">소개 페이지</h2>
           <div class="info_inner">
             <div class="profile">
@@ -116,7 +116,7 @@
                   <img src="../image/common/logo.png" alt="프로필 사진">
                 </figure>
               </div>
-              <p class="profile_short_info" tabindex="0">안녕하세요! 제 이름은 강서영이고 웹 퍼블리싱을 즐깁니다!<br>
+              <p class="profile_short_info focus_title" tabindex="0">안녕하세요! 제 이름은 강서영이고 웹 퍼블리싱을 즐깁니다!<br>
                 웹 개발에 대한 관심은 2020년에 개인사업자로 인터넷 판매를 결정했을 때 시작되었습니다.<br>
                 제품 상세페이지를 만들면서 HTML과 CSS에 대해 호기심이 생겼습니다.<br>
                 현재로 돌아가서 저는 웹에이전시에서 1년간 근무하면서 쇼핑몰, admin, 구인구직, 랜딩 사이트 등을 작업하여, Html, css, js, react, git 역량을 키웠습니다<br>
@@ -209,7 +209,7 @@
           </div>
         </article>
         <!-- PROJECTS -->
-        <article class="swiper-slide project" tabindex="-1">
+        <article id="tab_project" class="swiper-slide project" role="tabpanel" tabindex="-1">
           <h2 class="blind">프로젝트 페이지</h2>
           <div class="pagination-container">
             <div class="moon">
@@ -225,7 +225,7 @@
           </div>
           <div class="project_title">
             <hgroup>
-              <h3 class="title" tabindex="0">
+              <h3 class="title focus_title" tabindex="0">
                 <span style="--delay: 0.6s">P</span><span style="--delay: 0.7s">r</span><span
                   style="--delay: 0.8s">o</span><span style="--delay: 0.9s">J</span><span
                   style="--delay: 1s">e</span><span style="--delay: 1.1s">c</span><span

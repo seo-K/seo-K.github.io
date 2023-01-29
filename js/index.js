@@ -20,6 +20,7 @@ $(function () {
 
   // =========== SWIPER ===========
   const headerMenu = ["Main", "Info", "Projects"];
+  const ariaControls = ["tab_main", "tab_info", "tab_project"];
   const article = document.querySelectorAll(".main_inner > article");
   const headerSwiper = new Swiper(".main_swiper", {
     speed: 700,
@@ -40,7 +41,7 @@ $(function () {
       bulletActiveClass: "active",
       bulletClass: "menulist",
       renderBullet: function (index, className) {
-        return `<li class="${className}" ><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
+        return `<li class="${className}" role="tab" aria-controls="${ariaControls[index]}"><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
       },
       clickable: true,
     },
@@ -48,8 +49,7 @@ $(function () {
     on: {
       slideChange: function () {
         const moonBg = document.querySelector(".moon_bg");
-        const articleList = [...article];
-        let currentIndex = this.activeIndex;
+        let currentIndex = this.realIndex;
 
         // swiper 초기화
         if (currentIndex != "2") {
@@ -65,6 +65,22 @@ $(function () {
       },
     },
   });
+
+  // 탭 포커스 이벤트
+  const menuPage = document.querySelectorAll(".menu > li");
+  menuPage.forEach((item) =>
+    item.addEventListener("click", () => {
+      const articleList = [...article];
+      let currentIndex = headerSwiper.realIndex;
+
+      articleList.map((list) => {
+        list.setAttribute("tabindex", "-1");
+      });
+
+      articleList[currentIndex].setAttribute("tabindex", "0");
+      articleList[currentIndex].querySelector(".focus_title").focus();
+    })
+  );
 
   const category = ["html", "react", "app"];
 
@@ -206,16 +222,26 @@ $(function () {
   const closeBtn = document.querySelectorAll(
     ".close_button, .modal_bg, .skip_close"
   );
+  let projectSlider = document.querySelectorAll(".project_swiper li");
   const projectList = document.querySelectorAll(".slide_inner");
 
   projectList.forEach((item) => {
     item.addEventListener("click", (e) => {
+      let activeIndex = [...projectSlider].indexOf(item.parentNode);
       modal.classList.add("show");
       modal.focus();
+      // console.log(activeIndex);
+      ModalSwiper.slideTo(activeIndex, 100, false);
+    });
+
+    item.addEventListener("keyup", function (e) {
+      if (e.keyCode == 13) {
+        console.log("first");
+      }
     });
   });
 
-  const ModalClose = (e) => {
+  const ModalClose = () => {
     let activeIndex = ModalSwiper.activeIndex;
 
     modal.classList.remove("show");
