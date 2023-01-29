@@ -150,7 +150,7 @@ $(function () {
   });
 
   const Link = document.querySelectorAll("a");
-  const Menu = document.querySelectorAll(".cursor_event");
+  const Menu = document.querySelectorAll(".cursor_event, button");
 
   [...Link].map((item) =>
     item.addEventListener("mouseenter", () => {
