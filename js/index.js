@@ -21,7 +21,7 @@ $(function () {
   // =========== SWIPER ===========
   const headerMenu = ["Main", "Info", "Projects"];
   const ariaControls = ["tab_main", "tab_info", "tab_project"];
-  const article = document.querySelectorAll(".main_inner > article");
+  const section = document.querySelectorAll(".main_inner > section");
   const headerSwiper = new Swiper(".main_swiper", {
     speed: 700,
     slideActiveClass: "show",
@@ -70,15 +70,15 @@ $(function () {
   const menuPage = document.querySelectorAll(".menu > li");
   menuPage.forEach((item) =>
     item.addEventListener("click", () => {
-      const articleList = [...article];
+      const sectionList = [...section];
       let currentIndex = headerSwiper.realIndex;
 
-      articleList.map((list) => {
+      sectionList.map((list) => {
         list.setAttribute("tabindex", "-1");
       });
 
-      articleList[currentIndex].setAttribute("tabindex", "0");
-      articleList[currentIndex].querySelector(".focus_title").focus();
+      sectionList[currentIndex].setAttribute("tabindex", "0");
+      sectionList[currentIndex].querySelector(".focus_title").focus();
     })
   );
 
