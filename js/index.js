@@ -187,6 +187,7 @@ $(function () {
   projectList.forEach((item) => {
     item.addEventListener("click", () => {
       modal.classList.add("show");
+      modal.focus();
     });
   });
 
@@ -194,5 +195,15 @@ $(function () {
     item.addEventListener("click", () => {
       modal.classList.remove("show");
     });
+  });
+
+  modal.addEventListener("keydown", (e) => {
+    //keyCode 구 브라우저, which 현재 브라우저
+    var code = e.keyCode || e.which;
+
+    if (code == 27) {
+      // 27은 ESC 키번호
+      modal.classList.remove("show");
+    }
   });
 });
