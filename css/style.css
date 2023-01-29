@@ -36,7 +36,7 @@
 
 .home .center_svg text {
   fill: transparent;
-  stroke: #e5f33c;
+  stroke: var(--mainYellow);
   font-size: 45rem;
   font-weight: 700;
   stroke-width: 5;
@@ -398,7 +398,6 @@
     transparent
   );
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
-  mask-image: linear-gradient(to left);
 }
 
 .project .pagination-container {
@@ -535,7 +534,7 @@
 
 .project .project_cate_list:hover span,
 .project .project_cate_list.active span {
-  color: #e5f33c;
+  color: var(--mainYellow);
   font-weight: 600;
 }
 
@@ -797,7 +796,7 @@
   height: 0.4rem;
   content: "";
 
-  background-color: #e5f33c;
+  background-color: var(--mainYellow);
 }
 
 .modal .detail_title {

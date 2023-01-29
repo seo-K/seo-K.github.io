@@ -1,11 +1,10 @@
 @charset "utf-8";
 
 :root {
-  --skyblue: #91c3ce;
+  --mainYellow: ##e5f33c;
 }
 
 :root[color-theme="dark"] {
-  --skyblue: #91c3ce;
 }
 
 @font-face {
