@@ -687,8 +687,8 @@
 
 .project .project_swiper_next,
 .project .project_swiper_prev {
-  width: 4rem;
-  height: 5rem;
+  width: 6rem;
+  height: 8rem;
 
   background: #e7f2f6 url(../image/common/swiper_up.svg) no-repeat center /
     contain;
@@ -790,7 +790,13 @@
   width: 100%;
   height: 40rem;
 
+  overflow: hidden;
+
   margin-bottom: 5rem;
+}
+
+.modal .detail_img img {
+  height: auto;
 }
 
 .modal .detail_sub_title {
@@ -940,6 +946,31 @@
 .modal .modal_swiper_next {
   right: 1rem;
   transform: translateY(-50%) rotate(180deg);
+}
+
+.skip_close {
+  position: absolute;
+  bottom: -5rem;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+
+  background-color: #000;
+
+  z-index: 20;
+}
+
+.skip_close:active,
+.skip_close:focus {
+  bottom: 0;
 }
 
 .parallax_bg {

@@ -46,7 +46,8 @@ $(function () {
 
         // swiper 초기화
         if (currentIndex != "2") {
-          swiper.slideTo(3, 1000, false);
+          swiper.slideTo(1, 1000, false);
+          ModalSwiper.slideTo(1, 1000, false);
         }
 
         if (currentIndex == "1") {
@@ -186,7 +187,9 @@ $(function () {
 
   // Modal
   const modal = document.querySelector(".modal");
-  const closeBtn = document.querySelectorAll(".close_button, .modal_bg");
+  const closeBtn = document.querySelectorAll(
+    ".close_button, .modal_bg, .skip_close"
+  );
   const projectList = document.querySelectorAll(".slide_inner");
 
   projectList.forEach((item) => {
