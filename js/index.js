@@ -122,6 +122,10 @@ $(function () {
       onlyInViewport: false,
     },
 
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+
     a11y: {
       prevSlideMessage: "이전 슬라이드",
       nextSlideMessage: "다음 슬라이드",

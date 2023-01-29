@@ -240,7 +240,7 @@
   height: 4.5rem;
   background-color: var(--mainYellow);
 
-  mix-blend-mode: unset;
+  mix-blend-mode: difference;
 }
 
 .custom-cursor.active:after {
