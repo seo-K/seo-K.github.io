@@ -44,6 +44,11 @@ $(function () {
         const moonBg = document.querySelector(".moon_bg");
         let currentIndex = this.activeIndex;
 
+        // swiper 초기화
+        if (currentIndex != "2") {
+          swiper.slideTo(3, 1000, false);
+        }
+
         if (currentIndex == "1") {
           moonBg.classList.add("active");
         } else {
