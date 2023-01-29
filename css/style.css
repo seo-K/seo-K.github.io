@@ -660,21 +660,16 @@
 }
 
 .project .project_img {
-  position: relative;
   width: 100%;
   height: 100%;
+
   overflow: hidden;
 }
 
 .project .project_img img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: auto;
-
-  transition: transform 0.3s;
   transform-origin: top;
+  transition: transform 0.3s;
 }
 
 .project .project_img:hover img {
