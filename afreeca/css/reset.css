@@ -1,0 +1,518 @@
+@charset "utf-8";
+
+:root {
+  --mainYellow: #e5f33c;
+}
+
+:root[color-theme="dark"] {
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-Black.woff") format("woff");
+  font-weight: 900;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-ExtraLight.woff") format("woff");
+  font-weight: 300;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-Light.woff") format("woff");
+  font-weight: 200;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Pre";
+  src: local("Pretendard"),
+    url("./fonts/pretendard/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Silk";
+  src: local("Silkscreen-Regular"), url("./fonts/Silkscreen-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Silk";
+  src: local("Silkscreen-Bold"), url("./fonts/Silkscreen-Bold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+address,
+pre,
+cite,
+form,
+fieldset,
+input,
+textarea,
+select,
+table,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+fieldset,
+abbr,
+img,
+video {
+  border: 0 none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0 none;
+}
+
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  border: 0;
+}
+
+address,
+caption,
+strong,
+em,
+cite {
+  font-weight: normal;
+  font-style: normal;
+}
+
+caption {
+  font-style: normal;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+blockquote,
+q {
+  quotes: "" "";
+}
+
+hr {
+  display: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  image-rendering: -moz-auto;
+  /*firefox*/
+  image-rendering: -o-auto;
+  /*opera*/
+  image-rendering: -webkit-optimize-contrast;
+  /*webkit*/
+  image-rendering: auto;
+  -ms-interpolation-mode: nearest-neighbor;
+  -webkit-perspective: 1;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+input:is(
+    [type="text"],
+    [type="tel"],
+    [type="button"],
+    [type="password"],
+    [type="email"],
+    [type="search"]
+  ),
+textarea,
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  cursor: pointer;
+}
+
+/* Chorme internal-autofill-selected  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--lightPurple) inset;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 100%;
+  font-weight: normal;
+  letter-spacing: normal;
+  background: transparent;
+}
+
+/* input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #000;
+}
+
+
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(1, 1, 0, 0.7);
+} */
+
+input:focus {
+  outline: 3px solid #000;
+}
+input:focus:not(:focus-visible) {
+  outline: 3px solid red;
+}
+input:focus-visible {
+  outline: 3px solid blue;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+select {
+  text-transform: none;
+  color: #fff;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="submit"]:not(:disabled) {
+  -webkit-appearance: button;
+  cursor: pointer;
+  *overflow: visible;
+}
+
+select {
+  -webkit-appearance: none; /* 네이티브 외형 감추기*/
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {
+  display: none;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  box-shadow: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 초기 셋팅 값 */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  letter-spacing: normal;
+  -webkit-tap-highlight-color: transparent;
+
+  background-color: #121416;
+  color: #fff;
+  scroll-behavior: smooth;
+
+  font: 400 62.5%/1.2 "Pre", sans-serif;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: "Pre", sans-serif;
+}
+
+input,
+textarea {
+  color: #444;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888888;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d4c951;
+  border-radius: 3px;
+}
+
+::selection {
+  background: #d4c951;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  z-index: -1;
+}
+/* 더블클릭시 선택 기능 막기*/
+.unable {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+/*  한줄처리 */
+.p_1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.p_2 {
+  /* 두줄처리 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.nowrap {
+  /*    한줄처리  width 값 필요*/
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.mobile-only,
+.tablet-only {
+  display: none;
+}
+
+@media all and (max-width: 1500px) {
+  .tablet-only {
+    display: block;
+  }
+}
+
+@media all and (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+  }
+
+  .pc-only,
+  .tablet-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}

@@ -1,0 +1,421 @@
+@charset "utf-8";
+/* 공통 CSS */
+.skip {
+  position: relative;
+
+  z-index: 30;
+}
+
+.skip a {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 3rem;
+  font-size: 1.5rem;
+  color: #000;
+  text-align: center;
+
+  background-color: #ffffff;
+}
+
+.skip a:active,
+.skip a:focus {
+  top: 0;
+}
+
+/* Header */
+#header {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121416;
+
+  width: 100vw;
+  height: 8rem;
+}
+
+.header_inner {
+  flex-shrink: 0;
+  width: clamp(12rem, 80%, 180rem);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 10;
+}
+
+#header .logo {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+#header .menu {
+  display: flex;
+  align-items: center;
+}
+
+#header .menu > li + li {
+  margin-left: 2rem;
+}
+
+#header .menu > li span {
+  position: relative;
+  display: inline-block;
+
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#header .menu > li span:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--mainYellow);
+
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+
+#header .menu > li.active span {
+  position: relative;
+  color: var(--mainYellow);
+}
+
+#header .menu > li.active span:after {
+  width: 100%;
+}
+
+#header .menu_text {
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  padding: 1.5rem 1.5rem;
+}
+
+#header .util {
+  display: flex;
+}
+
+#header .util > li + li {
+  margin-left: 2rem;
+}
+
+#header .util_link {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  background: no-repeat center / contain;
+}
+
+#header .github_link {
+  background-image: url(../image/common/sns_github.svg);
+}
+
+#header .naver_link {
+  background-image: url(../image/common/sns_naver.svg);
+}
+
+/* Main */
+#main {
+  height: calc((var(--vh, 1vh) * 100) - 8rem);
+  height: calc(100vh - 8rem);
+}
+
+.title {
+  font-size: 10rem;
+  font-weight: 800;
+}
+
+.title span {
+  opacity: 0;
+
+  transform: translateY(100%);
+  transition: transform 0.2s;
+}
+
+.show .title span {
+  animation: showAnimation 0.5s var(--delay) forwards;
+}
+
+@keyframes showAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.desc {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #eee;
+}
+
+.title + .desc {
+  margin-top: 1.5rem;
+}
+
+.desc:before {
+  content: "";
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #fff;
+
+  margin-right: 1.5rem;
+
+  margin-top: 1rem;
+}
+
+/* CURSOR */
+.custom-cursor {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+
+  display: grid;
+  place-content: center;
+
+  pointer-events: none;
+  border-radius: 50%;
+  border: 1px solid var(--mainYellow);
+  transform: translate3d(0, 0, 0);
+  transition: background 0.5s, transform 0.5s, width 0.2s, height 0.2s;
+
+  z-index: 25;
+}
+
+.custom-cursor:after {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 1.1rem;
+  content: "";
+
+  width: 0;
+  height: 2px;
+  border-radius: 0;
+  background: #000;
+
+  transition: width 0.5s;
+}
+
+.cursor-arrow:after,
+.cursor-arrow:before {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 1.7rem;
+
+  width: 1.3rem;
+  height: 2px;
+  content: "";
+
+  background: #000;
+
+  transition: 0.7s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: right;
+  transform: scaleY(0) rotate(0deg);
+  z-index: 9;
+}
+
+.custom-cursor .cursor-word {
+  display: none;
+}
+
+.custom-cursor.active {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: var(--mainYellow);
+
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.active:after {
+  width: 2rem;
+}
+
+.custom-cursor.active .cursor-arrow:after {
+  transform: scaleY(1) rotate(45deg);
+}
+
+.custom-cursor.active .cursor-arrow:before {
+  transform: scaleY(1) rotate(-45deg);
+}
+
+.custom-cursor.active .cursor-word {
+  display: block;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+
+  animation: rotateAnimation 10s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-cursor .cursor-word span {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e7f2f6;
+
+  transform: rotate(calc(40deg * var(--rotate)));
+  transform-origin: bottom left;
+}
+
+.custom-cursor.menu_active {
+  transform: scale(2);
+  background-color: var(--mainYellow);
+  mix-blend-mode: difference;
+}
+
+@media all and (max-width: 1500px) {
+  .title {
+    font-size: 6rem;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  /* Header */
+  #header {
+    position: fixed;
+    height: 6rem;
+
+    border-radius: 1rem 1rem 0 0;
+    border-top: 1px solid #404448;
+
+    z-index: 5;
+  }
+
+  .header_inner {
+    width: 100%;
+    padding: 0 3rem;
+  }
+
+  #header .logo {
+    display: none;
+  }
+
+  #header nav {
+    width: 100%;
+  }
+
+  #header .menu {
+    justify-content: space-between;
+  }
+
+  #header .menu > li + li {
+    margin-left: 0;
+  }
+
+  #header .menu > li span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #404448;
+  }
+
+  #header .menu > li span:after {
+    display: none;
+  }
+
+  #header .menu > li span:before {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    content: "";
+
+    margin-bottom: 0.5rem;
+
+    background: no-repeat center / contain;
+  }
+
+  #header .menu > li:nth-child(1) span:before {
+    background-image: url(../image/common/home.svg);
+  }
+
+  #header .menu > li:nth-child(2) span:before {
+    background-image: url(../image/common/heart.svg);
+  }
+
+  #header .menu > li:nth-child(3) span:before {
+    background-image: url(../image/common/project.svg);
+  }
+
+  #header .menu > li.active span {
+    color: #fff;
+  }
+
+  #header .menu > li.active span:before {
+    filter: invert(100%) sepia(91%) saturate(38%) hue-rotate(331deg)
+      brightness(110%) contrast(110%);
+  }
+
+  #header .menu_text {
+    font-size: 1.3em;
+    padding: 1rem 2rem;
+  }
+
+  #header .util {
+    display: none;
+  }
+
+  /* Main */
+  #main {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    height: 100dvh;
+
+    padding-bottom: 6rem;
+  }
+
+  .main_inner > section {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    height: 100dvh;
+
+    padding-bottom: 6rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .desc {
+    display: flex;
+    font-size: 1.2rem;
+  }
+
+  .title + .desc {
+    margin-top: 0;
+  }
+
+  /* CURSOR */
+  .custom-cursor {
+    display: none;
+  }
+}
