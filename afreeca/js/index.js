@@ -88,8 +88,8 @@ $(function () {
     direction: "vertical",
     observer: true,
     observeParents: true,
-    slidesPerView: "3.5",
-    slidesPerGroup: 4,
+    slidesPerView: "2.5",
+    slidesPerGroup: 2,
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
     // passiveListeners: false,
 
@@ -109,7 +109,9 @@ $(function () {
       bulletActiveClass: "active",
       bulletClass: "project_cate_list",
       renderBullet: function (index, className) {
-        return `<li class="${className}"><span class="cursor_event">${index}</span></li>`;
+        return `<li class="${className}"><span class="cursor_event">${
+          index + 1
+        }</span></li>`;
       },
     },
 

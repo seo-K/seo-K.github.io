@@ -1392,3 +1392,21 @@
     opacity: 0.1;
   }
 }
+
+.desc_link {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #111;
+
+  padding: 1rem 2rem;
+  background-color: var(--mainYellow);
+}
+
+@media all and (max-width: 1024px) {
+  .desc {
+    display: none;
+  }
+  .desc_link {
+    margin-top: 1rem;
+  }
+}
