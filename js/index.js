@@ -38,12 +38,12 @@ $(function () {
 
     pagination: {
       el: ".menu",
+      clickable: true,
       bulletActiveClass: "active",
       bulletClass: "menulist",
       renderBullet: function (index, className) {
         return `<li class="${className}" role="tab" aria-controls="${ariaControls[index]}"><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
       },
-      clickable: true,
     },
 
     on: {
