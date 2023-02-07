@@ -230,13 +230,12 @@ $(function () {
       let activeIndex = [...projectSlider].indexOf(item.parentNode);
       modal.classList.add("show");
       modal.focus();
-      // console.log(activeIndex);
       ModalSwiper.slideTo(activeIndex, 100, false);
     });
 
     item.addEventListener("keyup", function (e) {
       if (e.keyCode == 13) {
-        console.log("first");
+        console.log("enter");
       }
     });
   });
