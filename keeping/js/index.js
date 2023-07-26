@@ -52,9 +52,7 @@ $(function () {
 
   // ========= 다크모드
   const userTheme = localStorage.getItem("color-theme"); // 유저가 localStorage에 저장한테마가 있는지 확인
-  const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   const getUserTheme = () => (userTheme ? userTheme : osTheme); // color-theme 확인 - localStorage에 저장된게 있는지, 없으면 OS의 color-theme로 설정
   if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
@@ -104,13 +102,11 @@ $(function () {
     }
   }
 
-  window.addEventListener("scroll", onScroll, {passive: true});
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   // ========= 헤더 카드 메뉴 리스트 이벤트
   const menu = document.querySelectorAll(".menu-card");
-  const pianoOddList = document.querySelectorAll(
-    ".card-piano li:nth-child(odd)"
-  );
+  const pianoOddList = document.querySelectorAll(".card-piano li:nth-child(odd)");
   const OrangeCard = document.querySelector(".orange-card");
 
   const OrangeClass = "orange-card";
@@ -121,20 +117,12 @@ $(function () {
     if (!this.classList.contains(OrangeClass)) {
       this.classList.add("hidden");
       if (this.classList.contains("yellow-card")) {
-        document
-          .querySelector(".card-piano li:nth-child(1)")
-          .classList.add("active");
+        document.querySelector(".card-piano li:nth-child(1)").classList.add("active");
       } else if (this.classList.contains("beige-card")) {
-        document
-          .querySelector(".card-piano li:nth-child(5)")
-          .classList.add("active");
+        document.querySelector(".card-piano li:nth-child(5)").classList.add("active");
       } else if (this.classList.contains("purple-card")) {
-        document
-          .querySelector(".card-piano li:nth-child(3)")
-          .classList.add("active");
-        document
-          .querySelector(".card-piano li:nth-child(9)")
-          .classList.add("active");
+        document.querySelector(".card-piano li:nth-child(3)").classList.add("active");
+        document.querySelector(".card-piano li:nth-child(9)").classList.add("active");
       }
     }
   }
@@ -259,9 +247,7 @@ $(function () {
       bulletActiveClass: "active",
       bulletClass: "wheel-list",
       renderBullet: function (index, className) {
-        return `<li class="${className}" style="--rotate: ${index}"><b>${
-          index + 1
-        }</b></li>`;
+        return `<li class="${className}" style="--rotate: ${index}"><b>${index + 1}</b></li>`;
       },
     },
     on: {
@@ -363,12 +349,8 @@ $(function () {
 
   const Link = document.querySelectorAll("a");
 
-  [...Link].map((item) =>
-    item.addEventListener("mouseenter", disableAnimation)
-  );
-  [...Link].map((item) =>
-    item.addEventListener("mouseleave", disableAnimation)
-  );
+  [...Link].map((item) => item.addEventListener("mouseenter", disableAnimation));
+  [...Link].map((item) => item.addEventListener("mouseleave", disableAnimation));
 
   // =========== Top Button
   const TopButton = document.querySelector(".top-button");
