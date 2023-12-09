@@ -1,0 +1,122 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://grayson-choi.github.io/advent_calendar/">
+  <meta property="og:title" content="스파르타코딩클럽 크리스마스 디데이 캘린더">
+  <meta property="og:image" content="image/OGimage.png">
+  <meta property="og:description" content="크리스마스까지 하루가 기다려지는 즐거움, 크리스마스 디데이 캘린더를 함께 만들어봐요!">
+  <meta property="og:site_name" content="SCC Advent Calendar">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <title>Advend Calendar 2023</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="snow.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <dialog id="modal" popover>
+    <button class="close-btn" type="button" popovertarget="modal" popovertargetaction="hide">Close</button>
+    <figure>
+      <img src="./image/card/card-1.png" alt="">
+    </figure>
+    <figcaption>12월샬라샬라</figcaption>
+  </dialog>
+  <button type="button" popovertarget="modal">모달 테스트</button>
+  <main>
+    <h1 class="title">
+      <figure class="merry">
+        <img src="./image/merry.png" alt="Merry Christmas">
+      </figure>
+      <p>크리스마스까지 <b>D-15 00시간 00분 00초</b> 남음</p>
+    </h1>
+
+    <!-- card-list -->
+    <!-- DEFAULT-CARD를 누르면 모달이 열리고 OPENED-CARD가 돌아가면서 나옴. -->
+    <!-- OPENED-CARD를 누르면 OPENED-CARD가 돌아가면서 닫힘 -->
+    <template id="card-list">
+      <div class="card-wrap">
+        <button type="button" class="default-card">
+          <span class="date">
+            <slot name="date"></slot>
+          </span>
+          <figure>
+            <!-- <img src="./image/frame/frame1.png" alt=""> -->
+            <slot name="default-card-img"></slot>
+          </figure>
+        </button>
+        <button type="button" class="opened-card">
+          <figure>
+            <!-- <img src="./image/card/card-1.png" alt=""> -->
+            <slot name="opened-card-img"></slot>
+          </figure>
+        </button>
+      </div>
+    </template>
+
+
+  </main>
+
+
+  <div class="snow-list">
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+  </div>
+
+</body>
+
+</html>
