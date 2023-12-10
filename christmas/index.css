@@ -1,10 +1,7 @@
 body {
   background: url(./image/bg.png) no-repeat center/ cover;
 }
-img {
-  object-fit: contain !important;
-  height: auto;
-}
+
 main {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -20,6 +17,15 @@ main {
 .title {
   grid-area: title;
 }
+.title img {
+  object-fit: contain;
+  height: auto;
+}
+.card-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
 .default-card {
   position: relative;
 }
@@ -32,12 +38,17 @@ main {
   font-weight: 600;
 }
 .opened-card {
+  position: absolute;
+  inset: 0;
   display: none;
+}
+.card-wrap.active .opened-card {
+  display: block;
 }
 
 /* 모달 */
 dialog {
-  padding: 20px;
+  padding: 3rem 2rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -46,10 +57,6 @@ dialog {
   opacity: 0;
   margin: auto;
 }
-
-/* 애니메이션 */
-/*  오픈되었을때 스타일 */
-
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.3);
   transition: all 0.7s;
@@ -75,9 +82,24 @@ dialog:popover-open {
   transform: translateY(0);
   opacity: 1;
 }
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: #000;
+#modal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#modal .close-btn {
+  width: 3rem;
+  height: 3rem;
+  z-index: 2;
+  align-self: flex-end;
+}
+#modal figure {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#modal figcaption {
+  margin-top: 1rem;
+  font-size: 2rem;
 }
