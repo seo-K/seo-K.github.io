@@ -1,5 +1,6 @@
 body {
   background: url(./image/bg.png) no-repeat center/ cover;
+  overflow: hidden;
 }
 
 main {
@@ -24,16 +25,16 @@ main {
     "d19      d24     d21";
 }
 @media only screen and (min-width: 500px) {
-main {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:
-    "title title title d1 d2 d3"
-    "title title title d4 d5 d6"
-    "title title title d7 d8 d9"
-    "d10 d11 d12 d13 d14 d15"
-    "d16 d17 d24 d24 d18 d19"
-    "d20 d21 d24 d24 d22 d23";
-}
+  main {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "title title title d1 d2 d3"
+      "title title title d4 d5 d6"
+      "title title title d7 d8 d9"
+      "d10 d11 d12 d13 d14 d15"
+      "d16 d17 d24 d24 d18 d19"
+      "d20 d21 d24 d24 d22 d23";
+  }
 }
 .title {
   grid-area: title;
@@ -59,6 +60,7 @@ main {
   font-size: 2rem;
   font-weight: 600;
 }
+
 .opened-card {
   position: absolute;
   inset: 0;
@@ -66,6 +68,17 @@ main {
 }
 .card-wrap.active .opened-card {
   display: block;
+  perspective: 1000;
+  animation: rotate 1s forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
 }
 
 /* 모달 */
@@ -77,7 +90,7 @@ dialog {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
   transition-behavior: allow-discrete;
-  /* opacity: 0; */
+  opacity: 0;
   margin: auto;
   transform: translateY(50px);
 }
@@ -85,24 +98,23 @@ dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.3);
   transition: all 0.7s;
   transition-behavior: allow-discrete;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
 }
-/* Style things */
-dialog:popover-open {
-  /*   0. BEFORE-OPEN STATE   */
-  /*  initial state for what we're animating *in* from */
+
+dialog[open] {
   @starting-style {
     transform: translateY(50px);
     opacity: 0;
   }
-  /*   1. OPEN STATE   */
+
   transform: translateY(0);
   opacity: 1 !important;
+}
+
+#modal .modal-inner {
   display: flex;
   gap: 2rem;
   flex-direction: column;
-}
-#modal {
 }
 #modal .close-btn {
   width: 3rem;

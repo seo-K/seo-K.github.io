@@ -15,22 +15,24 @@
 
   <title>Advend Calendar 2023</title>
   <link rel="stylesheet" href="../css/reset.css">
-  <!-- <link rel="stylesheet" href="snow.css"> -->
+  <link rel="stylesheet" href="snow.css">
   <link rel="stylesheet" href="index.css">
   <script src="index.js" defer></script>
 </head>
 
 <body>
-  <dialog id="modal" popover>
-    <button class="close-btn" type="button" popovertarget="modal" popovertargetaction="hide">
-      <img width="69" height="69" src="https://img.icons8.com/3d-plastilina/69/delete-sign--v2.png"
-        alt="delete-sign--v2" />
+  <dialog id="modal">
+    <div class="modal-inner">
+      <button class="close-btn" type="button" onclick="closeModal()">
+        <img width="69" height="69" src="https://img.icons8.com/3d-plastilina/69/delete-sign--v2.png"
+          alt="delete-sign--v2" />
 
-    </button>
-    <figure>
-      <img src="./image/card/card-1.png" alt="">
-    </figure>
-    <figcaption>12월샬라샬라</figcaption>
+      </button>
+      <figure>
+        <!-- <img src="./image/card/card-1.png" alt=""> -->
+      </figure>
+      <figcaption>기본 텍스트</figcaption>
+    </div>
   </dialog>
   <main>
     <h1 class="title">
@@ -44,9 +46,8 @@
     <!-- DEFAULT-CARD를 누르면 모달이 열리고 OPENED-CARD가 돌아가면서 나옴. -->
     <!-- OPENED-CARD를 누르면 OPENED-CARD가 돌아가면서 닫힘 -->
     <template id="card-list">
-      <div class="card-wrap" onclick="toggleButton(this)" >
-        <button type="button" class="default-card" popovertarget="modal" >
-        <!-- <button type="button" class="default-card" popovertarget="modal"> -->
+      <div class="card-wrap" onclick="toggleButton(this)">
+        <button type="button" class="default-card">
           <span class="date">
             <slot name="date"></slot>
           </span>
