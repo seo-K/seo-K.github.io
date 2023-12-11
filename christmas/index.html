@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
@@ -14,9 +14,9 @@
   <meta property="og:image:height" content="630">
 
   <title>Advend Calendar 2023</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="snow.css">
   <link rel="stylesheet" href="../css/reset.css">
+  <!-- <link rel="stylesheet" href="snow.css"> -->
+  <link rel="stylesheet" href="index.css">
   <script src="index.js" defer></script>
 </head>
 
@@ -44,8 +44,9 @@
     <!-- DEFAULT-CARD를 누르면 모달이 열리고 OPENED-CARD가 돌아가면서 나옴. -->
     <!-- OPENED-CARD를 누르면 OPENED-CARD가 돌아가면서 닫힘 -->
     <template id="card-list">
-      <div class="card-wrap" onclick="toggleButton(this)">
-        <button type="button" class="default-card" popovertarget="modal">
+      <div class="card-wrap" onclick="toggleButton(this)" >
+        <button type="button" class="default-card" popovertarget="modal" >
+        <!-- <button type="button" class="default-card" popovertarget="modal"> -->
           <span class="date">
             <slot name="date"></slot>
           </span>

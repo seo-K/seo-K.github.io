@@ -1,19 +1,17 @@
 html, body {
-   padding: 0;
-   margin: 0;
-   width: 100vw;
-   height: 500px;
-   position: relative;
-   overflow: hidden;
-   background: linear-gradient(#123, #111);
+  position: relative;
+  /* background: linear-gradient(#123, #111); */
+  /* height: 500px;
+  width: 100vw;
+   overflow: hidden; */
 }
  .snowflake {
+   position: absolute;
    --size: 1vw;
    width: var(--size);
    height: var(--size);
    background: white;
    border-radius: 50%;
-   position: absolute;
    top: -5vh;
 }
  @keyframes snowfall {

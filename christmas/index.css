@@ -4,8 +4,28 @@ body {
 
 main {
   display: grid;
+  width: 90vw;
+  max-width: 900px;
+  padding: 2rem;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 2.5rem;
+
+  grid-template-areas:
+    "title        title       title"
+    "d23      d20     d12"
+    "d2       d14     d4"
+    "d5       d22     d16"
+    "d1       d7      d9"
+    "d10      d11     d18"
+    "d13      d3      d15"
+    "d6       d17     d8"
+    "d19      d24     d21";
+}
+@media only screen and (min-width: 500px) {
+main {
   grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
   grid-template-areas:
     "title title title d1 d2 d3"
     "title title title d4 d5 d6"
@@ -14,8 +34,10 @@ main {
     "d16 d17 d24 d24 d18 d19"
     "d20 d21 d24 d24 d22 d23";
 }
+}
 .title {
   grid-area: title;
+  align-self: center;
 }
 .title img {
   object-fit: contain;
@@ -53,23 +75,18 @@ dialog {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s allow-discrete, opacity 0.5s allow-discrete;
-  opacity: 0;
+  transition: all 0.5s;
+  transition-behavior: allow-discrete;
+  /* opacity: 0; */
   margin: auto;
+  transform: translateY(50px);
 }
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.3);
   transition: all 0.7s;
   transition-behavior: allow-discrete;
+  backdrop-filter: blur(10px);
 }
-
-dialog {
-  transform: translateY(+50px);
-  opacity: 0;
-  transition: all 0.5s;
-  transition-behavior: allow-discrete;
-}
-
 /* Style things */
 dialog:popover-open {
   /*   0. BEFORE-OPEN STATE   */
@@ -80,12 +97,12 @@ dialog:popover-open {
   }
   /*   1. OPEN STATE   */
   transform: translateY(0);
-  opacity: 1;
+  opacity: 1 !important;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
 }
 #modal {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 #modal .close-btn {
   width: 3rem;
@@ -103,3 +120,5 @@ dialog:popover-open {
   margin-top: 1rem;
   font-size: 2rem;
 }
+
+/* https://edu.spartacodingclub.kr/advent-calendar */
