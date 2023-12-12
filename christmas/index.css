@@ -44,6 +44,9 @@ main {
   object-fit: contain;
   height: auto;
 }
+.title b {
+  color: rgb(255, 158, 169);
+}
 .card-wrap {
   position: relative;
   border-radius: 10px;
@@ -129,6 +132,7 @@ dialog[open] {
   overflow: hidden;
 }
 #modal figcaption {
+  display: inline-block;
   margin-top: 1rem;
   font-size: 2rem;
 }
