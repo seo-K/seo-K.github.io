@@ -4,6 +4,19 @@ const main = document.querySelector("main");
 const dialog = document.querySelector("dialog");
 let currentIndex;
 
+const updateCountdown = () => {
+  // const todayDate =  new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));;
+  const counterText = document.querySelector(".counter");
+  let timeRemaining = christmasDate - todayDate;
+
+  let day = String(Math.floor(timeRemaining / (1000 * 60 * 60 * 24)));
+  let hour = String(Math.floor((timeRemaining / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+  let minutes = String(Math.floor((timeRemaining / (1000 * 60)) % 60)).padStart(2, "0");
+  let seconds = String(Math.floor((timeRemaining / 1000) % 60)).padStart(2, "0");
+
+  counterText.innerText = `D-${day} ${hour}시간 ${minutes}분 ${seconds}초`;
+};
+
 // Function to create a card element
 function createCard(index) {
   let cardEl = document.importNode(cardTemplate.content, true);
@@ -31,12 +44,9 @@ for (let i = 1; i < 25; i++) {
   calendarWrap.append(cardEl);
 }
 
-
 // Dates for countdown and modal opening
 const todayDate = new Date();
 const christmasDate = new Date("2023-12-25");
-
-
 
 // Function to toggle the modal and handle card activation
 const toggleButton = (el) => {
@@ -44,60 +54,47 @@ const toggleButton = (el) => {
   const isActive = cardWrap.classList.contains("active");
 
   currentIndex = Array.from(main.querySelectorAll(".card-wrap")).indexOf(cardWrap) + 1;
-  
+
   if (!isActive) {
-    const openDate = new Date(2023, 11, currentIndex + 1); // 2023년 12월 1일부터 시작
-    console.log(openDate < todayDate, currentIndex);
-    
-    
-    if (openDate < todayDate) {
-      const figureElement = dialog.querySelector("figure");
-      figureElement.innerHTML = "";
+    const openDate = new Date(2023, 11, currentIndex); // 2023년 12월 1일부터 시작
+    // console.log(openDate , todayDate, currentIndex);
 
-      const modalCardImg = document.createElement("img");
-      modalCardImg.src = `./image/card/card-${currentIndex}.png`;
-      modalCardImg.alt = `${currentIndex}일`;
-      figureElement.appendChild(modalCardImg);
-
-      const modalCardText = document.createElement("figcaption");
-      // console.log(modalMessageList[currentIndex-1].message);
-      modalCardText.innerText = modalMessageList[currentIndex - 1].message;
-      figureElement.appendChild(modalCardText);
-
-      dialog.showModal();
+    if (openDate <= todayDate) {
+      openModal;
       cardWrap.classList.add("active");
     } else {
-      const daysRemaining = Math.floor((openDate - todayDate) / (1000 * 60 * 60 * 24));
+      const daysRemaining = Math.ceil((openDate - todayDate) / (1000 * 60 * 60 * 24));
       alert(`이 카드는 ${daysRemaining}일 후에 열 수 있어요!`);
-
     }
   } else {
     cardWrap.classList.remove("active");
   }
 };
 
-const closeModal = () => {
-  dialog.close();
+const openModal = () => {
+  const figureElement = dialog.querySelector("figure");
+  figureElement.innerHTML = "";
+
+  const modalCardImg = document.createElement("img");
+  modalCardImg.src = `./image/card/card-${currentIndex}.png`;
+  modalCardImg.alt = `${currentIndex}일`;
+  figureElement.appendChild(modalCardImg);
+
+  const modalCardText = document.createElement("figcaption");
+  // console.log(modalMessageList[currentIndex-1].message);
+  modalCardText.innerText = modalMessageList[currentIndex - 1].message;
+  figureElement.appendChild(modalCardText);
+
+  dialog.showModal();
 };
 
-
-const updateCountdown = () => {
-  // const todayDate =  new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));;
-  const counterText = document.querySelector(".counter");
-  let timeRemaining = christmasDate - todayDate;
-  let day = String(Math.floor(timeRemaining / (1000 * 60 * 60 * 24)));
-  let hour = String(Math.floor((timeRemaining / (1000 * 60 * 60)) % 24)).padStart(2, "0");
-  let minutes = String(Math.floor((timeRemaining / (1000 * 60)) % 60)).padStart(2, "0");
-  let seconds = String(Math.floor((timeRemaining / 1000) % 60)).padStart(2, "0");
-
-  counterText.innerText = `D-${day} ${hour}시간 ${minutes}분 ${seconds}초`;
+const closeModal = () => {
+  dialog.close();
 };
 
 // Initial call and interval for countdown
 updateCountdown();
 setInterval(updateCountdown, 1000);
-
-
 
 const modalMessageList = [
   { number: 1, message: "행복의 계절, 모두가 함께하는 24일!" },
