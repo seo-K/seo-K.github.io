@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+      function 라디안함수(각도) {
+        return 각도 * Math.PI / 180;
+      }
+      // beginPath
+      // arc
+      // closePath
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      
+      // arc(x, y, r, 시작각, 끝각, 시계방향)
+      // 호 그리기 (중앙에 점찍고 그리는 그것이다.)
+      // 중심점 기준으로 3시 기준. n도까지 시계방향 || 반시계반향으로 돌림
+      // Math.PI = 180도
+      
+      context.beginPath(); // 시작
+      context.arc(300, 100, 50, 0, Math.PI * 1, false);
+      // context.fill();
+      context.stroke(); // 선그리기
+
+
+      context.beginPath();
+      // context.arc(500, 100, 20, 0, 라디안함수(360), true);
+      context.arc(400, 100, 20, 0, 라디안함수(70), false);
+      context.stroke();
+      
+      context.beginPath();
+      context.arc(500, 100, 20, 0, 라디안함수(100), false);
+      context.stroke();
+
+      context.fillStyle = 'rgba(250,50,50,0.5)';
+      context.fillRect(299, 99, 2, 2);
+      context.fillRect(399, 99, 2, 2);
+      context.fillRect(499, 99, 2, 2);
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

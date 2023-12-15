@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+      // 기본적으로 사각형을 그리는 메서드 3가지.
+      // fillRect
+      // clearRect
+      // strokeRect
+      const canvas = document.querySelector('.canvas'); // 기본 캔버스 세팅
+      const context = canvas.getContext('2d');
+
+      context.fillRect(100, 0, 100, 100);
+      // x50, y50 에 100x100 짜리 아래 색상을한, 사각형이 그려짐.
+      // 진짜 그림을 그리는 것처럼, 물감을 찍고! 그린다! 느낌으로 작업해야함.
+      context.fillStyle = 'rgba(200,0,0,0.5)';
+      context.fillRect(50, 50, 100, 100);
+      // 컨버스의 기본 색상은 black 이므로 색상 변경.
+      context.clearRect(80, 80, 50, 50);
+      context.strokeRect(150, 150, 100, 100);
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

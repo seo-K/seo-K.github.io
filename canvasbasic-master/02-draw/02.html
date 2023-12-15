@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+      // beginPath
+      // moveTo
+      // lineTo
+      // closePath
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+
+      context.beginPath(); // 선의 시작
+      context.moveTo(100, 100); // 펜을 x100, y100 으로 올림.
+      context.lineTo(300, 200); // x300 y200 까지 일단 path 를 만듦.
+      context.stroke(); // 일러스트 같이 뭘 채우거나 선으로 만들거나 선택해줘야함.
+      context.closePath(); // 선의 끝 path 끝내는 기능
+      // context.fill();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
