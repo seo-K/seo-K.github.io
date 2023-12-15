@@ -1,11 +1,14 @@
 const calendarWrap = document.querySelector("main");
 const cardTemplate = document.getElementById("card-list");
 const main = document.querySelector("main");
-const dialog = document.querySelector("dialog");
+const dialog = document.querySelector("#modal");
+let todayDate;
 let currentIndex;
 
 const updateCountdown = () => {
-  // const todayDate =  new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));;
+  todayDate = new Date();
+  const christmasDate = new Date("2023-12-25");
+
   const counterText = document.querySelector(".counter");
   let timeRemaining = christmasDate - todayDate;
 
@@ -38,17 +41,15 @@ function createCard(index) {
   return cardEl;
 }
 
-// Populate the calendar with cards
+// 1~24일까지 카드 리스트 생성
 for (let i = 1; i < 25; i++) {
   let cardEl = createCard(i);
   calendarWrap.append(cardEl);
 }
 
-// Dates for countdown and modal opening
-const todayDate = new Date();
-const christmasDate = new Date("2023-12-25");
 
-// Function to toggle the modal and handle card activation
+
+// 토글 이벤트 (카드와 모달)
 const toggleButton = (el) => {
   const cardWrap = el.closest(".card-wrap");
   const isActive = cardWrap.classList.contains("active");
@@ -58,9 +59,9 @@ const toggleButton = (el) => {
   if (!isActive) {
     const openDate = new Date(2023, 11, currentIndex); // 2023년 12월 1일부터 시작
     // console.log(openDate , todayDate, currentIndex);
-
+    
     if (openDate <= todayDate) {
-      openModal;
+      openModal();
       cardWrap.classList.add("active");
     } else {
       const daysRemaining = Math.ceil((openDate - todayDate) / (1000 * 60 * 60 * 24));
@@ -75,11 +76,13 @@ const openModal = () => {
   const figureElement = dialog.querySelector("figure");
   figureElement.innerHTML = "";
 
+  // 카드 이미지 삽입
   const modalCardImg = document.createElement("img");
   modalCardImg.src = `./image/card/card-${currentIndex}.png`;
   modalCardImg.alt = `${currentIndex}일`;
   figureElement.appendChild(modalCardImg);
 
+  // 카드 텍스트 삽입
   const modalCardText = document.createElement("figcaption");
   // console.log(modalMessageList[currentIndex-1].message);
   modalCardText.innerText = modalMessageList[currentIndex - 1].message;
@@ -92,9 +95,7 @@ const closeModal = () => {
   dialog.close();
 };
 
-// Initial call and interval for countdown
-updateCountdown();
-setInterval(updateCountdown, 1000);
+
 
 const modalMessageList = [
   { number: 1, message: "행복의 계절, 모두가 함께하는 24일!" },
@@ -122,3 +123,14 @@ const modalMessageList = [
   { number: 23, message: "다 함께하는 24일, 행복한 느낌이 가득할 거예요." },
   { number: 24, message: "12월, 모두에게 기쁨과 행복이 넘치는 달이에요." },
 ];
+
+// Initial call and interval for countdown
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+const snowList = document.querySelector(".snow-list")
+for(i=0;  i<49; i++) {
+  let snowFlacke = document.createElement("div");
+  snowFlacke.className = "snowflake"
+  snowList.appendChild(snowFlacke)
+}
