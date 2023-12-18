@@ -32,6 +32,7 @@
         width: 40px;
         height: 40px;
         background: url(../images/ilbuni2.png) no-repeat 50% 50% / cover;
+        cursor: pointer;
       }
       .result-image {
       }
@@ -73,31 +74,16 @@
           imgElem.addEventListener("load", () => {
             context.drawImage(imgElem, e.layerX, e.layerY);
           });
-        }else{
-          
-                  context.beginPath();
-                  context.arc(e.layerX, e.layerY, 10, 0, Math.PI * 2, false);
-                  context.fill();
-
+        } else {
+          context.beginPath();
+          context.arc(e.layerX, e.layerY, 10, 0, Math.PI * 2, false);
+          context.fill();
         }
       };
       const upHandler = (e) => {
         console.log(e, "upHandler");
         drawingMode = false;
       };
-
-      //       const mDown = (e) => {
-      //         console.log(e , "mDown")
-      //       }
-      //       const mMove = (e) => {
-      //         console.log(e , "mMove")
-      //       }
-      //       const mUp = (e) => {
-      //         console.log(e , "mUp")
-      //       }
-      //       const mOut = (e) => {
-      //         console.log(e , "mOut")
-      //       }
 
       canvas.addEventListener("mousedown", downHandler);
       canvas.addEventListener("mousemove", clickHandler);
@@ -120,8 +106,6 @@
         imageMode = true;
       };
       imageButton.addEventListener("click", appendImage);
-
-     
     </script>
   </body>
 </html>
