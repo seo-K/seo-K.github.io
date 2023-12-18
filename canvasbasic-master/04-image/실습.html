@@ -14,6 +14,7 @@
         height: 30px;
         border: 0;
         border-radius: 50%;
+        cursor: pointer;
       }
       .color-btn[data-color="black"] {
         background: black;
@@ -54,6 +55,7 @@
       const canvas = document.querySelector(".canvas");
       const context = canvas.getContext("2d");
       let drawingMode = false;
+      let imageMode = false;
 
       // canvas.addEventListener("mousemove", clickHandler);
       const downHandler = (e) => {
@@ -65,9 +67,19 @@
           return;
         }
 
-        context.beginPath();
-        context.arc(e.layerX, e.layerY, 10, 0, Math.PI * 2, false);
-        context.fill();
+        if (imageMode) {
+          const imgElem = new Image();
+          imgElem.src = "../images/ilbuni1.png";
+          imgElem.addEventListener("load", () => {
+            context.drawImage(imgElem, e.layerX, e.layerY);
+          });
+        }else{
+          
+                  context.beginPath();
+                  context.arc(e.layerX, e.layerY, 10, 0, Math.PI * 2, false);
+                  context.fill();
+
+        }
       };
       const upHandler = (e) => {
         console.log(e, "upHandler");
@@ -94,6 +106,7 @@
       // 컬러변경
       const colorChip = document.querySelectorAll(".color-btn");
       const changeColor = (e) => {
+        imageMode = false;
         colorVal = e.target.dataset.color;
         context.fillStyle = colorVal;
       };
@@ -102,12 +115,13 @@
       });
 
       // 이미지 삽입
-      const imageButton = document.querySelector("image-btn");;
-      imageButton.addEventListener("click" , appendImage)
+      const imageButton = document.querySelector(".image-btn");
+      const appendImage = (e) => {
+        imageMode = true;
+      };
+      imageButton.addEventListener("click", appendImage);
 
-      const appendImage = () => { 
-        
-      }
+     
     </script>
   </body>
 </html>
