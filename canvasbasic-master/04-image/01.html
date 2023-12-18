@@ -23,9 +23,12 @@
       const imgElem = new Image();
       imgElem.src = '../images/ilbuni1.png';
       imgElem.addEventListener('load', () => {
-        context.drawImage(imgElem, 50, 50);
+        // context.drawImage(image, dx, dy) // 이미지 위치만 설정
+        // context.drawImage(image, dx, dy, dWidth, dHeight) // 이미지 위치 + 크기 설정
+        // context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) // 이미지 자를위치 + 자를 크기 + 위치 + 크기 설정
+        context.drawImage(imgElem, 50, 50); // imaElem 가 x50, y50에 컨텐츠 크기만큼 들어감.
         context.drawImage(imgElem, 50, 50, 70, 120);
-        context.drawImage(imgElem, 100, 100, 200, 200, 0, 0, 100, 100);
+        context.drawImage(imgElem, 50, 0, 250, 170, 0, 200, 125, 85); // 그림의  x50, y0 에서 width 250 / height170 만큼을 뗘서 캔버스의 x0, y200 에 width 125 / height 85 크기로 렌더링함.
       });
     </script>
   </body>

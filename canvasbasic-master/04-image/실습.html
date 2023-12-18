@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      canvas {
+        background: #eee;
+        border-radius: 10px;
+      }
+      .color-btn {
+        width: 30px;
+        height: 30px;
+        border: 0;
+        border-radius: 50%;
+      }
+      .color-btn[data-color="black"] {
+        background: black;
+      }
+      .color-btn[data-color="red"] {
+        background: red;
+      }
+      .color-btn[data-color="green"] {
+        background: green;
+      }
+      .color-btn[data-color="blue"] {
+        background: blue;
+      }
+      .image-btn {
+        width: 40px;
+        height: 40px;
+        background: url(../images/ilbuni2.png) no-repeat 50% 50% / cover;
+      }
+      .result-image {
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Image</h1>
+    <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+    <div class="control">
+      <button class="color-btn" data-type="color" data-color="black"></button>
+      <button class="color-btn" data-type="color" data-color="red"></button>
+      <button class="color-btn" data-type="color" data-color="green"></button>
+      <button class="color-btn" data-type="color" data-color="blue"></button>
+      <button class="image-btn" data-type="image"></button>
+    </div>
+    <button class="save-btn">이미지 저장</button>
+    <div class="result-image"></div>
+
+    <script>
+      const canvas = document.querySelector(".canvas");
+      const context = canvas.getContext("2d");
+      let drawingMode = false;
+
+      // canvas.addEventListener("mousemove", clickHandler);
+      const downHandler = (e) => {
+        console.log(e, "downHandler");
+        drawingMode = true;
+      };
+      const clickHandler = (e) => {
+        if (!drawingMode) {
+          return;
+        }
+
+        context.beginPath();
+        context.arc(e.layerX, e.layerY, 10, 0, Math.PI * 2, false);
+        context.fill();
+      };
+      const upHandler = (e) => {
+        console.log(e, "upHandler");
+        drawingMode = false;
+      };
+
+      //       const mDown = (e) => {
+      //         console.log(e , "mDown")
+      //       }
+      //       const mMove = (e) => {
+      //         console.log(e , "mMove")
+      //       }
+      //       const mUp = (e) => {
+      //         console.log(e , "mUp")
+      //       }
+      //       const mOut = (e) => {
+      //         console.log(e , "mOut")
+      //       }
+
+      canvas.addEventListener("mousedown", downHandler);
+      canvas.addEventListener("mousemove", clickHandler);
+      canvas.addEventListener("mouseup", upHandler);
+
+      // 컬러변경
+      const colorChip = document.querySelectorAll(".color-btn");
+      const changeColor = (e) => {
+        colorVal = e.target.dataset.color;
+        context.fillStyle = colorVal;
+      };
+      colorChip.forEach((item) => {
+        item.addEventListener("click", changeColor);
+      });
+
+      // 이미지 삽입
+      const imageButton = document.querySelector("image-btn");;
+      imageButton.addEventListener("click" , appendImage)
+
+      const appendImage = () => { 
+        
+      }
+    </script>
+  </body>
+</html>
