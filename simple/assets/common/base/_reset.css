@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+*,*::before,*::after {box-sizing: border-box;}
+fieldset,menu,ul,ol,dl,dt,dd {margin: 0;  padding: 0;}
+input,button,legend,textarea {padding: 0;}
+h1,h2,h3,h4,h5,h6 {margin: 0;  padding: 0;  font: inherit;  word-break: break-all;  word-wrap: break-word;}
+p {margin: 0;  word-break: break-all;  word-wrap: break-word;}
+img,abbr,video,iframe,fieldset {border: 0;}
+ul,ol,menu {list-style: none;}
+table {border-collapse: collapse;  border-spacing: 0;}
+td,caption {text-align: left;}
+th {text-align: left;  font-weight: normal;}
+em,cite,address {font-style: normal;}
+ins {text-decoration: none;}
+del {text-decoration: line-through;}
+blockquote:before,blockquote:after,q:before,q:after {content: "";}
+blockquote,q {quotes: "" "";}
+article,aside,details,figcaption,figure,footer,header,main,hgroup,menu,nav,section {display: block;}/* HTML5 display-role reset for older browsers */
+audio,canvas,video {display: inline-block;  zoom: 1;}
+figure {margin: 0;}
+hr {box-sizing: content-box;  overflow: visible;  height: 0;}
+img {display: inline-block;  max-width: 100%;  height: auto;  object-fit: cover;  image-rendering: auto;  -ms-interpolation-mode: nearest-neighbor; /* 이미지 품질 최적화 */}
+a {display: block;  text-decoration: none;  color: inherit;  /* Remove gaps in links underline in iOS 8+ and Safari 8+. */  -webkit-text-decoration-skip: objects;}
+textarea {overflow: auto;  resize: none;  box-shadow: none;}
+select {cursor: pointer;}
+button,select {text-transform: none;}
+input,textarea {-webkit-user-select: auto;}/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+button,select,textarea,input:where([type="text"], [type="tel"], [type="button"], [type="password"], [type="email"], [type="search"]) {font: inherit;  -webkit-appearance: none; /* 네이티브 외형 감추기*/  -moz-appearance: none;  appearance: none;  border: 0;  border-radius: 0;  -webkit-border-radius: 0;  -moz-border-radius: 0;  background: transparent;}
+:where(input, textarea)::placeholder {color: unset;}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}
+input[type="search"] {appearance: textfield;  -moz-box-sizing: content-box;  -webkit-box-sizing: content-box;  box-sizing: content-box;}
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;  margin: 0;}
+/* Firefox */
+input[type="number"] {appearance: textfield;}
+input[type="checkbox"] + label,input[type="radio"] + label {cursor: pointer;}
+/* Chrome internal-autofill-selected */
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active {-webkit-box-shadow: 0 0 0 30px #fff inset;}
+button::-moz-focus-inner,input::-moz-focus-inner {border: 0;padding: 0;}
+:where(textarea, input, select):focus {outline-style: none;  box-shadow: none;  border-color: transparent;}
+button:not(:disabled),input[type="button"]:not(:disabled),input[type="reset"]:not(:disabled),input[type="submit"]:not(:disabled) {appearance: button;  cursor: pointer;  overflow: visible;}
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {display: none;}
+summary { list-style-type: none;}
+pre {margin: 0;font: inherit;white-space: pre-wrap;word-wrap: break-word;}
+
+/* 자주 안 쓰는 요소
+-----------------------------------------------------------------------------
+사용할 경우 주석 해제 */
+/* meter {-webkit-appearance: revert;appearance: revert;} */
+/* revert for bug in Chromium browsers - fix for the content editable attribute will work properly. - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {-moz-user-modify: read-write;-webkit-user-modify: read-write;overflow-wrap: break-word;-webkit-line-break: after-white-space;-webkit-user-select: auto;}
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {-webkit-user-drag: element;}
+/* Revert Modal native behavior */
+:where(dialog:modal) {all: revert;box-sizing: border-box;}
+sup {vertical-align: text-top;}
+sub {vertical-align: text-bottom;}
+sub,sup {font-size: 75%;line-height: 0;position: relative;vertical-align: baseline;}
+/* ::-webkit-scrollbar {width: 5px;height: 5px;}
+::-webkit-scrollbar-track {background-color: var(--black);}
+::-webkit-scrollbar-thumb {background-color: #d4c951;border-radius: 3px;}
+::selection { background: #d4c951; } */

@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// Function
+// -----------------------------------------------------------------------------
+
+// font-icon unicode 처리
+// @function unicode($str) {
+//   @return unquote('\'')+unquote(str-insert($str, '\\', 1))+unquote('\'');
+// }
+
+// @function rem($px) {
+//   @return #{$px / $base-font-size}rem;
+// }

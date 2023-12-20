@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* /-----------------------------------------------------------------------------
+ Helper Classes
+ ----------------------------------------------------------------------------- */
+
+template,
+.hidden,
+[hidden] {
+  display: none;
+}
+
+caption.a11y {
+  position: static !important;
+}
+
+.a11y {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  z-index: -1;
+}
+/* 더블클릭시 선택 기능 막기*/
+.unable {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+/*  한줄처리 */
+.p_1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.p_2 {
+  /* 두줄처리 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.nowrap {
+  /*    한줄처리  width 값 필요*/
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.mobile-only,
+.tablet-only {
+  display: none;
+}
+
+@media all and (max-width: 1500px) {
+  .tablet-only {
+    display: block;
+  }
+}
+
+@media all and (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+  }
+
+  .pc-only,
+  .tablet-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}

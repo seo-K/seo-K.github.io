@@ -1,0 +1,218 @@
+// -----------------------------------------------------------------------------
+// Swiper - Slider
+// -----------------------------------------------------------------------------
+
+@import 'swiper/dist/css/swiper.min.css';
+
+.swiper {
+  &-controller {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--invert {
+      .swiper-button-prev,
+      .swiper-button-next,
+      .swiper-button-play,
+      .swiper-button-pause {
+        color: $gray9;
+        background-color: $white;
+
+        .no-touchevents & {
+          &:hover,
+          &:focus {
+            background-color: $gray0;
+          }
+        }
+      }
+
+      .swiper-pagination {
+        &-bullet {
+          background-color: $gray2;
+        }
+      }
+    }
+  }
+
+  &-pagination {
+    position: absolute;
+    z-index: 15;
+    left: 0;
+    right: 0;
+    bottom: rem(-40);
+
+    &-bullet {
+      width: 10px;
+      height: 10px;
+      margin: 1px 5px;
+      opacity: 1;
+      background-color: $gray5;
+      transition: all $dur;
+
+      &-active {
+        width: 30px;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  //수정 : 20230824 RAONBNP YSH
+  &-button {
+    &-prev,
+    &-next {
+      $btn-size: 48px;
+      display: none;
+      background-image: none;
+      width: $btn-size;
+      height: $btn-size;
+      line-height: $btn-size;
+      font-size: 18px;
+      text-align: center;
+      margin-top: -24px;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      box-shadow:2px 2px 4px rgba(0,0,0,.15);
+
+      &.swiper-button-disabled {
+        opacity: 0;
+      }
+
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+
+    &-prev {
+      left: -24px;
+      @include icon('arrow-left');
+    }
+
+    &-next {
+      right: -24px;
+      @include icon('arrow-right');
+    }
+
+    &-play,
+    &-pause {
+      display: none;
+      width: 30px;
+      height: 30px;
+      z-index: 1;
+      transition: color $dur;
+
+      &::before {
+        vertical-align: top;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+    }
+
+    &-play {
+      @include icon('play');
+
+      .is-pause & {
+        display: block !important;
+      }
+    }
+
+    &-pause {
+      position: relative;
+      @include icon('pause');
+
+      .swiper-container-initialized & {
+        display: block;
+      }
+
+      .is-pause & {
+        display: none !important;
+      }
+    }
+  }
+
+  @include mq(large) {
+    &-button {
+      &-prev,
+      &-next {
+        display: block;
+      }
+
+      &-prev {
+        left: -24px;
+      }
+
+      &-next {
+        right: -24px;
+      }
+    }
+  }
+
+  // swiper-lazy-load
+  // ---------------------------------------------------------------------------  
+  &-lazy-thumb {
+    position: relative;
+  }
+  
+  &-lazy {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &-lazy-preloader {
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+
+    &::after {
+      background-image: url("data:image/svg+xml, %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='100px' height='100px' viewBox='0 0 40 40' enable-background='new 0 0 40 40' xml:space='preserve'%3E%3Cpath fill='%23e5e5e5' d='M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z'%3E%3C/path%3E%3Cpath fill='%23A435F0' d='M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z'%3E%3CanimateTransform attributeType='xml' attributeName='transform' type='rotate' from='0 20 20' to='360 20 20' dur='0.8s' repeatCount='indefinite'%3E%3C/animateTransform%3E%3C/path%3E%3C/svg%3E");
+    }
+  }
+
+  &-slide-visible {
+    .swiper-lazy-preloader {
+      opacity: 1;
+    }
+  }
+
+  // scrollbar
+  // ---------------------------------------------------------------------------
+  &-scrollbar {
+    position: relative;
+    left: $offset-sm;
+    height: 5px;
+    opacity: 0;
+    background-color: rgba($gray2, .4);
+    width: calc(100% - #{$offset-sm} * 2);
+
+    &-drag {
+      background-color: rgba($gray9, .4);
+    }
+
+    @include mq(medium) {
+      left: 0;
+      width: 100%;
+    }
+    @include mq(large) {
+      display: none;
+    }
+  }
+
+  &-container-horizontal {
+    .swiper-scrollbar {
+      position: relative;
+      left: 0;
+      width: auto;
+  
+      &-drag {
+        background-color: rgba($gray9, .4);
+      }
+    }
+  }
+}
