@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- https://www.mux.com/player -->
 <html lang="en">
 
 <head>
@@ -38,6 +39,7 @@
     </ul>
   </div>
 
+  <!-- HEADER -->
   <header id="header">
     <div class="container">
       <a href="/" class="header__logo">a</a>
@@ -57,6 +59,7 @@
       </nav>
     </div>
   </header>
+  <!-- MAIN -->
   <main id="main">
     <section class="visual">
       <aside class="sticky-content">
@@ -134,20 +137,24 @@
             My Project,<br />
             MyMy PROJECT
           </h2>
-          <p class="description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut unde atque temporibus saepe perferendis
-            nesciunt dignissimos libero, earum deserunt vero dolorem, nemo
-            alias maiores nihil laboriosam quia, quas illum debitis?
-          </p>
+          <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
           <ul class="project__list-wrap">
-            <li class="project-list">
+            <li class="project-list opened">
               <div class="scroll-progress">
                 <label for="file" class="a11y">스크롤양</label>
-                <progress id="file" max="100" value="70">70%</progress>
+                <progress id="file" max="100" value="0">70%</progress>
               </div>
               <details>
-                <summary class="project-list__name">Project_01</summary>
-                <p class="projet-list__detail">projectDetail</p>
+
+                <summary class="project-list__name">
+                  <span class="project-list__icon">
+                    <img
+                      src="https://cdn.icon-icons.com/icons2/4109/PNG/512/xmas_gift_box_christmas_decoration_emoji_icon_260211.png"
+                      alt="" />
+                  </span>
+                  Project_01
+                </summary>
+                <p class="project-list__detail">projectDetail</p>
               </details>
             </li>
             <li class="project-list">
@@ -156,8 +163,16 @@
                 <progress id="file" max="100" value="0">70%</progress>
               </div>
               <details>
-                <summary class="project-list__name">Project_01</summary>
-                <p class="projet-list__detail">projectDetail</p>
+
+                <summary class="project-list__name">
+                  <span class="project-list__icon">
+                    <img
+                      src="https://cdn.icon-icons.com/icons2/4109/PNG/512/xmas_gift_box_christmas_decoration_emoji_icon_260211.png"
+                      alt="" />
+                  </span>
+                  Project_01
+                </summary>
+                <p class="project-list__detail">projectDetail</p>
               </details>
             </li>
             <li class="project-list">
@@ -166,8 +181,16 @@
                 <progress id="file" max="100" value="0">70%</progress>
               </div>
               <details>
-                <summary class="project-list__name">Project_01</summary>
-                <p class="projet-list__detail">projectDetail</p>
+
+                <summary class="project-list__name">
+                  <span class="project-list__icon">
+                    <img
+                      src="https://cdn.icon-icons.com/icons2/4109/PNG/512/xmas_gift_box_christmas_decoration_emoji_icon_260211.png"
+                      alt="" />
+                  </span>
+                  Project_01
+                </summary>
+                <p class="project-list__detail">projectDetail</p>
               </details>
             </li>
             <li class="project-list">
@@ -176,8 +199,16 @@
                 <progress id="file" max="100" value="0">70%</progress>
               </div>
               <details>
-                <summary class="project-list__name">Project_01</summary>
-                <p class="projet-list__detail">projectDetail</p>
+
+                <summary class="project-list__name">
+                  <span class="project-list__icon">
+                    <img
+                      src="https://cdn.icon-icons.com/icons2/4109/PNG/512/xmas_gift_box_christmas_decoration_emoji_icon_260211.png"
+                      alt="" />
+                  </span>
+                  Project_01
+                </summary>
+                <p class="project-list__detail">projectDetail</p>
               </details>
             </li>
             <li class="project-list">
@@ -186,17 +217,74 @@
                 <progress id="file" max="100" value="0">70%</progress>
               </div>
               <details>
-                <summary class="project-list__name">Project_01</summary>
-                <p class="projet-list__detail">projectDetail</p>
+
+                <summary class="project-list__name">
+                  <span class="project-list__icon">
+                    <img
+                      src="https://cdn.icon-icons.com/icons2/4109/PNG/512/xmas_gift_box_christmas_decoration_emoji_icon_260211.png"
+                      alt="" />
+                  </span>
+                  Project_01
+                </summary>
+                <p class="project-list__detail">projectDetail</p>
               </details>
             </li>
           </ul>
         </div>
         <div class="content-area"></div>
       </article>
+      <article class="info container" data-index="2">
+        <div class="info__text">
+          <h1 class="title">
+            My Page,<br />
+            MyMy
+          </h1>
+          <p class="description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut unde atque temporibus saepe perferendis
+            nesciunt dignissimos libero, earum deserunt vero dolorem, nemo
+            alias maiores nihil laboriosam quia, quas illum debitis?
+          </p>
+          <div class="about-button">
+            <span></span>
+            <button type="button">About Me</button>
+          </div>
+        </div>
+        <div class="content-area"></div>
+        <!-- <div class="visual-content">
+            <div class="visual-content__mac">
+              <div class="visual-content__mac-top">
+                <ul class="visual-content__mac-button">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="visual__mac-screen">
+                <pre><code>function Panel(element, canClose, closeHandler) {
+
+                  this.element = element;
+                
+                  this.canClose = canClose;
+                
+                  this.closeHandler = function () { if (closeHandler) closeHandler() };
+                
+}</code></pre>
+              </div>
+            </div>
+            <div class="visual-content__video">
+              <video src="https://stream.mux.com/MECFZgEm102d01XMx5ME1A28pAe34Z02eSL/high.mp4" class="absolute inset-0" autoplay muted loop playsinline></video>
+            </div>
+          </div> -->
+      </article>
+    </section>
+    <section style="font-size: 3rem">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, libero eaque velit perferendis accusantium
+      magni laboriosam cum tempora quam dignissimos ipsum
+      aspernatur sequi minima quia? Sint commodi beatae odit harum?
     </section>
   </main>
-  <footer id="footer"></footer>
+  <!-- FOOTER -->
+  <footer id="footer">asdfsfd</footer>
   <!-- Cursor -->
   <div class="custom-cursor">
     <span class="cursor-arrow"></span>
@@ -212,38 +300,6 @@
       <span style="--rotate: 8">•</span>
     </p>
   </div>
-  <script>
-    const observeElements = document.querySelectorAll(".visual >article");
-    const stickyContent = document.querySelector(".sticky-content");
-    let winWidth = window.innerWidth;
-    let activeIndex = 0;
-    function skillAnimation() {
-      const options = {
-        threshold: 0.8,
-      };
-
-      const inViewCallback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            activeIndex = entry.target.dataset.index;
-            console.log(activeIndex);
-            stickyContent.classList.add(`active_${activeIndex}`);
-          } else {
-            stickyContent.classList.remove(`active_${activeIndex}`);
-          }
-        });
-      };
-      let observer = new IntersectionObserver(inViewCallback, options);
-
-      observeElements.forEach((element) => {
-        observer.observe(element); // 옵저버 실행
-      });
-    }
-
-    if (winWidth > 768) {
-      skillAnimation();
-    }
-  </script>
 </body>
 
 </html>

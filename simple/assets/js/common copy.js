@@ -1,29 +1,41 @@
-// 공통 변수
-const windowHeight = window.innerHeight;
-
 // ARTICLE 애니메이션
 const observeElements = document.querySelectorAll(".visual > article");
 const stickyContent = document.querySelector(".sticky-content");
-
-function handleArticleScroll() {
+let winWidth = window.innerWidth;
+let activeIndex = 0;
+function skillAnimation() {
   observeElements.forEach((item, index) => {
-    const bottom = item.getBoundingClientRect().bottom;
-    stickyContent.classList.toggle(`active_${index}`, 0 < bottom && bottom < item.getBoundingClientRect().height);
+    if (0 < item.getBoundingClientRect().bottom && item.getBoundingClientRect().bottom < item.getBoundingClientRect().height) {
+      stickyContent.classList.add(`active_${index}`);
+    } else {
+      stickyContent.classList.remove(`active_${index}`);
+    }
   });
+  // isScrolling = false;
+}
+
+function stickAnimation() {
+  // if (!isScrolling) {
+  //   isScrolling = true;
+  // }
+  requestAnimationFrame(skillAnimation);
 }
 
 // PROJECT PROGRESS
 const projectWrap = document.querySelector(".project");
 const projectList = document.querySelectorAll(".project-list");
+let isScrolling = false;
+
+const scrollTop = window.scrollY;
+const windowHeight = window.innerHeight;
 const headerHeight = document.querySelector("#header").getBoundingClientRect().height * 2;
 
-function handleProjectScroll() {
+function handleScroll() {
   if (projectWrap.getBoundingClientRect().top < 0 && windowHeight < projectWrap.getBoundingClientRect().bottom) {
-    const targetScroll = -projectWrap.getBoundingClientRect().top;
-
     projectList.forEach((item, index) => {
       const startScroll = windowHeight * index;
       const endScroll = windowHeight * (index + 1);
+      const targetScroll = -projectWrap.getBoundingClientRect().top;
 
       item.querySelector("progress").value = 0;
       item.classList.remove("opened");
@@ -37,25 +49,16 @@ function handleProjectScroll() {
       }
     });
   }
+
+  isScrolling = false;
 }
 
-// 스크롤 이벤트 리스너
 function scrollHandler() {
-  handleArticleScroll();
-  handleProjectScroll();
-}
-
-// 스크롤 이벤트에 딜레이 적용하여 최적화
-let isScrolling = false;
-function throttledScrollHandler() {
   if (!isScrolling) {
     isScrolling = true;
-    requestAnimationFrame(() => {
-      scrollHandler();
-      isScrolling = false;
-    });
+    requestAnimationFrame(handleScroll);
   }
 }
 
-// 스크롤 이벤트 리스너 등록
-window.addEventListener("scroll", throttledScrollHandler);
+window.addEventListener("scroll", stickAnimation);
+window.addEventListener("scroll", scrollHandler);
