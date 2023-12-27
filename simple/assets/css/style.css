@@ -476,8 +476,49 @@ button {
 }
 
 /*  */
-.project-slide {
+.slide {
 }
-.project-slide .swiper-slide {
-  height: 40rem;
+.slide .container {
+  flex-direction: column;
+}
+.project-slide {
+  width: 100%;
+
+  & .swiper-wrapper {
+    padding-bottom: 15rem;
+  }
+  & .swiper-slide {
+    /* width: 40rem;
+    height: 40rem; */
+    width: 40rem !important;
+    height: 40rem !important;
+    border: 1px solid var(--borderColor);
+    border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+}
+.project-slide__content {
+  padding: 4rem;
+}
+.swiper-next-button,
+.swiper-prev-button {
+  position: absolute;
+  top: 50%;
+  width: 5rem;
+  height: 5rem;
+  content: "";
+  background: url("https://cdn.icon-icons.com/icons2/1206/PNG/512/1491254399-rightarrowfowardsign_82944.png") no-repeat center / contain;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.swiper-next-button {
+  right: 0;
+}
+.swiper-prev-button {
+  left: 0;
+  transform: translateY(-50%) rotate(180deg);
+}
+.swiper-pagination {
+  bottom: 0;
 }
