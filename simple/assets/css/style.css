@@ -355,6 +355,7 @@
   gap: 1rem;
   border-radius: 50px;
   border: var(--defaultBorder);
+  background-color: var(--white);
   padding: 0 2rem;
 }
 .blog-search__input {
@@ -493,6 +494,7 @@
   /* Firefox supports the older "vertical" syntax */
 }
 .blog-detail-page ._container {
+  background-color: var(--white);
   /* position: relative; */
 }
 .scroll {
@@ -522,3 +524,33 @@
     transform: scaleX(1);
   }
 }
+
+.post ._container{
+  flex-direction: column;
+  align-items: stretch;
+}
+.post__info{
+  width: clamp(70%, 50%, 45rem);
+  margin: 0 auto 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #E4E2DD;
+}
+.post__date{
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #565e67;
+  margin-bottom: 1.5rem;
+}
+
+.post__title{
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.post__util{
+  font-size: 1.5rem;
+  color: #565e67;
+}
+.post__content{width: clamp(70%, 50%, 45rem);
+  margin: 0 auto 4rem;}

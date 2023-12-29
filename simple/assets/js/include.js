@@ -16,6 +16,21 @@ const $HEADER_CONTENT = `
         <li><a href="" class="nav-link">Work</a></li>
         <li><a href="./blog.html" class="nav-link">Blog</a></li>
       </menu>
+      <menu class="blog-only">
+      <li><a href="./blog.html" class="nav-link">Blog</a></li>
+      <li class="like-button">
+      <button type="button>
+      <span class="material-symbols-outlined">
+favorite
+</span>
+      </button>
+      </li>
+        <li>
+          <a>
+          
+          </a>
+        </li>
+      </menu>
       <button type="button" class="system-theme">Light</button>
     </nav>
   </div>

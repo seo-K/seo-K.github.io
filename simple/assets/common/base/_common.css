@@ -20,14 +20,16 @@
 
 @font-face {
   font-family: "SUIT";
-  src: url("https:cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2") format("woff2");
+  src: url("https:cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "JetBrainsMono";
-  src: local("JetBrainsMono-Regular"), url("../fonts/jetbrains/JetBrainsMono-Regular.woff2") format("woff2");
+  src: local("JetBrainsMono-Regular"),
+    url("../fonts/jetbrains/JetBrainsMono-Regular.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
   unicode-range: U+AC00-D7A3;
@@ -37,8 +39,9 @@
 html {
   min-height: 100%;
   font-size: 62.5%;
+  background-color: #fff;
   /* background-color: #f4f6f4; */
-  background-color: #e2e4dd;
+  /* background-color: #e2e4dd; */
 
   -webkit-tap-highlight-color: transparent;
   -ms-text-size-adjust: 100%;
@@ -53,7 +56,8 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font: 400 1em/1.2 "JetBrainsMono", "SUIT", "NotoSans", "Malgun Gothic", "맑은 고딕", sans-serif;
+  font: 400 1em/1.2 "JetBrainsMono", "SUIT", "NotoSans", "Malgun Gothic",
+    "맑은 고딕", sans-serif;
   color: #101010;
   letter-spacing: normal;
   -webkit-overflow-scrolling: touch;
@@ -110,6 +114,11 @@ textarea::placeholder {
 /* 공통 CSS */
 #main {
   position: relative;
+  background-color: #f4f6f4;
+
+  &.main-page {
+    background-color: #e2e4dd;
+  }
 }
 ._container {
   display: flex;
@@ -128,7 +137,7 @@ textarea::placeholder {
   &._empty {
     height: 6rem;
   }
-  &.info {
+  &._svh {
     height: calc(100vh - 8rem);
     height: calc(100svh - 8rem);
     padding: 5rem;
@@ -295,6 +304,11 @@ textarea::placeholder {
 }
 #header menu li:first-child {
   border-left: var(--defaultBorder);
+}
+#header menu:not(.blog-only) {
+  display: none;
+}
+#header menu.blog-only {
 }
 #header .nav-link {
   display: grid;
