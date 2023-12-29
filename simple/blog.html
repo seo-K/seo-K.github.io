@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- https://www.mux.com/player -->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Portfolio" />
+    <meta name="description" content="강서영의 웹 포트폴리오 입니다." />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:title" content="강서영 포트폴리오" />
+    <meta property="og:type" content="website" />
+    <!-- 웹페이지 타입(blog, website 등) -->
+    <meta property="og:keywords" content="https://seo-k.github.io" />
+    <meta property="og:description" content="강서영 포트폴리오" />
+    <meta property="og:url" content="https://seo-k.github.io" />
+    <!-- <meta property="og:image" content="./image/common/url_image.jpg" /> -->
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:image:alt" content="포트폴리오" />
+    <meta property="og:site_name" content="강서영 포트폴리오" />
+
+    <link rel="canonical" href="https://seo-k.github.io" />
+    <link rel="icon" href="./image/common/logo.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="./image/common/logo.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="./image/common/logo.png" />
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/include.js" defer></script>
+    <script src="./assets/js/common.js" defer></script>
+  </head>
+
+  <body>
+    <!-- skip -->
+    <div id="skip-nav">
+      <ul>
+        <li><a href="#main">본문 내용 바로가기</a></li>
+        <li><a href="#nav">주 메뉴 바로가기</a></li>
+      </ul>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header"></header>
+    <!-- MAIN -->
+    <main id="main" class="blog-page">
+      <section class="blog-visual">
+        <div class="_container">
+          <h1 class="title">My Page, MyMy</h1>
+          <p class="description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut unde atque temporibus saepe perferendis nesciunt dignissimos libero, earum deserunt vero dolorem, nemo
+            alias maiores nihil laboriosam quia, quas illum debitis?
+          </p>
+        </div>
+      </section>
+      <section class="blog-content">
+        <h2 class="a11y">블로그</h2>
+        <!-- 필터 및 검색 -->
+        <form class="blog-form">
+          <div class="_container">
+            <fieldset>
+              <div class="blog-search">
+                <div class="blog-search__wrap">
+                  <label for="blogSearch" class="a11y">검색</label>
+                  <input type="text" id="blogSearch" class="blog-search__input" placeholder="Search blog." />
+                  <button type="button" class="blog-search__button">
+                    <img src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844432-magnifier-search-zoom_110300.png" alt="검색하기" />
+                  </button>
+                </div>
+              </div>
+              <div class="blog-filter">
+                <label for="blogFilterCategory" class="a11y">카테고리</label>
+                <select name="blogFilterCategory" id="blogFilterCategory" class="blog-filter__select">
+                  <option value="all">전체</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="jquery">jQuery</option>
+                  <option value="react">React</option>
+                  <option value="vue">Vue</option>
+                  <option value="etc">기타</option>
+                </select>
+              </div>
+            </fieldset>
+          </div>
+        </form>
+        <!-- 포스트 리스트 -->
+        <div class="blog-post-wrap">
+          <div class="_container">
+            <!-- 포스트가 없을때 (검색 결과 포함) -->
+            <!-- <div class="blog-post__empty">
+              <p>포스트가 없습니다.</p>
+            </div> -->
+            <!-- 포스트가 있을때 -->
+            <a href="./blog_detail.html" class="blog-post">
+              <figure class="blog-post__img">
+                <img src="http://via.placeholder.com/300x250" alt="" />
+              </figure>
+              <div class="blog-post__content">
+                <div class="blog-post__info">
+                  <time class="blog-post__date" datetime="">12 11, 2023 (1 DAYS AGO)</time>
+                  <h3 class="blog-post__title">The native mobile players you already use, with a sprinkle of Mux</h3>
+                  <p class="blog-post__util">6 min read • 1 comment • 1 like</p>
+                </div>
+                <p class="blog-post__desc">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam quo ut iure quasi nemo officia voluptatem amet possimus! Voluptas aliquid rem iure quas dolore sit
+                  quam perferendis non veritatis quis?
+                </p>
+              </div>
+            </a>
+            <a href="./blog_detail.html" class="blog-post">
+              <figure class="blog-post__img">
+                <img src="http://via.placeholder.com/300x250" alt="" />
+              </figure>
+              <div class="blog-post__content">
+                <div class="blog-post__info">
+                  <time class="blog-post__date" datetime="">12 11, 2023 (1 DAYS AGO)</time>
+                  <h3 class="blog-post__title">The native mobile players you already use, with a sprinkle of Mux</h3>
+                  <p class="blog-post__util">6 min read • 1 comment • 1 like</p>
+                </div>
+                <p class="blog-post__desc">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam quo ut iure quasi nemo officia voluptatem amet possimus! Voluptas aliquid rem iure quas dolore sit
+                  quam perferendis non veritatis quis?
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- 페이지네이션 -->
+        <div class="pagination-wrap">
+          <div class="_container">
+            <div class="pagination">
+              <div class="pagination__text">PAGE 1 OF 8</div>
+              <button type="button" class="pagination__prev inactive">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title>Arrow Left</title>
+                  <desc>A line styled icon from Orion Icon Library.</desc>
+                  <path
+                    data-name="layer2"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-miterlimit="10"
+                    stroke-width="2"
+                    d="M14 31.998h36"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                  <path
+                    data-name="layer1"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-miterlimit="10"
+                    stroke-width="2"
+                    d="M28 18L14 32l14 14"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+              </button>
+              <button type="button" class="pagination__next">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title>Arrow Left</title>
+                  <desc>A line styled icon from Orion Icon Library.</desc>
+                  <path
+                    data-name="layer2"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-miterlimit="10"
+                    stroke-width="2"
+                    d="M14 31.998h36"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                  <path
+                    data-name="layer1"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-miterlimit="10"
+                    stroke-width="2"
+                    d="M28 18L14 32l14 14"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="_container _empty"></div>
+    </main>
+    <!-- FOOTER -->
+    <footer id="footer"></footer>
+  </body>
+</html>

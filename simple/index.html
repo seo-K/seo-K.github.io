@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- https://www.mux.com/player -->
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
@@ -26,11 +26,12 @@
     <link rel="apple-touch-icon" href="./image/common/logo.png" />
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <!-- Link Swiper's CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
-    <!-- Swiper JS -->
+    <!--  JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/include.js" defer></script>
     <script src="./assets/js/common.js" defer></script>
   </head>
 
@@ -44,28 +45,10 @@
     </div>
 
     <!-- HEADER -->
-    <header id="header">
-      <div class="container">
-        <a href="/" class="header__logo">a</a>
-        <div class="mobile-only">
-          <button type="button" class="menu-button">
-            <span class="menu-button__line"></span>
-            <span class="menu-button__line"></span>
-          </button>
-        </div>
-        <nav>
-          <menu>
-            <li><a href="" class="nav-link">About</a></li>
-            <li><a href="" class="nav-link">Work</a></li>
-            <li><a href="" class="nav-link">Blog</a></li>
-          </menu>
-          <button type="button" class="system-theme">Light</button>
-        </nav>
-      </div>
-    </header>
+    <header id="header"></header>
     <!-- MAIN -->
-    <main id="main">
-      <section class="visual">
+    <main id="main" class="main-page">
+      <section class="main-visual-section">
         <aside class="sticky-content">
           <div class="sticky-content__container">
             <div class="sticky-content__inner">
@@ -92,7 +75,7 @@
             </div>
           </div>
         </aside>
-        <article class="info container" data-index="0">
+        <article class="info _container" data-index="0">
           <div class="info__text">
             <h1 class="title">
               My Page,<br />
@@ -102,7 +85,7 @@
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut unde atque temporibus saepe perferendis nesciunt dignissimos libero, earum deserunt vero dolorem, nemo
               alias maiores nihil laboriosam quia, quas illum debitis?
             </p>
-            <div class="about-button">
+            <div class="about-button action-button">
               <span></span>
               <button type="button">About Me</button>
             </div>
@@ -134,7 +117,7 @@
             </div>
           </div> -->
         </article>
-        <article class="project container" data-index="1">
+        <article class="project _container _vh" data-index="1">
           <div class="project__text">
             <h2 class="sub-title">
               My Project,<br />
@@ -221,7 +204,7 @@
           </div>
           <div class="content-area"></div>
         </article>
-        <article class="code container" data-index="2">
+        <article class="code _container _vh" data-index="2">
           <div class="code__text">
             <h2 class="title">
               My Code,<br />
@@ -266,8 +249,8 @@
           </div> -->
         </article>
       </section>
-      <section class="slide" style="font-size: 3rem">
-        <div class="container">
+      <section class="slide-section">
+        <div class="_container _vh">
           <h2 class="title">slide</h2>
 
           <div class="swiper project-slide">
@@ -341,7 +324,7 @@
                     <li></li>
                   </ul>
                 </div>
-                Slide 9
+                <div class="project-slide__content">Slide 7</div>
               </li>
             </ul>
             <div class="swiper-next-button"></div>
@@ -352,34 +335,20 @@
       </section>
     </main>
     <!-- FOOTER -->
-    <footer id="footer">asdfsfd</footer>
+    <footer id="footer"></footer>
     <!-- Cursor -->
-    <div class="custom-cursor">
-      <span class="cursor-arrow"></span>
-      <p class="cursor-word">
-        <span style="--rotate: 0">S</span>
-        <span style="--rotate: 1">E</span>
-        <span style="--rotate: 2">E</span>
-        <span style="--rotate: 3">•</span>
-        <span style="--rotate: 4">M</span>
-        <span style="--rotate: 5">O</span>
-        <span style="--rotate: 6">R</span>
-        <span style="--rotate: 7">E</span>
-        <span style="--rotate: 8">•</span>
-      </p>
-    </div>
 
     <script defer>
       var swiper = new Swiper(".project-slide", {
         slidesPerView: 3,
         // spaceBetween: 30,
         centeredSlides: true,
-        // loop: true,
+        loop: true,
 
         effect: "creative",
         speed: 100,
         creativeEffect: {
-          prev: { origin: "left center", shadow: true, translate: ["-20%", "10%", -100] },
+          prev: { origin: "left center", shadow: true, translate: ["-15%", "15%", -100] },
           next: {
             origin: "right center",
             shadow: true,

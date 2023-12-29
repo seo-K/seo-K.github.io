@@ -86,7 +86,9 @@ function throttledScrollHandler() {
 }
 
 // 스크롤 이벤트 리스너 등록
-window.addEventListener("scroll", throttledScrollHandler);
+if (stickyContent) {
+  window.addEventListener("scroll", throttledScrollHandler);
+}
 
 projectList.forEach((item, index) => {
   item.addEventListener("click", () => scrollToList(index));

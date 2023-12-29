@@ -20,7 +20,7 @@ audio,canvas,video {display: inline-block;  zoom: 1;}
 figure {margin: 0;}
 hr {box-sizing: content-box;  overflow: visible;  height: 0;}
 img {display: inline-block;  max-width: 100%;  height: auto;  object-fit: cover;  image-rendering: auto;  -ms-interpolation-mode: nearest-neighbor; /* 이미지 품질 최적화 */}
-a {display: block;  text-decoration: none;  color: inherit;  /* Remove gaps in links underline in iOS 8+ and Safari 8+. */  -webkit-text-decoration-skip: objects;}
+a {display: block;  text-decoration: none;  color: inherit;  /* Remove gaps in links underline in iOS 8+ and Safari 8+. */  -webkit-text-decoration-skip: objects; cursor: pointer;}
 textarea {overflow: auto;  resize: none;  box-shadow: none;}
 select {cursor: pointer;}
 button,select {text-transform: none;}
