@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+        font-family: "Archivo", sans-serif;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .fullscreen {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        height: 100svh;
+        overflow: hidden;
+      }
+      .overlays-line-wrap {
+        position: absolute;
+        display: flex;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        align-items: flex-end;
+        z-index: 3;
+      }
+      .overlay-line {
+        flex: 1;
+        height: 100%;
+        background-color: #101010;
+        border: 1px solid #eee;
+        pointer-events: none;
+        transform-origin: top center;
+      }
+
+      .loaded .overlay-line {
+        height: 0;
+      }
+
+      .overlay-line-1 {
+        -webkit-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
+        -o-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
+        transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
+      }
+
+      .overlay-line-2 {
+        -webkit-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5333s;
+        -o-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5333s;
+        transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5333s;
+      }
+
+      .overlay-line-3 {
+        -webkit-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5666s;
+        -o-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5666s;
+        transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5666s;
+      }
+
+      .overlay-line-4 {
+        -webkit-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5999s;
+        -o-transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5999s;
+        transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5999s;
+      }
+      .big-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .big-slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+      /* .trans-start .overlay-line {
+                    -webkit-transition: all 0s;
+                    -o-transition: all 0s;
+                    transition: all 0s;
+                    height: 100%;
+                  }
+
+                  .trans-end .overlay-line {
+                    -webkit-transition: all 0s;
+                    -o-transition: all 0s;
+                    transition: all 0s;
+                    height: 0%;
+                    transform-origin: top center;
+                  } */
+      .project-img-swiper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .project-img-swiper__container {
+        height: 100%;
+        /* position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1; */
+      }
+      .project-img-swiper figure {
+        width: 100%;
+        height: 100%;
+        display: block;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .fullscreen .project-img-swiper__pagination {
+        position: absolute;
+        left: unset;
+        top: unset;
+        bottom: 2rem;
+        right: 4rem;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transform: none;
+        /* right: var(--swiper-pagination-right,8px);
+          left: var(--swiper-pagination-left,auto);
+          top: 50%;
+          transform: translate3d(0px,-50%,0); */
+      }
+      .fullscreen .swiper-pagination-bullet {
+        font-size: 1.2rem;
+        width: auto;
+        height: auto;
+        display: flex !important;
+        align-items: center;
+        gap: 0.4rem;
+        margin: 0 !important;
+        opacity: 1;
+        color: rgba(255, 255, 255, 0.3);
+        background-color: transparent;
+        border-radius: 0;
+      }
+      .fullscreen .slide-progress-bar {
+        position: relative;
+        flex-shrink: 0;
+        content: "";
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 0;
+        transition: width 0.6s 1.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .fullscreen .slide-progress-bar::-webkit-progress-value {
+        background-color: #eee;
+      }
+      .fullscreen .swiper-pagination-bullet-active {
+        color: #fff;
+        background-color: transparent;
+      }
+
+      .fullscreen .slide-progress-bar.active-value {
+        background-color: #fff;
+        width: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 로딩 -->
+    <div class="loading" style="display: none">
+      <!-- Loading Text -->
+      <div class="loading-text">Loading</div>
+      <!-- Loading Text -->
+
+      <!-- Lines (Don't Touch) -->
+      <div class="lines"></div>
+      <!-- /Lines -->
+
+      <!-- Page Loader -->
+      <div class="cygni-loader">
+        <div class="counter" data-count="99">00</div>
+      </div>
+      <!-- /Page Loader -->
+
+      <!-- Overlays (Don't Touch) -->
+      <div class="overlays"></div>
+      <!-- /Overlays -->
+    </div>
+
+    <div class="fullscreen portfolio-showcase">
+      <ol class="project-img-swiper__pagination"></ol>
+      <!-- Slider Elements (Don't Touch) -->
+      <!-- <div class="big-slide-pag"></div> -->
+      <div class="bs-bullets"></div>
+      <div class="project-img-swiper__container">
+        <div class="project-img-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <figure><img src="https://cdn.pixabay.com/photo/2023/11/08/23/57/flower-8376030_1280.jpg" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="https://cdn.pixabay.com/photo/2024/02/27/00/15/chrysanthemum-8599121_1280.jpg" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="https://cdn.pixabay.com/photo/2023/09/02/18/07/escalator-8229360_1280.jpg" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="https://cdn.pixabay.com/photo/2023/10/05/18/34/toadstool-8296596_1280.jpg" /></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Slider Elements (Don't Touch) -->
+
+      <!-- Big Slider Overlays (Don't Touch) -->
+      <div class="overlays-line-wrap">
+        <span class="overlay-line overlay-line-1"></span>
+        <span class="overlay-line overlay-line-2"></span>
+        <span class="overlay-line overlay-line-3"></span>
+        <span class="overlay-line overlay-line-4"></span>
+      </div>
+      <!--/ Big Slider Overlays (Don't Touch) -->
+
+      <!-- CONTENT TEXT -->
+      <div class="big-slider big-slider-vertical" style="display: none">
+        <div class="big-slider-wrapper">
+          <!-- Project -->
+          <div class="big-slider-item bs-inactive big-item-active bs-active">
+            <!-- Project URL -->
+            <a href="http://www.de-ssion.co.kr/work_n.html"></a>
+            <!--/ Project URL -->
+
+            <div class="top">
+              <!-- Project Category -->
+              <div class="category"><span>Dession is</span></div>
+              <!--/ Project Category -->
+
+              <!-- Project Title -->
+              <div class="title has-animation skew-down is-inview" data-scroll="true">
+                <div style="--line-index: 0"><span class="span-line">DIGITAL </span></div>
+                <div style="--line-index: 1">
+                  <span class="span-line">DESIGN <br /> </span>
+                </div>
+                <div style="--line-index: 2"><span class="span-line">EXPERT </span></div>
+              </div>
+              <!--/ Project Title -->
+            </div>
+
+            <!-- Project Summary -->
+            <div class="summary">
+              <div style="--line-index: 0">
+                <span class="span-line">We provides a high-quality digital experience optimized for the digital environment. </span>
+              </div>
+            </div>
+            <!--/ Project Summary -->
+
+            <!-- Project Year -->
+            <div class="year"><span>Since 2000</span></div>
+            <!--/ Project Year -->
+
+            <!-- Project Featured Image -->
+            <div class="image">
+              <img src="" alt="/" />
+            </div>
+            <!--/ Project Featured Image -->
+          </div>
+          <!--/ Project -->
+
+          <!-- Project -->
+          <div class="big-slider-item bs-inactive big-item-next">
+            <!-- Project URL -->
+            <a href="http://www.de-ssion.co.kr/work_view_morphe.html"></a>
+            <!--/ Project URL -->
+
+            <div class="top">
+              <!-- Project Category -->
+              <div class="category"><span>website</span></div>
+              <!--/ Project Category -->
+
+              <!-- Project Title -->
+              <div class="title">
+                <div style="--line-index: 0">
+                  <span class="span-line">FORMA <br /> </span>
+                </div>
+                <div style="--line-index: 1"><span class="span-line">MORPHE </span></div>
+              </div>
+              <!--/ Project Title -->
+            </div>
+            <!-- Project Summary -->
+            <div class="summary">
+              <div style="--line-index: 0">
+                <span class="span-line">We provides a high-quality digital experience optimized for the digital environment. </span>
+              </div>
+            </div>
+            <!--/ Project Summary -->
+            <!-- Project Year -->
+            <div class="year"><span>2023</span></div>
+            <!--/ Project Year -->
+
+            <!-- Project Featured Image -->
+            <div class="image">
+              <img src="" alt="Dession Work Visual Image" />
+            </div>
+            <!--/ Project Featured Image -->
+          </div>
+          <!--/ Project -->
+
+          <!-- Project -->
+          <div class="big-slider-item bs-inactive">
+            <!-- Project URL -->
+            <a href="http://www.de-ssion.co.kr/work_view_stadel.html"></a>
+            <!--/ Project URL -->
+
+            <div class="top">
+              <!-- Project Category -->
+              <div class="category"><span>website</span></div>
+              <!--/ Project Category -->
+
+              <!-- Project Title -->
+              <div class="title">
+                <div style="--line-index: 0">
+                  <span class="span-line">STADEL <br /> </span>
+                </div>
+                <div style="--line-index: 1"><span class="span-line">MUSEUM </span></div>
+              </div>
+              <!--/ Project Title -->
+            </div>
+            <!-- Project Summary -->
+            <div class="summary">
+              <div style="--line-index: 0">
+                <span class="span-line">We provides a high-quality digital experience optimized for the digital environment. </span>
+              </div>
+            </div>
+            <!--/ Project Summary -->
+
+            <!-- Project Year -->
+            <div class="year"><span>2023</span></div>
+            <!--/ Project Year -->
+
+            <!-- Project Featured Image -->
+            <div class="image">
+              <img src="/" alt="Dession Work Visual Image" />
+            </div>
+            <!--/ Project Featured Image -->
+          </div>
+          <!--/ Project -->
+
+          <!-- Project -->
+          <div class="big-slider-item bs-inactive">
+            <!-- Project URL -->
+            <a href="http://www.de-ssion.co.kr/work_view_alto.html"></a>
+            <!--/ Project URL -->
+
+            <div class="top">
+              <!-- Project Category -->
+              <div class="category"><span>website</span></div>
+              <!--/ Project Category -->
+
+              <!-- Project Title -->
+              <div class="title">
+                <div style="--line-index: 0">
+                  <span class="span-line"
+                    >ALTO <br />
+                    BRAND
+                  </span>
+                </div>
+              </div>
+              <!--/ Project Title -->
+            </div>
+
+            <!-- Project Summary -->
+            <div class="summary">
+              <div style="--line-index: 0">
+                <span class="span-line">We provides a high-quality digital experience optimized for the digital environment. </span>
+              </div>
+            </div>
+            <!--/ Project Summary -->
+
+            <!-- Project Year -->
+            <div class="year"><span>2023</span></div>
+            <!--/ Project Year -->
+
+            <!-- Project Featured Image -->
+            <div class="image">
+              <img src="/" alt="Dession Work Visual Image" />
+            </div>
+            <!--/ Project Featured Image -->
+          </div>
+          <!--/ Project -->
+        </div>
+        <span class="swiper-notification"></span>
+      </div>
+
+      <!-- View Project Button -->
+      <!-- <div class="big-slide-button">
+        <a href="#" class="project-url"
+          ><span></span><span></span><span></span><span></span>
+          <p class="bsb-link"><wrap>view work</wrap></p></a
+        >
+      </div> -->
+      <!--/ View Project Button -->
+    </div>
+    <script>
+      const overlay = document.querySelector(".overlays-line-wrap");
+      let progressBars;
+      let activeProgress;
+      let speed;
+      let autoplayDuration;
+      let calculateDelayTime;
+      const projectSwiper = new Swiper(".project-img-swiper", {
+        navigation: {
+          nextEl: ".project-img-swiper__next",
+          prevEl: ".project-img-swiper__prev",
+        },
+        slidesPerView: 1,
+        mousewheel: {
+          invert: false,
+        },
+        pagination: {
+          el: ".project-img-swiper__pagination",
+          type: "bullets",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return `<li class=${className}><b>0${index + 1}</b><progress class="slide-progress-bar" max="100" value="0"></progress></li>`;
+          },
+        },
+        loop: false,
+        autoplay: {
+          delay: 7000,
+          waitForTransition: true,
+          disableOnInteraction: false,
+        },
+        speed: 1300,
+        direction: "vertical",
+        parallax: true,
+        watchSlidesProgress: true,
+        on: {
+          afterInit: init,
+          // reachBeginning: changeEvent,
+          // slideChangeTransitionEnd: handleSlideChangeTransitionEnd,
+          slideChange: changeEvent,
+        },
+      });
+
+      function init(swiper) {
+        console.log("init, 처음 나옴");
+
+        progressBars = document.querySelectorAll(".slide-progress-bar");
+        speed = swiper.passedParams.speed;
+        autoplayDuration = swiper.autoplay.timeLeft;
+        calculateDelayTime = autoplayDuration - speed;
+
+        overlay.classList.add("loaded");
+        progressBars[0].classList.add("active-value");
+        updateProgressBar(swiper);
+        setTimeout(() => {
+          overlay.classList.remove("loaded");
+        }, calculateDelayTime);
+      }
+
+      function changeEvent(swiper) {
+        console.log("change");
+        overlay.classList.add("loaded");
+        setTimeout(() => {
+          overlay.classList.remove("loaded");
+        }, calculateDelayTime);
+      }
+
+      function updateProgressBar(swiper) {
+        activeProgress = progressBars[swiper.realIndex];
+        progressBars.forEach((item) => {
+          item.value = 0; // 초기값으로 설정
+          item.classList.remove("active-value");
+        });
+        activeProgress.classList.add("active-value");
+        animateProgressBar();
+      }
+
+      function animateProgressBar() {
+        let start = null;
+        function step(timestamp) {
+          start = start || timestamp;
+          const progress = timestamp - start;
+          if (autoplayDuration <= 0) {
+            activeProgress.value = 0;
+            return;
+          }
+          activeProgress.value = Math.min((progress / autoplayDuration) * 100, 100);
+
+          if (progress < autoplayDuration) {
+            window.requestAnimationFrame(step);
+          }
+        }
+
+        window.requestAnimationFrame(step);
+      }
+    </script>
+  </body>
+</html>

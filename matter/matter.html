@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matter.js 예제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+
+    <script>
+      // module aliases
+      let Engine = Matter.Engine,
+        Render = Matter.Render,
+        Runner = Matter.Runner,
+        Bodies = Matter.Bodies,
+        Composite = Matter.Composite;
+
+      // create an engine
+      let engine = Engine.create();
+
+      // create a renderer
+      let render = Render.create({
+        canvas: document.getElementById("myCanvas"), // 캔버스 요소 지정
+        engine: engine, // Matter.Engine 인스턴스
+        options: {
+          // width: 800, 캔버스의 너비
+          // height: 600, 캔버스의 높이
+          // pixelRatio: 1, 캔버스의 픽셀 비율
+          // background: "#fafafa", 캔버스 배경의 색상
+          // wireframeBackground: "#222", 와이어프레임 모드일 때 캔버스 배경의 색상을 지정
+          // hasBounds: false, 객체가 경계를 가지는지 여부
+          // enabled: true, 렌더러가 활성화되었는지 여부
+          // wireframes: true, 와이어프레임을 표시할지 여부
+          // showSleeping: true, 잠자고 있는 객체를 표시할지 여부
+          // showDebug: false, 디버깅 정보를 표시할지 여부
+          // showBroadphase: false, 브로드페이즈 영역을 표시할지 여부
+          // showBounds: false, 객체의 경계를 표시할지 여부
+          // showVelocity: false, 객체의 속도를 표시할지 여부
+          // showCollisions: false, 충돌을 표시할지 여부
+          // showSeparations: false, 분리를 표시할지 여부
+          // showAxes: false, 축을 표시할지 여부
+          // showPositions: false, 위치를 표시할지 여부
+          // showAngleIndicator: false, 각도 표시기를 표시할지 여부
+          // showIds: false, 객체 ID를 표시할지 여부
+          // showShadows: false, 그림자를 표시할지 여부
+          // showVertexNumbers: false, 꼭지점 번호를 표시할지 여부
+          // showConvexHulls: false, 볼록 다각형을 표시할지 여부
+          // showInternalEdges: false, 내부 가장자리를 표시할지 여부
+          // showMousePosition: false, 마우스 위치를 표시할지 여부
+          wireframes: false,
+        },
+      });
+
+      // 플러그인
+      // matter-attractors by liabru: 물체에 지속적인 힘을 적용하여 효과를 시뮬레이션하는데 도움이 되는 플러그인입니다. 바람, 중력 및 자석 같은 효과를 모사할 수 있습니다.
+      // matter-wrap by liabru: 주어진 경계 내에서 항상 위치를 유지하도록 물체의 위치를 자동으로 감싸는 좌표 래핑 플러그인입니다. 경계를 넘어가면 물체는 경계의 반대쪽에 나타나며 속도를 유지합니다.
+      // lark-matter by abagames: 픽셀 아트 스타일 렌더러 플러그인입니다.
+      // matter-collision-events by dxu: 개별 물체 충돌 이벤트와 이벤트 핸들러를 추가하는 플러그인입니다.
+      // matter-springs by momentumworks: 댄핑된 고조파 스프링을 추가합니다.
+      // matter-dom-plugin by elopezga: DOM 렌더러 플러그인입니다.
+
+      // 바운더리 생성
+      let bounds = {
+        length: 5000, // 바운더리의 길이
+        thickness: 50, // 바운더리의 두께
+        properties: {
+          // 바운더리의 속성
+          isStatic: true, // 정적인 바운더리로 지정
+        },
+      };
+
+      let boundary = Bodies.rectangle(
+        bounds.length / 2, // x 좌표
+        window.innerHeight - bounds.thickness / 2, // y 좌표
+        bounds.length, // 너비
+        bounds.thickness, // 높이
+        bounds.properties // 속성
+      );
+
+      // create two boxes and a ground
+      let boxA = Bodies.rectangle(400, 200, 80, 80); // 상자의 중심 x: 400, y: 200, 80x80 크기의 직사각형 상자를 생성
+      let boxB = Bodies.rectangle(450, 50, 90, 90);
+      let ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true }); // 사각형으로 바닥을 만듦
+
+      // add all of the bodies to the world
+      Composite.add(engine.world, [boundary, boxA, boxB, ground]);
+
+      // 마우스 제약 생성
+      let mouseConstraint = Matter.MouseConstraint.create(engine);
+
+      // add mouse constraint to the world
+      Composite.add(engine.world, mouseConstraint);
+
+      // run the renderer
+      Render.run(render);
+
+      // create runner
+      let runner = Runner.create({
+        delta: 1000 / 60,
+        isFixed: false,
+        enabled: true,
+      });
+
+      // run the engine
+      Runner.run(runner, engine);
+    </script>
+  </body>
+</html>

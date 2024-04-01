@@ -525,32 +525,34 @@
   }
 }
 
-.post ._container{
+.post ._container {
   flex-direction: column;
   align-items: stretch;
 }
-.post__info{
+.post__info {
   width: clamp(70%, 50%, 45rem);
   margin: 0 auto 4rem;
   padding-bottom: 4rem;
-  border-bottom: 1px solid #E4E2DD;
+  border-bottom: 1px solid #e4e2dd;
 }
-.post__date{
+.post__date {
   display: inline-block;
   font-size: 1.5rem;
   color: #565e67;
   margin-bottom: 1.5rem;
 }
 
-.post__title{
+.post__title {
   font-size: 3rem;
   line-height: 1.2;
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
-.post__util{
+.post__util {
   font-size: 1.5rem;
   color: #565e67;
 }
-.post__content{width: clamp(70%, 50%, 45rem);
-  margin: 0 auto 4rem;}
+.post__content {
+  width: clamp(70%, 50%, 45rem);
+  margin: 0 auto 4rem;
+}
