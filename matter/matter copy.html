@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matter.js 예제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+    <style>
+      #myCanvas {
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+      // 1. 모듈 변수 지정
+      // Matter.js 모듈을 변수로 정의
+      let Engine = Matter.Engine, // 엔진 : 물리 시뮬레이션 실행. 몸체의 위치와 속도 업데이트, 충돌 해결, 힘 적용을 포함하는 업데이트 주기를 관리
+        Bodies = Matter.Bodies, // 직사각형, 원, 다각형과 같은 다양한 유형의 몸체를 만드는 방법. 물리 법칙에 따라 서로 상호 작용하는 시뮬레이션의 물리적 객체를 생성.
+        Composite = Matter.Composite, // 객체를 그룹화하는 역할. 여러 객체를 월드에 추가하여 여러 몸체 간의 복잡한 상호 작용을 허용할 수 있음.
+        Render = Matter.Render, // 시뮬레이션을 캔버스에 렌더링.렌더링할 캔버스 요소, 사용할 엔진, 와이어프레임 모드 또는 배경색과 같은 시각적 설정과 같은 다양한 옵션으로 구성할 수 있음.
+        Runner = Matter.Runner; // 시뮬레이션의 업데이트 주기를 관리하는 역할. 업데이트 타이밍을 제어하여 프레임 속도에 따라 고정 시간 단계 또는 가변 시간 단계를 허용
+
+      // 2. engine 객체 생성
+      let engine = Engine.create();
+
+      // 3. Matter.Bodies 객체를 사용하여 상자 두 개와 지면을 생성.
+      let boxA = Bodies.rectangle(400, 200, 80, 80); // 상자 A
+      let boxB = Bodies.rectangle(450, 50, 80, 80); // 상자 B
+      let ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true }); // 지면
+
+      // 4. Matter.Composite 객체를 사용하여 모든 Bodies를 world에 추가합니다.
+      Composite.add(engine.world, [boxA, boxB, ground]);
+
+      // 5. render 객체 생성 및 실행 (캔버스에 렌더링)
+      let render = Render.create({
+        element: document.body, // 렌더러가 생성될 DOM 요소를 지정.
+        engine: engine, // 사용할 엔진을 지정.
+      });
+
+      Render.run(render);
+
+      // 6. Matter.Runner 객체를 생성하여 엔진을 실행. (객체 업데이트 주기 관리)
+      let runner = Runner.create(); // 러너 생성
+      Runner.run(runner, engine); // 엔진 실행
+    </script>
+  </body>
+</html>

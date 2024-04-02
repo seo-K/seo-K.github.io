@@ -5,17 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matter.js 예제</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+    <style>
+      /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      /* bounds의 스타일 */
+      #myCanvas {
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
-    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <canvas id="myCanvas"></canvas>
+    <!-- <canvas id="myCanvas" style="width: 100%; height: 100vh"></canvas> -->
+    <!-- <script>
+      // Assuming the rest of your script is above this point
 
+      // Function to adjust canvas size based on content
+      function adjustCanvasSize() {
+        const canvas = document.getElementById("myCanvas");
+        const context = canvas.getContext("2d");
+
+        // Example: Adjusting canvas size based on a specific content size
+        // This is just an example. You need to adjust the logic based on your actual content size
+        const contentWidth = 5000; // Example content width
+        const contentHeight = 500; // Example content height
+
+        // Calculate the scale factor to fit the content within the viewport
+        const scaleFactor = Math.min(
+          window.innerWidth / contentWidth,
+          window.innerHeight / contentHeight
+        );
+
+        // Set the canvas size
+        canvas.width = contentWidth * scaleFactor;
+        canvas.height = contentHeight * scaleFactor;
+
+        // Adjust the renderer's options to match the new canvas size
+        Render.setPixelRatio(render, window.devicePixelRatio);
+        Render.lookAt(render, {
+          min: { x: 0, y: 0 },
+          max: { x: canvas.width, y: canvas.height },
+        });
+      }
+
+      // Call the function to adjust the canvas size
+      adjustCanvasSize();
+
+      // Add a resize event listener to adjust the canvas size when the window size changes
+      window.addEventListener("resize", adjustCanvasSize);
+    </script> -->
     <script>
-      // module aliases
-      let Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Bodies = Matter.Bodies,
-        Composite = Matter.Composite;
+      // 모듈명
+      let Engine = Matter.Engine, // 물리 시뮬레이션 실행하는 엔진. 물리 시뮬레이션 실행. 몸체의 위치와 속도 업데이트, 충돌 해결, 힘 적용을 포함하는 업데이트 루프를 관리
+        Bodies = Matter.Bodies, // 직사각형, 원, 다각형과 같은 다양한 유형의 객체를 만드는데 사용. 물리 법칙에 따라 서로 상호 작용하는 시뮬레이션의 물리적 객체를 생성.
+        Composite = Matter.Composite, // 객체를 그룹화하는 역할. 여러 객체를 월드에 추가하여 여러 몸체 간의 복잡한 상호 작용을 허용할 수 있음.
+        Mouse = Matter.Mouse, // 마우스 입력을 처리하는 기능을 제공. 마우스 커서의 위치와 상태를 추적하는 마우스 개체를 만드는 데 사용할 수 있고, 마우스로 본체를 드래그하는 등의 대화형 기능을 구현하는 데 유용
+        MouseConstraint = Matter.MouseConstraint, // 마우스로 몸체를 이동하거나 끌 수 있는 마우스 기능을 만듦. 사용할 마우스 개체, 충돌 필터, 제약 조건의 강성 등 다양한 옵션으로 구성할 수 있음.
+        Render = Matter.Render, // 시뮬레이션을 캔버스에 렌더링.렌더링할 캔버스 요소, 사용할 엔진, 와이어프레임 모드 또는 배경색과 같은 시각적 설정과 같은 다양한 옵션으로 구성할 수 있음.
+        Runner = Matter.Runner; // 시뮬레이션의 업데이트 루프를 관리하는 역할. 업데이트 타이밍을 제어하여 프레임 속도에 따라 고정 시간 단계 또는 가변 시간 단계를 허용
+
+      // Engine: 물리 시뮬레이션을 실행하는 엔진을 생성합니다. 시뮬레이션에 필요한 각종 설정을 관리하고 물리 객체를 추적합니다.
+      // World: 엔진 안에 있는 모든 물리 객체를 관리하는 컨테이너입니다. 이 컨테이너에는 물체, 제약 조건 및 다른 요소들이 포함됩니다.
+      // Bodies: 다양한 형태와 유형의 물리 객체(바디)를 생성하는 데 사용됩니다. 사각형, 원, 다각형, 사다리꼴 등 다양한 형태의 물체를 만들 수 있습니다.
+      // Constraints: 물리 객체 간의 관계를 정의하고 제약 조건을 부여하는 데 사용됩니다. 예를 들어, 두 객체를 서로 연결하거나, 물체의 이동을 제한하는 등의 작업을 수행할 수 있습니다.
+      // Render: 물리 시뮬레이션의 결과를 렌더링하고 시각적으로 표시하는 데 사용됩니다. 캔버스나 WebGL을 통해 물리 객체들을 화면에 그립니다.
+      // Mouse 및 MouseConstraint: 마우스 이벤트를 처리하고 마우스를 이용하여 물체를 제어하는 데 사용됩니다. MouseConstraint를 사용하면 마우스와 물리 객체 간의 상호 작용을 구현할 수 있습니다.
 
       // create an engine
       let engine = Engine.create();
@@ -49,6 +231,7 @@
           // showConvexHulls: false, 볼록 다각형을 표시할지 여부
           // showInternalEdges: false, 내부 가장자리를 표시할지 여부
           // showMousePosition: false, 마우스 위치를 표시할지 여부
+          showAxes: true,
           wireframes: false,
         },
       });
@@ -61,34 +244,107 @@
       // matter-springs by momentumworks: 댄핑된 고조파 스프링을 추가합니다.
       // matter-dom-plugin by elopezga: DOM 렌더러 플러그인입니다.
 
-      // 바운더리 생성
+      // 1. 대지 생성
+      // 바운더리 생성 [ 시뮬레이션 영역의 크기와 관련된 정보를 포함하는 객체 ]
       let bounds = {
+        // length: window.innerWidth, // 뷰포트의 가로값을 사용
+        // thickness: window.innerHeight, // 뷰포트의 세로값을 사용
         length: 5000, // 바운더리의 길이
-        thickness: 50, // 바운더리의 두께
+        thickness: 50, // 바운더
         properties: {
           // 바운더리의 속성
           isStatic: true, // 정적인 바운더리로 지정
         },
       };
 
+      // 물체가 움직일 수 있는 영역
       let boundary = Bodies.rectangle(
         bounds.length / 2, // x 좌표
         window.innerHeight - bounds.thickness / 2, // y 좌표
         bounds.length, // 너비
         bounds.thickness, // 높이
-        bounds.properties // 속성
+        {
+          // 바운더리의 속성
+          isStatic: true, // 정적인 바운더리로 지정
+          render: {
+            fillStyle: "#202020", // 채우기 색상을 지정
+          },
+        }
       );
 
       // create two boxes and a ground
-      let boxA = Bodies.rectangle(400, 200, 80, 80); // 상자의 중심 x: 400, y: 200, 80x80 크기의 직사각형 상자를 생성
-      let boxB = Bodies.rectangle(450, 50, 90, 90);
-      let ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true }); // 사각형으로 바닥을 만듦
+      // 0. 사각형 (rectangle)
+      // let box = Bodies.rectangle(x, y, width, height);
+      let boxA = Bodies.rectangle(100, 200, 80, 80); // 상자의 중심 x: 400, y: 200, 80x80 크기의 직사각형 상자를 생성
+      let boxB = Bodies.rectangle(150, 50, 90, 90);
+      let ground = Bodies.rectangle(400, 610, 810, 40, {
+        isStatic: true,
+        render: {
+          fillStyle: "#00FF00", // green color
+        },
+      }); // 사각형으로 바닥을 만듦
+
+      // 1. 원형 (circle):
+      // let circle = Bodies.circle(x, y, radius);
+      let circle = Bodies.circle(200, 100, 30, {
+        render: {
+          strokeStyle: "red",
+          fillStyle: "blue",
+          lineWidth: 1,
+        },
+      }); // 중심이 (300, 100)에 있고 반지름이 30인 원형
+
+      // 2. 다각형 (polygon): 여기서 sides는 다각형의 변의 수를 나타냅니다.
+      // let polygon = Bodies.polygon(x, y, sides, radius);
+      let polygon = Bodies.polygon(300, 150, 5, 50); // 중심이 (200, 150)에 있고 5개의 변과 각 변의 길이가 50인 다각형
+
+      // 3. 사다리꼴 (trapezoid, trapezium, chamfered 등):
+      // let trapezoid = Bodies.trapezoid(x, y, width, height, slope);
+      let trapezoid = Bodies.trapezoid(400, 200, 80, 100, 0.5); // 중심이 (400, 200)에 있고 가로 길이가 80, 세로 길이가 100이며 기울기가 0.5인 사다리꼴 모양의
+
+      // 4. 직사각형 외의 다양한 형태 (fromVertices):
+      let vertices = [
+        { x: 0, y: 0 },
+        { x: 50, y: 0 },
+        { x: 50, y: 100 },
+        { x: 25, y: 150 },
+        { x: 0, y: 100 },
+      ];
+      let customBody = Bodies.fromVertices(500, 100, vertices); //  (500, 100) 위치에서 다각형 모양의를 생성
 
       // add all of the bodies to the world
-      Composite.add(engine.world, [boundary, boxA, boxB, ground]);
+      Composite.add(engine.world, [
+        // boundary,
+        boxA,
+        boxB,
+        circle,
+        polygon,
+        trapezoid,
+        customBody,
+        ground,
+      ]);
+      // create a mouse
+      let mouse = Mouse.create(render.canvas);
 
       // 마우스 제약 생성
-      let mouseConstraint = Matter.MouseConstraint.create(engine);
+      // let mouseConstraint = Matter.MouseConstraint.create(engine);
+      let mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        damping: 0.5, // 마우스 움직일때 진동 값
+        constraint: {
+          stiffness: 0.2, // 제약의 강성 : 값이 높을수록 물체를 움직일때, 강한 힘을 가짐
+          render: {
+            //
+            visible: false, // 마우스 이동선 시각적 여부
+          },
+        },
+        // collisionFilter: {
+        //   // 충돌 필터링 설정 :  충돌 필터를 설정하여 물체가 서로 어떻게 상호 작용하는지를 제어
+        //   category: 0x0002, // 카테고리 비트 마스크 설정
+        //   mask: 0x0002, // 충돌을 허용할 카테고리 비트 마스크 설정
+        //   isSensor: true,
+        // },
+      });
 
       // add mouse constraint to the world
       Composite.add(engine.world, mouseConstraint);
@@ -99,7 +355,7 @@
       // create runner
       let runner = Runner.create({
         delta: 1000 / 60,
-        isFixed: false,
+        isFixed: false, // 물리 엔진이 고정된 간격으로 실행되는지 여부
         enabled: true,
       });
 
