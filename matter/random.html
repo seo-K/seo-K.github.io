@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matter.js 예제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+    <style>
+      /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      /* bounds의 스타일 */
+      #myCanvas {
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <!-- <canvas id="myCanvas" style="width: 100%; height: 100vh"></canvas> -->
+    <!-- <script>
+      // Assuming the rest of your script is above this point
+
+      // Function to adjust canvas size based on content
+      function adjustCanvasSize() {
+        const canvas = document.getElementById("myCanvas");
+        const context = canvas.getContext("2d");
+
+        // Example: Adjusting canvas size based on a specific content size
+        // This is just an example. You need to adjust the logic based on your actual content size
+        const contentWidth = 5000; // Example content width
+        const contentHeight = 500; // Example content height
+
+        // Calculate the scale factor to fit the content within the viewport
+        const scaleFactor = Math.min(
+          window.innerWidth / contentWidth,
+          window.innerHeight / contentHeight
+        );
+
+        // Set the canvas size
+        canvas.width = contentWidth * scaleFactor;
+        canvas.height = contentHeight * scaleFactor;
+
+        // Adjust the renderer's options to match the new canvas size
+        Render.setPixelRatio(render, window.devicePixelRatio);
+        Render.lookAt(render, {
+          min: { x: 0, y: 0 },
+          max: { x: canvas.width, y: canvas.height },
+        });
+      }
+
+      // Call the function to adjust the canvas size
+      adjustCanvasSize();
+
+      // Add a resize event listener to adjust the canvas size when the window size changes
+      window.addEventListener("resize", adjustCanvasSize);
+    </script> -->
+    <script>
+      // 모듈명
+      let Engine = Matter.Engine,
+        Bodies = Matter.Bodies,
+        Composite = Matter.Composite,
+        Composites = Matter.Composites,
+        Mouse = Matter.Mouse,
+        MouseConstraint = Matter.MouseConstraint,
+        Render = Matter.Render,
+        Runner = Matter.Runner;
+
+      // create an engine
+      let engine = Engine.create(),
+        world = engine.world;
+
+      // create a renderer
+      let render = Render.create({
+        canvas: document.getElementById("myCanvas"), // 캔버스 요소 지정
+        engine: engine, // Matter.Engine 인스턴스
+        options: {
+          width: 800,
+          height: 600,
+          wireframes: false,
+          background: "#eee",
+        },
+      });
+
+      const textures = [
+        "./img/img_01.png",
+        "./img/img_02.png",
+        "./img/img_03.png",
+        "./img/img_04.png",
+        "./img/img_05.png",
+        "./img/img_06.png",
+        "./img/img_07.png",
+        "./img/img_08.png",
+        "./img/img_09.png",
+      ];
+
+      let stack = Composites.stack(250, 255, 6, 6, 0, 0, function (x, y) {
+        // 배열에서 랜덤으로 텍스처 파일 경로를 선택
+        const randomTexture =
+          textures[Math.floor(Math.random() * textures.length)];
+
+        return Bodies.circle(x, y, 30, {
+          density: 0.0005,
+          frictionAir: 0.06,
+          restitution: 0.3,
+          friction: 0.01,
+          render: {
+            sprite: {
+              texture: randomTexture, // 랜덤으로 선택한 텍스처 파일 경로 사용
+              xScale: 0.05,
+              yScale: 0.05,
+            },
+          },
+        });
+      });
+
+      Composite.add(world, [
+        // falling blocks
+        // Bodies.rectangle(200, 100, 60, 60, { frictionAir: 0.001 }),
+        // Bodies.rectangle(400, 100, 60, 60, { frictionAir: 0.05 }),
+        // Bodies.rectangle(600, 100, 60, 60, { frictionAir: 0.1 }),
+        stack,
+        // walls
+        Bodies.rectangle(400, 0, 800, 20, { isStatic: true }),
+        Bodies.rectangle(400, 600, 800, 20, { isStatic: true }),
+        Bodies.rectangle(800, 300, 20, 600, { isStatic: true }),
+        Bodies.rectangle(0, 300, 20, 600, { isStatic: true }),
+      ]);
+
+      // 마우스 추가
+      let mouse = Mouse.create(render.canvas);
+
+      // 마우스 제약 생성
+      let mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          stiffness: 0.2, // 제약의 강성 : 값이 높을수록 물체를 움직일때, 강한 힘을 가짐
+          render: {
+            visible: false, // 마우스 이동선 시각적 여부
+          },
+        },
+      });
+
+      Composite.add(engine.world, mouseConstraint);
+
+      // run the renderer
+      Render.run(render);
+
+      // create runner
+      let runner = Runner.create({
+        delta: 1000 / 60,
+        isFixed: false, // 물리 엔진이 고정된 간격으로 실행되는지 여부
+        enabled: true,
+      });
+
+      // run the engine
+      Runner.run(runner, engine);
+    </script>
+  </body>
+</html>

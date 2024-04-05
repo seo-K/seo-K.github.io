@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matter.js 예제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+    <style>
+      /* CSS 리셋 */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      #myCanvas {
+        /* width: 100vw;
+        height: 100vh; */
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+      // module aliases
+      let Engine = Matter.Engine,
+        World = Matter.World,
+        Bodies = Matter.Bodies,
+        Body = Matter.Body,
+        Mouse = Matter.Mouse,
+        Composites = Matter.Composites,
+        Constraint = Matter.Constraint,
+        MouseConstraint = Matter.MouseConstraint,
+        Composite = Matter.Composite,
+        Render = Matter.Render,
+        Runner = Matter.Runner,
+        Vector = Matter.Vector;
+
+      // create an engine
+      let engine = Engine.create(),
+        world = engine.world;
+
+      // create a renderer
+      let render = Matter.Render.create({
+        canvas: document.getElementById("myCanvas"), // 캔버스 요소 지정
+        engine: engine, // Matter.Engine 인스턴스
+        // bounds: {
+        //   min: { x: 0, y: 0 },
+        //   max: { x: canvasWidth, y: canvasHeight },
+        // },
+        options: {
+          showSeparations: true,
+          width: 800,
+          height: 600,
+          // width: canvasWidth,
+          // height: canvasHeight,
+          // background: "yellow",
+          wireframes: false,
+        },
+      });
+
+      // run the renderer
+      Render.run(render);
+
+      let runner = Runner.create();
+      Runner.run(runner, engine);
+
+      // add Bodies
+      let boxA = Bodies.rectangle(505, 370, 80, 80); // 가로 중앙 505, 세로 중앙 370
+      let boxB = Bodies.rectangle(555, 320, 90, 90); // 가로 중앙 555, 세로 중앙 320
+      let circle = Bodies.circle(455, 420, 30); // 가로 중앙 455, 세로 중앙 420
+      let polygon = Bodies.polygon(355, 470, 5, 50); // 가로 중앙 355, 세로 중앙 470
+      let trapezoid = Bodies.trapezoid(505, 370, 80, 100, 0.5); // 가로 중앙 505, 세로 중앙 370
+      // add all of the bodies to the world
+      // World.add(engine.world, [
+      //   // boundary,
+      //   boxA,
+      //   boxB,
+      //   circle,
+      //   polygon,
+      //   trapezoid,
+      
+      // ]);
+
+      // Composites.stack(x, y, columns, rows, columnGap, rowGap, callback)
+      // x: 스택의 첫 번째 객체의 x 좌표입니다.
+      // y: 스택의 첫 번째 객체의 y 좌표입니다.
+      // columns: 스택에 생성할 열의 수입니다.
+      // rows: 스택에 생성할 행의 수입니다. (행으로 1줄로 생김)
+      // columnGap (선택 사항): 각 열 사이의 간격입니다. 기본값은 0입니다. (열로 6개 생김)
+      // rowGap (선택 사항): 각 행 사이의 간격입니다. 기본값은 0입니다.
+      // add bodies
+      var group = Body.nextGroup(true);
+
+      let stack = Composites.stack(250, 255, 2, 6, 0, 0, function (x, y) {
+        return Bodies.rectangle(x, y, 30, 30);
+      });
+
+      let catapult = Bodies.rectangle(400, 520, 320, 20, {
+        collisionFilter: { group: group }, //  발사체를 발사하는 역할
+      });
+
+      Composite.add(world, [
+        // falling blocks
+        // Bodies.rectangle(200, 100, 60, 60, { frictionAir: 0.001 }),
+        // Bodies.rectangle(400, 100, 60, 60, { frictionAir: 0.05 }),
+        // Bodies.rectangle(600, 100, 60, 60, { frictionAir: 0.1 }),
+
+        // walls
+        Bodies.rectangle(400, 0, 800, 20, { isStatic: true }),
+        Bodies.rectangle(400, 600, 800, 20, { isStatic: true }),
+        Bodies.rectangle(800, 300, 20, 600, { isStatic: true }),
+        Bodies.rectangle(0, 300, 20, 600, { isStatic: true }),
+        stack,
+        catapult,
+        // 시소 하단 고정된 부분
+        Bodies.rectangle(400, 535, 20, 80, {
+          isStatic: true,
+          collisionFilter: { group: group },
+          render: { fillStyle: "#060a19" },
+        }),
+        // Bodies.rectangle(400, 490, 400, 40, {
+        //   isStatic: true,
+        //   collisionFilter: { group: group },
+        //   render: { fillStyle: "#060a19" },
+        // }),
+
+        Bodies.rectangle(250, 555, 20, 50, {
+          isStatic: true,
+          render: { fillStyle: "#060a19" },
+        }),
+
+        Constraint.create({
+          bodyA: catapult, // 물체와 고정된 한 지점 사이에 연결
+          pointB: Vector.clone(catapult.position),
+          stiffness: 2, // 속성의 연결 강도
+          // 0: 매우 느슨한 연결. 물체가 자유롭게 움직일 수 있습니다.
+          // 1: 매우 강한 연결. 물체가 거의 움직이지 않습니다.
+          // 0 ~ 1 사이: 중간 강도의 연결. 물체의 움직임이 제한됩니다.
+          // 1 초과: 더욱 강한 연결. 물체가 움직이기 어려워집니다.
+          length: 0, // 속성의 연결 길이
+        }),
+      ]);
+
+      // 마우스 추가
+      let mouse = Mouse.create(render.canvas);
+
+      // 마우스 제약 생성
+      let mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        // damping: 0.5, // 마우스 움직일때 진동 값
+        constraint: {
+          stiffness: 0.2, // 제약의 강성 : 값이 높을수록 물체를 움직일때, 강한 힘을 가짐
+          // 0: 매우 느슨한 연결. 물체가 자유롭게 움직일 수 있습니다.
+          // 1: 매우 강한 연결. 물체가 거의 움직이지 않습니다.
+          // 0 ~ 1 사이: 중간 강도의 연결. 물체의 움직임이 제한됩니다.
+          // 1 초과: 더욱 강한 연결. 물체가 움직이기 어려워집니다.
+          render: {
+            visible: false, // 마우스 이동선 시각적 여부
+          },
+        },
+      });
+
+      Composite.add(engine.world, mouseConstraint);
+
+      // fit the render viewport to the scene
+      // Render.lookAt(render, {
+      //   min: { x: 0, y: 0 },
+      //   max: { x: 800, y: 600 },
+      // });
+      Render.lookAt(render, Composite.allBodies(world));
+    </script>
+  </body>
+</html>
