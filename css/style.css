@@ -153,6 +153,7 @@
 .info .profile .profile_short_info {
   font-size: 1.4rem;
   line-height: 1.8;
+  word-break: keep-all;
 }
 
 .info .profile .profile_short_info:before {
@@ -392,11 +393,7 @@
   height: 5rem;
 
   background: #fff;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.1),
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
 }
 
@@ -446,12 +443,7 @@
   height: 80%;
   border-radius: 50%;
 
-  background: linear-gradient(
-    90deg,
-    rgba(217, 147, 103, 1) 0%,
-    rgba(125, 108, 56, 1) 31%,
-    rgba(25, 138, 120, 1) 100%
-  );
+  background: linear-gradient(90deg, rgba(217, 147, 103, 1) 0%, rgba(125, 108, 56, 1) 31%, rgba(25, 138, 120, 1) 100%);
   filter: blur(3rem);
 
   transform-origin: 50% 45%;
@@ -607,11 +599,7 @@
   height: 5rem;
   content: "";
 
-  background-image: linear-gradient(
-    to top,
-    rgba(18, 20, 22, 1),
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to top, rgba(18, 20, 22, 1), rgba(0, 0, 0, 0));
   z-index: 20;
 }
 
@@ -691,8 +679,7 @@
   width: 6rem;
   height: 8rem;
 
-  background: #e7f2f6 url(../image/common/swiper_up.svg) no-repeat center /
-    contain;
+  background: #e7f2f6 url(../image/common/swiper_up.svg) no-repeat center / contain;
 
   z-index: 25;
 }
@@ -909,8 +896,7 @@
 }
 
 .modal a.site_link:hover {
-  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(333deg)
-    brightness(105%) contrast(101%);
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(333deg) brightness(105%) contrast(101%);
 }
 
 .modal button.site_link {
@@ -995,8 +981,7 @@
 .modal .detail_desc {
   transform: translateY(100%);
   opacity: 0;
-  transition: opacity 0.3s var(--animationDelay),
-    transform 0.4s var(--animationDelay);
+  transition: opacity 0.3s var(--animationDelay), transform 0.4s var(--animationDelay);
 }
 
 .modal .swiper-slide-active .detail_sub_title,
