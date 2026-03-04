@@ -1,0 +1,388 @@
+@charset "utf-8";
+
+:root {
+    --bg: #ffffff;
+    --text: #161616;
+    --muted: #5a5a5a;
+    --line: #e4e4e4;
+    --surface: #f7f7f7;
+    --accent: #0f766e;
+}
+
+:root[data-color-theme="dark"] {
+    --bg: #0f1115;
+    --text: #e8edf2;
+    --muted: #9aa3b2;
+    --line: #2a3040;
+    --surface: #161a22;
+    --accent: #4fd1c5;
+}
+
+/* @font-face {
+  font-family: "Pre";
+  src: local("Pretendard"), url("../fonts/Pretendard-Black.woff") format("woff"), url("../fonts/Pretendard-Black.ttf") format("truetype"),
+    url("../fonts/Pretendard-Black.svg") format("svg");
+  font-weight: 900;
+  font-display: swap;
+   unicode-range: U+AC00-D7A3; 
+} */
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+fieldset,
+ul,
+ol,
+menu,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0
+}
+
+input,
+button,
+legend,
+textarea {
+    padding: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    word-break: break-all;
+    word-wrap: break-word
+}
+
+p {
+    margin: 0;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: pretty
+}
+
+img,
+abbr,
+video,
+iframe,
+fieldset {
+    border: 0
+}
+
+ul,
+ol,
+menu {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+caption {
+    text-align: left
+}
+
+th {
+    text-align: left;
+    font-weight: normal
+}
+
+em,
+cite,
+address {
+    font-style: normal
+}
+
+ins {
+    text-decoration: none
+}
+
+del {
+    text-decoration: line-through
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: ""
+}
+
+blockquote,
+q {
+    quotes: "" ""
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+audio {
+    display: inline-block
+}
+
+figure {
+    margin: 0
+}
+
+hr {
+    box-sizing: content-box;
+    overflow: visible;
+    height: 0
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto
+}
+
+img {
+    content-visibility: auto
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    -webkit-text-decoration-skip: objects
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+    box-shadow: none
+}
+
+select {
+    cursor: pointer
+}
+
+button,
+select {
+    text-transform: none
+}
+
+input,
+textarea {
+    -webkit-user-select: auto
+}
+
+button,
+select,
+textarea,
+input:where([type="text"], [type="tel"], [type="button"], [type="password"], [type="email"], [type="search"]) {
+    font: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent
+}
+
+:where(input, textarea)::placeholder {
+    color: unset
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+input[type="search"] {
+    appearance: textfield;
+    box-sizing: content-box
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+input[type="number"] {
+    appearance: textfield
+}
+
+input[type="checkbox"]+label,
+input[type="radio"]+label {
+    cursor: pointer
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #fff inset
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+:where(textarea, input, select):focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent
+}
+
+button:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="submit"]:not(:disabled) {
+    appearance: button;
+    cursor: pointer;
+    overflow: visible
+}
+
+summary {
+    list-style: none
+}
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+pre {
+    margin: 0;
+    font: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word
+}
+
+/* 자주 안 쓰는 요소 사용시 주석해재 */
+/* meter{-webkit-appearance:revert;appearance:revert}
+:where([contenteditable]:not([contenteditable="false"])){-moz-user-modify:read-write;-webkit-user-modify:read-write;overflow-wrap:break-word;-webkit-line-break:after-white-space;-webkit-user-select:auto}
+:where([draggable="true"]){-webkit-user-drag:element}
+:where(dialog:modal){all:revert;box-sizing:border-box}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+::-webkit-scrollbar {width: 5px;height: 5px;}
+::-webkit-scrollbar-track {background-color: var(--black);}
+::-webkit-scrollbar-thumb {background-color: #d4c951;border-radius: 3px;}
+::selection { background: #d4c951; }  */
+
+/* 초기 셋팅 값 */
+html {
+    min-height: auto;
+    font-size: 62.5%;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    box-sizing: border-box
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    font: 400 1em/1.2 "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: normal;
+    -webkit-overflow-scrolling: touch
+}
+
+.blind,
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0
+}
+
+.unable {
+    -webkit-user-select: none;
+    user-select: none
+}
+
+.p_1,
+.p_2 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word
+}
+
+.p_1 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1
+}
+
+.p_2 {
+    -webkit-line-clamp: 2;
+    line-clamp: 2
+}
+
+.nowrap {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all
+}
+
+.mobile-only,
+.tablet-only {
+    display: none
+}
+
+@media all and (max-width:1500px) {
+    .tablet-only {
+        display: block
+    }
+}
+
+@media all and (max-width:768px) {
+    body {
+        font-size: .8rem
+    }
+
+    .pc-only,
+    .tablet-only {
+        display: none
+    }
+
+    .mobile-only {
+        display: block
+    }
+}
+
+/* @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}} */
