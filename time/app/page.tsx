@@ -7,37 +7,37 @@ export default function HomePage() {
   const scrollSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    let cleanup: (() => void) | undefined;
+    let isMounted = true;
+    let context: { revert: () => void } | undefined;
 
     const init = async () => {
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      try {
+        const { gsap } = await import("gsap");
+        const section = scrollSectionRef.current;
+        if (!isMounted || !section) return;
 
-      gsap.registerPlugin(ScrollTrigger);
-      const scrollItem = gsap.utils.toArray<HTMLElement>(".main-scroll__inner");
-      const scrollText = gsap.timeline();
-      scrollText
-        // .set($("#section2 .t1"), { css: { zIndex: 1 } }) // set is basically a 0-second duration tween
-        .from(scrollItem[0], { autoAlpha: 0, duration: 1, y: 100 }, "+=1")
-        .from(scrollItem[1], { autoAlpha: 0, duration: 1, y: 100 }, "+=1")
-        .from(scrollItem[2], { autoAlpha: 0, duration: 1, y: 100 }, "+=1")
-        .from(scrollItem[3], { autoAlpha: 0, duration: 1, y: 100 }, "+=1")
-      ScrollTrigger.create({
-        animation: scrollText,
-        trigger: "#section2",
-        start: "top top",
-        end: "+=4000",
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-        markers: true,
-      });
+        context = gsap.context(() => {
+          const scrollItem = gsap.utils.toArray<HTMLElement>(".main-scroll__inner", section);
+          if (scrollItem.length === 0) return;
+
+          gsap.from(scrollItem, {
+            autoAlpha: 0,
+            y: 40,
+            duration: 0.8,
+            stagger: 0.18,
+            ease: "power2.out",
+          });
+        }, section);
+      } catch (error) {
+        console.error("Scroll animation init failed:", error);
+      }
     };
 
     void init();
 
     return () => {
-      if (cleanup) cleanup();
+      isMounted = false;
+      if (context) context.revert();
     };
   }, []);
 

@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { blogPosts } from "../../data";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default function BlogDetailPage({ params }: Props) {
-  const slug = params.slug?.trim();
+export default async function BlogDetailPage({ params }: Props) {
+  const { slug: rawSlug } = await params;
+  const slug = rawSlug?.trim();
   const post = blogPosts.find((item) => item.slug === slug);
 
   if (!slug || !post) {

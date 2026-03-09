@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { portfolioItems } from "../../data";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default function PortfolioDetailPage({ params }: Props) {
-  const slug = params.slug?.trim();
+export default async function PortfolioDetailPage({ params }: Props) {
+  const { slug: rawSlug } = await params;
+  const slug = rawSlug?.trim();
   const item = portfolioItems.find((entry) => entry.slug === slug);
 
   if (!slug || !item) {

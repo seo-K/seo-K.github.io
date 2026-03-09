@@ -14,6 +14,7 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const currentPath = pathname ?? "";
 
   return (
     <header className="site-header">
@@ -25,7 +26,8 @@ export default function Navbar() {
         <div className="nav-scroll">
           <ul className="nav-list">
             {navItems.map((item) => {
-              const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+              const isActive =
+                currentPath === item.href || currentPath.startsWith(`${item.href}/`);
 
               return (
                 <li key={item.href}>
