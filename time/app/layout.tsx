@@ -6,8 +6,8 @@ import Navbar from "../components/Navbar";
 import ThemeProvider from "../components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Personal Site",
-  description: "Personal website built with Next.js",
+  title: "강서영 | Web Publisher",
+  description: "강서영 웹 퍼블리셔 포트폴리오 - 프로젝트, 블로그, UI 라이브러리 기록",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
@@ -25,9 +25,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="data-color-theme" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="data-color-theme" defaultTheme="dark" enableSystem={false}>
+          <div className="skip-links">
+            <a href="#main-content">본문으로 바로가기</a>
+            <a href="#site-nav">메뉴로 바로가기</a>
+          </div>
           <Navbar />
-          <main className="page-container">{children}</main>
+          <main id="main-content" className="page-container">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

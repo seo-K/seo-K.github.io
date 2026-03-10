@@ -1,21 +1,23 @@
 @charset "utf-8";
 
 :root {
-    --bg: #ffffff;
-    --text: #161616;
-    --muted: #5a5a5a;
-    --line: #e4e4e4;
-    --surface: #f7f7f7;
-    --accent: #0f766e;
+    --bg: #f7f9fc;
+    --text: #142033;
+    --muted: #5a6b85;
+    --line: #d7e1f2;
+    --surface: #ffffff;
+    --accent: #2f6bff;
+    --accent-strong: #163a76;
 }
 
 :root[data-color-theme="dark"] {
-    --bg: #0f1115;
-    --text: #e8edf2;
-    --muted: #9aa3b2;
-    --line: #2a3040;
-    --surface: #161a22;
-    --accent: #4fd1c5;
+    --bg: #0b1220;
+    --text: #e8f0ff;
+    --muted: #9baecd;
+    --line: #23324a;
+    --surface: #111a2b;
+    --accent: #6ea3ff;
+    --accent-strong: #2f6bff;
 }
 
 /* @font-face {

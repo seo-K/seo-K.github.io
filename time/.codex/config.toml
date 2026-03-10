@@ -1,0 +1,23 @@
+[agents]
+max_threads = 5
+max_depth = 1
+
+[agents.strategist]
+description = "Portfolio strategist for information architecture and user flow"
+config_file = "agents/strategist.toml"
+
+[agents.visual-designer]
+description = "Visual designer for typography, layout, and interaction direction"
+config_file = "agents/visual-designer.toml"
+
+[agents.frontend-builder]
+description = "Frontend builder for implementing approved UI in Next.js"
+config_file = "agents/frontend-builder.toml"
+
+[agents.content-editor]
+description = "Content editor for portfolio copy, summaries, and CTA language"
+config_file = "agents/content-editor.toml"
+
+[agents.qa-reviewer]
+description = "QA reviewer for accessibility, responsiveness, regressions, and polish"
+config_file = "agents/qa-reviewer.toml"

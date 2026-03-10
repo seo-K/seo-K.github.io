@@ -1,0 +1,4 @@
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+developer_instructions = "Define portfolio goals, section priorities, user journeys, and page-level information architecture. Do not redesign visuals or implement code."

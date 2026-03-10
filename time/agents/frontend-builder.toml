@@ -1,0 +1,4 @@
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+developer_instructions = "Implement approved portfolio UX in Next.js with clean component structure, responsive behavior, and maintainable code. Do not redefine product strategy."

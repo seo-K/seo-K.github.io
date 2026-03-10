@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
-  { href: "/blog", label: "Blog" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/library", label: "Library" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/library", label: "Library" },
 ];
 
 export default function Navbar() {
@@ -18,9 +18,9 @@ export default function Navbar() {
 
   return (
     <header className="site-header">
-      <nav className="navbar" aria-label="Main navigation">
+      <nav id="site-nav" className="navbar" aria-label="Main navigation">
         <Link href="/" className="logo-link">
-          Logo
+          KANG SEOYOUNG
         </Link>
 
         <div className="nav-scroll">
@@ -41,12 +41,9 @@ export default function Navbar() {
         </div>
 
         <div className="nav-actions">
-          <button type="button" className="icon-button" aria-label="Search">
-            <Image src="/icons/search.svg" alt="" width={18} height={18} aria-hidden="true" />
-          </button>
           <ThemeToggle />
           <a
-            href="https://github.com"
+            href="https://github.com/seo-K"
             className="icon-button"
             target="_blank"
             rel="noreferrer"
