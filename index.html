@@ -1,738 +1,378 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="Portfolio" />
-    <meta name="description" content="강서영의 웹 포트폴리오 입니다." />
-    <meta property="og:locale" content="ko_KR" />
-    <meta property="og:title" content="강서영 포트폴리오" />
-    <meta property="og:type" content="website" />
-    <!-- 웹페이지 타입(blog, website 등) -->
-    <meta property="og:keywords" content="https://seo-k.github.io" />
-    <meta property="og:description" content="강서영 포트폴리오" />
-    <meta property="og:url" content="https://seo-k.github.io" />
-    <meta property="og:image" content="./image/common/url_image.jpg" />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="400" />
-    <meta property="og:image:alt" content="포트폴리오" />
-    <meta property="og:site_name" content="강서영 포트폴리오" />
 
-    <link rel="canonical" href="https://seo-k.github.io" />
-    <link rel="icon" href="./image/common/logo.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="./image/common/logo.png" sizes="192x192" type="image/png" />
-    <link rel="apple-touch-icon" href="./image/common/logo.png" />
-    <title>Portfolio</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="keywords" content="Portfolio" />
+  <meta name="description" content="강서영의 웹 포트폴리오 입니다." />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="강서영 포트폴리오" />
+  <meta property="og:type" content="website" />
+  <!-- 웹페이지 타입(blog, website 등) -->
+  <meta property="og:keywords" content="https://seo-k.github.io" />
+  <meta property="og:description" content="강서영 포트폴리오" />
+  <meta property="og:url" content="https://seo-k.github.io" />
+  <meta property="og:image" content="./image/common/url_image.jpg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:image:alt" content="포트폴리오" />
+  <meta property="og:site_name" content="강서영 포트폴리오" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/common.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="canonical" href="https://seo-k.github.io" />
+  <link rel="icon" href="./image/common/logo.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="./image/common/logo.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="./image/common/logo.png" />
+  <title>Portfolio</title>
 
-    <!-- JS -->
-    <script src="./js/jquery-3.5.1.js"></script>
-    <script src="./js/100vh.js"></script>
-    <script src="./js/index.js" defer></script>
-    <!-- THREE -->
-    <script src="./js/threeContent.js" type="module"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  </head>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 
-  <body>
-    <div id="content-wrap">
-      <!-- skip -->
-      <div class="skip">
-        <ul>
-          <li><a href="#main">본문 내용 바로가기</a></li>
-          <li><a href="#nav">주 메뉴 바로가기</a></li>
+  <!-- JS -->
+  <script src="./js/index.js" defer></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
+  <!-- ScrollSmoother requires ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollSmoother.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/SplitText.min.js"></script>
+</head>
+
+<body>
+  <div id="content-wrap">
+    <!-- skip -->
+    <div class="skip">
+      <ul>
+        <li><a href="#main">본문 내용 바로가기</a></li>
+        <li><a href="#nav">주 메뉴 바로가기</a></li>
+      </ul>
+    </div>
+
+    <!-- START : HEADER -->
+    <header id="header">
+      <div class="header_top">
+        <h2>SeoYoung Portfolio</h2>
+      </div>
+      <div class="header_inner">
+        <h1 class="logo">SeoYoung Portfolio</h1>
+        <nav id="nav" aria-label="메뉴">
+          <ul class="menu">
+            <li><a href="#tab_main">Home</a></li>
+            <li><a href="#tab_info">About</a></li>
+            <li><a href="#tab_project">Works</a></li>
+          </ul>
+        </nav>
+        <ul class="util">
+          <li>
+            <a class="util_link github_link" href="https://github.com/seo-K" target="_blank"><span class="blind">강서영 깃허브
+                링크</span></a>
+          </li>
+          <li>
+            <a class="util_link naver_link" href="https://blog.naver.com/seo-kkk" target="_blank"><span
+                class="blind">강서영 네이버 블로그 링크</span></a>
+          </li>
         </ul>
       </div>
+    </header>
+    <!-- END : HEADER -->
 
-      <!-- BLOKING -->
-      <!-- <div class="blocking-area"></div> -->
-
-      <!-- START : HEADER -->
-      <header id="header">
-        <div class="header_inner">
-          <h1 class="logo">SeoYoung</h1>
-          <nav id="nav" aria-label="메뉴">
-            <ul class="menu" role="tablist"></ul>
-          </nav>
-          <ul class="util">
-            <li>
-              <a class="util_link github_link" href="https://github.com/seo-K" target="_blank"><span class="blind">강서영 깃허브 링크</span></a>
-            </li>
-            <li>
-              <a class="util_link naver_link" href="https://blog.naver.com/seo-kkk" target="_blank"><span class="blind">강서영 네이버 블로그 링크</span></a>
-            </li>
-          </ul>
-        </div>
-      </header>
-      <!-- END : HEADER -->
-
-      <!-- START : MAIN -->
-      <main id="main" class="swiper main_swiper" aria-hidden="false">
-        <div class="swiper-wrapper main_inner">
-          <!-- HOME -->
-          <section id="tab_main" class="swiper-slide home show" role="tabpanel" tabindex="0">
-            <h2 class="blind">메인 페이지</h2>
-            <div class="home_inner">
-              <b class="year">2026</b>
-              <p class="title focus_title" tabindex="0">
-                <span style="--delay: 0.6s">P</span><span style="--delay: 0.7s">o</span><span style="--delay: 0.8s">r</span><span style="--delay: 0.9s">t</span><span style="--delay: 1s">F</span><span style="--delay: 1.1s">o</span><span style="--delay: 1.2s">l</span><span style="--delay: 1.3s">i</span
-                ><span style="--delay: 1.4s">o</span><span style="--delay: 1.5s">.</span>
+    <!-- START : MAIN -->
+    <main id="main">
+      <!-- HOME -->
+      <section id="tab_main" class="home">
+        <h2 class="blind">메인 페이지</h2>
+        <div class="home_inner">
+          <div class="home_copy">
+            <p class="home_eyebrow">Web Publisher Portfolio</p>
+            <p class="home_name">Kang Seoyoung</p>
+            <div class="home_desc-wrap">
+              <p class="home_first_desc">
+                구축 경험을 바탕으로
               </p>
-              <div class="center_svg">
-                <svg viewBox="0 0 600 400" width="450" height="450" xmlns="http://www.w3.org/2000/svg">
-                  <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle">瑞</text>
-                </svg>
+              <div class="home_second_desc">
+                <p>관리자 시스템 </p>
+                <p>브랜드 기획전 </p>
+                <p>운영 퍼블리싱</p>
               </div>
-
-              <p class="desc">
-                웹 표준 -접근성.<br />
-                기본을 갖춘 퍼블리셔.
+              <p class="home_third_desc">
+                까지 수행하는 5년차 웹퍼블리셔입니다.
               </p>
             </div>
-          </section>
-          <!-- INFO -->
-          <section id="tab_info" class="swiper-slide info" role="tabpanel" tabindex="-1">
-            <h2 class="blind">소개 페이지</h2>
-            <div class="info_inner">
-              <div class="profile">
-                <div class="profile_img_wrap">
-                  <span class="circle"></span>
-                  <span class="circle"></span>
-                  <figure class="profile_img circle">
-                    <img src="../image/common/logo.png" alt="프로필 사진" />
-                  </figure>
-                </div>
-                <p class="profile_short_info focus_title" tabindex="0">
-                  안녕하세요! 퍼블리싱이 취미인 강서영입니다!<br />
-                  웹 개발에 대한 관심은 2020년에 개인사업자로 인터넷 판매를 결정했을 때 시작되었습니다.<br />
-                  제품 상세페이지를 만들면서 HTML과 CSS에 대해 호기심이 생겼습니다.<br />
-                  현재까지 웹에이전시에 근무하면서<br />쇼핑몰, admin, 구인구직, 랜딩 사이트 등을 작업하여 html, css, js, react, 쇼피파이, 카페24 등 기술 역량을 키웠습니다.<br />
-                  현재는 패션브랜드 홈페이지 기획전 퍼블리싱 작업을 담당하고 있으며,<br />
-                  새롭게 추가되는 CSS를 익히거나 CodePen을 보는 것을 좋아합니다.<br />
-                  또한 GSAP와 웹접근성을 배우고 있습니다.
-                </p>
-              </div>
-              <div class="info_content">
-                <div class="info_group_wrap">
-                  <section class="info_group">
-                    <h3 class="info_sub_title">About me</h3>
-                    <dl>
-                      <dt>Name</dt>
-                      <dd>강서영</dd>
-                    </dl>
-                    <!-- <dl>
-                      <dt>Phone</dt>
-                      <dd>010-5817-4023</dd>
-                    </dl> -->
-                    <dl>
-                      <dt>E-mail</dt>
-                      <dd>dkasid@naver.com</dd>
-                    </dl>
-                  </section>
-                  <section class="info_group skill">
-                    <h3 class="info_sub_title">Enjoy</h3>
-                    <dl>
-                      <dt>Skill</dt>
-                      <dd class="skill_badge_wrap">
-                        <span class="skill_badge">html</span><span class="skill_badge">css</span><span class="skill_badge">js</span><span class="skill_badge">react</span>
-                        <span class="skill_badge">bootstrap</span>
-                      </dd>
-                    </dl>
-                    <dl>
-                      <dt>Learn</dt>
-                      <dd><span class="skill_badge">three.js</span><span class="skill_badge">웹접근성</span></dd>
-                    </dl>
-                  </section>
-                </div>
-                <div class="info_group_wrap">
-                  <div class="info_group">
-                    <h3 class="info_sub_title">Career</h3>
-                    <ul class="career">
-                      <li>
-                        <p class="career_list" style="--animationDelay: 0.2s"><b class="date">2021.07</b>[프래프] 13개 프로젝트 담당</p>
-                      </li>
-
-                      <!--
-                            프래프 프로젝트 상세 (날짜순):
-                            2021.07 - 비타알고
-                            2021.08 - 뉴런
-                            2021.09 - 푸드잇다 
-                            2021.10 - 브이드림
-                            2021.11 - 신도리코
-                            2021.12 - 엔픽셀
-                            2022.02 - 신도리코샵
-                            2022.03 - 엔터
-                            2022.05 - 요일
-                            2022.06 - 국룰
-                            2022.07 - 두루퍼
-                            2022.08 - 쿨화이트
-                            2022.09 - 자사 매니저 프로젝트
-                          -->
-                      <li>
-                        <p class="career_list" style="--animationDelay: 0.2s"><b class="date">2023.02</b>[아이오센트레] 티로보틱스, 도요타 앱</p>
-                      </li>
-                      <li>
-                        <p class="career_list" style="--animationDelay: 0.4s"><b class="date">2023.10 ~ 현재</b>요일</p>
-                        <ul class="company_project">
-                          <li class="career_list" style="--animationDelay: 0.5s">마르디, 르니나 기획전 퍼블리싱</li>
-                          <li class="career_list" style="--animationDelay: 0.6s">MLB 쇼피파이 글로벌사이트 리뉴얼 퍼블리싱</li>
-                          <li class="career_list" style="--animationDelay: 0.7s">MLB 이벤트 기획전 퍼블리싱 담당</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- PROJECTS -->
-          <section id="tab_project" class="swiper-slide project" role="tabpanel" tabindex="-1">
-            <h2 class="blind">프로젝트 페이지</h2>
-            <div class="pagination-container">
-              <div class="moon">
-                <div class="moon_bg"></div>
-                <div class="moon_img"></div>
-              </div>
-              <div class="swiper_progressbar">
-                <div class="progressbar_overflow">
-                  <div class="bar"></div>
-                </div>
-              </div>
-              <ul class="pagination_cates"></ul>
-            </div>
-            <div class="project_title">
-              <hgroup>
-                <h3 class="title focus_title" tabindex="0">
-                  <span style="--delay: 0.6s">P</span><span style="--delay: 0.7s">r</span><span style="--delay: 0.8s">o</span><span style="--delay: 0.9s">J</span><span style="--delay: 1s">e</span><span style="--delay: 1.1s">c</span><span style="--delay: 1.2s">t</span><span style="--delay: 1.3s">.</span>
-                </h3>
-                <p class="desc">
-                  프로젝트 리스트<br />
-                  키보드 컨트롤이 가능합니다<br />
-                </p>
-              </hgroup>
-            </div>
-            <div class="swiper project_swiper">
-              <ul class="swiper-wrapper">
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>신도리코</em>
-                      <b>1</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/sindo.png" alt="신도리코 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>VitaAlgo</em>
-                      <b>2</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/vita.jpg" alt="비타알고 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>FoodYitda</em>
-                      <b>3</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/foodyitda.png" alt="푸드잇다 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>Cool White</em>
-                      <b>4</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/coolwhite.png" alt="쿨화이트 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>n-pixel</em>
-                      <b>5</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/npixel.png" alt="엔픽셀 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>V-dream</em>
-                      <b>6</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/vdream.png" alt="브이드림 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>신도리코 Shop</em>
-                      <b>7</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/sindo-shop.png" alt="신도리코샵 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>요일</em>
-                      <b>8</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/yoil.png" alt="요일 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>국룰</em>
-                      <b>9</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/k-rule.png" alt="국룰 이미지" />
-                    </figure>
-                  </a>
-                </li>
-                <li class="swiper-slide">
-                  <a href="javascript:void(0);" class="slide_inner">
-                    <p class="slide_title">
-                      <em>duruper</em>
-                      <b>10</b>
-                    </p>
-                    <figure class="project_img">
-                      <img class="swiper-lazy" src="../image/duruper.png" alt="두루퍼 이미지" />
-                    </figure>
-                  </a>
-                </li>
-              </ul>
-              <div class="swiper_button_wrap">
-                <button type="button" class="project_swiper_prev"></button>
-                <button type="button" class="project_swiper_next"></button>
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-      <!-- END : MAIN -->
-
-      <!-- START : MODAL -->
-      <section class="modal" tabindex="-1" role="dialog" aria-modal="true">
-        <h3 class="blind">프로젝트 디테일 모달 리스트</h3>
-        <div class="modal_bg"></div>
-        <div class="project_detail">
-          <button type="button" class="close_button">
-            <span class="blind">모달 닫기</span>
-          </button>
-          <div class="swiper modal_swiper">
-            <div class="parallax_bg" data-swiper-parallax="-50%"></div>
-            <ul class="swiper-wrapper">
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/sindo.png" alt="신도리코 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">프린터 전문기업 해외 랜딩페이지</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">신도리코</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># html</li>
-                        <li># css</li>
-                        <li># js</li>
-                        <li># swiper</li>
-                        <li># aos.js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">100%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>3D프린터 기업인 신도리코의 해외 랜딩페이지 작업</li>
-                    <li>aos의 기능을 활용 인터렉션 및 딜레이효과 작업</li>
-                    <li>css filter기능과 와 mix-blend-mode의 기능 활용</li>
-                    <li>영어, 한국어 다국어 작업</li>
-                  </ul>
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://sindo.netlify.app/en/index.html"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/vita.jpg" alt="비타알고 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">비타민 조합 알고리즘 추천 서비스</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">비타알고</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># html</li>
-                        <li># css</li>
-                        <li># js</li>
-                        <li># swiper</li>
-                        <li># FullPage.js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">100%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>풀페이지를 각종 디바이스에 적용</li>
-                    <li>아이폰 노치 이슈 해결 및 vw와 vh의 자유로운 활용</li>
-                    <li>기본적인 로그인, 제품리스트, 마이페이지 등의 페이지 작업</li>
-                    <li>ios svg 폰트 인식 이슈로 폰트이미지 깨트려서 작업</li>
-                  </ul>
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://vitaalgo.netlify.app/main.htm"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/foodyitda.png" alt="푸드잇다 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">이수그룹 농가 직거래 서비스</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">푸드잇다</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># html</li>
-                        <li># css</li>
-                        <li># js</li>
-                        <li># swiper</li>
-                        <li># rangeSlider.js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">100%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>스와이퍼 API 활용, 분기별 다양한 스와이퍼 작업</li>
-                    <li>iframe 사용 농가 그래프 비율에 맞게 삽입</li>
-                    <li>검색 필터 및 이중 아코디언 js로 작업</li>
-                    <li>rangeSlider 라이브러리를 응용 제품 수량필터 작업</li>
-                  </ul>
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://foodyitda.netlify.app/main.html"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/coolwhite.png" alt="쿨화이트 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">세탁물 관리 시스템</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">Cool White</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># html</li>
-                        <li># css</li>
-                        <li># js</li>
-                        <li># bootstrap4</li>
-                        <li># FullCalendar.js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">60%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>부트스트랩 템플릿 기반으로 작업</li>
-                    <li>유지보수의 용이성을위해 최소한의 css 작업, 부트스트랩의 기능을 최대한 활용하여 작업</li>
-                    <li>FullCalendar.js 사용 캘린더 커스텀 및 팝업 연결 작업</li>
-                  </ul>
-                </div>
-                <button class="skip_close" type="button">팝업 닫기</button>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/npixel.png" alt="엔픽셀 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">회의실 예약 시스템</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">n-pixel</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># html</li>
-                        <li># css</li>
-                        <li># js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">50%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>디자인 고려하여 컴포넌트화 시켜 작업</li>
-                    <li>여러개의 페이지를 하나의 html에 작업하여, section 클래스명 하나로 이동되도록 작업</li>
-                    <li>페이지 분리를 위해 주석 및 이벤트 중첩에 신경을 쓴 작업</li>
-                  </ul>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/vdream.png" alt="브이드림 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">장애인 채용 플랫폼</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">V-dream</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># React</li>
-                        <li># Styled-Components</li>
-                        <li># react-router-dom v5</li>
-                        <li># React-scroll</li>
-                        <li># React-swiper</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">100%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>리액트 작동법을 이해하고, 원하는 화면을 구현하여 완성한 프로젝트</li>
-                    <li>react-router-dom v5를 사용하여 페이지 연결 및 이동하는 기능을 작업</li>
-                    <li>useState를 사용하여 탭기능을 작업</li>
-                    <li>map 사용 더미데이터 배열 삽입</li>
-                    <li>컴포넌트 이해</li>
-                  </ul>
-
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://vdream.netlify.app/"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/sindo-shop.png" alt="신도리코샵 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">프린터 전문기업 쇼핑몰 리뉴얼</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">신도리코 Shop</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># React</li>
-                        <li># Styled-Components</li>
-                        <li># React-swiper</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">50%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>react-router-dom v6 활용, outlet 등의 새로운 기능을 적극활용하여 마이페이지에서의 작업을 용이하게 함</li>
-                    <li>협업 프로젝트로, theme-color를 사용하여 협업에 용이하게 작업</li>
-                    <li>Styled-Components 사용 기본적인 클릭 효과 및 애니메이션, active 효과 등을 작업</li>
-                  </ul>
-
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://sindo-shop.netlify.app/"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/yoil.png" alt="요일 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">의류 플랫폼 관리 시스템</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">요일</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># React</li>
-                        <li># Styled-Components</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">100%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>작업자 요청에 따라 Styled-Components 제외하고 css로만 작업한 프로젝트</li>
-                    <li>이미지 업로드 및 input에따라 분기처리가 많은 프로젝트로 다양한 css 처리를 추가</li>
-                  </ul>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/k-rule.png" alt="국룰 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">특산품 직송 및 라이브커머스</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">국룰</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># React</li>
-                        <li># Styled-Components</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">30%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>리액트 모바일 쇼핑몰 프로젝트</li>
-                    <li>라이브 쇼핑 퍼블리싱으로 채팅 및 좋아요 구현</li>
-                    <li>react-slick을 사용하여 작업</li>
-                    <li>모바일 프로젝트의 경우 버튼 클릭 영역을 신경써야한다는 것을 익힘</li>
-                  </ul>
-                  <div class="site_link_wrap">
-                    <button class="site_link" type="button" disabled>Project in Progress</button>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/duruper.png" alt="두루퍼 이미지" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">해외 취업 플랫폼</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">duruper</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># React</li>
-                        <li># Styled-Components</li>
-                        <li># chart.js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">40%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>해외 구인 구직사이트 작업</li>
-                    <li>hart.js 커스텀 작업</li>
-                    <li>rc-slider 사용하여 검색 필터 디자인 구현</li>
-                  </ul>
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://duruper.com/"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="detail_wrap">
-                  <figure class="detail_img" data-swiper-parallax="-30%">
-                    <img class="swiper-lazy" src="../image/duruper.png" alt="MLB" />
-                  </figure>
-                  <p class="detail_sub_title" style="--animationDelay: 0.1s">해외 취업 플랫폼</p>
-                  <h4 class="detail_title" style="--animationDelay: 0.2s">duruper</h4>
-                  <div class="detail_util" style="--animationDelay: 0.3s">
-                    <article class="util_content">
-                      <h5>사용 기술</h5>
-                      <ul class="detail_skill">
-                        <li># React</li>
-                        <li># Styled-Components</li>
-                        <li># chart.js</li>
-                      </ul>
-                    </article>
-                    <article class="util_content">
-                      <h5>프로젝트 기여도</h5>
-                      <p class="detail_working">40%</p>
-                    </article>
-                  </div>
-                  <ul class="detail_desc" style="--animationDelay: 0.4s">
-                    <li>해외 구인 구직사이트 작업</li>
-                    <li>hart.js 커스텀 작업</li>
-                    <li>rc-slider 사용하여 검색 필터 디자인 구현</li>
-                  </ul>
-                  <div class="site_link_wrap">
-                    <a class="site_link" target="_blank" href="https://duruper.com/"><span class="blind">Visit Site</span></a>
-                  </div>
-                  <button class="skip_close" type="button">팝업 닫기</button>
-                </div>
-              </li>
-            </ul>
-            <button type="button" class="modal_swiper_next"></button>
-            <button type="button" class="modal_swiper_prev"></button>
+            <p class="home_intro">
+              웹표준과 접근성을 기반으로 빠른 일정 속에서도 유지보수와 운영 효율을 함께 고려합니다.
+            </p>
           </div>
         </div>
       </section>
-      <!-- END : MODAL -->
+      <!-- INFO -->
+      <section id="tab_info" class="info">
+        <h2 class="blind">소개 페이지</h2>
+        <div class="info_inner">
+          <div class="profile">
+            <div class="profile_img_wrap">
+              <span class="circle"></span>
+              <span class="circle"></span>
+              <figure class="profile_img circle">
+                <img src="../image/common/logo.png" alt="프로필 사진" />
+              </figure>
+            </div>
+            <ul class="profile_metrics">
+              <li><strong>5 Years</strong> of web publishing experience</li>
+              <li>Admin / Promotion / Commerce / Maintenance</li>
+              <li>HTML / CSS / JavaScript / jQuery / React / Shopify / Cafe24</li>
+            </ul>
+            <p class="profile_short_info focus_title">
+              5년차 웹퍼블리셔 강서영입니다.<br>
+              에이전시에서 다양한 구축 프로젝트를 수행하며 쇼핑몰, 관리자 시스템, 서비스 사이트의 화면 구조를 경험했습니다.<br>
+              현재는 관리자 시스템 구축과 패션 브랜드 기획전, 운영 및 유지보수 업무를 중심으로 실무를 이어가고 있습니다.<br>
+              단순 구현보다 반복 운영과 빠른 수정, 안정적인 확장을 고려한 퍼블리싱을 지향합니다.
+            </p>
+          </div>
+          <div class="info_content">
+            <div class="info_group_wrap">
+              <section class="info_group">
+                <h3 class="info_sub_title">About me</h3>
+                <dl>
+                  <dt>Name</dt>
+                  <dd>강서영</dd>
+                </dl>
+                <dl>
+                  <dt>E-mail</dt>
+                  <dd>dkasid@naver.com</dd>
+                </dl>
+                <dl>
+                  <dt>Summary</dt>
+                  <dd>구축부터 운영까지, 실무 흐름을 이해하고 대응하는 웹퍼블리셔</dd>
+                </dl>
+              </section>
+              <section class="info_group skill">
+                <h3 class="info_sub_title">Enjoy</h3>
+                <dl>
+                  <dt>Skill</dt>
+                  <dd class="skill_badge_wrap">
+                    <span class="skill_badge">HTML</span>
+                    <span class="skill_badge">CSS</span>
+                    <span class="skill_badge">JavaScript</span>
+                    <span class="skill_badge">jQuery</span>
+                    <span class="skill_badge">React</span>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>Platform</dt>
+                  <dd class="skill_badge_wrap">
+                    <span class="skill_badge">Shopify</span>
+                    <span class="skill_badge">Cafe24</span>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>Learn</dt>
+                  <dd><span class="skill_badge">three.js</span><span class="skill_badge">웹접근성</span></dd>
+                </dl>
+              </section>
+            </div>
+            <div class="info_group_wrap">
+              <div class="info_group">
+                <h3 class="info_sub_title">Career</h3>
+                <ul class="career">
+                  <li>
+                    <p class="career_list"><b class="date">2021.07 - 2022.09</b> 프래프 | 다양한 구축 프로젝트 퍼블리싱</p>
+                  </li>
+                  <li>
+                    <p class="career_list"><b class="date">2023.02 - 2023.09</b> 아이오센트레 | 기업 사이트 및 앱 화면 퍼블리싱</p>
+                  </li>
+                  <li>
+                    <p class="career_list"><b class="date">2023.10 - Present</b> 요일 | 브랜드 기획전, 글로벌 쇼핑몰 리뉴얼, 운영 유지보수
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- PROJECTS -->
+      <section id="tab_project" class="project">
+        <h2 class="blind">프로젝트 페이지</h2>
+        <div class="project_title">
+          <hgroup>
+            <h3 class="title focus_title">Works</h3>
+            <p class="desc">
+              실무에서 수행한 주요 프로젝트를 유형별로 정리했습니다.<br />
+              단순 결과물보다 역할과 문제 해결 방식이 드러나도록 구성했습니다.
+            </p>
+          </hgroup>
+        </div>
 
-      <!-- Cursor -->
-      <div class="custom-cursor">
-        <span class="cursor-arrow"></span>
-        <p class="cursor-word">
-          <span style="--rotate: 0">S</span>
-          <span style="--rotate: 1">E</span>
-          <span style="--rotate: 2">E</span>
-          <span style="--rotate: 3">•</span>
-          <span style="--rotate: 4">M</span>
-          <span style="--rotate: 5">O</span>
-          <span style="--rotate: 6">R</span>
-          <span style="--rotate: 7">E</span>
-          <span style="--rotate: 8">•</span>
-        </p>
-      </div>
-    </div>
-  </body>
+        <div class="project_block">
+          <h4 class="info_sub_title">Selected Projects</h4>
+          <ul class="project_list">
+            <li class="project_item">
+              <figure class="project_thumb project_thumb--admin">
+                <img src="https://seo-k.github.io/image/yoil.png" alt="관리자 시스템 구축 프로젝트 썸네일">
+              </figure>
+              <span class="project_label">Admin System</span>
+              <h5>관리자 시스템 구축</h5>
+              <p class="project_role">화면 퍼블리싱 / 공통 UI 정리 / 운영 고려</p>
+              <p class="project_copy">복잡한 정보 구조와 반복 UI가 많은 관리자 화면을 일관된 규칙으로 정리한 프로젝트입니다.</p>
+              <ul class="detail_desc">
+                <li>테이블, 폼, 상태값 등 반복 UI를 구조적으로 정리</li>
+                <li>운영 단계에서 수정과 확장이 쉽도록 화면 구조 설계</li>
+                <li>예외 케이스가 많은 화면에서도 사용 흐름을 고려해 퍼블리싱</li>
+              </ul>
+              <div class="project_actions">
+                <span class="project_cta project_cta--muted">Private Project</span>
+              </div>
+            </li>
+
+            <li class="project_item">
+              <figure class="project_thumb project_thumb--promotion">
+                <div class="project_thumb_fallback">
+                  <span>Fashion Promotion</span>
+                  <strong>Mardi / Lenina / MLB Event</strong>
+                </div>
+              </figure>
+              <span class="project_label">Promotion</span>
+              <h5>패션 브랜드 기획전 페이지</h5>
+              <p class="project_role">기획전 퍼블리싱 / 반응형 / 운영 대응</p>
+              <p class="project_copy">짧은 일정 안에서도 브랜드 무드와 디바이스 대응을 함께 고려한 기획전 페이지 작업입니다.</p>
+              <ul class="detail_desc">
+                <li>PC와 모바일 환경 모두에서 자연스럽게 보이도록 반응형 작업</li>
+                <li>운영 중 수정 가능성을 고려한 섹션 단위 구조 설계</li>
+                <li>비주얼 완성도와 제작 속도를 동시에 맞춘 퍼블리싱 경험</li>
+              </ul>
+              <div class="project_actions">
+                <span class="project_cta project_cta--muted">NDA / In-house Work</span>
+              </div>
+            </li>
+
+            <li class="project_item">
+              <figure class="project_thumb">
+                <img src="https://seo-k.github.io/image/sindo.png" alt="신도리코 해외 랜딩페이지 썸네일">
+              </figure>
+              <span class="project_label">Global Commerce</span>
+              <h5>신도리코 해외 랜딩페이지</h5>
+              <p class="project_role">랜딩페이지 구축 / 인터랙션 / 다국어 대응</p>
+              <p class="project_copy">기업 브랜드 랜딩페이지를 퍼블리싱하며 인터랙션과 다국어 화면 구성을 함께 반영한 프로젝트입니다.</p>
+              <ul class="detail_desc">
+                <li>aos와 다양한 시각 효과를 활용해 브랜드 무드에 맞는 화면 구성</li>
+                <li>영문/국문 페이지를 고려한 마크업 구조 작업</li>
+                <li>랜딩페이지 특성에 맞춰 비주얼 중심 인터랙션 구현</li>
+              </ul>
+              <div class="project_actions">
+                <a class="project_cta" href="https://sindo.netlify.app/en/index.html" target="_blank"
+                  rel="noreferrer">Visit Site</a>
+              </div>
+            </li>
+
+            <li class="project_item">
+              <figure class="project_thumb">
+                <img src="https://seo-k.github.io/image/vdream.png" alt="브이드림 프로젝트 썸네일">
+              </figure>
+              <span class="project_label">Agency Build</span>
+              <h5>V-dream 플랫폼 구축</h5>
+              <p class="project_role">서비스 구축 / 반응형 퍼블리싱 / 협업</p>
+              <p class="project_copy">구인구직 플랫폼 성격의 서비스 사이트를 구축하며 다양한 화면 타입과 사용자 흐름을 퍼블리싱한 프로젝트입니다.</p>
+              <ul class="detail_desc">
+                <li>서비스 특성에 맞춰 리스트, 상세, 지원 흐름 화면 구성</li>
+                <li>협업 프로젝트로 공통 스타일과 구조를 맞춰 작업</li>
+                <li>반응형 대응과 사용자 흐름을 고려한 화면 구현</li>
+              </ul>
+              <div class="project_actions">
+                <a class="project_cta" href="https://vdream.netlify.app/" target="_blank" rel="noreferrer">Visit
+                  Site</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="project_block">
+          <h4 class="info_sub_title">Project Archive</h4>
+          <p class="archive_intro">
+            대표 프로젝트 외에도 다양한 구축 및 운영 프로젝트를 수행했습니다.
+            전체 프로젝트는 구축, 관리자, 기획전, 운영/유지보수 유형으로 확장해 정리할 수 있습니다.
+          </p>
+          <ul class="project_archive">
+            <li>구축 프로젝트: 신도리코, 비타알고, 푸드잇다, 신도리코, 엔픽셀, 엔터, 쿨화이트 등</li>
+            <li>운영 프로젝트: 마르디, 르니나 기획전, MLB 쇼피파이 글로벌사이트 리뉴얼, MLB 이벤트 기획전 퍼블리싱</li>
+            <li>쇼핑몰 프로젝트: 글로벌 사이트 리뉴얼, 상품/이벤트 페이지 퍼블리싱</li>
+            <li>관리자 프로젝트: 운영 관리 화면, 입력/상세/상태 UI 퍼블리싱</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <!-- END : MAIN -->
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, SplitText);
+
+      const heroTargets = [".home_eyebrow", ".home_name", ".home_intro"];
+      gsap.set(heroTargets, {
+        autoAlpha: 0,
+        y: 24
+      });
+
+      const quoteText = gsap.utils.toArray(".home_second_desc p");
+
+      if (!quoteText.length) return;
+
+      gsap.set(quoteText, {
+        autoAlpha: 0,
+        y: 24
+      });
+
+      const tl = gsap.timeline({
+        delay: 0.3
+      });
+
+      tl.to(".home_eyebrow", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      }).to(".home_name", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power2.out"
+      }, "-=0.3");
+
+      quoteText.forEach((item, index) => {
+        tl.to(item, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        });
+
+        if (index !== quoteText.length - 1) {
+          tl.to(item, {
+            autoAlpha: 0,
+            y: -24,
+            duration: 0.6,
+            ease: "power2.in"
+          }, "+=0.4");
+        }
+      });
+
+      tl.to(".home_intro", {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.1");
+    });
+  </script>
+</body>
+
 </html>

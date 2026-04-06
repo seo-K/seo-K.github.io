@@ -4,9 +4,6 @@
   --mainYellow: #e5f33c;
 }
 
-:root[color-theme="dark"] {
-}
-
 @font-face {
   font-family: "Pre";
   src: local("Pretendard"),

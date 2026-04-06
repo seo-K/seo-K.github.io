@@ -38,12 +38,12 @@ $(function () {
 
     pagination: {
       el: ".menu",
+      clickable: true,
       bulletActiveClass: "active",
       bulletClass: "menulist",
       renderBullet: function (index, className) {
         return `<li class="${className}" role="tab" aria-controls="${ariaControls[index]}"><span class="menu_text cursor_event">${headerMenu[index]}</span></li>`;
       },
-      clickable: true,
     },
 
     on: {
@@ -82,14 +82,16 @@ $(function () {
     })
   );
 
+  const category = ["html", "react", "app"];
+
   // project-swiper
   const swiper = new Swiper(".project_swiper", {
     speed: 500,
     direction: "vertical",
     observer: true,
     observeParents: true,
-    slidesPerView: "2.5",
-    slidesPerGroup: 2,
+    slidesPerView: "3.5",
+    slidesPerGroup: 4,
     watchSlidesProgress: true, // 슬라이드가 1개일때 기능 없애기
     // passiveListeners: false,
 
@@ -109,9 +111,7 @@ $(function () {
       bulletActiveClass: "active",
       bulletClass: "project_cate_list",
       renderBullet: function (index, className) {
-        return `<li class="${className}"><span class="cursor_event">${
-          index + 1
-        }</span></li>`;
+        return `<li class="${className}" style="--rotate: ${index}"><span class="cursor_event">${category[index]}</span></li>`;
       },
     },
 
@@ -230,13 +230,12 @@ $(function () {
       let activeIndex = [...projectSlider].indexOf(item.parentNode);
       modal.classList.add("show");
       modal.focus();
-      // console.log(activeIndex);
       ModalSwiper.slideTo(activeIndex, 100, false);
     });
 
     item.addEventListener("keyup", function (e) {
       if (e.keyCode == 13) {
-        console.log("first");
+        console.log("enter");
       }
     });
   });
