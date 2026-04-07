@@ -28,22 +28,11 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/reset.css" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/common.css" type="text/css" />
   <link rel="stylesheet" href="css/style.css" type="text/css" />
-
-  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js" defer></script>
   <script src="./js/index.js" defer></script>
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
-  <!-- ScrollSmoother requires ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollSmoother.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollToPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/SplitText.min.js"></script>
 </head>
 
 <body>
@@ -58,9 +47,6 @@
 
     <!-- START : HEADER -->
     <header id="header">
-      <div class="header_top">
-        <h2>SeoYoung Portfolio</h2>
-      </div>
       <div class="header_inner">
         <h1 class="logo">SeoYoung Portfolio</h1>
         <nav id="nav" aria-label="메뉴">
@@ -69,6 +55,7 @@
             <li><a href="#tab_info">About</a></li>
             <li><a href="#tab_project">Works</a></li>
           </ul>
+          <span class="menu-indicator" aria-hidden="true"></span>
         </nav>
         <ul class="util">
           <li>
@@ -98,16 +85,21 @@
                 구축 경험을 바탕으로
               </p>
               <div class="home_second_desc">
-                <p>관리자 시스템 </p>
-                <p>브랜드 기획전 </p>
-                <p>운영 퍼블리싱</p>
+                <div class="home-keyword-list" aria-hidden="true">
+                  <div class="home-keyword-track">
+                    <span>관리자 시스템</span>
+                    <span>브랜드 기획전</span>
+                    <span>운영 퍼블리싱</span>
+                  </div>
+                </div>
+                <span class="home_second_desc-suffix">까지</span>
               </div>
               <p class="home_third_desc">
-                까지 수행하는 5년차 웹퍼블리셔입니다.
+                수행하는 5년차 웹퍼블리셔입니다.
               </p>
             </div>
             <p class="home_intro">
-              웹표준과 접근성을 기반으로 빠른 일정 속에서도 유지보수와 운영 효율을 함께 고려합니다.
+              웹표준과 접근성을 기반으로 브랜드 경험과 운영 효율 사이의 균형을 고려한 퍼블리싱을 지향합니다.
             </p>
           </div>
         </div>
@@ -129,11 +121,11 @@
               <li>Admin / Promotion / Commerce / Maintenance</li>
               <li>HTML / CSS / JavaScript / jQuery / React / Shopify / Cafe24</li>
             </ul>
-            <p class="profile_short_info focus_title">
+            <p class="profile_short_info">
               5년차 웹퍼블리셔 강서영입니다.<br>
-              에이전시에서 다양한 구축 프로젝트를 수행하며 쇼핑몰, 관리자 시스템, 서비스 사이트의 화면 구조를 경험했습니다.<br>
+              에이전시에서 다양한 구축 프로젝트를 수행하며 쇼핑몰, 관리자 시스템, 서비스 사이트 등 여러 유형의 화면 구조 작업을 경험했습니다.<br>
               현재는 관리자 시스템 구축과 패션 브랜드 기획전, 운영 및 유지보수 업무를 중심으로 실무를 이어가고 있습니다.<br>
-              단순 구현보다 반복 운영과 빠른 수정, 안정적인 확장을 고려한 퍼블리싱을 지향합니다.
+              단순 구현보다 빠른 수정, 반복 운영, 안정적인 확장을 고려한 퍼블리싱을 지향합니다.
             </p>
           </div>
           <div class="info_content">
@@ -150,11 +142,11 @@
                 </dl>
                 <dl>
                   <dt>Summary</dt>
-                  <dd>구축부터 운영까지, 실무 흐름을 이해하고 대응하는 웹퍼블리셔</dd>
+                  <dd>구축부터 운영까지, 브랜드와 운영 흐름을 함께 이해하는 웹퍼블리셔</dd>
                 </dl>
               </section>
-              <section class="info_group skill">
-                <h3 class="info_sub_title">Enjoy</h3>
+              <section class="info_group">
+                <h3 class="info_sub_title">Skills</h3>
                 <dl>
                   <dt>Skill</dt>
                   <dd class="skill_badge_wrap">
@@ -173,8 +165,10 @@
                   </dd>
                 </dl>
                 <dl>
-                  <dt>Learn</dt>
-                  <dd><span class="skill_badge">three.js</span><span class="skill_badge">웹접근성</span></dd>
+                  <dt>Growth</dt>
+                  <dd class="skill_badge_wrap">
+                    <span class="skill_badge">three.js</span><span class="skill_badge">웹접근성</span>
+                  </dd>
                 </dl>
               </section>
             </div>
@@ -189,7 +183,7 @@
                     <p class="career_list"><b class="date">2023.02 - 2023.09</b> 아이오센트레 | 기업 사이트 및 앱 화면 퍼블리싱</p>
                   </li>
                   <li>
-                    <p class="career_list"><b class="date">2023.10 - Present</b> 요일 | 브랜드 기획전, 글로벌 쇼핑몰 리뉴얼, 운영 유지보수
+                    <p class="career_list"><b class="date">2023.10 - Present</b> 요일 | MLB 기획전 퍼블리싱, 브랜드 프로모션/유지보수 담당
                     </p>
                   </li>
                 </ul>
@@ -203,25 +197,46 @@
         <h2 class="blind">프로젝트 페이지</h2>
         <div class="project_title">
           <hgroup>
-            <h3 class="title focus_title">Works</h3>
+            <h3 class="title">Works</h3>
             <p class="desc">
               실무에서 수행한 주요 프로젝트를 유형별로 정리했습니다.<br />
-              단순 결과물보다 역할과 문제 해결 방식이 드러나도록 구성했습니다.
+              단순 결과물보다 역할, 기여 포인트, 운영 관점을 중심으로 구성했습니다.
             </p>
           </hgroup>
         </div>
 
         <div class="project_block">
-          <h4 class="info_sub_title">Selected Projects</h4>
+          <h4 class="info_sub_title">Projects</h4>
           <ul class="project_list">
             <li class="project_item">
-              <figure class="project_thumb project_thumb--admin">
-                <img src="https://seo-k.github.io/image/yoil.png" alt="관리자 시스템 구축 프로젝트 썸네일">
+              <figure class="project_thumb project_thumb--promotion">
+                <div class="project_thumb">
+                  <img src="./image/mlb.png" alt="">
+                </div>
+              </figure>
+              <span class="project_label">Promotion</span>
+              <h5>MLB 기획전 / 패션 브랜드 기획전</h5>
+              <p class="project_role">기획전 퍼블리싱 / 반응형 / 운영 대응</p>
+              <p class="project_copy">짧은 일정 안에서도 브랜드 무드와 디바이스 대응을 함께 고려해 작업한 기획전 퍼블리싱입니다.</p>
+              <ul class="detail_desc">
+                <li>운영 중 수정 가능성을 고려한 섹션 단위 구조 설계</li>
+                <li>비주얼 완성도와 제작 속도를 동시에 맞춘 퍼블리싱 경험</li>
+                <li>iframe, Cafe24 등 환경에 맞춘 인터랙션 작업</li>
+              </ul>
+              <div class="project_actions">
+                <a href="https://www.mlb-korea.com/display/promotions" class="project_cta" target="_blank">Live on Brand
+                  Site</a>
+              </div>
+            </li>
+
+            <li class="project_item">
+              <figure class="project_thumb">
+                <img src="https://seo-k.github.io/image/npixel.png" alt="관리자 시스템 구축 프로젝트 썸네일">
               </figure>
               <span class="project_label">Admin System</span>
               <h5>관리자 시스템 구축</h5>
               <p class="project_role">화면 퍼블리싱 / 공통 UI 정리 / 운영 고려</p>
-              <p class="project_copy">복잡한 정보 구조와 반복 UI가 많은 관리자 화면을 일관된 규칙으로 정리한 프로젝트입니다.</p>
+              <p class="project_copy">복잡한 정보 구조와 반복 UI가 많은 관리자 화면을 운영 단계까지 고려해 퍼블리싱한 프로젝트입니다.</p>
               <ul class="detail_desc">
                 <li>테이블, 폼, 상태값 등 반복 UI를 구조적으로 정리</li>
                 <li>운영 단계에서 수정과 확장이 쉽도록 화면 구조 설계</li>
@@ -229,27 +244,6 @@
               </ul>
               <div class="project_actions">
                 <span class="project_cta project_cta--muted">Private Project</span>
-              </div>
-            </li>
-
-            <li class="project_item">
-              <figure class="project_thumb project_thumb--promotion">
-                <div class="project_thumb_fallback">
-                  <span>Fashion Promotion</span>
-                  <strong>Mardi / Lenina / MLB Event</strong>
-                </div>
-              </figure>
-              <span class="project_label">Promotion</span>
-              <h5>패션 브랜드 기획전 페이지</h5>
-              <p class="project_role">기획전 퍼블리싱 / 반응형 / 운영 대응</p>
-              <p class="project_copy">짧은 일정 안에서도 브랜드 무드와 디바이스 대응을 함께 고려한 기획전 페이지 작업입니다.</p>
-              <ul class="detail_desc">
-                <li>PC와 모바일 환경 모두에서 자연스럽게 보이도록 반응형 작업</li>
-                <li>운영 중 수정 가능성을 고려한 섹션 단위 구조 설계</li>
-                <li>비주얼 완성도와 제작 속도를 동시에 맞춘 퍼블리싱 경험</li>
-              </ul>
-              <div class="project_actions">
-                <span class="project_cta project_cta--muted">NDA / In-house Work</span>
               </div>
             </li>
 
@@ -262,7 +256,7 @@
               <p class="project_role">랜딩페이지 구축 / 인터랙션 / 다국어 대응</p>
               <p class="project_copy">기업 브랜드 랜딩페이지를 퍼블리싱하며 인터랙션과 다국어 화면 구성을 함께 반영한 프로젝트입니다.</p>
               <ul class="detail_desc">
-                <li>aos와 다양한 시각 효과를 활용해 브랜드 무드에 맞는 화면 구성</li>
+                <li>AOS와 시각 효과를 활용해 브랜드 무드에 맞는 화면 구성</li>
                 <li>영문/국문 페이지를 고려한 마크업 구조 작업</li>
                 <li>랜딩페이지 특성에 맞춰 비주얼 중심 인터랙션 구현</li>
               </ul>
@@ -279,11 +273,11 @@
               <span class="project_label">Agency Build</span>
               <h5>V-dream 플랫폼 구축</h5>
               <p class="project_role">서비스 구축 / 반응형 퍼블리싱 / 협업</p>
-              <p class="project_copy">구인구직 플랫폼 성격의 서비스 사이트를 구축하며 다양한 화면 타입과 사용자 흐름을 퍼블리싱한 프로젝트입니다.</p>
+              <p class="project_copy">서비스 구조를 이해하며 리스트, 상세, 지원 흐름 등 다양한 화면 타입을 퍼블리싱한 구축 프로젝트입니다.</p>
               <ul class="detail_desc">
                 <li>서비스 특성에 맞춰 리스트, 상세, 지원 흐름 화면 구성</li>
                 <li>협업 프로젝트로 공통 스타일과 구조를 맞춰 작업</li>
-                <li>반응형 대응과 사용자 흐름을 고려한 화면 구현</li>
+                <li>반응형 대응과 컴포넌트 단위 화면 작업 경험 축적</li>
               </ul>
               <div class="project_actions">
                 <a class="project_cta" href="https://vdream.netlify.app/" target="_blank" rel="noreferrer">Visit
@@ -297,7 +291,7 @@
           <h4 class="info_sub_title">Project Archive</h4>
           <p class="archive_intro">
             대표 프로젝트 외에도 다양한 구축 및 운영 프로젝트를 수행했습니다.
-            전체 프로젝트는 구축, 관리자, 기획전, 운영/유지보수 유형으로 확장해 정리할 수 있습니다.
+            구축, 관리자, 기획전, 운영/유지보수 경험을 계속 확장하며 실무 영역을 넓혀가고 있습니다.
           </p>
           <ul class="project_archive">
             <li>구축 프로젝트: 신도리코, 비타알고, 푸드잇다, 신도리코, 엔픽셀, 엔터, 쿨화이트 등</li>
@@ -311,68 +305,6 @@
     <!-- END : MAIN -->
 
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, SplitText);
-
-      const heroTargets = [".home_eyebrow", ".home_name", ".home_intro"];
-      gsap.set(heroTargets, {
-        autoAlpha: 0,
-        y: 24
-      });
-
-      const quoteText = gsap.utils.toArray(".home_second_desc p");
-
-      if (!quoteText.length) return;
-
-      gsap.set(quoteText, {
-        autoAlpha: 0,
-        y: 24
-      });
-
-      const tl = gsap.timeline({
-        delay: 0.3
-      });
-
-      tl.to(".home_eyebrow", {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }).to(".home_name", {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.7,
-        ease: "power2.out"
-      }, "-=0.3");
-
-      quoteText.forEach((item, index) => {
-        tl.to(item, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out"
-        });
-
-        if (index !== quoteText.length - 1) {
-          tl.to(item, {
-            autoAlpha: 0,
-            y: -24,
-            duration: 0.6,
-            ease: "power2.in"
-          }, "+=0.4");
-        }
-      });
-
-      tl.to(".home_intro", {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, "-=0.1");
-    });
-  </script>
 </body>
 
 </html>

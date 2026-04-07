@@ -16,6 +16,10 @@
   max-width: 112rem;
 }
 
+.home_copy>* {
+  will-change: transform, opacity;
+}
+
 .home_eyebrow {
   display: inline-flex;
   align-items: center;
@@ -47,7 +51,6 @@
 
 .home_first_desc,
 .home_second_desc,
-.home_second_desc p,
 .home_third_desc {
   font-size: clamp(3rem, 7vw, 5.2rem);
   font-weight: 700;
@@ -55,33 +58,84 @@
 }
 
 .home_second_desc {
-  position: relative;
-  min-width: 30rem;
-  min-height: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-keyword-list {
+  width: fit-content;
+  height: 1.25em;
   overflow: hidden;
   color: var(--mainYellow);
 }
 
-.home_second_desc p {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+.home-keyword-track {
+  display: inline-grid;
+  width: fit-content;
+  height: 100%;
+}
+
+.home-keyword-track span {
+  grid-area: 1 / 1;
+  display: block;
+  height: 1.25em;
+  line-height: 1.25;
   white-space: nowrap;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: homeKeywordSlide 6s ease-in-out infinite;
+}
+
+.home-keyword-track span:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.home-keyword-track span:nth-child(3) {
+  animation-delay: 4s;
+}
+
+.home_second_desc-suffix {
+  flex-shrink: 0;
+  color: #fff;
 }
 
 .home_intro {
-  max-width: 62rem;
+  max-width: 64rem;
   margin-top: 2.2rem;
   color: #b6bec6;
   font-size: 1.6rem;
   line-height: 1.8;
 }
 
-/* About */
-.info {
+@keyframes homeKeywordSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  28% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  38% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }
 
+/* About */
 .info_inner {
   display: flex;
   flex-direction: column;
@@ -181,7 +235,7 @@
   align-items: flex-start;
 }
 
-.info_group dl + dl {
+.info_group dl+dl {
   margin-top: 1.4rem;
 }
 
@@ -218,7 +272,7 @@
   line-height: 1;
 }
 
-.career li + li {
+.career li+li {
   margin-top: 1.4rem;
 }
 
@@ -237,9 +291,6 @@
 }
 
 /* Works */
-.project {
-}
-
 .project_title {
   margin-bottom: 4rem;
 }
@@ -248,7 +299,7 @@
   max-width: 68rem;
 }
 
-.project_block + .project_block {
+.project_block+.project_block {
   margin-top: 5rem;
 }
 
@@ -265,6 +316,7 @@
   border: 1px solid #2b2e31;
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.03);
+  will-change: transform, opacity;
 }
 
 .project_thumb {
@@ -293,7 +345,8 @@
 .project_thumb--promotion {
   background:
     radial-gradient(circle at 20% 20%, rgba(229, 243, 60, 0.18), transparent 30%),
-    radial-gradient(circle at 80% 30%, rgba(255, 159, 122, 0.22), transparent 25%), linear-gradient(135deg, #1b1f22, #101214);
+    radial-gradient(circle at 80% 30%, rgba(255, 159, 122, 0.22), transparent 25%),
+    linear-gradient(135deg, #1b1f22, #101214);
 }
 
 .project_thumb_fallback {
@@ -369,7 +422,7 @@
   line-height: 1.7;
 }
 
-.detail_desc li + li {
+.detail_desc li+li {
   margin-top: 0.8rem;
 }
 
@@ -403,9 +456,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project_cta:hover,
@@ -437,7 +488,7 @@
   .home {
     min-height: calc(100vh - 6rem);
     min-height: calc(100dvh - 6rem);
-    padding: 5rem 0 6rem;
+    padding-top: 4rem;
   }
 
   .home_name {
@@ -447,22 +498,17 @@
 
   .home_first_desc,
   .home_second_desc,
-  .home_second_desc p,
   .home_third_desc {
     font-size: clamp(2.4rem, 8vw, 3.8rem);
   }
 
-  .home_second_desc {
-    min-width: 18rem;
+  .home-keyword-list {
+    max-width: 100%;
   }
 
   .home_intro,
   .profile_short_info {
     font-size: 1.45rem;
-  }
-
-  .info {
-    padding: 3rem 0 6rem;
   }
 
   .profile_img_wrap {
@@ -490,11 +536,11 @@
     min-width: 10rem;
   }
 
-  .project {
-    padding: 3rem 0 8rem;
-  }
-
   .project_thumb {
     height: 18rem;
+  }
+
+  #main .project {
+    padding-bottom: 10rem;
   }
 }
